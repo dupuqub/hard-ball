@@ -31,5 +31,7 @@ var resize = _ =>
 
 resize() // on initialization
 
+window.scrollTo(0,1) 
+
 onresize = event => resize() // on every screen resize event
 
