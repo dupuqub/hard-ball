@@ -4,7 +4,29 @@ body
   margin: 0;
   width: 100%;
   height: 100%;
+  cursor: default;
+  background: #000;
+  user-select: none;
 }
 
 #foundation{ background: #444 }
+#board{ background: #888; position: relative }
+
+.cnt{ justify-content: center; align-items: center; display: flex }
+.cll
+{
+  width: 5%;
+  height: calc( 100% / 15 );
+  float: left;
+  color: rgba( 255, 255, 255, .4 );
+  font-family: sans;
+  font-size: 80%
+}
+
+.lgt_red{ background : #C00 }
+.drk_red{ background : #900 }
+.lgt_grn{ background : #5A0 }
+.drk_grn{ background : #580 }
+.lgt_blu{ background : #50C }
+.drk_blu{ background : #509 }
 
