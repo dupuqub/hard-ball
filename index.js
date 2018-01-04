@@ -6,6 +6,9 @@ var aspect = { x : 16, y : 9 }
 
 var resize = _ =>
 {
+  var value = Math.floor( Math.random() * 255 )
+  foundation.style.background = 'rgb(' + value + ',' + value + ',' + value + ')'
+
   if( window.innerHeight / aspect.y > window.innerWidth / aspect.x )
   {
     var height_foundation = window.innerWidth / aspect.x * aspect.y
