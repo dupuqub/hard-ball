@@ -6,9 +6,6 @@ var aspect = { x : 16, y : 9 }
 
 var resize = _ =>
 {
-  var value = Math.floor( Math.random() * 255 )
-  foundation.style.background = 'rgb(' + value + ',' + value + ',' + value + ')'
-
   if( window.innerHeight / aspect.y > window.innerWidth / aspect.x )
   {
     var height_foundation = window.innerWidth / aspect.x * aspect.y
@@ -24,14 +21,12 @@ var resize = _ =>
     var width_space = ( window.innerWidth - width_foundation ) / 2
 
     foundation.style.width = width_foundation + 'px'
-    foundation.style.height = window.innerHeight + 1 + 'px'
+    foundation.style.height = window.innerHeight + 'px'
     foundation.style.transform = 'translateX(' + width_space + 'px)'
   }
 }
 
 resize() // on initialization
-
-window.scrollTo( 0, 1 )
 
 onresize = event => resize() // on every screen resize event
 
