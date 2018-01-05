@@ -1,43 +1,71 @@
 
-body
+:root /* set by javascript */
 {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: default;
-  background: #000;
-  user-select: none;
+  --foundation-w : 0 ;
+  --foundation-h : 0 ;
+  --board-w : 0 ;
+  --board-h : 0 ;
 }
 
-#foundation{ background: #444 }
-#board{ background: #888 }
+html,
+body
+{
+  margin :      0 ;
+  width :       100% ;
+  height :      100% ;
+  cursor :      default ;
+  background :  #000 ;
+  user-select : none ;
+}
+
+/*............................................................................*/
+/* ID */
+
+#foundation
+{
+  background : #444 ;
+  width :      var( --foundation-w ) ;
+  height :     var( --foundation-h ) ;
+}
+#board
+{
+  background : #888 ;
+  width :      var( --board-w ) ;
+  height :     var( --board-h ) ;
+}
+/*............................................................................*/
+/* CLASS */
 
 .cnt
 {
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  justify-content : center ;
+  align-items :     center ;
+  display :         flex ;
 }
 .cll
 {
-  width: 5%;
-  height: calc( 100% / 15 );
-  float: left;
-  color: rgba( 255, 255, 255, .4 );
+  width :  5% ;
+  height : calc( 100% / 15 ) ;
+  float :  left ;
+  color :  rgba( 255 , 255 , 255 , .4 ) ;
 }
 .gol
 {
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  border: 2px #DDD solid;
-  box-sizing: border-box;
+  width :         75% ;
+  height :        75% ;
+  border-radius : 50% ;
+  border-color :  #DDD ;
+  border-style :  solid ;
+  border-width :  calc( var( --foundation-h ) / 500 ) ;
+  box-sizing :    border-box ;
 }
 
-.lgt_red{ background: #C00 }
-.drk_red{ background: #A00 }
-.lgt_grn{ background: #5A0 }
-.drk_grn{ background: #580 }
-.lgt_blu{ background: #50C }
-.drk_blu{ background: #509 }
+.txt_cll{ font-size : calc( var( --foundation-h ) / 50 ) }
+
+.lgt_red{ background : #C00 }
+.drk_red{ background : #A00 }
+.lgt_grn{ background : #5A0 }
+.drk_grn{ background : #580 }
+.lgt_blu{ background : #50C }
+.drk_blu{ background : #509 }
 
