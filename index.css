@@ -85,4 +85,14 @@ body
 .ssns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) }
 .sdns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
 .ssnd{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
+.nsss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; }
+.ndss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-right-style : dashed }
+.nssd{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-left-style : dashed }
+.snns{ border-width : var( --border-half ) 0 0 var( --border-half ) }
+.ssnn{ border-width : var( --border-half ) var( --border-half ) 0 0 }
+.snss{ border-width : var( --border-half ) 0 var( --border-half ) var( --border-half ) }
+.snnn{ border-width : var( --border-half ) 0 0 0 }
+.sdnn{ border-width : var( --border-half ) var( --border-half ) 0 0 ; border-right-style : dashed }
+.snnd{ border-width : var( --border-half ) 0 0 var( --border-half ) ; border-left-style : dashed }
+.sssn{ border-width : var( --border-half ) var( --border-half ) var( --border-half ) 0 }
 
