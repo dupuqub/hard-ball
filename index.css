@@ -85,9 +85,6 @@ body
 .ssns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) }
 .sdns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
 .ssnd{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
-.nsss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; }
-.ndss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-right-style : dashed }
-.nssd{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-left-style : dashed }
 .snns{ border-width : var( --border-half ) 0 0 var( --border-half ) }
 .ssnn{ border-width : var( --border-half ) var( --border-half ) 0 0 }
 .snss{ border-width : var( --border-half ) 0 var( --border-half ) var( --border-half ) }
@@ -95,4 +92,15 @@ body
 .sdnn{ border-width : var( --border-half ) var( --border-half ) 0 0 ; border-right-style : dashed }
 .snnd{ border-width : var( --border-half ) 0 0 var( --border-half ) ; border-left-style : dashed }
 .sssn{ border-width : var( --border-half ) var( --border-half ) var( --border-half ) 0 }
+
+.nsss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; }
+.ndss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-right-style : dashed }
+.nssd{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-left-style : dashed }
+.nnns{ border-width : 0 0 0 var( --border-half ) }
+.nnss{ border-width : 0 0 var( --border-half ) var( --border-half ) }
+.ndnn{ border-width : 0 var( --border-half ) 0 0 ; border-right-style : dashed }
+.nnnd{ border-width : 0 0 0 var( --border-half ) ; border-left-style : dashed }
+.nssn{ border-width : 0 var( --border-half ) var( --border-half ) 0 }
+.nsnn{ border-width : 0 var( --border-half ) 0 0 }
+.nnnn{} /* exists for the sake of code visualization */
 
