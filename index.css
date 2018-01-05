@@ -82,25 +82,27 @@ body
 .lgt_blu{ background : #50C }
 .drk_blu{ background : #509 }
 
-.ssns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) }
 .sdns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
 .ssnd{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
-.snns{ border-width : var( --border-half ) 0 0 var( --border-half ) }
-.ssnn{ border-width : var( --border-half ) var( --border-half ) 0 0 }
-.snss{ border-width : var( --border-half ) 0 var( --border-half ) var( --border-half ) }
-.snnn{ border-width : var( --border-half ) 0 0 0 }
 .sdnn{ border-width : var( --border-half ) var( --border-half ) 0 0 ; border-right-style : dashed }
 .snnd{ border-width : var( --border-half ) 0 0 var( --border-half ) ; border-left-style : dashed }
+.ssns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) }
+.snss{ border-width : var( --border-half ) 0 var( --border-half ) var( --border-half ) }
 .sssn{ border-width : var( --border-half ) var( --border-half ) var( --border-half ) 0 }
+.snns{ border-width : var( --border-half ) 0 0 var( --border-half ) }
+.ssnn{ border-width : var( --border-half ) var( --border-half ) 0 0 }
+.snnn{ border-width : var( --border-half ) 0 0 0 }
 
-.nsss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; }
 .ndss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-right-style : dashed }
 .nssd{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-left-style : dashed }
-.nnns{ border-width : 0 0 0 var( --border-half ) }
-.nnss{ border-width : 0 0 var( --border-half ) var( --border-half ) }
+.ndns{ border-width : 0 var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
+.nsnd{ border-width : 0 var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
 .ndnn{ border-width : 0 var( --border-half ) 0 0 ; border-right-style : dashed }
 .nnnd{ border-width : 0 0 0 var( --border-half ) ; border-left-style : dashed }
+.nsss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) }
+.nnss{ border-width : 0 0 var( --border-half ) var( --border-half ) }
 .nssn{ border-width : 0 var( --border-half ) var( --border-half ) 0 }
+.nnns{ border-width : 0 0 0 var( --border-half ) }
 .nsnn{ border-width : 0 var( --border-half ) 0 0 }
 .nnnn{} /* exists for the sake of code visualization */
 
