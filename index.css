@@ -1,8 +1,5 @@
 
-/*............................................................................*/
-/* values in ROOT change through JAVASCRIPT ONLY */
-
-:root
+:root /* change through JAVASCRIPT ONLY */
 {
   --foundation-w : 0 ;
   --foundation-h : 0 ;
@@ -96,6 +93,8 @@ body
 .ndss{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-right-style : dashed }
 .nssd{ border-width : 0 var( --border-half ) var( --border-half ) var( --border-half ) ; border-left-style : dashed }
 .ndns{ border-width : 0 var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
+.ndsn{ border-width : 0 var( --border-half ) var( --border-half ) 0 ; border-right-style : dashed }
+.nnsd{ border-width : 0 0 var( --border-half ) var( --border-half ) ; border-left-style : dashed }
 .nsnd{ border-width : 0 var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
 .ndnn{ border-width : 0 var( --border-half ) 0 0 ; border-right-style : dashed }
 .nnnd{ border-width : 0 0 0 var( --border-half ) ; border-left-style : dashed }
@@ -103,6 +102,8 @@ body
 .nnss{ border-width : 0 0 var( --border-half ) var( --border-half ) }
 .nssn{ border-width : 0 var( --border-half ) var( --border-half ) 0 }
 .nnns{ border-width : 0 0 0 var( --border-half ) }
+.nnsn{ border-width : 0 0 var( --border-half ) 0 }
 .nsnn{ border-width : 0 var( --border-half ) 0 0 }
+
 .nnnn{} /* exists for the sake of code visualization */
 
