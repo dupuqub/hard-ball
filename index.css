@@ -1,11 +1,21 @@
 
-:root /* set by javascript */
+/*............................................................................*/
+/* values in ROOT change through JAVASCRIPT ONLY */
+
+:root
 {
   --foundation-w : 0 ;
   --foundation-h : 0 ;
-  --board-w : 0 ;
-  --board-h : 0 ;
+
+  --game-w :       0 ; 
+  --game-h :       0 ;
+  --game-radius :  0 ;
+
+  --border-full :  0 ;
+  --border-half :  0 ;
 }
+
+/*............................................................................*/
 
 html,
 body
@@ -19,7 +29,6 @@ body
 }
 
 /*............................................................................*/
-/* ID */
 
 #foundation
 {
@@ -27,14 +36,17 @@ body
   width :      var( --foundation-w ) ;
   height :     var( --foundation-h ) ;
 }
-#board
+#game
 {
-  background : #888 ;
-  width :      var( --board-w ) ;
-  height :     var( --board-h ) ;
+  background :    #888 ;
+  width :         var( --game-w ) ;
+  height :        var( --game-h ) ;
+  border :        0 #DDD solid ;
+  border-width :  var( --border-half ) ;
+  border-radius : 0 0 var( --game-radius ) var( --game-radius ) ;
 }
+
 /*............................................................................*/
-/* CLASS */
 
 .cnt
 {
@@ -44,19 +56,20 @@ body
 }
 .cll
 {
-  width :  5% ;
-  height : calc( 100% / 15 ) ;
-  float :  left ;
-  color :  rgba( 255 , 255 , 255 , .4 ) ;
+  width :      5% ;
+  height :     calc( 100% / 15 ) ;
+  float :      left ;
+  color :      rgba( 255 , 255 , 255 , .4 ) ;
+  border :     0 #DDD solid ;
+  box-sizing : border-box ;
 }
 .gol
 {
   width :         75% ;
   height :        75% ;
+  border :        0 #DDD solid ;
+  border-width :  var( --border-full ) ;
   border-radius : 50% ;
-  border-color :  #DDD ;
-  border-style :  solid ;
-  border-width :  calc( var( --foundation-h ) / 500 ) ;
   box-sizing :    border-box ;
 }
 
@@ -68,4 +81,8 @@ body
 .drk_grn{ background : #580 }
 .lgt_blu{ background : #50C }
 .drk_blu{ background : #509 }
+
+.ssns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) }
+.sdns{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-right-style : dashed }
+.ssnd{ border-width : var( --border-half ) var( --border-half ) 0 var( --border-half ) ; border-left-style : dashed }
 
