@@ -29,7 +29,7 @@ var reroot = _ =>
 {
   var rerooted = root.reduce( ( a, b ) => a + b )
 
-  document.styleSheets[ 1 ].rules[ 0 ].style.cssText = rerooted
+  document.styleSheets[ 1 ].cssRules[ 0 ].style.cssText = rerooted
 }
 
 //..............................................................................
