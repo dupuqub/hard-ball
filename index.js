@@ -12,15 +12,19 @@ var aspect = { x : 16 , y : 9 }
 //
 var root =
 [
-  '--foundation-w : 0 ;' ,
-  '--foundation-h : 0 ;' ,
-
-  '--game-w :       0 ;' ,
-  '--game-h :       0 ;' ,
-  '--game-radius :  calc( var( --foundation-h ) / 20 ) ;' ,
-
-  '--border-full :  calc( var( --foundation-h ) / 400 ) ;' ,
-  '--border-half :  calc( var( --border-full ) / 2 ) ;' ,
+  '--foundation-w :   0 ;' ,
+  '--foundation-h :   0 ;' ,
+  '--game-w :         0 ;' ,
+  '--game-h :         0 ;' ,
+  '--game-radius :    calc( var( --foundation-h ) / 20 ) ;' ,
+  '--border-full :    calc( var( --foundation-h ) / 400 ) ;' ,
+  '--border-half :    calc( var( --border-full ) / 2 ) ;' ,
+  '--cell-w :         calc( var( --game-w ) / 20 ) ;' ,
+  '--cell-h :         calc( var( --game-h ) / 15 ) ;' ,
+  '--gol-w :          calc( var( --cell-w ) / 4 * 3 ) ;' ,
+  '--gol-h :          calc( var( --cell-h ) / 4 * 3 ) ;' ,
+  '--field-middle-w : calc( var( --game-w ) / 2 ) ;' ,
+  '--field-middle-h : calc( var( --game-h ) / 15 * 12 / 2 ) ;' ,
 ]
 
 //..............................................................................

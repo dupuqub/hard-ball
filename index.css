@@ -1,15 +1,19 @@
 
 :root /* change through JAVASCRIPT ONLY */
 {
-  --foundation-w : 0 ;
-  --foundation-h : 0 ;
-
-  --game-w :       0 ; 
-  --game-h :       0 ;
-  --game-radius :  0 ;
-
-  --border-full :  0 ;
-  --border-half :  0 ;
+  --foundation-w :   0 ;
+  --foundation-h :   0 ;
+  --game-w :         0 ; 
+  --game-h :         0 ;
+  --game-radius :    0 ;
+  --border-full :    0 ;
+  --border-half :    0 ;
+  --cell-w :         0 ;
+  --cell-h :         0 ;
+  --gol-w :          0 ;
+  --gol-h :          0 ;
+  --field-middle-w : 0 ; 
+  --field-middle-h : 0 ;
 }
 
 /*............................................................................*/
@@ -43,6 +47,18 @@ body
   border-width :  var( --border-half ) ;
   border-radius : 0 0 var( --game-radius ) var( --game-radius ) ;
 }
+#middle
+{
+  width : var( --gol-w ) ;
+  height : var( --gol-h ) ;
+  border : var( --border-full ) #FFF dashed;
+  border-radius : 50% ;
+  box-sizing : border-box ;
+  position : relative ;
+  transform :
+    translatex( calc( var( --field-middle-w ) - var( --gol-w ) / 2 ) )
+    translatey( calc( var( --field-middle-h ) - var( --gol-h ) / 2 ) ) ;
+}
 
 /*............................................................................*/
 
@@ -54,8 +70,8 @@ body
 }
 .cll
 {
-  width :      5% ;
-  height :     calc( 100% / 15 ) ;
+  width :      var( --cell-w ) ;
+  height :     var( --cell-h ) ;
   float :      left ;
   color :      rgba( 255 , 255 , 255 , .4 ) ;
   border :     0 #DDD solid ;
@@ -63,15 +79,15 @@ body
 }
 .gol
 {
-  width :         75% ;
-  height :        75% ;
+  width :         var( --gol-w ) ;
+  height :        var( --gol-h ) ;
   border :        0 #DDD solid ;
   border-width :  var( --border-full ) ;
   border-radius : 50% ;
   box-sizing :    border-box ;
 }
 
-.txt_cll{ font-size : calc( var( --foundation-h ) / 50 ) }
+.txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
 
 .lgt_red{ background : #C00 }
 .drk_red{ background : #A00 }
