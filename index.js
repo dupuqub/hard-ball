@@ -19,6 +19,7 @@ var root =
   '--game-radius :    calc( var( --foundation-h ) / 20 ) ;' ,
   '--border-full :    calc( var( --foundation-h ) / 400 ) ;' ,
   '--border-half :    calc( var( --border-full ) / 2 ) ;' ,
+  '--border-double :  calc( var( --border-full ) * 2 ) ;' ,
   '--cell-w :         calc( var( --game-w ) / 20 ) ;' ,
   '--cell-h :         calc( var( --game-h ) / 15 ) ;' ,
   '--gol-w :          calc( var( --cell-w ) / 4 * 3 ) ;' ,

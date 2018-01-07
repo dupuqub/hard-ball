@@ -8,6 +8,7 @@
   --game-radius :    0 ;
   --border-full :    0 ;
   --border-half :    0 ;
+  --border-double :  0 ;
   --cell-w :         0 ;
   --cell-h :         0 ;
   --gol-w :          0 ;
@@ -40,7 +41,7 @@ body
 }
 #game
 {
-  background :    #888 ;
+  background :    #DDD ;
   width :         var( --game-w ) ;
   height :        var( --game-h ) ;
   border :        0 #DDD solid ;
@@ -51,7 +52,7 @@ body
 {
   width : var( --gol-w ) ;
   height : var( --gol-h ) ;
-  border : var( --border-full ) #FFF dashed;
+  border : calc( var( --border-full ) * 1.1 ) #FFF dashed;
   border-radius : 50% ;
   box-sizing : border-box ;
   position : relative ;
@@ -85,6 +86,15 @@ body
   border-width :  var( --border-full ) ;
   border-radius : 50% ;
   box-sizing :    border-box ;
+}
+.bnc
+{
+  background : #AAA ;
+  border-color : #DDD ;
+  border-style : solid ;
+  border-width : var( --border-double ) ;
+  border-radius : 50% ;
+  box-sizing : border-box ;
 }
 
 .txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
