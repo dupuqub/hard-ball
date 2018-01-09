@@ -37,7 +37,7 @@ root_raw =
 //
 reroot = _ =>
 {
-  var rerooted = root.reduce( ( a, b ) => a + b )
+  var rerooted = root.reduce( ( a , b ) => a + b )
 
   document.styleSheets[ 1 ].cssRules[ 0 ].style.cssText = rerooted
 } ,
@@ -87,13 +87,13 @@ resize = _ =>
 write_svg = ( $ , size , klass ) =>
 {
   var
-  rect    = art_matrix[ $ ].rects ,
-  message = '<rect x="' + rect[0][1] * size + '" y="' + rect[0][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-            '<rect x="' + rect[1][1] * size + '" y="' + rect[1][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-            '<rect x="' + rect[2][1] * size + '" y="' + rect[2][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-            '<rect x="' + rect[3][1] * size + '" y="' + rect[3][0] * size + '" class="sqr_art ' + klass + '"></rect>'
+  rect = art_matrix[ $ ].rects ,
+  text = '<rect x="' + rect[0][1] * size + '" y="' + rect[0][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+         '<rect x="' + rect[1][1] * size + '" y="' + rect[1][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+         '<rect x="' + rect[2][1] * size + '" y="' + rect[2][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+         '<rect x="' + rect[3][1] * size + '" y="' + rect[3][0] * size + '" class="sqr_art ' + klass + '"></rect>'
 
-  return message
+  return text
 } ,
 
 //..............................................................................
