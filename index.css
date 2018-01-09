@@ -125,7 +125,7 @@ body
   box-sizing    : border-box ;
 }
 
-.fil_bnc{ fill : rgba( 255 , 255 , 255 , .4 ) }
+.fil_bnc{ fill : rgba( 255 , 255 , 255 , .3 ) }
 .fil_atl{ fill : var( --white ) }
 
 .txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
