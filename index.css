@@ -1,5 +1,7 @@
 
-:root /* JS ONLY */
+/* JS only */
+/* Inner text for reference (updates on resize) */
+:root
 {
   --foundation-w : 0 ;
   --foundation-h : 0 ;
@@ -7,7 +9,8 @@
   --game-h       : 0 ;
 }
 
-:root /* CSS only */
+/* CSS only */
+:root
 {
   --game-radius     : calc( var( --foundation-h ) / 20 ) ;
   --border-full     : calc( var( --foundation-h ) / 400 ) ;
@@ -104,9 +107,10 @@ body
 }
 .sqr_art
 {
-  fill   : rgba( 255 , 255 , 255 , .7 ) ;
-  width  : var( --square-art-size ) ;
-  height : var( --square-art-size ) ;
+  stroke-width : 1px ;
+  stroke       : var( --grey ) ;
+  width        : var( --square-art-size ) ;
+  height       : var( --square-art-size ) ;
 }
 .atl
 {
@@ -120,6 +124,9 @@ body
   border-style  : solid ;
   box-sizing    : border-box ;
 }
+
+.fil_bnc{ fill : rgba( 255 , 255 , 255 , .4 ) }
+.fil_atl{ fill : var( --white ) }
 
 .txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
 
