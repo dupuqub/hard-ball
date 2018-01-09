@@ -50,35 +50,35 @@ resize = _ =>
   {
     var
     height_foundation = window.innerWidth / aspect.x * aspect.y ,
-    height_space = ( window.innerHeight - height_foundation ) / 2 ,
-    width_game = height_foundation / 14 * 20
+    height_space      = ( window.innerHeight - height_foundation ) / 2 ,
+    width_game        = height_foundation / 14 * 20
+
+    root_raw.foundation_w = window.innerWidth
+    root_raw.foundation_h = height_foundation
+    root_raw.game_w       = width_game * game_scale
+    root_raw.game_h       = height_foundation * game_scale
 
     root[ 0 ] = '--foundation-w:' + window.innerWidth + 'px;'
     root[ 1 ] = '--foundation-h:' + height_foundation + 'px;'
     root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
     root[ 3 ] = '--game-h:' + height_foundation * game_scale + 'px;'
-
-    root_raw.foundation_w = window.innerWidth
-    root_raw.foundation_h = height_foundation
-    root_raw.game_w = width_game * game_scale
-    root_raw.game_h = height_foundation * game_scale
   }
   else
   {
     var
     width_foundation = window.innerHeight / aspect.y * aspect.x ,
-    width_space = ( window.innerWidth - width_foundation ) / 2 ,
-    width_game = window.innerHeight / 14 * 20
+    width_space      = ( window.innerWidth - width_foundation ) / 2 ,
+    width_game       = window.innerHeight / 14 * 20
+
+    root_raw.foundation_w = width_foundation
+    root_raw.foundation_h = window.innerHeight
+    root_raw.game_w       = width_game * game_scale
+    root_raw.game_h       = window.innerHeight * game_scale
 
     root[ 0 ] = '--foundation-w:' + width_foundation + 'px;'
     root[ 1 ] = '--foundation-h:' + window.innerHeight + 'px;'
     root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
     root[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
-
-    root_raw.foundation_w = width_foundation
-    root_raw.foundation_h = window.innerHeight
-    root_raw.game_w = width_game * game_scale
-    root_raw.game_h = window.innerHeight * game_scale
   }
 } ,
 
@@ -86,12 +86,14 @@ resize = _ =>
 //
 write_svg = ( $ , size , klass ) =>
 {
-  var rect = art_matrix[ $ ].rects
+  var
+  rect    = art_matrix[ $ ].rects ,
+  message = '<rect x="' + rect[0][1] * size + '" y="' + rect[0][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+            '<rect x="' + rect[1][1] * size + '" y="' + rect[1][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+            '<rect x="' + rect[2][1] * size + '" y="' + rect[2][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
+            '<rect x="' + rect[3][1] * size + '" y="' + rect[3][0] * size + '" class="sqr_art ' + klass + '"></rect>'
 
-  return '<rect x="' + rect[0][1] * size + '" y="' + rect[0][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-         '<rect x="' + rect[1][1] * size + '" y="' + rect[1][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-         '<rect x="' + rect[2][1] * size + '" y="' + rect[2][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
-         '<rect x="' + rect[3][1] * size + '" y="' + rect[3][0] * size + '" class="sqr_art ' + klass + '"></rect>'
+  return message
 } ,
 
 //..............................................................................
@@ -101,12 +103,12 @@ redraw = _ =>
   Array.from( art_bench ).forEach( ( art , $ ) =>
   {
     var
-    size = root_raw.game_w / 20 / 7 ,
-    new_width = art_matrix[ $ ].w * size ,
+    size       = root_raw.game_w / 20 / 7 ,
+    new_width  = art_matrix[ $ ].w * size ,
     new_height = art_matrix[ $ ].h * size
 
-    art_bench[ $ ].innerHTML = write_svg( $ , size , 'fil_bnc' )
-    art_bench[ $ ].style.width = String( new_width )
+    art_bench[ $ ].innerHTML    = write_svg( $ , size , 'fil_bnc' )
+    art_bench[ $ ].style.width  = String( new_width )
     art_bench[ $ ].style.height = String( new_height )
   } )
 } ,
