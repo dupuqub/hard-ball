@@ -108,8 +108,8 @@ redraw = _ =>
     new_height = art_matrix[ $ ].h * size
 
     art_bench[ $ ].innerHTML    = write_svg( $ , size , 'fil_bnc' )
-    art_bench[ $ ].style.width  = String( new_width )
-    art_bench[ $ ].style.height = String( new_height )
+    art_bench[ $ ].style.width  = new_width
+    art_bench[ $ ].style.height = new_height
   } )
 } ,
 
