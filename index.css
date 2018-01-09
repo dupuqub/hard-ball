@@ -3,23 +3,25 @@
 {
   --foundation-w : 0 ;
   --foundation-h : 0 ;
-  --game-w :       0 ; 
-  --game-h :       0 ;
+  --game-w       : 0 ;
+  --game-h       : 0 ;
 }
 
 :root /* CSS only */
 {
-  --game-radius :     calc( var( --foundation-h ) / 20 ) ;
-  --border-full :     calc( var( --foundation-h ) / 400 ) ;
-  --border-half :     calc( var( --border-full ) / 2 ) ;
-  --border-double :   calc( var( --border-full ) * 2 ) ;
-  --cell-w :          calc( var( --game-w ) / 20 ) ;
-  --cell-h :          calc( var( --game-h ) / 14 ) ;
-  --field-middle-w :  calc( var( --game-w ) / 2 ) ;
-  --field-middle-h :  calc( var( --game-h ) / 14 * 12 / 2 ) ;
-  --goal-size :       calc( var( --cell-w ) / 4 * 3 ) ;
-  --art-square-size : calc( ( var( --cell-w ) - var( --border-double ) * 2 ) / 7 ) ;
-  --white :           #DDD ;
+  --game-radius     : calc( var( --foundation-h ) / 20 ) ;
+  --border-full     : calc( var( --foundation-h ) / 400 ) ;
+  --border-half     : calc( var( --border-full ) / 2 ) ;
+  --border-double   : calc( var( --border-full ) * 2 ) ;
+  --cell-w          : calc( var( --game-w ) / 20 ) ;
+  --cell-h          : calc( var( --game-h ) / 14 ) ;
+  --field-middle-w  : calc( var( --game-w ) / 2 ) ;
+  --field-middle-h  : calc( var( --game-h ) / 14 * 12 / 2 ) ;
+  --goal-size       : calc( var( --cell-w ) / 4 * 3 ) ;
+  --square-art-size : calc( var( --cell-w ) / 7 ) ;
+  --athlete-size    : calc( var( --cell-w ) - var( --border-double ) ) ;
+  --white           : #DDD ;
+  --grey            : #AAA ;
 }
 
 /*............................................................................*/
@@ -27,11 +29,11 @@
 html,
 body
 {
-  margin :      0 ;
-  width :       100% ;
-  height :      100% ;
-  cursor :      default ;
-  background :  #000 ;
+  margin      : 0 ;
+  width       : 100% ;
+  height      : 100% ;
+  cursor      : default ;
+  background  : #000 ;
   user-select : none ;
   font-family : sans ;
 }
@@ -41,27 +43,27 @@ body
 #foundation
 {
   background : #444 ;
-  width :      var( --foundation-w ) ;
-  height :     var( --foundation-h ) ;
+  width      : var( --foundation-w ) ;
+  height     : var( --foundation-h ) ;
 }
 #game
 {
-  background :    var( --white ) ;
-  width :         var( --game-w ) ;
-  height :        var( --game-h ) ;
-  border :        0 var( --white ) solid ;
-  border-width :  var( --border-half ) ;
+  background    : var( --white ) ;
+  width         : var( --game-w ) ;
+  height        : var( --game-h ) ;
+  border        : 0 var( --white ) solid ;
+  border-width  : var( --border-half ) ;
   border-radius : 0 0 var( --game-radius ) var( --game-radius ) ;
 }
 #middle
 {
-  width :         var( --goal-size ) ;
-  height :        var( --goal-size ) ;
-  border :        calc( var( --border-full ) * 1.1 ) #FFF dashed;
+  width         : var( --goal-size ) ;
+  height        : var( --goal-size ) ;
+  border        : calc( var( --border-full ) * 1.1 ) #FFF dashed ;
   border-radius : 50% ;
-  box-sizing :    border-box ;
-  position :      relative ;
-  transform :     translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 2 ) )
+  box-sizing    : border-box ;
+  position      : absolute ;
+  transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 2 ) )
                   translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 2 ) ) ;
 }
 
@@ -70,41 +72,53 @@ body
 .cnt
 {
   justify-content : center ;
-  align-items :     center ;
-  display :         flex ;
+  align-items     : center ;
+  display         : flex ;
 }
 .cll
 {
-  width :      var( --cell-w ) ;
-  height :     var( --cell-h ) ;
-  float :      left ;
-  color :      rgba( 255 , 255 , 255 , .4 ) ;
-  border :     0 var( --white ) solid ;
+  width      : var( --cell-w ) ;
+  height     : var( --cell-h ) ;
+  float      : left ;
+  color      : rgba( 255 , 255 , 255 , .4 ) ;
+  border     : 0 var( --white ) solid ;
   box-sizing : border-box ;
 }
 .gol
 {
-  width :         var( --goal-size ) ;
-  height :        var( --goal-size ) ;
-  border :        0 var( --white ) solid ;
-  border-width :  var( --border-full ) ;
+  width         : var( --goal-size ) ;
+  height        : var( --goal-size ) ;
+  border        : 0 var( --white ) solid ;
+  border-width  : var( --border-full ) ;
   border-radius : 50% ;
-  box-sizing :    border-box ;
+  box-sizing    : border-box ;
 }
 .bnc
 {
-  background :    #AAA ;
-  border-color :  var( --white ) ;
-  border-style :  solid ;
-  border-width :  var( --border-double ) ;
+  background    : var( --grey ) ;
+  border-color  : var( --white ) ;
+  border-style  : solid ;
+  border-width  : var( --border-double ) ;
   border-radius : 50% ;
-  box-sizing :    border-box ;
+  box-sizing    : border-box ;
 }
 .sqr_art
 {
-  fill :   rgba( 255 , 255 , 255 , .7 ) ;
-  width :  var( --art-square-size ) ;
-  height : var( --art-square-size ) ;
+  fill   : rgba( 255 , 255 , 255 , .7 ) ;
+  width  : var( --square-art-size ) ;
+  height : var( --square-art-size ) ;
+}
+.atl
+{
+  position      : absolute ;
+  background    : var( --grey ) ;
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
 }
 
 .txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
