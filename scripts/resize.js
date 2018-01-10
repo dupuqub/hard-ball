@@ -39,5 +39,8 @@ var resize = _ =>
     root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
     root[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
   }
+  
+  root_raw.cell_size   = root_raw.game_w / 20
+  root_raw.border_full = root_raw.game_w / 400
 }
 

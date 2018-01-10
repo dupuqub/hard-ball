@@ -12,9 +12,9 @@ var redraw = ( dom_object , klass ) =>
     new_width  = art_matrix[ $ ].w * size ,
     new_height = art_matrix[ $ ].h * size
 
-    art_bench[ $ ].innerHTML    = write_svg( $ , size , klass )
-    art_bench[ $ ].style.width  = new_width
-    art_bench[ $ ].style.height = new_height
+    dom_object[ $ ].innerHTML    = write_svg( $ , size , klass )
+    dom_object[ $ ].style.width  = new_width
+    dom_object[ $ ].style.height = new_height
   } )
 }
 

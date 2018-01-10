@@ -1,4 +1,5 @@
 
+/*....................................................................................................................*/
 /* JS only */
 /* Inner text for reference (updates on resize) */
 :root
@@ -12,22 +13,25 @@
 /* CSS only */
 :root
 {
-  --game-radius     : calc( var( --foundation-h ) / 20 ) ;
-  --border-full     : calc( var( --foundation-h ) / 400 ) ;
-  --border-half     : calc( var( --border-full ) / 2 ) ;
-  --border-double   : calc( var( --border-full ) * 2 ) ;
-  --cell-w          : calc( var( --game-w ) / 20 ) ;
-  --cell-h          : calc( var( --game-h ) / 14 ) ;
+  --game-radius     : calc( var( --game-w ) / 40 ) ;
   --field-middle-w  : calc( var( --game-w ) / 2 ) ;
   --field-middle-h  : calc( var( --game-h ) / 14 * 12 / 2 ) ;
-  --goal-size       : calc( var( --cell-w ) / 4 * 3 ) ;
-  --square-art-size : calc( var( --cell-w ) / 7 ) ;
-  --athlete-size    : calc( var( --cell-w ) - var( --border-double ) ) ;
+
+  --border-full     : calc( var( --game-w ) / 400 ) ;
+  --border-half     : calc( var( --border-full ) / 2 ) ;
+  --border-double   : calc( var( --border-full ) * 2 ) ;
+  
+  --cell-size       : calc( var( --game-w ) / 20 ) ;
+  --goal-size       : calc( var( --cell-size ) / 4 * 3 ) ;
+  --athlete-size    : calc( var( --cell-size ) - var( --border-double ) ) ;
+  --square-art-size : calc( var( --cell-size ) / 7 ) ;
+
   --white           : #DDD ;
-  --grey            : #AAA ;
+  --light-grey      : #AAA ;
+  --dark-grey       : #666 ;
 }
 
-/*............................................................................*/
+/*....................................................................................................................*/
 
 html,
 body
@@ -41,7 +45,7 @@ body
   font-family : sans ;
 }
 
-/*............................................................................*/
+/*....................................................................................................................*/
 
 #foundation
 {
@@ -62,7 +66,7 @@ body
 {
   width         : var( --goal-size ) ;
   height        : var( --goal-size ) ;
-  border        : calc( var( --border-full ) * 1.1 ) #FFF dashed ;
+  border        : var( --border-full ) #FFF dotted ;
   border-radius : 50% ;
   box-sizing    : border-box ;
   position      : absolute ;
@@ -70,7 +74,7 @@ body
                   translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 2 ) ) ;
 }
 
-/*............................................................................*/
+/*....................................................................................................................*/
 
 .cnt
 {
@@ -80,8 +84,8 @@ body
 }
 .cll
 {
-  width      : var( --cell-w ) ;
-  height     : var( --cell-h ) ;
+  width      : var( --cell-size ) ;
+  height     : var( --cell-size ) ;
   float      : left ;
   color      : rgba( 255 , 255 , 255 , .4 ) ;
   border     : 0 var( --white ) solid ;
@@ -98,24 +102,17 @@ body
 }
 .bnc
 {
-  background    : var( --grey ) ;
+  background    : var( --light-grey ) ;
   border-color  : var( --white ) ;
   border-style  : solid ;
   border-width  : var( --border-double ) ;
   border-radius : 50% ;
   box-sizing    : border-box ;
 }
-.sqr_art
-{
-  stroke-width : 1px ;
-  stroke       : var( --grey ) ;
-  width        : var( --square-art-size ) ;
-  height       : var( --square-art-size ) ;
-}
 .atl
 {
   position      : absolute ;
-  background    : var( --grey ) ;
+  background    : var( --light-grey ) ;
   width         : var( --athlete-size ) ;
   height        : var( --athlete-size ) ;
   border-radius : 50% ;
@@ -123,10 +120,26 @@ body
   border-width  : var( --border-full ) ;
   border-style  : solid ;
   box-sizing    : border-box ;
+  background    : var( --dark-grey ) ;
+}
+.sqr_art
+{
+  stroke-width : 1px ;
+  width        : var( --square-art-size ) ;
+  height       : var( --square-art-size ) ;
+}
+.fil_bnc
+{
+  fill   : rgba( 255 , 255 , 255 , .5 ) ;
+  stroke : var( --light-grey ) ;
+}
+.fil_atl
+{
+  fill   : var( --white ) ;
+  stroke : var( --dark-grey ) ;
 }
 
-.fil_bnc{ fill : rgba( 255 , 255 , 255 , .3 ) }
-.fil_atl{ fill : var( --white ) }
+.tra_atl{ transition : all .3s ease-in-out }
 
 .txt_cll{ font-size : calc( var( --foundation-h ) / 60 ) ; font-weight : bold }
 
