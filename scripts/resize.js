@@ -39,8 +39,12 @@ var resize = _ =>
     root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
     root[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
   }
-  
-  root_raw.cell_size   = root_raw.game_w / 20
-  root_raw.border_full = root_raw.game_w / 400
+
+  // Some helpful variables after the real resize
+  //
+  root_raw.game_h_real   = root_raw.game_h / 14 * 12
+  root_raw.cell_size     = root_raw.game_w / 20
+  root_raw.border_full   = root_raw.game_w / 400
+  root_raw.athlete_size  = root_raw.cell_size - root_raw.border_full * 2
 }
 

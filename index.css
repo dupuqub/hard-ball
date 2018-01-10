@@ -73,6 +73,18 @@ body
   transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 2 ) )
                   translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 2 ) ) ;
 }
+#ball
+{
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  background    : rgba( 96 , 64 , 32 , .8 ) ;
+  position      : absolute ;
+}
 
 /*....................................................................................................................*/
 
@@ -99,6 +111,7 @@ body
   border-width  : var( --border-full ) ;
   border-radius : 50% ;
   box-sizing    : border-box ;
+  background    : rgba( 255 , 255 , 255 , .3 )
 }
 .bnc
 {

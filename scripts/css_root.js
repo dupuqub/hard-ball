@@ -9,20 +9,20 @@ var root =
 [
   '--foundation-w : 0 ;' ,
   '--foundation-h : 0 ;' ,
-  '--game-w       : 0 ;' ,
   '--game-h       : 0 ;' ,
+  '--game-w       : 0 ;' ,
 ]
 
 //......................................................................................................................
 //
 var root_raw =
 {
-  foundation_w : 0 ,
-  foundation_h : 0 ,
-  game_w       : 0 ,
-  game_h       : 0 ,
-  cell_size    : 0 ,
-  border_full  : 0 ,
+  foundation_w  : 0 ,
+  foundation_h  : 0 ,
+  game_h_real   : 0 ,
+  cell_size     : 0 ,
+  border_full   : 0 ,
+  athlete_size  : 0 ,
 }
 
 //......................................................................................................................
