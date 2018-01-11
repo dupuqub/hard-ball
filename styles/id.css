@@ -45,7 +45,22 @@
   border-width  : var( --border-full ) ;
   border-style  : solid ;
   box-sizing    : border-box ;
-  background    : rgba( 96 , 64 , 32 , .8 ) ;
+  background    : rgba( 95 , 63 , 31 , .8 ) ;
+  position      : absolute ;
+}
+
+/*....................................................................................................................*/
+
+#aim
+{
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  background    : rgba( 255 , 255 , 255 , .3 ) ;
   position      : absolute ;
 }
 
@@ -55,8 +70,9 @@
 {
   width         : calc( var( --cell-size ) * 10 ) ;
   height        : var( --cell-size ) ;
-  background    : var( --dark-grey ) ;
+  background    : #666 ;
   border-radius : calc( var( --cell-size ) / 2 )  ;
+  font-size     : calc( var( --game-w ) / 60 ) ;
   color         : var( --white ) ;
 }
 

@@ -31,8 +31,5 @@
   --game-radius     : calc( var( --cell-size ) / 2 ) ;
 
   --white           : #DDD ;
-  --light-grey      : #AAA ;
-  --dark-grey       : #666 ;
-  --darker-grey     : #333 ;
 }
 

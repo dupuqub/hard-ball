@@ -18,6 +18,13 @@
   color      : rgba( 255 , 255 , 255 , .4 ) ;
   border     : 0 var( --white ) solid ;
   box-sizing : border-box ;
+  box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , .1 ) inset ;
+}
+
+.txt_cll /* text cell */
+{
+  font-size : calc( var( --game-w ) / 70 ) ;
+  font-weight : bold ;
 }
 
 /*....................................................................................................................*/
@@ -37,7 +44,7 @@
 
 .bnc /* bench */
 {
-  background    : var( --light-grey ) ;
+  background    : #AAA ;
   border-radius : 50% ;
 }
 
@@ -46,7 +53,6 @@
 .atl /* athlete */
 {
   position      : absolute ;
-  background    : var( --light-grey ) ;
   width         : var( --athlete-size ) ;
   height        : var( --athlete-size ) ;
   border-radius : 50% ;
@@ -54,8 +60,14 @@
   border-width  : var( --border-full ) ;
   border-style  : solid ;
   box-sizing    : border-box ;
-  background    : var( --darker-grey ) ;
-  stroke        : var( --darker-grey ) ;
+  background    : #333 ;
+  stroke        : #333 ;
+}
+
+.atl:hover
+{
+  background    : #555 ;
+  stroke        : #555 ;
 }
 
 /*....................................................................................................................*/
@@ -72,7 +84,7 @@
 .fil_bnc /* svg fill bench */
 {
   fill   : rgba( 255 , 255 , 255 , .5 ) ;
-  stroke : var( --light-grey ) ;
+  stroke : #AAA ;
 }
 
 /*....................................................................................................................*/
@@ -88,18 +100,27 @@
 {
   width         : var( --cell-size ) ;
   height        : var( --cell-size ) ;
-  background    : var( --light-grey ) ;
+  background    : #AAA ;
   border-radius : 50% ;
+  position      : relative ;
 }
 
 /*....................................................................................................................*/
 
-.btn /* bench */
+.btn /* button */
 {
   width         : var( --cell-size ) ;
   height        : var( --cell-size ) ;
-  background    : var( --dark-grey ) ;
+  background    : #666 ;
   border-radius : 50% ;
+  cursor        : pointer ;
+  box-shadow    : 0 0 0 var( --border-half ) #666 inset ,
+                  0 0 0 var( --border-full ) var( --white ) inset ;
+}
+
+.btn:hover
+{
+  background : #888 ;
 }
 
 /*....................................................................................................................*/
@@ -115,10 +136,41 @@
 
 /*....................................................................................................................*/
 
-.txt_cll
+.inn /* inner circles */
 {
-  font-size : calc( var( --foundation-h ) / 60 ) ;
-  font-weight : bold ;
+  position      : absolute ;
+  border-color  : rgba( 255 , 255 , 255 , .3 ) ;
+  border-style  : solid ;
+  border-width  : var( --border-full ) ;
+  box-sizing    : border-box ;
+  border-radius : 50% ;
+}
+
+.inn_0{ width : 90% ; height : 90% }
+.inn_1{ width : 70% ; height : 70% }
+.inn_2{ width : 50% ; height : 50% }
+
+/*....................................................................................................................*/
+
+.atl_sel_zon /* athlete selector zone */
+{
+  width    : var( --athlete-size ) ;
+  height   : var( --athlete-size ) ;
+  position : absolute ;
+}
+
+.atl_sel /* athlete selector */
+{
+  r            : calc( var( --athlete-size ) / 2 + 1 ) ;
+  cx           : calc( var( --athlete-size ) / 2 ) ;
+  cy           : calc( var( --athlete-size ) / 2 ) ;
+  fill         : transparent ;
+  stroke-width : 0 ;
+}
+
+.atl_sel:hover
+{
+  cursor : pointer
 }
 
 /*....................................................................................................................*/
