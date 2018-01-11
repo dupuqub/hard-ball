@@ -22,6 +22,10 @@ a_to_t       = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 //
 var state =
 {
+  turn     : 0 ,
+  player   : { first : null , now : null } , // 'green' or 'blue'
+  team     : { blue : [] , green : [] } ,
+  replaced : { blue : [] , green : [] } ,
   hovered  : { old : 0 , now : 0 } ,
   aim      : { cell : null } ,
   ball     : { cell : null } ,
@@ -44,11 +48,15 @@ var state =
 //
 var loop = _ =>
 {
-  game_console.innerHTML = state.hovered.now + ' . ' + state.selected
+  game_console.innerHTML = 'loading... joking, it isn\'t'
+
+  // updates who plays now
+  //
+  if( state.player.first === 'blue' ) state.player.now = state.turn % 2 === 0 ? 'green' : 'blue'
+  else if( state.player.first === 'green' ) state.player.now = state.turn % 2 === 0 ? 'blue' : 'green'
 
   window.requestAnimationFrame( loop )
 }
-
 
 //......................................................................................................................
 //
@@ -64,15 +72,14 @@ onmousemove = event =>
   }
 }
 
-
-//
 //......................................................................................................................
+//
 onclick = event =>
 {
   var target = event.target.id
 
   //....................................................................................................................
-  // Utilities
+  // utilities
   //
   if( target === 'language' )
   {}
@@ -86,15 +93,37 @@ onclick = event =>
   {}
 
   //....................................................................................................................
-  // Gameplay
+  // gameplay
   //
   else if( target === 'ball' )
   {}
   else if( target.slice( 0 , 7 ) === 'athlete' )
+  {
+    var
+    athlete_number = Number( target.slice( 8 , 10 ) ) ,
+    athlete_row = Number( state.athletes[ athlete_number ].cell.slice( 1 , 3 ) ) ,
+    replaced_both = state.replaced.green.concat( state.replaced.green )
+
+    if( athlete_row === 12 ) // athlete is in the bench
+    {
+      if( state.turn < 8 ) // while choosing athletes
+      {
+        //
+      }
+      else if( replaced_both.indexOf( athlete_number ) === -1 // athlete is not replaced
+      && state.replaced[ state.player.now ].length < 2 ) // team has replacements left
+      {
+        //
+      }
+    }
+    else // athlete is on the field
+    {
+      //
+    }
+  }
+  else if( 1 ) /* zones */
   {}
-  else if( /* zones */ )
-  {}
-  else if( /* aim */ )
+  else if( 1 ) /* aim */
   {}
 }
 
@@ -112,14 +141,14 @@ onresize = event =>
 }
 
 //......................................................................................................................
-// Check for a automatic save file
+// check for a automatic save file
 //
 if( localStorage.hard_ball_save_auto !== undefined )
 {
   state = JSON.parse( localStorage.hard_ball_save_auto )
 }
 
-// Initialize
+// initialize
 //
 resize()
 reroot()
