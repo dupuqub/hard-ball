@@ -47,6 +47,12 @@
   box-sizing    : border-box ;
   background    : rgba( 95 , 63 , 31 , .8 ) ;
   position      : absolute ;
+  transition    : background .3s ease-in-out ;
+}
+
+#ball:hover
+{
+  background : rgba( 111 , 95 , 63 , .8 ) ;
 }
 
 /*....................................................................................................................*/
@@ -66,7 +72,7 @@
 
 /*....................................................................................................................*/
 
-#console
+#game_console
 {
   width         : calc( var( --cell-size ) * 10 ) ;
   height        : var( --cell-size ) ;

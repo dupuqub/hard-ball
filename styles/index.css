@@ -64,12 +64,6 @@
   stroke        : #333 ;
 }
 
-.atl:hover
-{
-  background    : #555 ;
-  stroke        : #555 ;
-}
-
 /*....................................................................................................................*/
 
 .sqr_art /* svg square art */
@@ -161,16 +155,18 @@
 
 .atl_sel /* athlete selector */
 {
-  r            : calc( var( --athlete-size ) / 2 + 1 ) ;
+  r            : calc( var( --athlete-size ) / 2 ) ;
   cx           : calc( var( --athlete-size ) / 2 ) ;
   cy           : calc( var( --athlete-size ) / 2 ) ;
-  fill         : transparent ;
+  fill         : rgba( 0 , 0 , 0 , 0 ) ;
   stroke-width : 0 ;
+  transition   : all .3s ease-in-out ;
 }
 
 .atl_sel:hover
 {
-  cursor : pointer
+  cursor : pointer ;
+  fill   : rgba( 255 , 255 , 255 , .1 ) ;
 }
 
 /*....................................................................................................................*/

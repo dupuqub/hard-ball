@@ -8,9 +8,11 @@ arts_athlete = document.querySelectorAll( '.art_atl' ) ,
 arts_bench   = document.querySelectorAll( '.art_bnc' ) ,
 athletes     = document.querySelectorAll( '.atl' ) ,
 
+game_console = document.querySelector( '#game_console' ) ,
 foundation   = document.querySelector( '#foundation' ) ,
 game         = document.querySelector( '#game' ) ,
 ball         = document.querySelector( '#ball' ) ,
+aim          = document.querySelector( '#aim' ) ,
 
 game_scale   = 0.9 ,
 aspect       = { x : 16 , y : 9 } ,
@@ -20,7 +22,9 @@ a_to_t       = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 //
 var state =
 {
-  ball : { cell : null } ,
+  hovered  : { old : 0 , now : 0 } ,
+  aim      : { cell : null } ,
+  ball     : { cell : null } ,
   athletes : ( _ =>
   {
     var new_array = []
@@ -34,6 +38,38 @@ var state =
 
     return new_array
   } )() ,
+}
+
+//......................................................................................................................
+//
+var loop = _ =>
+{
+  game_console.innerHTML = state.hovered.now + ' . ' + state.selected
+
+  window.requestAnimationFrame( loop )
+}
+
+
+//......................................................................................................................
+//
+onmousemove = event =>
+{
+  state.hovered.now = event.target.id
+
+  if( state.hovered.now !== state.hovered.old )
+  {
+    // everything that triggers when the hover target changes
+
+    state.hovered.old = state.hovered.now
+  }
+}
+
+
+//......................................................................................................................
+//
+onclick = event =>
+{
+  //
 }
 
 //......................................................................................................................
@@ -67,3 +103,4 @@ redraw( arts_bench , 'fil_bnc' )
 reload.athletes()
 reload.ball()
 
+loop()

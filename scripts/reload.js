@@ -29,22 +29,30 @@ var reload =
   ball : _ =>
   {
     var
-    cell_name = state.ball.cell ,
-    new_x     = 0 ,
-    new_y     = 0
+    cell_ball = state.ball.cell ,
+    cell_aim  = state.aim.cell ,
+    ball_x    = 0 ,
+    ball_y    = 0 ,
+    aim_x     = 0 ,
+    aim_y     = 0
 
-    if( cell_name === null )
+    if( cell_ball === null )
     {
-      new_x = root_raw.game_w / 2 - root_raw.athlete_size / 2
-      new_y = root_raw.game_h_real / 2 - root_raw.athlete_size / 2
+      ball_x = root_raw.game_w / 2 - root_raw.athlete_size / 2
+      ball_y = root_raw.game_h_real / 2 - root_raw.athlete_size / 2
+      aim_x = ball_x
+      aim_y = ball_y
     }
     else
     {
-      new_x = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full ,
-      new_y = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
+      ball_x = a_to_t.indexOf( cell_ball.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full
+      ball_y = Number( cell_ball.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
+      aim_x = a_to_t.indexOf( cell_aim.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full
+      aim_y = Number( cell_aim.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
     }
 
-    ball.style.transform = 'translate3d(' + new_x + 'px,' + new_y + 'px,0)'
+    ball.style.transform = 'translate3d(' + ball_x + 'px,' + ball_y + 'px,0)'
+    aim.style.transform = 'translate3d(' + aim_x + 'px,' + aim_y + 'px,0)'
   } ,
 }
 
