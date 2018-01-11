@@ -1,0 +1,62 @@
+
+/*....................................................................................................................*/
+
+#foundation
+{
+  background : #000 ;
+  width      : var( --foundation-w ) ;
+  height     : var( --foundation-h ) ;
+}
+
+/*....................................................................................................................*/
+
+#game
+{
+  background    : var( --white ) ;
+  width         : var( --game-w ) ;
+  height        : var( --game-h ) ;
+  border        : 0 var( --white ) solid ;
+  border-width  : var( --border-half ) ;
+  border-radius : 0 0 var( --game-radius ) var( --game-radius ) ;
+}
+
+/*....................................................................................................................*/
+
+#middle
+{
+  width         : var( --goal-size ) ;
+  height        : var( --goal-size ) ;
+  border        : var( --border-full ) #FFF dotted ;
+  border-radius : 50% ;
+  box-sizing    : border-box ;
+  position      : absolute ;
+  transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 2 ) )
+                  translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 2 ) ) ;
+}
+
+/*....................................................................................................................*/
+
+#ball
+{
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  background    : rgba( 96 , 64 , 32 , .8 ) ;
+  position      : absolute ;
+}
+
+/*....................................................................................................................*/
+
+#console
+{
+  width         : calc( var( --cell-size ) * 10 ) ;
+  height        : var( --cell-size ) ;
+  background    : var( --dark-grey ) ;
+  border-radius : calc( var( --cell-size ) / 2 )  ;
+  color         : var( --white ) ;
+}
+

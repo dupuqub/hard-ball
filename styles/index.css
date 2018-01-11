@@ -1,0 +1,136 @@
+
+/*....................................................................................................................*/
+
+.cnt /* center */
+{
+  justify-content : center ;
+  align-items     : center ;
+  display         : flex ;
+}
+
+/*....................................................................................................................*/
+
+.cll /* cell */
+{
+  width      : var( --cell-size ) ;
+  height     : var( --cell-size ) ;
+  float      : left ;
+  color      : rgba( 255 , 255 , 255 , .4 ) ;
+  border     : 0 var( --white ) solid ;
+  box-sizing : border-box ;
+}
+
+/*....................................................................................................................*/
+
+.gol /* goal */
+{
+  width         : var( --goal-size ) ;
+  height        : var( --goal-size ) ;
+  border        : 0 var( --white ) solid ;
+  border-width  : var( --border-full ) ;
+  border-radius : 50% ;
+  box-sizing    : border-box ;
+  background    : rgba( 255 , 255 , 255 , .3 )
+}
+
+/*....................................................................................................................*/
+
+.bnc /* bench */
+{
+  background    : var( --light-grey ) ;
+  border-radius : 50% ;
+}
+
+/*....................................................................................................................*/
+
+.atl /* athlete */
+{
+  position      : absolute ;
+  background    : var( --light-grey ) ;
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  background    : var( --darker-grey ) ;
+  stroke        : var( --darker-grey ) ;
+}
+
+/*....................................................................................................................*/
+
+.sqr_art /* svg square art */
+{
+  stroke-width : calc( var( --square-art-size ) / 5 ) ;
+  width        : var( --square-art-size ) ;
+  height       : var( --square-art-size ) ;
+}
+
+/*....................................................................................................................*/
+
+.fil_bnc /* svg fill bench */
+{
+  fill   : rgba( 255 , 255 , 255 , .5 ) ;
+  stroke : var( --light-grey ) ;
+}
+
+/*....................................................................................................................*/
+
+.fil_atl /* svg fill athlete */
+{
+  fill   : var( --white ) ;
+}
+
+/*....................................................................................................................*/
+
+.lgt /* light */
+{
+  width         : var( --cell-size ) ;
+  height        : var( --cell-size ) ;
+  background    : var( --light-grey ) ;
+  border-radius : 50% ;
+}
+
+/*....................................................................................................................*/
+
+.btn /* bench */
+{
+  width         : var( --cell-size ) ;
+  height        : var( --cell-size ) ;
+  background    : var( --dark-grey ) ;
+  border-radius : 50% ;
+}
+
+/*....................................................................................................................*/
+
+.itf /* interface */
+{
+  float         : left ;
+  border-color  : var( --white ) ;
+  border-style  : solid ;
+  border-width  : var( --border-double ) ;
+  box-sizing    : border-box ;
+}
+
+/*....................................................................................................................*/
+
+.txt_cll
+{
+  font-size : calc( var( --foundation-h ) / 60 ) ;
+  font-weight : bold ;
+}
+
+/*....................................................................................................................*/
+
+.tra_atl{ transition : all .3s ease-in-out }
+
+/*....................................................................................................................*/
+
+.red_lgt{ background : #C00 }
+.red_drk{ background : #A00 }
+.grn_lgt{ background : #5A0 }
+.grn_drk{ background : #580 }
+.blu_lgt{ background : #50C }
+.blu_drk{ background : #509 }
+
