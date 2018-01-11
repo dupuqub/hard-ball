@@ -107,7 +107,6 @@
   height        : var( --cell-size ) ;
   background    : #666 ;
   border-radius : 50% ;
-  cursor        : pointer ;
   box-shadow    : 0 0 0 var( --border-half ) #666 inset ,
                   0 0 0 var( --border-full ) var( --white ) inset ;
 }
@@ -165,7 +164,6 @@
 
 .atl_sel:hover
 {
-  cursor : pointer ;
   fill   : rgba( 255 , 255 , 255 , .1 ) ;
 }
 
