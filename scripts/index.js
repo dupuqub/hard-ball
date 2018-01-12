@@ -24,8 +24,8 @@ var state =
 {
   turn     : 0 ,
   player   : { first : null , now : null } , // 'green' or 'blue'
-  hovered  : { old : null , now : null } , // from 0 to 19 or 'ball'
-  selected : { old : null , now : null } , // from 0 to 19 or 'ball'
+  hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
+  selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
   aim      : { cell : null } ,
@@ -76,7 +76,11 @@ var change_selected = target =>
   //
   ball.classList.remove( 'slc' )
   athletes.forEach( athlete => athlete.classList.remove( 'slc' ) )
-  setTimeout( _ => target === 'ball' ? ball.classList.add( 'slc' ) : athletes[ target ].classList.add( 'slc' ) , 0 )
+
+  if( target !== null )
+  {
+    setTimeout( _ => target === 'ball' ? ball.classList.add( 'slc' ) : athletes[ target ].classList.add( 'slc' ) , 0 )
+  }
 }
 
 //......................................................................................................................

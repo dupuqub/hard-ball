@@ -50,9 +50,17 @@ onclick = event =>
       //
     }
   }
-  else if( 1 ) /* zones */
+
+  /*
+  else if() // zones
   {}
-  else if( 1 ) /* aim */
+  else if() // aim
   {}
+  */
+
+  else // nothing
+  {
+    change_selected( null )
+  }
 }
 
