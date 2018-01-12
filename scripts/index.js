@@ -28,6 +28,7 @@ var state =
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
+  starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : { cell : null } ,
   ball     : { cell : null } ,
   athletes : ( _ =>

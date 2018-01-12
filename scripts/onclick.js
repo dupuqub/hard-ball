@@ -33,7 +33,7 @@ onclick = event =>
     athlete_row = Number( state.athletes[ athlete_number ].cell.slice( 1 , 3 ) ) ,
     replaced_both = state.replaced.green.concat( state.replaced.green )
 
-    if( athlete_row === 12 ) // athlete is in the bench
+    if( athlete_row === 12 ) // athlete is benched
     {
       if( state.turn < 8 ) // while choosing athletes
       {
@@ -45,7 +45,7 @@ onclick = event =>
         //
       }
     }
-    else // athlete is on the field
+    else // athlete is playing
     {
       //
     }

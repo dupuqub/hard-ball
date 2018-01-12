@@ -21,7 +21,7 @@ var reload =
       athlete.classList.remove( 'tra_atl' )
     } )
 
-    setTimeout( _ => athletes.forEach( ( athlete , $ ) => athlete.classList.add( 'tra_atl' ) ) , 0 )
+    setTimeout( _ => athletes.forEach( athlete => athlete.classList.add( 'tra_atl' ) ) , 0 )
   } ,
 
   //....................................................................................................................
