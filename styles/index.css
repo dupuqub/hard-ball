@@ -173,6 +173,26 @@
 
 /*....................................................................................................................*/
 
+.slc /* select */
+{
+  border-color              : rgba( 255 , 255 , 255 , .3 ) ;
+  animation-name            : select ;
+  animation-iteration-count : 1 ;
+  animation-duration        : .5s ;
+  animation-timing-function : ease ;
+  box-sizing                : border-box ;
+  animation-fill-mode       : forwards ;
+}
+
+@keyframes select
+{
+  50%{ border-width : calc( var( --border-double ) * 2 ) }
+  70%{ border-width : var( --border-half ) }
+  100%{ border-width : var( --border-double ) }
+}
+
+/*....................................................................................................................*/
+
 .red_lgt{ background : #C00 }
 .red_drk{ background : #A00 }
 .grn_lgt{ background : #5A0 }
