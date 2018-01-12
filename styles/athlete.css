@@ -19,7 +19,7 @@
 
 .art_atl{ position : absolute }
 
-.sqr_art
+.sqr_art /* svg square art */
 {
   stroke-width : calc( var( --square-art-size ) / 5 ) ;
   width        : var( --square-art-size ) ;
