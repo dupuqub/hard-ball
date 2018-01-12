@@ -1,0 +1,52 @@
+
+/*....................................................................................................................*/
+
+.atl /* athlete */
+{
+  position      : absolute ;
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  background    : #333 ;
+  stroke        : #333 ;
+}
+
+.tra_atl{ transition : all .3s ease-in-out }
+
+.art_atl{ position : absolute }
+
+.sqr_art
+{
+  stroke-width : calc( var( --square-art-size ) / 5 ) ;
+  width        : var( --square-art-size ) ;
+  height       : var( --square-art-size ) ;
+}
+
+.fil_atl{ fill : var( --white ) }
+.fil_bnc{ fill : rgba( 255 , 255 , 255 , .5 ) ; stroke : #AAA }
+
+/*....................................................................................................................*/
+
+.atl_sel_zon /* athlete selector zone */
+{
+  width    : var( --athlete-size ) ;
+  height   : var( --athlete-size ) ;
+  position : absolute ;
+}
+
+.atl_sel /* athlete selector */
+{
+  r            : calc( var( --athlete-size ) / 2 ) ;
+  cx           : calc( var( --athlete-size ) / 2 ) ;
+  cy           : calc( var( --athlete-size ) / 2 ) ;
+  fill         : rgba( 0 , 0 , 0 , 0 ) ;
+  stroke-width : 0 ;
+  transition   : all .3s ease-in-out ;
+}
+
+.atl_sel:hover{ fill : rgba( 255 , 255 , 255 , .1 ) }
+
