@@ -26,7 +26,7 @@
   --cell-size       : calc( var( --game-w ) / 20 ) ;
   --goal-size       : calc( var( --cell-size ) / 4 * 3 ) ;
   --athlete-size    : calc( var( --cell-size ) - var( --border-double ) ) ;
-  --square-art-size : calc( var( --cell-size ) / 7 ) ;
+  --square-art-size : calc( var( --cell-size ) / 8 ) ;
 
   --game-radius     : calc( var( --cell-size ) / 2 ) ;
 

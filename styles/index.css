@@ -23,7 +23,7 @@
 
 .txt_cll /* text cell */
 {
-  font-size : calc( var( --game-w ) / 70 ) ;
+  font-size   : calc( var( --game-w ) / 70 ) ;
   font-weight : bold ;
 }
 
@@ -37,15 +37,15 @@
   border-width  : var( --border-full ) ;
   border-radius : 50% ;
   box-sizing    : border-box ;
-  background    : rgba( 255 , 255 , 255 , .3 )
+  background    : rgba( 255 , 255 , 255 , .3 ) ;
 }
 
 /*....................................................................................................................*/
 
 .bnc /* bench */
 {
-  width      : var( --cell-size ) ;
-  height     : var( --cell-size ) ;
+  width         : var( --cell-size ) ;
+  height        : var( --cell-size ) ;
   background    : #AAA ;
   border-radius : 50% ;
 }
@@ -109,18 +109,20 @@
 
 .slc /* select */
 {
-  border-color              : rgba( 255 , 255 , 255 , .3 ) ;
+  border-color              : rgb( 255 , 127 , 0 ) ;
   animation-name            : select ;
   animation-iteration-count : 1 ;
   animation-duration        : .5s ;
   animation-timing-function : ease ;
-  box-sizing                : border-box ;
   animation-fill-mode       : forwards ;
+  box-sizing                : border-box ;
+  box-shadow                : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
+                              0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
 }
 
 @keyframes select
 {
-  50%{ border-width : calc( var( --border-double ) * 2 ) }
+  30%{ border-width : calc( var( --border-double ) * 2 ) }
   70%{ border-width : var( --border-half ) }
   100%{ border-width : var( --border-double ) }
 }

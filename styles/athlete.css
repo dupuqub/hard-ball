@@ -21,7 +21,7 @@
 
 .sqr_art /* svg square art */
 {
-  stroke-width : calc( var( --square-art-size ) / 5 ) ;
+  stroke-width : calc( var( --square-art-size ) / 10 ) ;
   width        : var( --square-art-size ) ;
   height       : var( --square-art-size ) ;
 }
