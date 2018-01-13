@@ -32,17 +32,14 @@ var state =
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : { cell : null } ,
   ball     : { cell : null } ,
-  athletes : ( _ =>
-  {
+  athletes : ( _ => {
     var new_array = []
-
-    for( var $ = 0 ; $ < 20 ; $ ++ )
-    {
-      var new_athlete = { cell : a_to_t[ $ ] + 12 }
-
-      new_array.push( new_athlete )
-    }
-
+    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( { cell : a_to_t[ $ ] + 12 } )
+    return new_array
+  } )() ,
+  zones    : ( _ => {
+    var new_array = []
+    for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( { cell : null } )
     return new_array
   } )() ,
 }
@@ -109,6 +106,7 @@ onresize = event =>
   redraw( arts_bench , 'fil_bnc' )
 
   reload.athletes()
+  reload.zones()
   reload.ball()
 }
 
@@ -128,6 +126,7 @@ redraw( arts_athlete , 'fil_atl' )
 redraw( arts_bench , 'fil_bnc' )
 
 reload.athletes()
+reload.zones()
 reload.ball()
 
 loop()
