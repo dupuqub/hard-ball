@@ -26,6 +26,7 @@ onclick = event =>
   //
   else if( target === 'ball' )
   {}
+
   else if( target.slice( 0 , 7 ) === 'athlete' )
   {
     var
@@ -51,12 +52,33 @@ onclick = event =>
     }
   }
 
-  /*
-  else if() // zones
-  {}
-  else if() // aim
-  {}
-  */
+  else if( target === 'zone' ) // zones
+  {
+    if( state.selected.now === 'ball' )
+    {
+      //
+    }
+    else if( state.selected.now !== null )
+    {
+      if( state.turn === 0 )
+      {
+        //
+      }
+      else if( state.turn < 8 )
+      {
+        //
+      }
+      else
+      {
+        //
+      }
+    }
+  }
+
+  else if( target === 'aim' ) // aim
+  {
+    //
+  }
 
   else // nothing
   {

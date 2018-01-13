@@ -29,18 +29,15 @@ var update_zone_cell = _ =>
   //
   else if( hovered.slice( 0 , 7 ) === 'athlete' )
   {
-    if( state.turn < 8 )
+    if( state.turn === 0 )
     {
-      if( state.turn === 0 )
-      {
-        var both_starter = state.starter.blue.concat( state.starter.green )
+      var both_starter = state.starter.blue.concat( state.starter.green )
 
-        for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
-      }
-      else
-      {
-        //
-      }
+      for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
+    }
+    else if( state.turn < 8 )
+    {
+      //
     }
     else
     {
@@ -59,18 +56,15 @@ var update_zone_cell = _ =>
   //
   else if( selected !== null ) // athlete
   {
-    if( state.turn < 8 )
+    if( state.turn === 0 )
     {
-      if( state.turn === 0 )
-      {
-        var both_starter = state.starter.blue.concat( state.starter.green )
+      var both_starter = state.starter.blue.concat( state.starter.green )
 
-        for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
-      }
-      else
-      {
-        //
-      }
+      for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
+    }
+    else if( state.turn < 8 )
+    {
+      //
     }
     else
     {
