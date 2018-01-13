@@ -24,12 +24,12 @@ a_to_t       = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 var state =
 {
   turn     : 0 ,
-  player   : { first : null , now : null } , // 'green' or 'blue'
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
+  player   : { first : null , now : null } , // 'green' or 'blue'
+  keeper   : { blue : null , green : null } ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
-  keeper   : { blue : null , green : null } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : null ,
   ball     : null ,
@@ -43,33 +43,6 @@ var state =
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
     return new_array
   } )() , // it didn't have to be here, but this is better for code organization
-}
-
-//......................................................................................................................
-//
-var update_zone_cell = _ =>
-{
-  state.zones.forEach( zone => zone.cell = null )
-
-  var hovered = state.hovered.now
-
-  if( hovered === 'ball' )
-  {
-    if( state.ball.cell === null )
-    {
-      ball.style.zIndex = "1"
-
-      var middle = [ 'J05' , 'J06' , 'K05' , 'K06' ]
-
-      for( var $ = 0 ; $ < 4 ; $ ++ ) state.zones[ $ ] = middle[ $ ]
-    }
-  }
-  else if( Number.isInteger( hovered ) ) // hovering athlete
-  {
-    //
-  }
-
-  reload.zones()
 }
 
 //......................................................................................................................
