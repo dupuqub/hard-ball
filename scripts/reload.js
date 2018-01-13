@@ -37,8 +37,8 @@ var reload =
 
       if( cell_name !== null )
       {
-        new_x = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full
-        new_y = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
+        new_x = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size
+        new_y = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size
       }
 
       zone.style.marginLeft = new_x + "px"

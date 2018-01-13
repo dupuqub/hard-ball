@@ -29,6 +29,7 @@ var state =
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
+  keeper   : { blue : null , green : null } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : { cell : null } ,
   ball     : { cell : null } ,
@@ -41,7 +42,34 @@ var state =
     var new_array = []
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( { cell : null } )
     return new_array
-  } )() ,
+  } )() , // it didn't have to be here, but this is better for code organization
+}
+
+//......................................................................................................................
+//
+var update_zone_cell = _ =>
+{
+  state.zones.forEach( zone => zone.cell = null )
+
+  var hovered = state.hovered.now
+
+  if( hovered === 'ball' )
+  {
+    if( state.ball.cell === null )
+    {
+      ball.style.zIndex = "1"
+
+      var middle = [ 'J05' , 'J06' , 'K05' , 'K06' ]
+
+      for( var $ = 0 ; $ < 4 ; $ ++ ) state.zones[ $ ].cell = middle[ $ ]
+    }
+  }
+  else if( Number.isInteger( hovered ) ) // hovering athlete
+  {
+    //
+  }
+
+  reload.zones()
 }
 
 //......................................................................................................................
@@ -67,6 +95,8 @@ var change_selected = target =>
   if( state.selected.old !== state.selected.now )
   {
     // everything that triggers when the click target changes
+    //
+    update_zone_cell()
 
     state.selected.old = state.selected.now
   }
@@ -91,6 +121,8 @@ onmousemove = event =>
   if( state.hovered.now !== state.hovered.old )
   {
     // everything that triggers when the hover target changes
+    //
+    update_zone_cell()
 
     state.hovered.old = state.hovered.now
   }
