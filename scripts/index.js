@@ -7,6 +7,7 @@ var
 arts_athlete = document.querySelectorAll( '.art_atl' ) ,
 arts_bench   = document.querySelectorAll( '.art_bnc' ) ,
 athletes     = document.querySelectorAll( '.atl' ) ,
+zones        = document.querySelectorAll( '.zon' ) ,
 
 game_console = document.querySelector( '#game_console' ) ,
 foundation   = document.querySelector( '#foundation' ) ,

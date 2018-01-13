@@ -109,15 +109,16 @@
 
 .slc /* select */
 {
-  border-color              : rgb( 255 , 127 , 0 ) ;
+  border-color              : #F80 ;
+  box-sizing                : border-box ;
+  box-shadow                : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
+                              0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
+
   animation-name            : select ;
   animation-iteration-count : 1 ;
   animation-duration        : .5s ;
   animation-timing-function : ease ;
   animation-fill-mode       : forwards ;
-  box-sizing                : border-box ;
-  box-shadow                : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
-                              0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
 }
 
 @keyframes select
@@ -129,8 +130,8 @@
 
 /*....................................................................................................................*/
 
-.red_lgt{ background : #C00 }
-.red_drk{ background : #A00 }
+.red_lgt{ background : #A00 }
+.red_drk{ background : #800 }
 .grn_lgt{ background : #5A0 }
 .grn_drk{ background : #580 }
 .blu_lgt{ background : #50C }
