@@ -30,7 +30,7 @@ onclick = event =>
   {
     var
     athlete_number = Number( target.slice( 8 , 10 ) ) ,
-    athlete_row = Number( state.athletes[ athlete_number ].cell.slice( 1 , 3 ) ) ,
+    athlete_row = Number( state.athletes[ athlete_number ].slice( 1 , 3 ) ) ,
     replaced_both = state.replaced.green.concat( state.replaced.green )
 
     if( athlete_row === 12 ) // athlete is benched

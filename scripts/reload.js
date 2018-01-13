@@ -13,7 +13,7 @@ var reload =
     athletes.forEach( ( athlete , $ ) =>
     {
       var
-      cell_name = state.athletes[ $ ].cell ,
+      cell_name = state.athletes[ $ ] ,
       new_x     = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full ,
       new_y     = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
 
@@ -31,7 +31,7 @@ var reload =
     zones.forEach( ( zone , $ ) =>
     {
       var
-      cell_name = state.zones[ $ ].cell ,
+      cell_name = state.zones[ $ ] ,
       new_x     = -root_raw.game_w ,
       new_y     = -root_raw.game_w
 
@@ -51,8 +51,8 @@ var reload =
   ball : _ =>
   {
     var
-    cell_ball = state.ball.cell ,
-    cell_aim  = state.aim.cell ,
+    cell_ball = state.ball ,
+    cell_aim  = state.aim ,
     ball_x    = root_raw.game_w / 2 - root_raw.athlete_size / 2 ,
     ball_y    = root_raw.game_h_real / 2 - root_raw.athlete_size / 2 ,
     aim_x     = ball_x ,

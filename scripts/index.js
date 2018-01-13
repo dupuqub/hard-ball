@@ -31,16 +31,16 @@ var state =
   replaced : { blue : [] , green : [] } ,
   keeper   : { blue : null , green : null } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
-  aim      : { cell : null } ,
-  ball     : { cell : null } ,
+  aim      : null ,
+  ball     : null ,
   athletes : ( _ => {
     var new_array = []
-    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( { cell : a_to_t[ $ ] + 12 } )
+    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
     return new_array
   } )() ,
   zones    : ( _ => {
     var new_array = []
-    for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( { cell : null } )
+    for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
     return new_array
   } )() , // it didn't have to be here, but this is better for code organization
 }
@@ -61,7 +61,7 @@ var update_zone_cell = _ =>
 
       var middle = [ 'J05' , 'J06' , 'K05' , 'K06' ]
 
-      for( var $ = 0 ; $ < 4 ; $ ++ ) state.zones[ $ ].cell = middle[ $ ]
+      for( var $ = 0 ; $ < 4 ; $ ++ ) state.zones[ $ ] = middle[ $ ]
     }
   }
   else if( Number.isInteger( hovered ) ) // hovering athlete
