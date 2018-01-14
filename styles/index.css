@@ -67,6 +67,8 @@
 {
   width         : var( --cell-size ) ;
   height        : var( --cell-size ) ;
+  color         : var( --white ) ;
+  font-size     : calc( var( --game-w ) / 90 ) ;
   background    : #666 ;
   border-radius : 50% ;
   box-shadow    : 0 0 0 var( --border-half ) #666 inset ,
