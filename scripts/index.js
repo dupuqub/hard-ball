@@ -21,24 +21,37 @@ a_to_t       = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P'
 
 //......................................................................................................................
 //
+var log = content => console.log( content )
+
+//......................................................................................................................
+//
 var state =
 {
   turn     : 0 ,
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
-  player   : { first : null , now : null } , // 'green' or 'blue'
   keeper   : { blue : null , green : null } ,
+  player   : { first : null , now : _ => {
+
+    var turn_is_even = state.turn % 2 === 0
+
+    return state.player.first === 'blue'
+           ? ( turn_is_even ? 'blue' : 'green' )
+           : ( turn_is_even ? 'green' : 'blue' )
+  } } ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : null ,
   ball     : null ,
   athletes : ( _ => {
+
     var new_array = []
     for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
     return new_array
   } )() ,
   zones    : ( _ => {
+
     var new_array = []
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
     return new_array
@@ -50,11 +63,6 @@ var state =
 var loop = _ =>
 {
   game_console.innerHTML = 'loading... joking, it isn\'t'
-
-  // updates who plays now
-  //
-  if( state.player.first === 'blue' ) state.player.now = state.turn % 2 === 0 ? 'green' : 'blue'
-  else if( state.player.first === 'green' ) state.player.now = state.turn % 2 === 0 ? 'blue' : 'green'
 
   window.requestAnimationFrame( loop )
 }
@@ -74,6 +82,7 @@ var change_selected = target =>
     state.selected.old = state.selected.now
   }
 
+  //....................................................................................................................
   // selected animation control
   //
   ball.classList.remove( 'slc' )
@@ -81,7 +90,12 @@ var change_selected = target =>
 
   if( target !== null )
   {
-    setTimeout( _ => target === 'ball' ? ball.classList.add( 'slc' ) : athletes[ target ].classList.add( 'slc' ) , 0 )
+    setTimeout( _ =>
+    {
+      return target === 'ball'
+             ? ball.classList.add( 'slc' )
+             : athletes[ target ].classList.add( 'slc' )
+    } , 0 )
   }
 }
 
@@ -135,3 +149,4 @@ reload.zones()
 reload.ball()
 
 loop()
+

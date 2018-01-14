@@ -27,13 +27,13 @@ var update_zone_cell = _ =>
 
   //....................................................................................................................
   //
-  else if( hovered.slice( 0 , 7 ) === 'athlete' )
+  else if( hovered !== null && hovered.slice( 0 , 7 ) === 'athlete' )
   {
     if( state.turn === 0 )
     {
       var both_starter = state.starter.blue.concat( state.starter.green )
 
-      for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
+      both_starter.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
     }
     else if( state.turn < 8 )
     {
@@ -60,7 +60,7 @@ var update_zone_cell = _ =>
     {
       var both_starter = state.starter.blue.concat( state.starter.green )
 
-      for( var $ = 0 ; $ < 8 ; $ ++ ) state.zones[ $ ] = both_starter[ $ ]
+      both_starter.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
     }
     else if( state.turn < 8 )
     {
@@ -72,6 +72,8 @@ var update_zone_cell = _ =>
     }
   }
 
+  //....................................................................................................................
+  //
   reload.zones()
 }
 

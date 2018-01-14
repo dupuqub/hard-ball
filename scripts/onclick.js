@@ -22,17 +22,20 @@ onclick = event =>
   {}
 
   //....................................................................................................................
-  // gameplay
+  // ball
   //
   else if( target === 'ball' )
   {}
 
+  //....................................................................................................................
+  // athlete
+  //
   else if( target.slice( 0 , 7 ) === 'athlete' )
   {
     var
     athlete_number = Number( target.slice( 8 , 10 ) ) ,
-    athlete_row = Number( state.athletes[ athlete_number ].slice( 1 , 3 ) ) ,
-    replaced_both = state.replaced.green.concat( state.replaced.green )
+    athlete_row    = Number( state.athletes[ athlete_number ].slice( 1 , 3 ) ) ,
+    replaced_both  = state.replaced.green.concat( state.replaced.green )
 
     if( athlete_row === 12 ) // athlete is benched
     {
@@ -41,7 +44,7 @@ onclick = event =>
         change_selected( athlete_number )
       }
       else if( replaced_both.indexOf( athlete_number ) === -1 // athlete was not replaced
-      && state.replaced[ state.player.now ].length < 2 ) // team has replacements left
+      && state.replaced[ state.player.now() ].length < 2 ) // team has replacements left
       {
         //
       }
@@ -52,21 +55,45 @@ onclick = event =>
     }
   }
 
-  else if( target === 'zone' ) // zones
+  //....................................................................................................................
+  // zone
+  //
+  else if( target.slice( 0 , 4 ) === 'zone' )
   {
-    if( state.selected.now === 'ball' )
+    var
+    selected                  = state.selected.now ,
+    zone_index                = Number( target.slice( 5 , 7 ) ) ,
+    zone_cell                 = state.zones[ zone_index ] ,
+    zone_cell_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== -1
+
+    if( selected === 'ball' )
     {
       //
     }
-    else if( state.selected.now !== null )
+    else if( selected !== null )
     {
       if( state.turn === 0 )
       {
-        //
+        state.player.first = zone_cell_in_blue_starter ? 'blue' : 'green'
       }
-      else if( state.turn < 8 )
+
+      if( state.turn < 8 )
       {
+        // to-do list
         //
+        // send athlete to its place
+        // lock game while athlete moves
+        // change turn and autosave when athlete reaches destination
+
+        var
+        athlete_index = state.selected.now ,
+        color         = state.player.now()
+
+        athletes[ athlete_index ].classList.add( color )
+        state.team[ color ].push( athlete_index )
+        state.starter[ color ] = state.starter[ color ].filter( cell => cell !== zone_cell )
+
+        change_selected( null )
       }
       else
       {
@@ -75,12 +102,18 @@ onclick = event =>
     }
   }
 
-  else if( target === 'aim' ) // aim
+  //....................................................................................................................
+  // aim
+  //
+  else if( target === 'aim' )
   {
     //
   }
 
-  else // nothing
+  //....................................................................................................................
+  // nothing
+  //
+  else
   {
     change_selected( null )
   }
