@@ -5,7 +5,8 @@
 //
 var update_zone_cell = _ =>
 {
-  state.zones.forEach( ( zone , $ ) => state.zones[ $ ] = null )
+  state.zones = state.zones.map( _ => null )
+  zones.forEach( zone => zone.classList.remove( 'nop' ) )
 
   var
   hovered  = state.hovered.now , // athlete as string
@@ -31,7 +32,7 @@ var update_zone_cell = _ =>
   {
     var
     athlete_index       = Number( hovered.slice( 8 , 10 ) ) ,
-    athlete_cell        = state.athletes[ athlete_index ].cell ,
+    athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
 
@@ -52,6 +53,14 @@ var update_zone_cell = _ =>
         var chewed_matrix = chew( athlete_index , athlete_index )
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+        if( state.player.now() === 'green'
+        && state.team.green.indexOf( athlete_index ) === -1
+        || state.player.now() === 'blue'
+        && state.team.blue.indexOf( athlete_index ) === -1 )
+        {
+          zones.forEach( zone => zone.classList.add( 'nop' ) )
+        }
       }
     }
     else
@@ -73,7 +82,7 @@ var update_zone_cell = _ =>
   {
     var
     athlete_index       = selected ,
-    athlete_cell        = state.athletes[ athlete_index ].cell ,
+    athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
 
@@ -94,6 +103,14 @@ var update_zone_cell = _ =>
         var chewed_matrix = chew( athlete_index , athlete_index )
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+        if( state.player.now() === 'green'
+        && state.team.green.indexOf( athlete_index ) === -1
+        || state.player.now() === 'blue'
+        && state.team.blue.indexOf( athlete_index ) === -1 )
+        {
+          zones.forEach( zone => zone.classList.add( 'nop' ) )
+        }
       }
     }
     else

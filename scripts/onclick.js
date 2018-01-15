@@ -34,7 +34,7 @@ onclick = event =>
   {
     var
     athlete_index = Number( target.slice( 8 , 10 ) ) ,
-    athlete_row   = Number( state.athletes[ athlete_index ].cell.slice( 1 , 3 ) ) ,
+    athlete_row   = Number( state.athletes[ athlete_index ].slice( 1 , 3 ) ) ,
     replaced_both = state.replaced.green.concat( state.replaced.green )
 
     if( athlete_row === 12 ) // athlete is benched
@@ -58,7 +58,8 @@ onclick = event =>
   //....................................................................................................................
   // zone
   //
-  else if( target.slice( 0 , 4 ) === 'zone' )
+  else if( target.slice( 0 , 4 ) === 'zone'
+  && Array.from( zones[ Number( target.slice( 5 , 7 ) ) ].classList ).indexOf( 'nop' ) === - 1 )
   {
     var
     selected                  = state.selected.now ,
@@ -93,27 +94,21 @@ onclick = event =>
         new_x = a_to_t.indexOf( zone_cell_letter ) * root_raw.cell_size + root_raw.border_full ,
         new_y = zone_cell_number * root_raw.cell_size + root_raw.border_full
 
-        state.athletes[ athlete_index ] = { cell : zone_cell , x : new_x , y : new_y }
-        athletes[ athlete_index ].style.transform = 'translate3d(' + new_x + 'px,' + new_y + 'px,0)'
+        state.athletes[ athlete_index ] = zone_cell
+        athletes[ athlete_index ].style.marginLeft = new_x + 'px'
+        athletes[ athlete_index ].style.marginTop = new_y + 'px'
 
         check.pool.push(
         {
           test : _ =>
           {
-            var
-            state_athlete = state.athletes[ state.selected.now ] ,
-            now_letter    = a_to_t[ ( state_athlete.x - root_raw.border_full ) / root_raw.cell_size ] ,
-            last_letter   = state_athlete.cell.slice( 0 , 1 ) ,
-            now_number    = ( state_athlete.y - root_raw.border_full ) / root_raw.cell_size ,
-            last_number   = Number( state_athlete.cell.slice( 1 , 3 ) )
-
-            return now_letter === last_letter && now_number === last_number
+            return true
           } ,
           act : _ =>
           {
             state.turn ++
 
-            change_selected( null )
+            update_zone_cell()
 
             // localStorage.hard_ball_save_auto = JSON.stringify( state ) // not until the state is more solidified
           }

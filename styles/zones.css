@@ -3,18 +3,18 @@
 
 .zon /* zones */
 {
-  width : var( --cell-size ) ;
-  height : var( --cell-size ) ;
+  width         : var( --cell-size ) ;
+  height        : var( --cell-size ) ;
   border-radius : 50% ;
-  border-width : var( --border-double ) ;
-  border-color : #FA0 ;
-  border-style : dotted ;
-  position : absolute ;
-  box-sizing : border-box ;
+  border-width  : var( --border-double ) ;
+  border-color  : #FA0 ;
+  border-style  : dotted ;
+  position      : absolute ;
+  box-sizing    : border-box ;
 
-  animation-name : rotate ;
+  animation-name            : rotate ;
   animation-iteration-count : infinite ;
-  animation-duration : 4s ;
+  animation-duration        : 4s ;
   animation-timing-function : linear ;
 }
 
@@ -22,11 +22,15 @@
 {
   border-color : #FC0 ;
   border-style : solid ;
-  box-shadow : 0 0 var( --border-double ) 0 #F60 ,
-               0 0 var( --border-double ) 0 #F60 inset ;
+  box-shadow   : 0 0 var( --border-double ) 0 #F60 ,
+                 0 0 var( --border-double ) 0 #F60 inset ;
 }
 
 @keyframes rotate{ 100%{ transform : rotate( 360deg ) } }
+
+/*....................................................................................................................*/
+
+.nop{ border-width : var( --border-full ) }
 
 /*....................................................................................................................*/
 

@@ -111,10 +111,10 @@
 
 .slc /* select */
 {
-  border-color              : #F80 ;
-  box-sizing                : border-box ;
-  box-shadow                : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
-                              0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
+  border-color : #F80 ;
+  box-sizing   : border-box ;
+  box-shadow   : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
+                 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
 
   animation-name            : select ;
   animation-iteration-count : 1 ;

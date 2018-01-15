@@ -38,7 +38,7 @@ var state =
     return state.player.first === 'blue'
            ? ( turn_is_even ? 'blue' : 'green' )
            : ( turn_is_even ? 'green' : 'blue' )
-  } } ,
+  } } , // 'player.now' is here for better code organization
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
@@ -48,7 +48,7 @@ var state =
 
     var new_array = []
 
-    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( { cell : a_to_t[ $ ] + 12 , x : null , y : null } )
+    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
 
     return new_array
   } )() ,
@@ -59,7 +59,7 @@ var state =
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
 
     return new_array
-  } )() , // it didn't have to be here, but this is better for code organization
+  } )() , // 'zones' is here for better code organization
 }
 
 //......................................................................................................................

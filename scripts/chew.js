@@ -18,11 +18,11 @@ var make_number = ( index , length ) => index > length - 1 ? index - length : in
 var chew = ( athlete_source , athlete_sight ) =>
 {
   var
-  source_cell        = state.athletes[ athlete_source ].cell ,
+  source_cell        = state.athletes[ athlete_source ] ,
   source_cell_letter = source_cell.slice( 0 , 1 ) ,
   source_cell_number = Number( source_cell.slice( 1 , 3 ) ) ,
 
-  sight_cell         = state.athletes[ athlete_sight ].cell ,
+  sight_cell         = state.athletes[ athlete_sight ] ,
   sight_cell_letter  = sight_cell.slice( 0 , 1 ) ,
   sight_cell_number  = Number( sight_cell.slice( 1 , 3 ) ) ,
 
@@ -62,18 +62,18 @@ var chew = ( athlete_source , athlete_sight ) =>
     if( move === 3 || move === 6 || move === 7 )
     {
       var
-      value_a = move === 3 ? 1 : move === 6 ? 1 : 2 ,
-      value_b = move === 3 ? 2 : move === 6 ? 3 : 3 ,
+      value_0 = move === 3 ? 1 : move === 6 ? 1 : 2 ,
+      value_1 = move === 3 ? 2 : move === 6 ? 3 : 3 ,
       cells =
       [
-        make_cell( make_letter( source_cell_letter , - value_a ) , make_number( source_cell_number - value_b , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , value_a ) , make_number( source_cell_number - value_b , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , value_b ) , make_number( source_cell_number - value_a , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , value_b ) , make_number( source_cell_number + value_a , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , value_a ) , make_number( source_cell_number + value_b , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , - value_a ) , make_number( source_cell_number + value_b , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , - value_b ) , make_number( source_cell_number + value_a , 12 ) ) ,
-        make_cell( make_letter( source_cell_letter , - value_b ) , make_number( source_cell_number - value_a , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_0 ) , make_number( source_cell_number - value_1 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_0 ) , make_number( source_cell_number - value_1 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_1 ) , make_number( source_cell_number - value_0 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_1 ) , make_number( source_cell_number + value_0 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_0 ) , make_number( source_cell_number + value_1 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_0 ) , make_number( source_cell_number + value_1 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_1 ) , make_number( source_cell_number + value_0 , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_1 ) , make_number( source_cell_number - value_0 , 12 ) ) ,
       ]
 
       cells.forEach( cell => this_array.push( cell ) )
