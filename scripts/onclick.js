@@ -43,7 +43,7 @@ onclick = event =>
       {
         change_selected( athlete_index )
       }
-      else if( replaced_both.indexOf( athlete_index ) === -1 // athlete was not replaced
+      else if( replaced_both.indexOf( athlete_index ) === - 1 // athlete was not replaced
       && state.replaced[ state.player.now() ].length < 2 ) // team has replacements left
       {
         //
@@ -66,7 +66,7 @@ onclick = event =>
     zone_cell                 = state.zones[ zone_index ] ,
     zone_cell_letter          = zone_cell.slice( 0 , 1 ) ,
     zone_cell_number          = Number( zone_cell.slice( 1 , 3 ) ),
-    zone_cell_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== -1
+    zone_cell_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== - 1
 
     if( selected === 'ball' )
     {
