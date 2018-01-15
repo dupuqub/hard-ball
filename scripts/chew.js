@@ -31,9 +31,7 @@ var chew = ( athlete_source , athlete_sight ) =>
 
   moves.forEach( move =>
   {
-    if( move === 0
-    || move === 2
-    || move === 5 )
+    if( move === 0 || move === 2 || move === 5 )
     {
       var
       value = move === 0 ? 1 : move === 2 ? 2 : 3 ,
@@ -47,9 +45,7 @@ var chew = ( athlete_source , athlete_sight ) =>
 
       cells.forEach( cell => this_array.push( cell ) )
     }
-    if( move === 1
-    || move === 4
-    || move === 8 )
+    if( move === 1 || move === 4 || move === 8 )
     {
       var
       value = move === 1 ? 1 : move === 4 ? 2 : 3 ,
@@ -63,9 +59,7 @@ var chew = ( athlete_source , athlete_sight ) =>
 
       cells.forEach( cell => this_array.push( cell ) )
     }
-    if( move === 3
-    || move === 6
-    || move === 7 )
+    if( move === 3 || move === 6 || move === 7 )
     {
       var
       value_a = move === 3 ? 1 : move === 6 ? 1 : 2 ,
