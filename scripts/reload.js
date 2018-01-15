@@ -12,9 +12,11 @@ var reload =
     athletes.forEach( ( athlete , $ ) =>
     {
       var
-      cell_name = state.athletes[ $ ] ,
-      new_x     = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full ,
-      new_y     = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full
+      cell_name   = state.athletes[ $ ].cell ,
+      cell_letter = cell_name.slice( 0 , 1 ) ,
+      cell_number = Number( cell_name.slice( 1 , 3 ) ) ,
+      new_x       = a_to_t.indexOf( cell_letter ) * root_raw.cell_size + root_raw.border_full ,
+      new_y       = cell_number * root_raw.cell_size + root_raw.border_full
 
       athlete.style.transform = 'translate3d(' + new_x + 'px,' + new_y + 'px,0)'
       athlete.classList.remove( 'tra_atl' )

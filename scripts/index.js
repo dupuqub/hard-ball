@@ -47,13 +47,17 @@ var state =
   athletes : ( _ => {
 
     var new_array = []
-    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
+
+    for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( { cell : a_to_t[ $ ] + 12 , x : null , y : null } )
+
     return new_array
   } )() ,
   zones    : ( _ => {
 
     var new_array = []
+
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
+
     return new_array
   } )() , // it didn't have to be here, but this is better for code organization
 }
@@ -62,6 +66,8 @@ var state =
 //
 var loop = _ =>
 {
+  check.tool()
+
   game_console.innerHTML = 'loading... joking, it isn\'t'
 
   window.requestAnimationFrame( loop )
