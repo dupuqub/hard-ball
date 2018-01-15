@@ -23,6 +23,8 @@ var update_zone_cell = _ =>
       var middle = [ 'J05' , 'J06' , 'K05' , 'K06' ]
 
       middle.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      zones.forEach( zone => zone.classList.add( 'nop' ) )
     }
   }
 
@@ -54,13 +56,7 @@ var update_zone_cell = _ =>
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
-        if( state.player.now() === 'green'
-        && state.team.green.indexOf( athlete_index ) === -1
-        || state.player.now() === 'blue'
-        && state.team.blue.indexOf( athlete_index ) === -1 )
-        {
-          zones.forEach( zone => zone.classList.add( 'nop' ) )
-        }
+        zones.forEach( zone => zone.classList.add( 'nop' ) )
       }
     }
     else
@@ -104,13 +100,7 @@ var update_zone_cell = _ =>
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
-        if( state.player.now() === 'green'
-        && state.team.green.indexOf( athlete_index ) === -1
-        || state.player.now() === 'blue'
-        && state.team.blue.indexOf( athlete_index ) === -1 )
-        {
-          zones.forEach( zone => zone.classList.add( 'nop' ) )
-        }
+        zones.forEach( zone => zone.classList.add( 'nop' ) )
       }
     }
     else
