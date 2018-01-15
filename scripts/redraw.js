@@ -9,8 +9,8 @@ var redraw = ( dom_object , klass ) =>
   {
     var
     size       = root_raw.game_w / 20 / 7 ,
-    new_width  = art_matrix[ $ ].w * size ,
-    new_height = art_matrix[ $ ].h * size
+    new_width  = matrix[ $ ].w * size ,
+    new_height = matrix[ $ ].h * size
 
     dom_object[ $ ].innerHTML    = write_svg( $ , size , klass )
     dom_object[ $ ].style.width  = new_width
@@ -22,7 +22,7 @@ var redraw = ( dom_object , klass ) =>
 //
 var write_svg = ( $ , size , klass ) =>
 {
-  var rect = art_matrix[ $ ].rects
+  var rect = matrix[ $ ].rects
 
   return '<rect x="' + rect[0][1] * size + '" y="' + rect[0][0] * size + '" class="sqr_art ' + klass + '"></rect>' +
          '<rect x="' + rect[1][1] * size + '" y="' + rect[1][0] * size + '" class="sqr_art ' + klass + '"></rect>' +

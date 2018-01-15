@@ -74,10 +74,7 @@ onclick = event =>
     }
     else if( selected !== null )
     {
-      if( state.turn === 0 )
-      {
-        state.player.first = zone_cell_in_blue_starter ? 'blue' : 'green'
-      }
+      if( state.turn === 0 ) state.player.first = zone_cell_in_blue_starter ? 'blue' : 'green'
 
       if( state.turn < 8 )
       {

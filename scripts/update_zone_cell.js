@@ -43,7 +43,14 @@ var update_zone_cell = _ =>
     }
     else if( state.turn < 8 )
     {
-      //
+      if( athlete_cell_number === 12 )
+      {
+        state.starter[ state.player.now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+      }
+      else
+      {
+        var chewed_matrix = chew( athlete_index , false )
+      }
     }
     else
     {
@@ -70,7 +77,14 @@ var update_zone_cell = _ =>
     }
     else if( state.turn < 8 )
     {
-      //
+      if( athlete_cell_number === 12 )
+      {
+        state.starter[ state.player.now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+      }
+      else
+      {
+        var chewed_matrix = chew( athlete_index , false )
+      }
     }
     else
     {
