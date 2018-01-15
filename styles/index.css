@@ -132,6 +132,13 @@
 
 /*....................................................................................................................*/
 
+.fix_lft{ margin-left : var( --border-half ) }
+.fix_rgt{ margin-right : var( --border-half ) }
+.fix_bot{ margin-bottom : var( --border-half ) }
+.fix_top{ margin-top : var( --border-half ) }
+
+/*....................................................................................................................*/
+
 .red_lgt{ background : #A00 }
 .red_drk{ background : #900 }
 .grn_lgt{ background : #580 }
