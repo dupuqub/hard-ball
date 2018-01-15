@@ -29,126 +29,62 @@ var chew = ( athlete_source , athlete_sight ) =>
   moves              = matrix[ athlete_sight ].moves ,
   this_array         = []
 
-  if( moves.indexOf( 0 ) !== - 1 )
+  moves.forEach( move =>
   {
-    var cells =
-    [
-      make_cell( source_cell_letter , make_number( source_cell_number - 1 , 12 ) ) ,
-      make_cell( source_cell_letter , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 1 ) , source_cell_number ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , source_cell_number ) ,
-    ]
+    if( move === 0
+    || move === 2
+    || move === 5 )
+    {
+      var
+      value = move === 0 ? 1 : move === 2 ? 2 : 3 ,
+      cells =
+      [
+        make_cell( source_cell_letter , make_number( source_cell_number - value , 12 ) ) ,
+        make_cell( source_cell_letter , make_number( source_cell_number + value , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value ) , source_cell_number ) ,
+        make_cell( make_letter( source_cell_letter , value ) , source_cell_number ) ,
+      ]
 
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 1 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-    ]
+      cells.forEach( cell => this_array.push( cell ) )
+    }
+    if( move === 1
+    || move === 4
+    || move === 8 )
+    {
+      var
+      value = move === 1 ? 1 : move === 4 ? 2 : 3 ,
+      cells =
+      [
+        make_cell( make_letter( source_cell_letter , - value ) , make_number( source_cell_number - value , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value ) , make_number( source_cell_number - value , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value ) , make_number( source_cell_number + value , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value ) , make_number( source_cell_number + value , 12 ) ) ,
+      ]
 
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 2 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( source_cell_letter , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( source_cell_letter , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 2 ) , source_cell_number ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , source_cell_number ) ,
-    ]
+      cells.forEach( cell => this_array.push( cell ) )
+    }
+    if( move === 3
+    || move === 6
+    || move === 7 )
+    {
+      var
+      value_a = move === 3 ? 1 : move === 6 ? 1 : 2 ,
+      value_b = move === 3 ? 2 : move === 6 ? 3 : 3 ,
+      cells =
+      [
+        make_cell( make_letter( source_cell_letter , - value_a ) , make_number( source_cell_number - value_b , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_a ) , make_number( source_cell_number - value_b , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_b ) , make_number( source_cell_number - value_a , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_b ) , make_number( source_cell_number + value_a , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , value_a ) , make_number( source_cell_number + value_b , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_a ) , make_number( source_cell_number + value_b , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_b ) , make_number( source_cell_number + value_a , 12 ) ) ,
+        make_cell( make_letter( source_cell_letter , - value_b ) , make_number( source_cell_number - value_a , 12 ) ) ,
+      ]
 
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 3 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 4 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 5 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( source_cell_letter , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( source_cell_letter , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , source_cell_number ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , source_cell_number ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 6 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 1 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 1 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number + 1 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number - 1 , 12 ) ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 7 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 2 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 2 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number + 2 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number - 2 , 12 ) ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
-  if( moves.indexOf( 8 ) !== - 1 )
-  {
-    var cells =
-    [
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number - 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , 3 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-      make_cell( make_letter( source_cell_letter , - 3 ) , make_number( source_cell_number + 3 , 12 ) ) ,
-    ]
-
-    cells.forEach( cell => this_array.push( cell ) )
-  }
+      cells.forEach( cell => this_array.push( cell ) )
+    }
+  } )
 
   return this_array
 }
