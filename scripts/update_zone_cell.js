@@ -49,7 +49,9 @@ var update_zone_cell = _ =>
       }
       else
       {
-        var chewed_matrix = chew( athlete_index , false )
+        var chewed_matrix = chew( athlete_index , athlete_index )
+
+        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
     }
     else
@@ -89,7 +91,9 @@ var update_zone_cell = _ =>
       }
       else
       {
-        var chewed_matrix = chew( athlete_index , false )
+        var chewed_matrix = chew( athlete_index , athlete_index )
+
+        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
     }
     else

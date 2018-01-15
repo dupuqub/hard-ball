@@ -101,8 +101,7 @@ onclick = event =>
           test : _ =>
           {
             var
-            athlete_index = state.selected.now ,
-            state_athlete = state.athletes[ athlete_index ] ,
+            state_athlete = state.athletes[ state.selected.now ] ,
             now_letter    = a_to_t[ ( state_athlete.x - root_raw.border_full ) / root_raw.cell_size ] ,
             last_letter   = state_athlete.cell.slice( 0 , 1 ) ,
             now_number    = ( state_athlete.y - root_raw.border_full ) / root_raw.cell_size ,
