@@ -51,7 +51,14 @@ onclick = event =>
     }
     else // athlete is playing
     {
-      //
+      if( state.turn < 8 )
+      {
+        change_selected( athlete_index )
+      }
+      else
+      {
+        //
+      }
     }
   }
 
@@ -59,7 +66,11 @@ onclick = event =>
   // zone
   //
   else if( target.slice( 0 , 4 ) === 'zone'
-  && Array.from( zones[ Number( target.slice( 5 , 7 ) ) ].classList ).indexOf( 'nop' ) === - 1 )
+  && Array.from( zones[ Number( target.slice( 5 , 7 ) ) ].classList ).indexOf( 'nop' ) !== - 1 )
+  {
+    // do nothing (gameplay focused choice)
+  }
+  else if( target.slice( 0 , 4 ) === 'zone' )
   {
     var
     selected                  = state.selected.now ,
