@@ -8,8 +8,8 @@ var update_zone_cell = _ =>
   state.zones.forEach( ( zone , $ ) => state.zones[ $ ] = null )
 
   var
-  hovered  = state.hovered.now ,
-  selected = state.selected.now
+  hovered  = state.hovered.now , // athlete as string
+  selected = state.selected.now // athlete as number
 
   //....................................................................................................................
   //
@@ -69,6 +69,12 @@ var update_zone_cell = _ =>
   //
   else if( selected !== null ) // athlete
   {
+    var
+    athlete_index       = selected ,
+    athlete_cell        = state.athletes[ athlete_index ].cell ,
+    athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
+    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
+
     if( state.turn === 0 )
     {
       var both_starter = state.starter.blue.concat( state.starter.green )
