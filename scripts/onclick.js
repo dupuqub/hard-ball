@@ -119,7 +119,7 @@ onclick = event =>
 
             change_selected( null )
 
-            localStorage.hard_ball_save_auto = JSON.stringify( state )
+            // localStorage.hard_ball_save_auto = JSON.stringify( state ) // not until the state is more solidified
           }
         } )
       }
