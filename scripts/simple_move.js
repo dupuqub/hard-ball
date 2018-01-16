@@ -43,7 +43,7 @@ var simple_move = zone_cell =>
 
       update_zone_cell()
 
-      localStorage.hard_ball_save_auto = JSON.stringify( state ) // not until the state is more solidified
+      // localStorage.hard_ball_save_auto = JSON.stringify( state ) // not until the state is more solidified
     }
   } )
 }
