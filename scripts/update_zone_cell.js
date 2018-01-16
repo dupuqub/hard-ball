@@ -6,12 +6,14 @@
 var update_zone_cell = _ =>
 {
   state.zones = state.zones.map( _ => null )
-  zones.forEach( zone => zone.classList.remove( 'nop' ) )
+  zones.forEach( zone => zone.classList.remove( 'zon_nop' ) )
 
   var
   hovered  = state.hovered.now , // athlete as string
   selected = state.selected.now // athlete as number
 
+  //....................................................................................................................
+  // HOVERED
   //....................................................................................................................
   //
   if( hovered === 'ball' )
@@ -24,7 +26,7 @@ var update_zone_cell = _ =>
 
       middle.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
-      zones.forEach( zone => zone.classList.add( 'nop' ) )
+      zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
     }
   }
 
@@ -38,6 +40,9 @@ var update_zone_cell = _ =>
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
 
+    //..................................................................................................................
+    // startup
+    //
     if( state.turn === 0 )
     {
       var both_starters = state.starter.blue.concat( state.starter.green )
@@ -56,15 +61,31 @@ var update_zone_cell = _ =>
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
-        zones.forEach( zone => zone.classList.add( 'nop' ) )
+        zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
       }
     }
-    else
+
+    //..................................................................................................................
+    // roundabouting
+    //
+    else if( state.rounding )
     {
       //
     }
+
+    //..................................................................................................................
+    // common play
+    //
+    else
+    {
+        var chewed_matrix = chew( athlete_index , athlete_index )
+
+        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+    }
   }
 
+  //....................................................................................................................
+  // SELECTED
   //....................................................................................................................
   //
   else if( selected === 'ball' )
@@ -82,6 +103,9 @@ var update_zone_cell = _ =>
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
 
+    //..................................................................................................................
+    // startup
+    //
     if( state.turn === 0 )
     {
       var both_starter = state.starter.blue.concat( state.starter.green )
@@ -100,12 +124,26 @@ var update_zone_cell = _ =>
 
         chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
-        zones.forEach( zone => zone.classList.add( 'nop' ) )
+        zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
       }
     }
-    else
+
+    //..................................................................................................................
+    // roundabouting
+    //
+    else if( state.rounding )
     {
       //
+    }
+
+    //..................................................................................................................
+    // common play
+    //
+    else
+    {
+        var chewed_matrix = chew( athlete_index , athlete_index )
+
+        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
     }
   }
 

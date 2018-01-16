@@ -27,6 +27,8 @@ var log = content => console.log( content )
 //
 var state =
 {
+  rounding : false ,
+  lock     : false ,
   turn     : 0 ,
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
