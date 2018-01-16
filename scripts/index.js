@@ -25,6 +25,17 @@ var log = content => console.log( content )
 
 //......................................................................................................................
 //
+var plays_now = _ =>
+{
+  var turn_is_even = state.turn % 2 === 0
+
+  return state.first === 'blue'
+         ? ( turn_is_even ? 'blue' : 'green' )
+         : ( turn_is_even ? 'green' : 'blue' )
+}
+
+//......................................................................................................................
+//
 var state =
 {
   rounding : false ,
@@ -33,14 +44,7 @@ var state =
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   keeper   : { blue : null , green : null } ,
-  player   : { first : null , now : _ => { // 'player.now' is here for better code organization
-
-    var turn_is_even = state.turn % 2 === 0
-
-    return state.player.first === 'blue'
-           ? ( turn_is_even ? 'blue' : 'green' )
-           : ( turn_is_even ? 'green' : 'blue' )
-  } } ,
+  first    : null ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
@@ -139,6 +143,19 @@ onresize = event =>
 if( localStorage.hard_ball_save_auto !== undefined )
 {
   state = JSON.parse( localStorage.hard_ball_save_auto )
+
+  athletes.forEach( ( athlete , $ ) =>
+  {
+    state.team.green.indexOf( $ ) !== - 1
+    ? athlete.classList.add( 'green' )
+    : state.team.blue.indexOf( $ ) !== - 1
+    ? athlete.classList.add( 'blue' )
+    : null
+  } )
+
+  state.selected.now !== null ? change_selected( state.selected.now ) : null
+
+  zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
 }
 
 // initialize

@@ -53,7 +53,7 @@ var update_zone_cell = _ =>
     {
       if( athlete_cell_number === 12 )
       {
-        state.starter[ state.player.now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+        state.starter[ plays_now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
       else
       {
@@ -116,7 +116,7 @@ var update_zone_cell = _ =>
     {
       if( athlete_cell_number === 12 )
       {
-        state.starter[ state.player.now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+        state.starter[ plays_now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
       else
       {

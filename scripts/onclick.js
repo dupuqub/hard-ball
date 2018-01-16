@@ -45,7 +45,7 @@ onclick = event =>
           change_selected( athlete_index )
         }
         else if( replaced_both.indexOf( athlete_index ) === - 1 // athlete was not replaced
-        && state.replaced[ state.player.now() ].length < 2 ) // team has replacements left
+        && state.replaced[ plays_now() ].length < 2 ) // team has replacements left
         {
           //
         }
@@ -84,13 +84,13 @@ onclick = event =>
         }
         else if( selected !== null )
         {
-          if( state.turn === 0 ) state.player.first = zone_cell_in_blue_starter ? 'blue' : 'green'
+          if( state.turn === 0 ) state.first = zone_cell_in_blue_starter ? 'blue' : 'green'
 
           if( state.turn < 8 )
           {
             var
             athlete_index = state.selected.now ,
-            color         = state.player.now()
+            color         = plays_now()
 
             athletes[ athlete_index ].classList.add( color )
             state.team[ color ].push( athlete_index )
