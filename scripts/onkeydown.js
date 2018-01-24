@@ -33,18 +33,18 @@ onkeydown = event =>
 {
   var pressed = event.key
 
-  if( ! event.ctrlKey && Number.isInteger( Number( pressed ) ) )
+  if( ! event.ctrlKey )
   {
-    if( Number( pressed ) === 0 )
+    if( pressed === '0' )
     {
       confirm( 'ERASE ALL SAVE FILES' )
       ? localStorage.clear()
       : null
     }
-    else
+    else if( pressed !== ' ' && Number.isInteger( Number( pressed ) ) )
     {
       var
-      save_file = 'hard_ball_save_' + Number( pressed ) ,
+      save_file = 'hard_ball_save_' + pressed ,
       string_state = JSON.stringify( state )
 
       localStorage[ save_file ] === undefined
