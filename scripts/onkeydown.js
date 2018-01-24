@@ -33,7 +33,7 @@ onkeydown = event =>
 {
   var pressed = event.key
 
-  if( Number.isInteger( Number( pressed ) ) )
+  if( ! event.ctrlKey && Number.isInteger( Number( pressed ) ) )
   {
     if( Number( pressed ) === 0 )
     {
@@ -48,13 +48,13 @@ onkeydown = event =>
       string_state = JSON.stringify( state )
 
       localStorage[ save_file ] === undefined
-      ? localStorage[ save_file ] = string_state
-      : confirm( 'LOAD' )
+      ? ( confirm( 'SAVE ?' ) ? localStorage[ save_file ] = string_state : null )
+      : confirm( 'LOAD ?' )
       ? load( save_file )
-      : confirm( 'REPLACE' )
+      : confirm( 'REPLACE ?' )
       ? localStorage[ save_file ] = string_state
-      : confirm( 'ERASE' )
-      ? localStorage.remove( save_file )
+      : confirm( 'ERASE ?' )
+      ? localStorage.removeItem( save_file )
       : null
     }
   }
