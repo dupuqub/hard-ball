@@ -33,6 +33,12 @@ var reroot = _ =>
 {
   var rerooted = root.reduce( ( a , b ) => a + b )
 
-  document.styleSheets[ 1 ].cssRules[ 0 ].style.cssText = rerooted
+  Array.from( document.styleSheets ).forEach( ( sheet , $ ) =>
+  {
+    if( sheet.href === 'https://dupuqub.github.io/hardball/styles/root.css' )
+    {
+      document.styleSheets[ $ ].cssRules[ 0 ].style.cssText = rerooted
+    }
+  } )
 }
 
