@@ -38,7 +38,13 @@ var update_zone_cell = _ =>
     athlete_index       = Number( hovered.slice( 8 , 10 ) ) ,
     athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
-    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
+    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
+    athlete_team        =
+      state.team.blue.indexOf( athlete_index ) !== -1
+      ? 'blue'
+      : state.team.green.indexOf( athlete_index ) !== -1
+      ? 'green'
+      : null
 
     //..................................................................................................................
     // startup
@@ -51,7 +57,7 @@ var update_zone_cell = _ =>
     }
     else if( state.turn < 8 )
     {
-      if( athlete_cell_number === 12 )
+      if( athlete_team === null )
       {
         state.starter[ plays_now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
@@ -74,15 +80,25 @@ var update_zone_cell = _ =>
     }
 
     //..................................................................................................................
-    // common play
+    // benched
+    //
+    else if( athlete_team === null )
+    {
+      //
+    }
+
+    //..................................................................................................................
+    // playing
     //
     else
     {
-        var chewed_matrix = chew( athlete_index , athlete_index )
+      var chewed_matrix = chew( athlete_index , athlete_index )
 
-        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
     }
-  }
+}
 
   //....................................................................................................................
   // SELECTED
@@ -101,7 +117,13 @@ var update_zone_cell = _ =>
     athlete_index       = selected ,
     athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
-    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) )
+    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
+    athlete_team        =
+      state.team.blue.indexOf( athlete_index ) !== -1
+      ? 'blue'
+      : state.team.green.indexOf( athlete_index ) !== -1
+      ? 'green'
+      : null
 
     //..................................................................................................................
     // startup
@@ -114,7 +136,7 @@ var update_zone_cell = _ =>
     }
     else if( state.turn < 8 )
     {
-      if( athlete_cell_number === 12 )
+      if( athlete_team === null )
       {
         state.starter[ plays_now() ].forEach( ( cell , $ ) => state.zones[ $ ] = cell )
       }
@@ -137,13 +159,23 @@ var update_zone_cell = _ =>
     }
 
     //..................................................................................................................
-    // common play
+    // benched
+    //
+    else if( athlete_team === null )
+    {
+      //
+    }
+
+    //..................................................................................................................
+    // playing
     //
     else
     {
-        var chewed_matrix = chew( athlete_index , athlete_index )
+      var chewed_matrix = chew( athlete_index , athlete_index )
 
-        chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
     }
   }
 
