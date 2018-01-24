@@ -15,16 +15,35 @@
   width      : var( --cell-size ) ;
   height     : var( --cell-size ) ;
   float      : left ;
-  color      : rgba( 255 , 255 , 255 , .4 ) ;
+  color      : rgba( 255 , 255 , 255 , 0.4 ) ;
   border     : 0 var( --white ) solid ;
   box-sizing : border-box ;
-  box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , .1 ) inset ;
+  box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , 0.1 ) inset ;
 }
 
 .txt_cll /* text cell */
 {
   font-size   : calc( var( --game-w ) / 70 ) ;
   font-weight : bold ;
+}
+
+/*....................................................................................................................*/
+
+.txt_glw /* text glow */
+{
+  animation-name            : text_glow ;
+  animation-iteration-count : infinite ;
+  animation-duration        : 1.5s ;
+  animation-timing-function : linear ;
+}
+
+@keyframes text_glow
+{
+  50%
+  {
+    color       : rgba( 255 , 255 , 255 , 1 ) ;
+    text-shadow : 0 0 var( --border-double ) var( --white ) ;
+  }
 }
 
 /*....................................................................................................................*/
@@ -37,7 +56,7 @@
   border-width  : var( --border-full ) ;
   border-radius : 50% ;
   box-sizing    : border-box ;
-  background    : rgba( 255 , 255 , 255 , .3 ) ;
+  background    : rgba( 255 , 255 , 255 , 0.3 ) ;
 }
 
 /*....................................................................................................................*/
@@ -96,7 +115,7 @@
 .inn /* inner circles */
 {
   position      : absolute ;
-  border-color  : rgba( 255 , 255 , 255 , .3 ) ;
+  border-color  : rgba( 255 , 255 , 255 , 0.3 ) ;
   border-style  : solid ;
   border-width  : var( --border-full ) ;
   box-sizing    : border-box ;
@@ -118,7 +137,7 @@
 
   animation-name            : select ;
   animation-iteration-count : 1 ;
-  animation-duration        : .5s ;
+  animation-duration        : 0.5s ;
   animation-timing-function : ease ;
   animation-fill-mode       : forwards ;
 }

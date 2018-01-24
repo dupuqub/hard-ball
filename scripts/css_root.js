@@ -35,7 +35,7 @@ var reroot = _ =>
 
   Array.from( document.styleSheets ).forEach( ( sheet , $ ) =>
   {
-    if( sheet.href !== null && sheet.href.indexOf( 'root.css' ) !== -1 )
+    if( sheet.href !== null && sheet.href.indexOf( 'root.css' ) !== - 1 )
     {
       document.styleSheets[ $ ].cssRules[ 0 ].style.cssText = rerooted
     }

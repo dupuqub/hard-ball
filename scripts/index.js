@@ -50,13 +50,13 @@ var state =
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : null ,
   ball     : null ,
-  athletes : ( _ => // it becomes an array on startup
+  athletes : ( _ => // becomes an array on startup
   {
     var new_array = []
     for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
     return new_array
   } )() ,
-  zones    : ( _ => // it becomes an array on startup
+  zones    : ( _ => // becomes an array on startup
   {
     var new_array = []
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
