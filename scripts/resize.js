@@ -17,10 +17,10 @@ var resize = _ =>
     root_raw.game_w       = width_game * game_scale
     root_raw.game_h       = height_foundation * game_scale
 
-    root[ 0 ] = '--foundation-w:' + window.innerWidth + 'px;'
-    root[ 1 ] = '--foundation-h:' + height_foundation + 'px;'
-    root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
-    root[ 3 ] = '--game-h:' + height_foundation * game_scale + 'px;'
+    root_text[ 0 ] = '--foundation-w:' + window.innerWidth + 'px;'
+    root_text[ 1 ] = '--foundation-h:' + height_foundation + 'px;'
+    root_text[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
+    root_text[ 3 ] = '--game-h:' + height_foundation * game_scale + 'px;'
   }
   else
   {
@@ -34,10 +34,10 @@ var resize = _ =>
     root_raw.game_w       = width_game * game_scale
     root_raw.game_h       = window.innerHeight * game_scale
 
-    root[ 0 ] = '--foundation-w:' + width_foundation + 'px;'
-    root[ 1 ] = '--foundation-h:' + window.innerHeight + 'px;'
-    root[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
-    root[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
+    root_text[ 0 ] = '--foundation-w:' + width_foundation + 'px;'
+    root_text[ 1 ] = '--foundation-h:' + window.innerHeight + 'px;'
+    root_text[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
+    root_text[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
   }
 
   // Some helpful variables after the real resize

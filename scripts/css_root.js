@@ -5,7 +5,7 @@
 // Color control doesn't seem to work through here
 // Inner text for reference (updates on resize)
 //
-var root =
+var root_text =
 [
   '--foundation-w : 0 ;' ,
   '--foundation-h : 0 ;' ,
@@ -31,11 +31,11 @@ var root_raw =
 //
 var reroot = _ =>
 {
-  var rerooted = root.reduce( ( a , b ) => a + b )
+  var rerooted = root_text.reduce( ( a , b ) => a + b )
 
   Array.from( document.styleSheets ).forEach( ( sheet , $ ) =>
   {
-    if( sheet.href === 'https://dupuqub.github.io/hardball/styles/root.css' )
+    if( sheet.href !== null && sheet.href.indexOf( 'root.css' ) !== -1 )
     {
       document.styleSheets[ $ ].cssRules[ 0 ].style.cssText = rerooted
     }
