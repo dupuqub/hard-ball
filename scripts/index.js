@@ -50,14 +50,14 @@ var state =
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   aim      : null ,
   ball     : null ,
-  athletes : ( _ => {
-
+  athletes : ( _ => // it becomes an array on startup
+  {
     var new_array = []
     for( var $ = 0 ; $ < 20 ; $ ++ ) new_array.push( a_to_t[ $ ] + 12 )
     return new_array
   } )() ,
-  zones    : ( _ => { // 'zones' is here for better code organization
-
+  zones    : ( _ => // it becomes an array on startup
+  {
     var new_array = []
     for( var $ = 0 ; $ < 16 ; $ ++ ) new_array.push( null )
     return new_array
@@ -100,9 +100,11 @@ var change_selected = target =>
   {
     setTimeout( _ =>
     {
-      return target === 'ball'
-             ? ball.classList.add( 'slc' )
-             : athletes[ target ].classList.add( 'slc' )
+      return(
+        target === 'ball'
+        ? ball.classList.add( 'slc' )
+        : athletes[ target ].classList.add( 'slc' )
+      )
     } , 0 )
   }
 }
@@ -140,23 +142,7 @@ onresize = event =>
 //......................................................................................................................
 // check for a automatic save file
 //
-if( localStorage.hard_ball_save_auto !== undefined )
-{
-  state = JSON.parse( localStorage.hard_ball_save_auto )
-
-  athletes.forEach( ( athlete , $ ) =>
-  {
-    state.team.green.indexOf( $ ) !== - 1
-    ? athlete.classList.add( 'green' )
-    : state.team.blue.indexOf( $ ) !== - 1
-    ? athlete.classList.add( 'blue' )
-    : null
-  } )
-
-  state.selected.now !== null ? change_selected( state.selected.now ) : null
-
-  zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
-}
+if( localStorage.hard_ball_save_auto !== undefined ) load( 'hard_ball_save_auto' )
 
 // initialize
 //

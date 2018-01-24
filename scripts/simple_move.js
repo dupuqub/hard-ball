@@ -29,10 +29,11 @@ var simple_move = zone_cell =>
       athlete_rect_y   = athlete_rect.y - game_rect.y - root_raw.border_full / 2 ,
       athlete_margin_x = Number( athletes[ chosen ].style.marginLeft.slice( 0 , -2 ) ) ,
       athlete_margin_y = Number( athletes[ chosen ].style.marginTop.slice( 0 , -2 ) ) ,
-      x_is_close       = athlete_rect_x.toFixed( 1 ) > athlete_margin_x.toFixed( 1 ) - .2
-                         && athlete_rect_x.toFixed( 1 ) < athlete_margin_x.toFixed( 1 ) + .2 ,
-      y_is_close       = athlete_rect_y.toFixed( 1 ) > athlete_margin_y.toFixed( 1 ) - .2
-                         && athlete_rect_y.toFixed( 1 ) < athlete_margin_y.toFixed( 1 ) + .2
+      threshold        = .2 ,
+      x_is_close       = athlete_rect_x.toFixed( 1 ) > athlete_margin_x.toFixed( 1 ) - threshold
+                         && athlete_rect_x.toFixed( 1 ) < athlete_margin_x.toFixed( 1 ) + threshold ,
+      y_is_close       = athlete_rect_y.toFixed( 1 ) > athlete_margin_y.toFixed( 1 ) - threshold
+                         && athlete_rect_y.toFixed( 1 ) < athlete_margin_y.toFixed( 1 ) + threshold
 
       return x_is_close && y_is_close
     } ,
