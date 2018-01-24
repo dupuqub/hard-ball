@@ -29,9 +29,12 @@ var plays_now = _ =>
 {
   var turn_is_even = state.turn % 2 === 0
 
-  return state.first === 'blue'
-         ? ( turn_is_even ? 'blue' : 'green' )
-         : ( turn_is_even ? 'green' : 'blue' )
+  return(
+
+    state.first === 'blue'
+    ? ( turn_is_even ? 'blue' : 'green' )
+    : ( turn_is_even ? 'green' : 'blue' )
+  )
 }
 
 //......................................................................................................................

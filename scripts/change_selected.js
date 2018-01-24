@@ -27,6 +27,7 @@ var change_selected = target =>
     setTimeout( _ =>
     {
       return(
+
         target === 'ball'
         ? ball.classList.add( 'slc' )
         : athletes[ target ].classList.add( 'slc' )
