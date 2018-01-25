@@ -29,34 +29,6 @@
 
 /*....................................................................................................................*/
 
-.glw /* glow */
-{
-  animation-name            : glow ;
-  animation-iteration-count : infinite ;
-  animation-duration        : 1.5s ;
-  animation-timing-function : linear ;
-}
-
-@keyframes glow
-{
-  0%
-  {
-    fill : rgba( 255 , 255 , 255 , 0.4 ) ;
-  }
-  50%
-  {
-    color       : rgba( 255 , 255 , 255 , 1 ) ;
-    text-shadow : 0 0 var( --border-double ) var( --white ) ;
-    fill        : rgba( 255 , 255 , 255 , 1 ) ;
-  }
-  100%
-  {
-    fill : rgba( 255 , 255 , 255 , 0.4 ) ;
-  }
-}
-
-/*....................................................................................................................*/
-
 .gol /* goal */
 {
   width         : var( --goal-size ) ;
@@ -156,6 +128,23 @@
   30%{ border-width : calc( var( --border-double ) * 2 ) }
   70%{ border-width : var( --border-half ) }
   100%{ border-width : var( --border-double ) }
+}
+
+/*....................................................................................................................*/
+
+.glw /* glow */
+{
+  animation-name            : glow ;
+  animation-iteration-count : infinite ;
+  animation-duration        : 1.5s ;
+  animation-timing-function : linear ;
+}
+
+@keyframes glow
+{
+  0%{ fill : rgba( 255 , 255 , 255 , 0.4 ) }
+  50%{ color : rgba( 255 , 255 , 255 , 1 ) ; fill : rgba( 255 , 255 , 255 , 1 ) ; text-shadow : 0 0 var( --border-double ) var( --white ) }
+  100%{ fill : rgba( 255 , 255 , 255 , 0.4 ) }
 }
 
 /*....................................................................................................................*/
