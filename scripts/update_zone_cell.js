@@ -98,7 +98,7 @@ var update_zone_cell = _ =>
 
       if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
     }
-}
+  }
 
   //....................................................................................................................
   // SELECTED

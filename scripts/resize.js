@@ -3,6 +3,22 @@
 
 //......................................................................................................................
 //
+onresize = event =>
+{
+  resize()
+  reroot()
+  redraw( arts_athlete , 'fil_atl' )
+  redraw( arts_bench , 'fil_bnc' )
+
+  reload.athletes()
+  reload.zones()
+  reload.ball()
+
+  update_lights()
+}
+
+//......................................................................................................................
+//
 var resize = _ =>
 {
   if( window.innerHeight / aspect.y > window.innerWidth / aspect.x )

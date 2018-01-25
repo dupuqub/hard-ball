@@ -29,20 +29,29 @@
 
 /*....................................................................................................................*/
 
-.txt_glw /* text glow */
+.glw /* glow */
 {
-  animation-name            : text_glow ;
+  animation-name            : glow ;
   animation-iteration-count : infinite ;
   animation-duration        : 1.5s ;
   animation-timing-function : linear ;
 }
 
-@keyframes text_glow
+@keyframes glow
 {
+  0%
+  {
+    fill : rgba( 255 , 255 , 255 , 0.4 ) ;
+  }
   50%
   {
     color       : rgba( 255 , 255 , 255 , 1 ) ;
     text-shadow : 0 0 var( --border-double ) var( --white ) ;
+    fill        : rgba( 255 , 255 , 255 , 1 ) ;
+  }
+  100%
+  {
+    fill : rgba( 255 , 255 , 255 , 0.4 ) ;
   }
 }
 

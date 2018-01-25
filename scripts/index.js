@@ -9,6 +9,11 @@ arts_bench   = document.querySelectorAll( '.art_bnc' ) ,
 athletes     = document.querySelectorAll( '.atl' ) ,
 zones        = document.querySelectorAll( '.zon' ) ,
 
+blue_light   = document.querySelectorAll( '.blu_lgt' ) ,
+blue_dark    = document.querySelectorAll( '.blu_drk' ) ,
+green_light  = document.querySelectorAll( '.grn_lgt' ) ,
+green_dark   = document.querySelectorAll( '.grn_drk' ) ,
+
 game_console = document.querySelector( '#game_console' ) ,
 foundation   = document.querySelector( '#foundation' ) ,
 game         = document.querySelector( '#game' ) ,
@@ -92,20 +97,6 @@ onmousemove = event =>
 
     state.hovered.old = state.hovered.now
   }
-}
-
-//......................................................................................................................
-//
-onresize = event =>
-{
-  resize()
-  reroot()
-  redraw( arts_athlete , 'fil_atl' )
-  redraw( arts_bench , 'fil_bnc' )
-
-  reload.athletes()
-  reload.zones()
-  reload.ball()
 }
 
 //......................................................................................................................
