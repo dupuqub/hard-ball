@@ -9,10 +9,10 @@ arts_bench   = document.querySelectorAll( '.art_bnc' ) ,
 athletes     = document.querySelectorAll( '.atl' ) ,
 zones        = document.querySelectorAll( '.zon' ) ,
 
-blue_light   = document.querySelectorAll( '.blu_lgt' ) ,
-blue_dark    = document.querySelectorAll( '.blu_drk' ) ,
-green_light  = document.querySelectorAll( '.grn_lgt' ) ,
-green_dark   = document.querySelectorAll( '.grn_drk' ) ,
+blue_light  = document.querySelectorAll( '.blu_lgt' ) ,
+blue_dark   = document.querySelectorAll( '.blu_drk' ) ,
+green_light = document.querySelectorAll( '.grn_lgt' ) ,
+green_dark  = document.querySelectorAll( '.grn_drk' ) ,
 
 game_console = document.querySelector( '#game_console' ) ,
 foundation   = document.querySelector( '#foundation' ) ,
@@ -20,13 +20,33 @@ game         = document.querySelector( '#game' ) ,
 ball         = document.querySelector( '#ball' ) ,
 aim          = document.querySelector( '#aim' ) ,
 
-game_scale   = 0.9 ,
-aspect       = { x : 16 , y : 9 } ,
-a_to_t       = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T' ]
+game_scale = 0.9 ,
+aspect     = { x : 16 , y : 9 } ,
+a_to_t     = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T' ] ,
+area       =
+{
+  blue : Array.from( blue_light ).concat( Array.from( blue_dark ) ).map( dom_object => dom_object.id ).sort() ,
+  green : Array.from( green_light ).concat( Array.from( green_dark ) ).map( dom_object => dom_object.id ).sort() ,
+}
 
 //......................................................................................................................
 //
 var log = content => console.log( content )
+
+//......................................................................................................................
+//
+var athletes_playing_cells = _ =>
+{
+  var new_object =
+  {
+    blue  : state.team.blue.map( athlete_index => state.athletes[ athlete_index ] ) ,
+    green : state.team.green.map( athlete_index => state.athletes[ athlete_index ] ) ,
+  }
+
+  new_object.both = new_object.blue.concat( new_object.green )
+
+  return new_object
+}
 
 //......................................................................................................................
 //
@@ -46,18 +66,18 @@ var plays_now = _ =>
 //
 var state =
 {
-  rounding : false ,
-  lock     : false ,
-  turn     : 0 ,
+  starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
-  keeper   : { blue : null , green : null } ,
-  first    : null ,
+  keepers  : { blue : null , green : null } ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
-  starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
+  rounding : false ,
+  lock     : false ,
+  first    : null ,
   aim      : null ,
   ball     : null ,
+  turn     : 0 ,
   athletes : ( _ => // becomes an array on startup
   {
     var new_array = []

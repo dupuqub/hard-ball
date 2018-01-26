@@ -30,10 +30,14 @@ var simple_move = zone_cell =>
       athlete_margin_x = Number( athletes[ chosen ].style.marginLeft.slice( 0 , -2 ) ) ,
       athlete_margin_y = Number( athletes[ chosen ].style.marginTop.slice( 0 , -2 ) ) ,
       threshold        = 0.2 ,
-      x_is_close       = athlete_rect_x.toFixed( 1 ) > athlete_margin_x.toFixed( 1 ) - threshold
-                         && athlete_rect_x.toFixed( 1 ) < athlete_margin_x.toFixed( 1 ) + threshold ,
-      y_is_close       = athlete_rect_y.toFixed( 1 ) > athlete_margin_y.toFixed( 1 ) - threshold
-                         && athlete_rect_y.toFixed( 1 ) < athlete_margin_y.toFixed( 1 ) + threshold
+
+      x_is_close =
+        athlete_rect_x.toFixed( 1 ) > athlete_margin_x.toFixed( 1 ) - threshold
+        && athlete_rect_x.toFixed( 1 ) < athlete_margin_x.toFixed( 1 ) + threshold ,
+
+      y_is_close =
+        athlete_rect_y.toFixed( 1 ) > athlete_margin_y.toFixed( 1 ) - threshold
+        && athlete_rect_y.toFixed( 1 ) < athlete_margin_y.toFixed( 1 ) + threshold
 
       return x_is_close && y_is_close
     } ,
@@ -42,6 +46,7 @@ var simple_move = zone_cell =>
       state.turn ++
       state.lock = false
 
+      update_keepers()
       update_lights()
       update_zone_cell()
 

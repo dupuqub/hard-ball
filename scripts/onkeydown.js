@@ -11,7 +11,7 @@ onkeydown = event =>
   {
     if( pressed === '0' )
     {
-      confirm( 'ERASE ALL SAVE FILES' )
+      confirm( 'ERASE ALL SAVE FILES ?' )
       ? localStorage.clear()
       : null
     }

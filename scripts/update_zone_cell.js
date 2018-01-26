@@ -6,7 +6,10 @@
 var update_zone_cell = _ =>
 {
   state.zones = state.zones.map( _ => null )
+
   zones.forEach( zone => zone.classList.remove( 'zon_nop' ) )
+  zones.forEach( zone => zone.classList.remove( 'zon_red' ) )
+  zones.forEach( zone => zone.classList.remove( 'zon_blk' ) )
 
   var
   hovered  = state.hovered.now , // athlete as string
@@ -39,12 +42,11 @@ var update_zone_cell = _ =>
     athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
-    athlete_team        =
-      state.team.blue.indexOf( athlete_index ) !== -1
-      ? 'blue'
-      : state.team.green.indexOf( athlete_index ) !== -1
-      ? 'green'
-      : null
+
+    athlete_in_blue  = state.team.blue.indexOf( athlete_index ) !== -1 ,
+    athlete_in_green = state.team.green.indexOf( athlete_index ) !== -1 ,
+    athlete_team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
+    athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null
 
     //..................................................................................................................
     // startup
@@ -97,6 +99,22 @@ var update_zone_cell = _ =>
       chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
       if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
+
+      // colorize zones
+      //
+      var
+      playing_cells = athletes_playing_cells() ,
+      red_cells     = playing_cells.both.filter( cell => state.zones.indexOf( cell ) !== -1 ) ,
+      black_cells_0 = state.zones.filter( cell => area[ athlete_team_not ].indexOf( cell ) !== -1 ) ,
+      black_cells_1 = 0
+
+      // reasons for black zone
+      //
+      // rule_0 = opponent's area
+      // rule_1 = own keeped area if not keeper
+      // rule_2 = blocked push by athlete
+      // rule_3 = blocked push by pushed's rule_0
+      // rule_4 = blocked push by pushed's rule_1
     }
   }
 
@@ -118,12 +136,11 @@ var update_zone_cell = _ =>
     athlete_cell        = state.athletes[ athlete_index ] ,
     athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
     athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
-    athlete_team        =
-      state.team.blue.indexOf( athlete_index ) !== -1
-      ? 'blue'
-      : state.team.green.indexOf( athlete_index ) !== -1
-      ? 'green'
-      : null
+
+    athlete_in_blue  = state.team.blue.indexOf( athlete_index ) !== -1 ,
+    athlete_in_green = state.team.green.indexOf( athlete_index ) !== -1 ,
+    athlete_team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
+    athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null
 
     //..................................................................................................................
     // startup
