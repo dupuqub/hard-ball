@@ -22,12 +22,12 @@ var chew = ( athlete_source , athlete_sight ) =>
   source_cell_letter = source_cell.slice( 0 , 1 ) ,
   source_cell_number = Number( source_cell.slice( 1 , 3 ) ) ,
 
-  sight_cell         = state.athletes[ athlete_sight ] ,
-  sight_cell_letter  = sight_cell.slice( 0 , 1 ) ,
-  sight_cell_number  = Number( sight_cell.slice( 1 , 3 ) ) ,
+  sight_cell        = state.athletes[ athlete_sight ] ,
+  sight_cell_letter = sight_cell.slice( 0 , 1 ) ,
+  sight_cell_number = Number( sight_cell.slice( 1 , 3 ) ) ,
 
-  moves              = matrix[ athlete_sight ].moves ,
-  this_array         = []
+  moves      = matrix[ athlete_sight ].moves ,
+  this_array = []
 
   moves.forEach( move =>
   {

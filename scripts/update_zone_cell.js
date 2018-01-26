@@ -7,9 +7,12 @@ var update_zone_cell = _ =>
 {
   state.zones = state.zones.map( _ => null )
 
-  zones.forEach( zone => zone.classList.remove( 'zon_nop' ) )
-  zones.forEach( zone => zone.classList.remove( 'zon_red' ) )
-  zones.forEach( zone => zone.classList.remove( 'zon_blk' ) )
+  zones.forEach( zone =>
+  {
+    zone.classList.remove( 'zon_nop' )
+    zone.classList.remove( 'zon_red' )
+    zone.classList.remove( 'zon_blk' )
+  } )
 
   var
   hovered  = state.hovered.now , // athlete as string
@@ -38,10 +41,10 @@ var update_zone_cell = _ =>
   else if( hovered !== null && hovered.slice( 0 , 7 ) === 'athlete' )
   {
     var
-    athlete_index       = Number( hovered.slice( 8 , 10 ) ) ,
-    athlete_cell        = state.athletes[ athlete_index ] ,
-    athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
-    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
+    athlete_index  = Number( hovered.slice( 8 , 10 ) ) ,
+    athlete_cell   = state.athletes[ athlete_index ] ,
+    athlete_letter = athlete_cell.slice( 0 , 1 ) ,
+    athlete_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
 
     athlete_in_blue  = state.team.blue.indexOf( athlete_index ) !== -1 ,
     athlete_in_green = state.team.green.indexOf( athlete_index ) !== -1 ,
@@ -100,36 +103,7 @@ var update_zone_cell = _ =>
 
       if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
 
-      // colorize zones
-      //
-      var
-      keeper        = state.keepers[ athlete_team ] ,
-      playing_cells = athletes_playing_cells() ,
-      red_cells     = playing_cells.both.filter( cell => state.zones.indexOf( cell ) !== -1 ) ,
-      red_zones     = red_cells.map( cell => state.zones.indexOf( cell ) ) ,
-      black_cells_0 = state.zones.filter( cell => area[ athlete_team_not ].indexOf( cell ) !== -1 ) ,
-      black_cells_1 = [] ,
-      black_cells_2 = [] ,
-      black_cells_3 = [] ,
-      black_cells_4 = [] ,
-      black_zones   = []
-
-      if( keeper !== null && keeper !== athlete_index )
-      {
-        black_cells_1 = state.zones.filter( cell => area[ athlete_team_not ].indexOf( cell ) !== -1 )
-      }
-
-      red_zones.forEach( zone_index => zones[ zone_index ].classList.add( 'zon_red' ) )
-      black_zones.forEach( zone_index => zones[ zone_index ].classList.add( 'zon_blk' ) )
-
-
-      // reasons for black zone
-      //
-      // rule_0 = opponent's area                 . ok
-      // rule_1 = own keeped area if not keeper   . ok
-      // rule_2 = blocked push by athlete         .
-      // rule_3 = blocked push by pushed's rule_0 .
-      // rule_4 = blocked push by pushed's rule_1 .
+      colorize_athlete_zones( athlete_index )
     }
   }
 
@@ -147,10 +121,10 @@ var update_zone_cell = _ =>
   else if( selected !== null ) // athlete
   {
     var
-    athlete_index       = selected ,
-    athlete_cell        = state.athletes[ athlete_index ] ,
-    athlete_cell_letter = athlete_cell.slice( 0 , 1 ) ,
-    athlete_cell_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
+    athlete_index  = selected ,
+    athlete_cell   = state.athletes[ athlete_index ] ,
+    athlete_letter = athlete_cell.slice( 0 , 1 ) ,
+    athlete_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
 
     athlete_in_blue  = state.team.blue.indexOf( athlete_index ) !== -1 ,
     athlete_in_green = state.team.green.indexOf( athlete_index ) !== -1 ,
@@ -209,27 +183,7 @@ var update_zone_cell = _ =>
 
       if( athlete_team !== plays_now() ) zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
 
-      // colorize zones
-      //
-      var
-      keeper        = state.keepers[ athlete_team ] ,
-      playing_cells = athletes_playing_cells() ,
-      red_cells     = playing_cells.both.filter( cell => state.zones.indexOf( cell ) !== -1 ) ,
-      red_zones     = red_cells.map( cell => state.zones.indexOf( cell ) ) ,
-      black_cells_0 = state.zones.filter( cell => area[ athlete_team_not ].indexOf( cell ) !== -1 ) ,
-      black_cells_1 = [] ,
-      black_cells_2 = [] ,
-      black_cells_3 = [] ,
-      black_cells_4 = [] ,
-      black_zones   = []
-
-      if( keeper !== null && keeper !== athlete_index )
-      {
-        black_cells_1 = state.zones.filter( cell => area[ athlete_team_not ].indexOf( cell ) !== -1 )
-      }
-
-      red_zones.forEach( zone_index => zones[ zone_index ].classList.add( 'zon_red' ) )
-      black_zones.forEach( zone_index => zones[ zone_index ].classList.add( 'zon_blk' ) )
+      colorize_athlete_zones( athlete_index )
     }
   }
 

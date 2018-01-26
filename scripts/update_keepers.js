@@ -7,7 +7,7 @@ var update_keepers = _ =>
 {
   var
   playing_cells = athletes_playing_cells() ,
-  colors = [ 'blue' , 'green' ]
+  colors        = [ 'blue' , 'green' ]
 
   state.keepers = { blue : null , green : null }
 
