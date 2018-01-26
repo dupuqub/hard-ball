@@ -41,7 +41,7 @@
 .zon_red{ border-color : #F00 }
 .zon_red:hover
 {
-  border-color : #F40 ;
+  border-color : #F00 ;
   box-shadow   : 0 0 var( --border-double ) 0 #F00 ,
                  0 0 var( --border-double ) 0 #F00 inset ;
 }

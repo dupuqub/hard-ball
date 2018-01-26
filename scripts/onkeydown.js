@@ -24,7 +24,7 @@ onkeydown = event =>
       localStorage[ save_file ] === undefined
       ? ( confirm( 'SAVE ?' ) ? localStorage[ save_file ] = string_state : null )
       : confirm( 'LOAD ?' )
-      ? load( save_file )
+      ? load_file( save_file )
       : confirm( 'REPLACE ?' )
       ? localStorage[ save_file ] = string_state
       : confirm( 'ERASE ?' )

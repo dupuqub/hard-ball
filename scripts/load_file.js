@@ -3,7 +3,7 @@
 
 //......................................................................................................................
 //
-var load = save_file =>
+var load_file = save_file =>
 {
   state = JSON.parse( localStorage[ save_file ] )
 
@@ -19,9 +19,9 @@ var load = save_file =>
     : null
   } )
 
-  if( state.selected.now !== null ) change_selected( state.selected.now )
-
   zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
+
+  if( state.selected.now !== null ) change_selected( state.selected.now )
 
   update_lights()
 

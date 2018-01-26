@@ -122,7 +122,7 @@ onmousemove = event =>
 //......................................................................................................................
 // check for a automatic save file
 //
-if( localStorage.hard_ball_save_auto !== undefined ) load( 'hard_ball_save_auto' )
+if( localStorage.hard_ball_save_auto !== undefined ) load_file( 'hard_ball_save_auto' )
 
 // initialize
 //
