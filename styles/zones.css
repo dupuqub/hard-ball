@@ -3,8 +3,8 @@
 
 .zon /* zones */
 {
-  width         : var( --cell-size ) ;
-  height        : var( --cell-size ) ;
+  width         : calc( var( --cell-size ) - var( --border-full ) ) ;
+  height        : calc( var( --cell-size ) - var( --border-full ) ) ;
   border-radius : 50% ;
   border-width  : var( --border-double ) ;
   border-color  : #FA0 ;

@@ -33,13 +33,13 @@ var reload =
     {
       var
       cell_name = state.zones[ $ ] ,
-      new_x     = - root_raw.game_w ,
-      new_y     = - root_raw.game_w
+      new_x     = -root_raw.game_w ,
+      new_y     = -root_raw.game_w
 
       if( cell_name !== null )
       {
-        new_x = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size
-        new_y = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size
+        new_x = a_to_t.indexOf( cell_name.slice( 0 , 1 ) ) * root_raw.cell_size + root_raw.border_full / 2
+        new_y = Number( cell_name.slice( 1 , 3 ) ) * root_raw.cell_size + root_raw.border_full / 2
       }
 
       zone.style.marginLeft = new_x + "px"
