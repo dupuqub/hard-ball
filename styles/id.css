@@ -24,14 +24,14 @@
 
 #middle
 {
-  width         : var( --goal-size ) ;
-  height        : var( --goal-size ) ;
-  border        : var( --border-full ) #FFF dotted ;
-  border-radius : 50% ;
+  width         : calc( var( --goal-size ) / 3 ) ;
+  height        : calc( var( --goal-size ) / 3 ) ;
+  background    : var( --white ) ;
   box-sizing    : border-box ;
+  border-radius : 50% ;
   position      : absolute ;
-  transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 2 ) )
-                  translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 2 ) ) ;
+  transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 6 ) )
+                  translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 6 ) ) ;
 }
 
 /*....................................................................................................................*/
@@ -45,7 +45,7 @@
   border-width  : var( --border-full ) ;
   border-style  : solid ;
   box-sizing    : border-box ;
-  background    : rgba( 95 , 63 , 31 , .8 ) ;
+  background    : rgba( 0 , 0 , 0 , 0.7 ) ;
   position      : absolute ;
   transition    : background .3s ease-in-out ;
 }

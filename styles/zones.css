@@ -20,10 +20,10 @@
 
 .zon:hover
 {
-  border-color : #FC0 ;
+  border-color : #FA0 ;
   border-style : solid ;
-  box-shadow   : 0 0 var( --border-double ) 0 #F60 ,
-                 0 0 var( --border-double ) 0 #F60 inset ;
+  box-shadow   : 0 0 var( --border-double ) 0 #F40 ,
+                 0 0 var( --border-double ) 0 #F40 inset ;
 }
 
 @keyframes rotate{ 100%{ transform : rotate( 360deg ) } }

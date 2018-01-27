@@ -15,7 +15,7 @@
   width      : var( --cell-size ) ;
   height     : var( --cell-size ) ;
   float      : left ;
-  color      : rgba( 255 , 255 , 255 , 0.4 ) ;
+  color      : rgba( 255 , 255 , 255 , 0.2 ) ;
   border     : 0 var( --white ) solid ;
   box-sizing : border-box ;
   box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , 0.1 ) inset ;
