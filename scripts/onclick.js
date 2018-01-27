@@ -110,8 +110,17 @@ onclick = event =>
             }
             else // no target
             {
+              // define rounding
+              //
               if( state.rounding ) state.rounding = false
               else                 state.rounding = roundabout.indexOf( athlete_number ) !== -1
+
+              // first ball pickup
+              //
+              if( state.ball === null && middle.indexOf( zone_cell ) !== -1 )
+              {
+                //
+              }
 
               simple_move( zone_cell )
             }

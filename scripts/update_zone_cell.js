@@ -18,6 +18,8 @@ var update_zone_cell = _ =>
   hovered  = state.hovered.now , // athlete as STRING
   selected = state.selected.now // athlete as NUMBER
 
+  ball.style.zIndex = 0
+
   //....................................................................................................................
   // HOVERED
   //....................................................................................................................
@@ -26,9 +28,7 @@ var update_zone_cell = _ =>
   {
     if( state.ball === null )
     {
-      ball.style.zIndex = "1"
-
-      var middle = [ 'J05' , 'J06' , 'K05' , 'K06' ]
+      ball.style.zIndex = 1
 
       middle.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 

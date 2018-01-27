@@ -23,6 +23,7 @@ aim          = document.querySelector( '#aim' ) ,
 game_scale = 0.9 ,
 aspect     = { x : 16 , y : 9 } ,
 roundabout = [ 0 , 1 , 11 , 12 ] ,
+middle     = [ 'J05' , 'J06' , 'K05' , 'K06' ] ,
 a_to_t     = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T' ] ,
 area       =
 {
@@ -70,6 +71,7 @@ var state =
   starter  : { blue : [ 'C02','C09','D03','D08' ] , green : [ 'Q03','Q08','R02','R09' ] } ,
   hovered  : { old : null , now : null } , // from 0 to 19 or 'ball' or null
   selected : { old : null , now : null } , // from 0 to 19 or 'ball' or null
+  holder   : { now : null , future : null } ,
   keepers  : { blue : null , green : null } ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
