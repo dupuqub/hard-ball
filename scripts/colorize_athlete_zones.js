@@ -11,11 +11,8 @@ var colorize_athlete_zones = athlete_index =>
   athlete_in_blue  = state.team.blue.indexOf( athlete_index ) !== -1 ,
   athlete_in_green = state.team.green.indexOf( athlete_index ) !== -1 ,
   athlete_team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
-  athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null
+  athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null ,
 
-  // colorize zones
-  //
-  var
   athlete_keeper = state.keepers[ athlete_team ] ,
   playing_cells  = athletes_playing_cells() ,
   red_cells      = playing_cells.both.filter( cell => state.zones.indexOf( cell ) !== -1 ) ,
