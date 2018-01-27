@@ -15,8 +15,8 @@ var update_zone_cell = _ =>
   } )
 
   var
-  hovered  = state.hovered.now , // athlete as string
-  selected = state.selected.now // athlete as number
+  hovered  = state.hovered.now , // athlete as STRING
+  selected = state.selected.now // athlete as NUMBER
 
   //....................................................................................................................
   // HOVERED
@@ -77,11 +77,15 @@ var update_zone_cell = _ =>
     }
 
     //..................................................................................................................
-    // roundabouting
+    // rounding
     //
-    else if( state.rounding )
+    else if( state.rounding && state.selected.now === athlete_index )
     {
-      //
+      var chewed_matrix = chew( athlete_index , 13 )
+
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      colorize_athlete_zones( athlete_index )
     }
 
     //..................................................................................................................
@@ -159,9 +163,13 @@ var update_zone_cell = _ =>
     //..................................................................................................................
     // roundabouting
     //
-    else if( state.rounding )
+    else if( state.rounding && state.selected.now === selected )
     {
-      //
+      var chewed_matrix = chew( athlete_index , 13 )
+
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      colorize_athlete_zones( athlete_index )
     }
 
     //..................................................................................................................

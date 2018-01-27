@@ -43,7 +43,8 @@ var simple_move = zone_cell =>
     } ,
     act : _ =>
     {
-      state.turn ++
+      if( !state.rounding ) state.turn ++
+
       state.lock = false
 
       update_keepers()

@@ -25,13 +25,13 @@ onclick = event =>
     //..................................................................................................................
     // ball
     //
-    if( target === 'ball' )
+    if( target === 'ball' && !state.rounding )
     {}
 
     //..................................................................................................................
     // athlete
     //
-    else if( target.slice( 0 , 7 ) === 'athlete' )
+    else if( target.slice( 0 , 7 ) === 'athlete' && !state.rounding )
     {
       var
       athlete_index = Number( target.slice( 8 , 10 ) ) ,
@@ -71,12 +71,10 @@ onclick = event =>
       else
       {
         var
-        selected                  = state.selected.now ,
-        zone_index                = Number( target.slice( 5 , 7 ) ) ,
-        zone_cell                 = state.zones[ zone_index ] ,
-        zone_cell_letter          = zone_cell.slice( 0 , 1 ) ,
-        zone_cell_number          = Number( zone_cell.slice( 1 , 3 ) ),
-        zone_cell_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== -1
+        selected             = state.selected.now ,
+        zone_index           = Number( target.slice( 5 , 7 ) ) ,
+        zone_cell            = state.zones[ zone_index ] ,
+        zone_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== -1
 
         if( selected === 'ball' )
         {
@@ -90,9 +88,7 @@ onclick = event =>
           athlete_number = Number( state.athletes[ athlete_index ].slice( 1 , 3 ) ) ,
           color          = plays_now()
 
-          if( state.turn === 0 ) state.first = zone_cell_in_blue_starter ? 'blue' : 'green'
-
-          //if( state.turn > 7 ) state.rounding = roundabout.indexOf( athlete_number ) !== -1
+          if( state.turn === 0 ) state.first = zone_in_blue_starter ? 'blue' : 'green'
 
           if( state.turn < 8 )
           {
@@ -101,21 +97,6 @@ onclick = event =>
             state.starter[ color ] = state.starter[ color ].filter( cell => cell !== zone_cell )
 
             simple_move( zone_cell )
-          }
-
-          //............................................................................................................
-          // rounding
-          //
-          else if( state.rounding )
-          {
-            if( zone_class_list.indexOf( 'zon_red' ) !== -1 ) // has target
-            {
-              //
-            }
-            else // no target
-            {
-              //
-            }
           }
 
           //............................................................................................................
@@ -129,6 +110,9 @@ onclick = event =>
             }
             else // no target
             {
+              if( state.rounding ) state.rounding = false
+              else                 state.rounding = roundabout.indexOf( athlete_number ) !== -1
+
               simple_move( zone_cell )
             }
           }
@@ -147,7 +131,7 @@ onclick = event =>
     //..................................................................................................................
     // nothing
     //
-    else
+    else if( !state.rounding )
     {
       change_selected( null )
     }
