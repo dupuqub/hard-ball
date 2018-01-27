@@ -88,17 +88,14 @@ var colorize_athlete_zones = athlete_index =>
 
   // including duplicates
   //
-  var black_zones_raw =
+  var black_zones =
     black_cells_0
     .concat( black_cells_1 )
     .concat( black_cells_2 )
     .concat( black_cells_3 )
     .concat( black_cells_4 )
     .map( cell => state.zones.indexOf( cell ) )
-
-  // no duplicates
-  //
-  var black_zones = black_zones_raw.filter( ( zone_index , $ ) => $ === black_zones_raw.indexOf( zone_index ) )
+    .filter( ( zone_index , $ , array ) => $ === array.indexOf( zone_index ) )
 
   // apply classes
   //
