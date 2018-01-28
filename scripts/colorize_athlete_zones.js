@@ -83,7 +83,7 @@ var colorize_athlete_zones = athlete_index =>
     }
   } )
 
-  // including duplicates
+  // finalize black zones process
   //
   var black_zones =
     black_cells_0

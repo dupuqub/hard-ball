@@ -20,7 +20,7 @@ onclick = event =>
   {}
   else if( target === 'github' )
   {}
-  else if( ! state.lock )
+  else if( !state.lock )
   {
     //..................................................................................................................
     // ball
@@ -88,7 +88,11 @@ onclick = event =>
           athlete_number = Number( state.athletes[ athlete_index ].slice( 1 , 3 ) ) ,
           color          = plays_now()
 
-          if( state.turn === 0 ) state.first = zone_in_blue_starter ? 'blue' : 'green'
+          if( state.turn === 0 )
+          {
+            state.first = zone_in_blue_starter ? 'blue' : 'green'
+            color = state.first
+          }
 
           if( state.turn < 8 )
           {
@@ -119,7 +123,7 @@ onclick = event =>
               //
               if( state.ball === null && middle.indexOf( zone_cell ) !== -1 )
               {
-                //
+                state.holder.future = athlete_index
               }
 
               simple_move( zone_cell )

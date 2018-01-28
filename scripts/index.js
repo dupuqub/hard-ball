@@ -22,7 +22,7 @@ aim          = document.querySelector( '#aim' ) ,
 
 game_scale = 0.9 ,
 aspect     = { x : 16 , y : 9 } ,
-roundabout = [ 0 , 1 , 11 , 12 ] ,
+roundabout = [ 0 , 1 , 10 , 11 ] ,
 middle     = [ 'J05' , 'J06' , 'K05' , 'K06' ] ,
 a_to_t     = [ 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T' ] ,
 area       =

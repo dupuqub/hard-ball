@@ -20,10 +20,10 @@ var reload =
 
       athlete.style.marginLeft = new_x + "px"
       athlete.style.marginTop = new_y + "px"
-      athlete.classList.remove( 'tra_atl' )
+      athlete.classList.remove( 'tra' )
     } )
 
-    setTimeout( _ => athletes.forEach( athlete => athlete.classList.add( 'tra_atl' ) ) , 0 )
+    setTimeout( _ => athletes.forEach( athlete => athlete.classList.add( 'tra' ) ) , 0 )
   } ,
   //....................................................................................................................
   //
@@ -68,8 +68,17 @@ var reload =
 
     ball.style.marginLeft = ball_x + "px"
     ball.style.marginTop = ball_y + "px"
+    ball.classList.remove( 'tra' )
+
     aim.style.marginLeft = aim_x + "px"
     aim.style.marginTop = aim_y + "px"
-  } ,
+    aim.classList.remove( 'tra' )
+
+    setTimeout( _ =>
+    {
+      ball.classList.add( 'tra' )
+      aim.classList.add( 'tra' )
+    } , 0 )
+  }
 }
 

@@ -43,7 +43,21 @@ var simple_move = zone_cell =>
     } ,
     act : _ =>
     {
-      if( !state.rounding ) state.turn ++
+      if( !state.rounding )
+      {
+        state.turn ++
+
+        if( state.holder.future !== null )
+        {
+          var athlete_index = state.holder.future
+
+          state.ball = state.aim = state.athletes[ athlete_index ]
+
+          ball.style.marginLeft = aim.style.marginLeft = athletes[ athlete_index ].style.marginLeft
+          ball.style.marginTop = aim.style.marginTop = athletes[ athlete_index ].style.marginTop
+          ball.style.zIndex = aim.style.zIndex = 1
+        }
+      }
 
       state.lock = false
 

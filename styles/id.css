@@ -47,12 +47,11 @@
   box-sizing    : border-box ;
   background    : rgba( 0 , 0 , 0 , 0.7 ) ;
   position      : absolute ;
-  transition    : background .3s ease-in-out ;
 }
 
 #ball:hover
 {
-  background : rgba( 111 , 95 , 63 , .8 ) ;
+  background : rgba( 111 , 95 , 63 , 0.8 ) ;
 }
 
 /*....................................................................................................................*/
