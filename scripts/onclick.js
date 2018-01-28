@@ -25,13 +25,13 @@ onclick = event =>
     //..................................................................................................................
     // ball
     //
-    if( target === 'ball' && !state.rounding )
+    if( target === 'ball' && !state.rounding && !state.placing )
     {}
 
     //..................................................................................................................
     // athlete
     //
-    else if( target.slice( 0 , 7 ) === 'athlete' && !state.rounding )
+    else if( target.slice( 0 , 7 ) === 'athlete' && !state.rounding && !state.placing )
     {
       var
       athlete_index = Number( target.slice( 8 , 10 ) ) ,
@@ -74,18 +74,40 @@ onclick = event =>
         selected             = state.selected.now ,
         zone_index           = Number( target.slice( 5 , 7 ) ) ,
         zone_cell            = state.zones[ zone_index ] ,
+        zone_letter          = state.zones[ zone_index ].slice( 0 , 1 ) ,
+        zone_number          = Number( state.zones[ zone_index ].slice( 1 , 3 ) ) ,
         zone_in_blue_starter = state.starter.blue.indexOf( zone_cell ) !== -1
 
         if( selected === 'ball' )
         {
-          //
+          if( state.placing )
+          {
+            var
+            new_x = a_to_t.indexOf( zone_letter ) * root_raw.cell_size + root_raw.border_full ,
+            new_y = zone_number * root_raw.cell_size + root_raw.border_full
+
+            state.ball = state.zones[ zone_index ]
+            state.aim = state.zones[ zone_index ]
+
+            ball.style.marginLeft = new_x + 'px'
+            ball.style.marginTop = new_y + 'px'
+            ball.style.zIndex = 1
+
+            aim.style.marginLeft = new_x + 'px'
+            aim.style.marginTop = new_y + 'px'
+            aim.style.zIndex = 1
+
+            state.placing = false
+          }
+          else if( state.holder.now !== null )
+          {
+            //
+          }
         }
         else if( selected !== null )
         {
           var
           athlete_index  = state.selected.now ,
-          athlete_letter = state.athletes[ athlete_index ].slice( 0 , 1 ) ,
-          athlete_number = Number( state.athletes[ athlete_index ].slice( 1 , 3 ) ) ,
           color          = plays_now()
 
           if( state.turn === 0 )
@@ -117,7 +139,7 @@ onclick = event =>
               // define rounding
               //
               if( state.rounding ) state.rounding = false
-              else                 state.rounding = roundabout.indexOf( athlete_number ) !== -1
+              else                 state.rounding = roundabout.indexOf( zone_number ) !== -1
 
               // first ball pickup
               //
@@ -144,7 +166,7 @@ onclick = event =>
     //..................................................................................................................
     // nothing
     //
-    else if( !state.rounding )
+    else if( !state.rounding && !state.placing )
     {
       change_selected( null )
     }

@@ -12,7 +12,7 @@
   position      : absolute ;
   box-sizing    : border-box ;
 
-  animation-name            : rotate ;
+  animation-name            : spin ;
   animation-iteration-count : infinite ;
   animation-duration        : 4s ;
   animation-timing-function : linear ;
@@ -26,7 +26,7 @@
                  0 0 var( --border-double ) 0 #F40 inset ;
 }
 
-@keyframes rotate{ 100%{ transform : rotate( 360deg ) } }
+@keyframes spin{ 100%{ transform : rotate( 360deg ) } }
 
 /*....................................................................................................................*/
 

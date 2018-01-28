@@ -19,17 +19,17 @@
   --field-middle-w  : calc( var( --game-w ) / 2 ) ;
   --field-middle-h  : calc( var( --game-h ) / 14 * 12 / 2 ) ;
 
-  --border-full     : calc( var( --game-w ) / 400 ) ;
-  --border-half     : calc( var( --border-full ) / 2 ) ;
-  --border-double   : calc( var( --border-full ) * 2 ) ;
+  --border-full   : calc( var( --game-w ) / 400 ) ;
+  --border-half   : calc( var( --border-full ) / 2 ) ;
+  --border-double : calc( var( --border-full ) * 2 ) ;
   
   --cell-size       : calc( var( --game-w ) / 20 ) ;
   --goal-size       : calc( var( --cell-size ) / 4 * 3 ) ;
   --athlete-size    : calc( var( --cell-size ) - var( --border-double ) ) ;
   --square-art-size : calc( var( --cell-size ) / 8 ) ;
 
-  --game-radius     : calc( var( --cell-size ) / 2 ) ;
+  --game-radius : calc( var( --cell-size ) / 2 ) ;
 
-  --white           : #DDD ;
+  --white : #DDD ;
 }
 

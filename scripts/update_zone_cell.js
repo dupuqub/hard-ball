@@ -19,6 +19,7 @@ var update_zone_cell = _ =>
   selected = state.selected.now // athlete as NUMBER
 
   ball.style.zIndex = 0
+  aim.style.zIndex = 0
 
   //....................................................................................................................
   // HOVERED
@@ -33,6 +34,25 @@ var update_zone_cell = _ =>
       middle.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
 
       zones.forEach( zone => zone.classList.add( 'zon_nop' ) )
+    }
+    else if( state.placing || state.holder.now !== null )
+    {
+      var
+      athlete_index = state.holder.now ,
+      chewed_matrix = chew( athlete_index , 13 )
+
+      ball.style.zIndex = 1
+
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      if( athlete_index !== null )
+      {
+        state.zones = state.zones.map( cell => cell === state.ball ? null : cell )
+
+        reload.zones()
+      }
+
+      // colorize ball zones
     }
   }
 
@@ -117,7 +137,25 @@ var update_zone_cell = _ =>
   //
   else if( selected === 'ball' )
   {
-    //
+    if( state.placing || state.holder.now !== null )
+    {
+      var
+      athlete_index = state.holder.now ,
+      chewed_matrix = chew( athlete_index , 13 )
+
+      ball.style.zIndex = 1
+
+      chewed_matrix.forEach( ( cell , $ ) => state.zones[ $ ] = cell )
+
+      if( athlete_index !== null )
+      {
+        state.zones = state.zones.map( cell => cell === state.ball ? null : cell )
+
+        reload.zones()
+      }
+
+      // colorize ball zones
+    }
   }
 
   //....................................................................................................................

@@ -75,6 +75,7 @@ var state =
   keepers  : { blue : null , green : null } ,
   team     : { blue : [] , green : [] } ,
   replaced : { blue : [] , green : [] } ,
+  placing  : false ,
   rounding : false ,
   lock     : false ,
   first    : null ,
@@ -119,6 +120,8 @@ onmousemove = event =>
     update_zone_cell()
 
     state.hovered.old = state.hovered.now
+
+    log( state.hovered.now )
   }
 }
 

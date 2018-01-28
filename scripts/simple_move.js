@@ -6,11 +6,11 @@
 var simple_move = zone_cell =>
 {
   var
-  athlete_index    = state.selected.now ,
-  zone_cell_letter = zone_cell.slice( 0 , 1 ) ,
-  zone_cell_number = Number( zone_cell.slice( 1 , 3 ) ) ,
-  new_x            = a_to_t.indexOf( zone_cell_letter ) * root_raw.cell_size + root_raw.border_full ,
-  new_y            = zone_cell_number * root_raw.cell_size + root_raw.border_full
+  athlete_index = state.selected.now ,
+  zone_letter   = zone_cell.slice( 0 , 1 ) ,
+  zone_number   = Number( zone_cell.slice( 1 , 3 ) ) ,
+  new_x         = a_to_t.indexOf( zone_letter ) * root_raw.cell_size + root_raw.border_full ,
+  new_y         = zone_number * root_raw.cell_size + root_raw.border_full
 
   state.lock = true
   state.athletes[ athlete_index ] = zone_cell
@@ -51,11 +51,22 @@ var simple_move = zone_cell =>
         {
           var athlete_index = state.holder.future
 
-          state.ball = state.aim = state.athletes[ athlete_index ]
+          state.holder.now = athlete_index
+          state.holder.future = null
+          state.placing = true
 
-          ball.style.marginLeft = aim.style.marginLeft = athletes[ athlete_index ].style.marginLeft
-          ball.style.marginTop = aim.style.marginTop = athletes[ athlete_index ].style.marginTop
-          ball.style.zIndex = aim.style.zIndex = 1
+          state.ball = state.athletes[ athlete_index ]
+          state.aim = state.athletes[ athlete_index ]
+
+          ball.style.marginLeft = athletes[ athlete_index ].style.marginLeft
+          ball.style.marginTop = athletes[ athlete_index ].style.marginTop
+          ball.style.zIndex = 1
+
+          aim.style.marginLeft = athletes[ athlete_index ].style.marginLeft
+          aim.style.marginTop = athletes[ athlete_index ].style.marginTop
+          aim.style.zIndex = 1
+
+          change_selected( 'ball' )
         }
       }
 
