@@ -34,10 +34,17 @@ G.I = // information
   cell_size    : 0 , // px
   border_full  : 0 , // px
   athlete_size : 0 , // px
-  area         : // cells
+
+  area : // cells
   {
     blue  : Array.from( G.D.blue_light ).concat( Array.from( G.D.blue_dark ) ).map( light => light.id ).sort() ,
     green : Array.from( G.D.green_light ).concat( Array.from( G.D.green_dark ) ).map( light => light.id ).sort()
+  } ,
+
+  goal :
+  {
+    blue  : [ 'C00','D00','E00','F00','G00','H00','I00','J00' ] ,
+    green : [ 'C19','D19','E19','F19','G19','H19','I19','J19' ]
   }
 }
 

@@ -67,11 +67,29 @@ G.click = target =>
         //
         if( G.S.selected === 'ball' )
         {
-          if( Array.from( G.D.zones[ zone_index ].classList ).indexOf( 'zon_red' ) !== -1 ) // has target
+          //............................................................................................................
+          // has target
+          //
+          if( Array.from( G.D.zones[ zone_index ].classList ).indexOf( 'zon_red' ) !== -1 )
           {
-            //
+            const athlete_index = G.S.athletes.indexOf( zone_cell )
+
+            if( athlete_index !== -1 )
+            {
+              G.S.holder.future = athlete_index
+
+              G.update_holder()
+            }
+            else
+            {
+              // score
+            }
           }
-          else // no target
+
+          //............................................................................................................
+          // has NO target
+          //
+          else
           {
             const
             new_x = zone_number * G.I.cell_size + G.I.border_full ,
@@ -174,7 +192,7 @@ G.click = target =>
       //
       if( target === 'ball' && G.S.ball !== null )
       {
-        //
+        G.change_selected( 'ball' )
       }
 
       //................................................................................................................

@@ -54,24 +54,27 @@ G.update_ball_zones = _ =>
       G.S.zones = G.S.zones.map( cell => cell === G.S.ball ? null : cell )
     }
 
-    // colorize ball zones
+    G.colorize_ball_zones()
   }
 }
 
 //......................................................................................................................
 //
-G.update_athlete_zones = chosen =>
+G.update_athlete_zones = athlete_index =>
 {
   const
-  athlete_index  = chosen ,
   athlete_cell   = G.S.athletes[ athlete_index ] ,
   athlete_letter = athlete_cell.slice( 0 , 1 ) ,
   athlete_number = Number( athlete_cell.slice( 1 ) ) ,
 
   athlete_in_blue  = G.S.team.blue.indexOf( athlete_index ) !== -1 ,
   athlete_in_green = G.S.team.green.indexOf( athlete_index ) !== -1 ,
-  athlete_team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
-  athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null
+
+  team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
+  team_not = team === 'blue' ? 'green' : team === 'green' ? 'blue' : null
+
+  G.D.ball.style.zIndex = 0
+  G.D.aim.style.zIndex = 0
 
   //..................................................................................................................
   // startup
@@ -82,7 +85,7 @@ G.update_athlete_zones = chosen =>
   }
   else if( G.S.turn < 8 )
   {
-    if( athlete_team === null )
+    if( team === null )
     {
       G.S.starter[ G.plays_now() ].forEach( ( cell , $ ) => G.S.zones[ $ ] = cell )
     }
@@ -99,7 +102,7 @@ G.update_athlete_zones = chosen =>
   //..................................................................................................................
   // benched
   //
-  else if( athlete_team === null )
+  else if( team === null )
   {
     //
   }
@@ -126,7 +129,7 @@ G.update_athlete_zones = chosen =>
 
     chewed_matrix.forEach( ( cell , $ ) => G.S.zones[ $ ] = cell )
 
-    if( athlete_team !== G.plays_now() ) G.D.zones.forEach( zone => zone.classList.add( 'zon_not' ) )
+    if( team !== G.plays_now() ) G.D.zones.forEach( zone => zone.classList.add( 'zon_not' ) )
 
     G.update_keepers()
     G.colorize_athlete_zones( athlete_index )

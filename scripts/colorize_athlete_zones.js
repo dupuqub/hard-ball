@@ -12,17 +12,23 @@ G.colorize_athlete_zones = athlete_index =>
 
   athlete_in_blue  = G.S.team.blue.indexOf( athlete_index ) !== -1 ,
   athlete_in_green = G.S.team.green.indexOf( athlete_index ) !== -1 ,
-  athlete_team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
-  athlete_team_not = athlete_team === 'blue' ? 'green' : athlete_team === 'green' ? 'blue' : null ,
 
-  athlete_keeper = G.S.keepers[ athlete_team ] ,
+  team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
+  team_not = team === 'blue' ? 'green' : team === 'green' ? 'blue' : null ,
+
+  athlete_keeper = G.S.keepers[ team ] ,
   playing_cells  = G.athletes_playing_cells() ,
 
   //....................................................................................................................
-  // define red zones
+  // reasons for red zone
   //
-  red_cells = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) ,
-  red_zones = red_cells.map( cell => G.S.zones.indexOf( cell ) )
+  // rule_0 = athletes
+  // rule_1 = ball
+  //
+  red_cells   = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) , // rule_0
+  red_indexes = red_cells.map( cell => G.S.zones.indexOf( cell ) )
+
+  if( G.S.zones.indexOf( G.S.ball ) !== -1 ) red_indexes.push( G.S.zones.indexOf( G.S.ball ) ) // rule_1
 
   //....................................................................................................................
   // reasons for black zone
@@ -33,7 +39,7 @@ G.colorize_athlete_zones = athlete_index =>
   // rule_3 = blocked push by pushed's rule_0
   // rule_4 = blocked push by pushed's rule_1
   //
-  const black_cells_0 = G.S.zones.filter( cell => G.I.area[ athlete_team_not ].indexOf( cell ) !== -1 )
+  const black_cells_0 = G.S.zones.filter( cell => G.I.area[ team_not ].indexOf( cell ) !== -1 )
 
   let
   black_cells_1 = [] ,
@@ -46,7 +52,7 @@ G.colorize_athlete_zones = athlete_index =>
   //
   if( athlete_keeper !== null && athlete_keeper !== athlete_index )
   {
-    black_cells_1 = G.S.zones.filter( cell => G.I.area[ athlete_team ].indexOf( cell ) !== -1 )
+    black_cells_1 = G.S.zones.filter( cell => G.I.area[ team ].indexOf( cell ) !== -1 )
   }
 
   //....................................................................................................................
@@ -102,19 +108,19 @@ G.colorize_athlete_zones = athlete_index =>
   //....................................................................................................................
   // finalize black zones process
   //
-  const black_zones =
+  const black_indexes =
     black_cells_0
     .concat( black_cells_1 )
     .concat( black_cells_2 )
     .concat( black_cells_3 )
     .concat( black_cells_4 )
     .map( cell => G.S.zones.indexOf( cell ) )
-    .filter( ( zone_index , $ , array ) => $ === array.indexOf( zone_index ) )
+    .filter( ( zone_index , $ , array ) => $ === array.indexOf( zone_index ) ) // remove duplicates
 
   //....................................................................................................................
   // apply classes
   //
-  red_zones.forEach( zone_index => G.D.zones[ zone_index ].classList.add( 'zon_red' ) )
-  black_zones.forEach( zone_index => G.D.zones[ zone_index ].classList.add( 'zon_blk' ) )
+  red_indexes.forEach( zone_index => G.D.zones[ zone_index ].classList.add( 'zon_red' ) )
+  black_indexes.forEach( zone_index => G.D.zones[ zone_index ].classList.add( 'zon_blk' ) )
 }
 
