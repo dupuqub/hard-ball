@@ -1,83 +1,68 @@
 
 /*....................................................................................................................*/
 
-#foundation
+#aim , #ball
 {
-  background : #000 ;
-  width      : var( --foundation-w ) ;
-  height     : var( --foundation-h ) ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  position      : absolute
+}
+
+#aim
+{
+  width      : var( --athlete-size ) ;
+  height     : var( --athlete-size ) ;
+  background : rgba( 255 , 255 , 255 , 0.3 )
+
+}
+
+#ball
+{
+  width      : var( --athlete-size ) ;
+  height     : var( --athlete-size ) ;
+  background : rgba( 0 , 0 , 0 , 0.7 )
+}
+
+#ball:hover{ background : rgba( 111 , 95 , 63 , 0.8 ) }
+
+/*....................................................................................................................*/
+
+#board
+{
+  width         : var( --board-w ) ;
+  height        : var( --board-h ) ;
+  background    : var( --white ) ;
+  border        : 0 var( --white ) solid ;
+  border-width  : var( --border-half ) ;
+  border-radius : 0 0 var( --board-radius ) var( --board-radius )
 }
 
 /*....................................................................................................................*/
 
-#game
+#board_console
 {
-  background    : var( --white ) ;
-  width         : var( --game-w ) ;
-  height        : var( --game-h ) ;
-  border        : 0 var( --white ) solid ;
-  border-width  : var( --border-half ) ;
-  border-radius : 0 0 var( --game-radius ) var( --game-radius ) ;
+  width         : 50% ;
+  height        : var( --cell-size ) ;
+  background    : #666 ;
+  border-radius : calc( var( --cell-size ) / 2 )  ;
+  font-size     : calc( var( --board-w ) / 60 ) ;
+  color         : var( --white )
 }
 
 /*....................................................................................................................*/
 
 #middle
 {
-  width         : calc( var( --goal-size ) / 3 ) ;
-  height        : calc( var( --goal-size ) / 3 ) ;
+  width         : calc( var( --cell-size ) * 0.2 ) ;
+  height        : calc( var( --cell-size ) * 0.2 ) ;
   background    : var( --white ) ;
-  box-sizing    : border-box ;
   border-radius : 50% ;
   position      : absolute ;
-  transform     : translatex( calc( var( --field-middle-w ) - var( --goal-size ) / 6 ) )
-                  translatey( calc( var( --field-middle-h ) - var( --goal-size ) / 6 ) ) ;
-}
-
-/*....................................................................................................................*/
-
-#ball
-{
-  width         : var( --athlete-size ) ;
-  height        : var( --athlete-size ) ;
-  border-radius : 50% ;
-  border-color  : var( --white ) ;
-  border-width  : var( --border-full ) ;
-  border-style  : solid ;
-  box-sizing    : border-box ;
-  background    : rgba( 0 , 0 , 0 , 0.7 ) ;
-  position      : absolute ;
-}
-
-#ball:hover
-{
-  background : rgba( 111 , 95 , 63 , 0.8 ) ;
-}
-
-/*....................................................................................................................*/
-
-#aim
-{
-  width         : var( --athlete-size ) ;
-  height        : var( --athlete-size ) ;
-  border-radius : 50% ;
-  border-color  : var( --white ) ;
-  border-width  : var( --border-full ) ;
-  border-style  : solid ;
-  box-sizing    : border-box ;
-  background    : rgba( 255 , 255 , 255 , .3 ) ;
-  position      : absolute ;
-}
-
-/*....................................................................................................................*/
-
-#game_console
-{
-  width         : calc( var( --cell-size ) * 10 ) ;
-  height        : var( --cell-size ) ;
-  background    : #666 ;
-  border-radius : calc( var( --cell-size ) / 2 )  ;
-  font-size     : calc( var( --game-w ) / 60 ) ;
-  color         : var( --white ) ;
+  transform     :
+    translatex( calc( var( --field-middle-w ) - var( --cell-size ) * 0.1 ) )
+    translatey( calc( var( --field-middle-h ) - var( --cell-size ) * 0.1 ) )
 }
 

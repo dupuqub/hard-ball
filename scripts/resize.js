@@ -3,64 +3,69 @@
 
 //......................................................................................................................
 //
-onresize = event =>
+G.resize = _ =>
 {
-  resize()
-  reroot()
-  redraw( arts_athlete , 'fil_atl' )
-  redraw( arts_bench , 'fil_bnc' )
+  const
+  proportion_w       = window.innerWidth / G.I.aspect.w ,
+  proportion_h       = window.innerHeight / G.I.aspect.h ,
+  screen_is_vertical = proportion_w < proportion_h
 
-  reload.athletes()
-  reload.zones()
-  reload.ball()
-
-  update_lights()
-}
-
-//......................................................................................................................
-//
-var resize = _ =>
-{
-  if( window.innerHeight / aspect.y > window.innerWidth / aspect.x )
-  {
-    var
-    height_foundation = window.innerWidth / aspect.x * aspect.y ,
-    height_space      = ( window.innerHeight - height_foundation ) / 2 ,
-    width_game        = height_foundation / 14 * 20
-
-    root_raw.foundation_w = window.innerWidth
-    root_raw.foundation_h = height_foundation
-    root_raw.game_w       = width_game * game_scale
-    root_raw.game_h       = height_foundation * game_scale
-
-    root_text[ 0 ] = '--foundation-w:' + window.innerWidth + 'px;'
-    root_text[ 1 ] = '--foundation-h:' + height_foundation + 'px;'
-    root_text[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
-    root_text[ 3 ] = '--game-h:' + height_foundation * game_scale + 'px;'
-  }
-  else
-  {
-    var
-    width_foundation = window.innerHeight / aspect.y * aspect.x ,
-    width_space      = ( window.innerWidth - width_foundation ) / 2 ,
-    width_game       = window.innerHeight / 14 * 20
-
-    root_raw.foundation_w = width_foundation
-    root_raw.foundation_h = window.innerHeight
-    root_raw.game_w       = width_game * game_scale
-    root_raw.game_h       = window.innerHeight * game_scale
-
-    root_text[ 0 ] = '--foundation-w:' + width_foundation + 'px;'
-    root_text[ 1 ] = '--foundation-h:' + window.innerHeight + 'px;'
-    root_text[ 2 ] = '--game-w:' + width_game * game_scale + 'px;'
-    root_text[ 3 ] = '--game-h:' + window.innerHeight * game_scale + 'px;'
-  }
-
-  // Some helpful variables after the real resize
+  //....................................................................................................................
+  // Redefine useful JS variables
   //
-  root_raw.game_h_real  = root_raw.game_h / 14 * 12
-  root_raw.cell_size    = root_raw.game_w / 20
-  root_raw.border_full  = root_raw.game_w / 400
-  root_raw.athlete_size = root_raw.cell_size - root_raw.border_full * 2
+  G.I.body =
+  {
+    w : screen_is_vertical ? window.innerWidth : proportion_h * G.I.aspect.w ,
+    h : ! screen_is_vertical ? window.innerHeight : proportion_w * G.I.aspect.h
+  }
+
+  G.I.board =
+  {
+    w      : G.I.body.w * 0.7 ,
+    h      : G.I.body.w * 0.7 / 20 * 14 ,
+    h_real : G.I.body.w * 0.7 / 20 * 12
+  }
+
+  G.I.cell_size = G.I.board.w / 20
+  G.I.border_full = G.I.board.w / 400
+  G.I.athlete_size = G.I.cell_size - G.I.border_full * 2
+
+  //....................................................................................................................
+  // Redefine the first 'root' under 'root.css'
+  //
+  Array.from( document.styleSheets ).some( ( sheet , $ ) =>
+  {
+    if( sheet.href !== null && sheet.href.indexOf( 'root.css' ) !== -1 )
+    {
+      document.styleSheets[ $ ].cssRules[ 0 ].style.cssText =
+        '--body-w:' + G.I.body.w + 'px;' +
+        '--body-h:' + G.I.body.h + 'px;'
+
+      return true
+    }
+  } )
+
+  //....................................................................................................................
+  // Firefox couldn't handle 'r', 'cx' nor 'cy' defined by CSS
+  //
+  G.D.selectors.forEach( selector =>
+  {
+    Array.from( [ 'r','cx','cy' ] ).forEach( attribute =>
+    {
+      selector.setAttribute( attribute , G.I.athlete_size / 2 )
+    } )
+  } )
+
+  //....................................................................................................................
+  // Redraw the tiny squares inside the athletes
+  //
+  G.redraw_svg( G.D.athlete_art , 'atl_fil' )
+  G.redraw_svg( G.D.bench_art , 'bnc_fil' )
+
+  //....................................................................................................................
+  //
+  G.reposition.athletes()
+  G.reposition.zones()
+  G.reposition.ball()
 }
 

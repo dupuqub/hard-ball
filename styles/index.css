@@ -1,78 +1,93 @@
 
 /*....................................................................................................................*/
 
+html
+{
+  width            : 100% ;
+  height           : 100% ;
+  background       : #000 ;
+  font-family      : sans ;
+  cursor           : default ;
+  user-select      : none ;
+  -moz-user-select : none
+}
+
+body
+{
+  width  : var( --body-w ) ;
+  height : var( --body-h ) ;
+  margin : 0
+}
+
+/*....................................................................................................................*/
+
 .cnt /* center */
 {
-  justify-content : center ;
-  align-items     : center ;
   display         : flex ;
+  align-items     : center ;
+  justify-content : center
 }
-
-/*....................................................................................................................*/
-
-.cll /* cell */
-{
-  width      : var( --cell-size ) ;
-  height     : var( --cell-size ) ;
-  float      : left ;
-  color      : rgba( 255 , 255 , 255 , 0.2 ) ;
-  border     : 0 var( --white ) solid ;
-  box-sizing : border-box ;
-  box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , 0.1 ) inset ;
-}
-
-.txt_cll /* text cell */
-{
-  font-size   : calc( var( --game-w ) / 70 ) ;
-  font-weight : bold ;
-}
-
-/*....................................................................................................................*/
 
 .gol /* goal */
 {
   width         : var( --goal-size ) ;
   height        : var( --goal-size ) ;
+  background    : rgba( 255 , 255 , 255 , 0.2 ) ;
   border        : 0 var( --white ) solid ;
   border-width  : var( --border-full ) ;
   border-radius : 50% ;
-  box-sizing    : border-box ;
-  background    : rgba( 255 , 255 , 255 , 0.2 ) ;
+  box-sizing    : border-box
 }
+
+.itf /* interface */
+{
+  float         : left ;
+  border-width  : var( --border-double ) ;
+  border-color  : var( --white ) ;
+  border-style  : solid ;
+  box-sizing    : border-box
+}
+
+.lgt /* light */
+{
+  width         : 5% ;
+  height        : var( --cell-size ) ;
+  background    : #AAA ;
+  border-radius : 50% ;
+  position      : relative
+}
+
+.tra{ transition : all 0.3s } /* transition */
 
 /*....................................................................................................................*/
 
 .bnc /* bench */
 {
-  width         : var( --cell-size ) ;
-  height        : var( --cell-size ) ;
+  width         : 5% ;
+  height        : calc( 100% / 14 ) ;
   background    : #AAA ;
-  border-radius : 50% ;
+  border-radius : 50%
 }
 
-/*....................................................................................................................*/
-
-.lgt /* light */
+.bnc_fil /* bench fill */
 {
-  width         : var( --cell-size ) ;
-  height        : var( --cell-size ) ;
-  background    : #AAA ;
-  border-radius : 50% ;
-  position      : relative ;
+  fill   : rgba( 255 , 255 , 255 , 0.5 ) ;
+  stroke : #AAA
 }
 
 /*....................................................................................................................*/
 
 .btn /* button */
 {
-  width         : var( --cell-size ) ;
+  width         : 5% ;
   height        : var( --cell-size ) ;
   color         : var( --white ) ;
-  font-size     : calc( var( --game-w ) / 90 ) ;
+  font-size     : calc( var( --board-w ) / 90 ) ;
   background    : #666 ;
   border-radius : 50% ;
-  box-shadow    : 0 0 0 var( --border-half ) #666 inset ,
-                  0 0 0 var( --border-full ) var( --white ) inset ;
+  box-shadow    :
+    0 0 0 var( --border-half ) #666 inset ,
+    0 0 0 var( --border-full ) var( --white ) inset
 }
 
 .btn:hover
@@ -82,30 +97,40 @@
 
 /*....................................................................................................................*/
 
-.itf /* interface */
+.cll /* cell */
 {
-  float         : left ;
-  border-color  : var( --white ) ;
-  border-style  : solid ;
-  border-width  : var( --border-double ) ;
-  box-sizing    : border-box ;
+  width      : 5% ;
+  height     : calc( 100% / 14 ) ;
+  color      : rgba( 255 , 255 , 255 , 0.2 ) ;
+  float      : left ;
+  border     : 0 var( --white ) solid ;
+  box-shadow : 0 0 0 var( --border-full ) rgba( 0 , 0 , 0 , 0.1 ) inset ;
+  box-sizing : border-box
+}
+
+.cll_txt /* cell text */
+{
+  font-size   : calc( var( --board-w ) / 70 ) ;
+  font-weight : bold
 }
 
 /*....................................................................................................................*/
+/* goal fixes */
 
-.inn /* inner circles */
-{
-  position      : absolute ;
-  border-color  : rgba( 255 , 255 , 255 , 0.3 ) ;
-  border-style  : solid ;
-  border-width  : var( --border-full ) ;
-  box-sizing    : border-box ;
-  border-radius : 50% ;
-}
+.fix_lft{ margin-left   : var( --border-half ) } /* fix left */
+.fix_rgt{ margin-right  : var( --border-half ) } /* fix right */
+.fix_bot{ margin-bottom : var( --border-half ) } /* fix bottom */
+.fix_top{ margin-top    : var( --border-half ) } /* fix top */
 
-.inn_0{ width : 90% ; height : 90% }
-.inn_1{ width : 70% ; height : 70% }
-.inn_2{ width : 50% ; height : 50% }
+/*....................................................................................................................*/
+/* cell colors */
+
+.red_lgt{ background : #800 } /* red light */
+.red_drk{ background : #700 } /* red dark */
+.grn_lgt{ background : #580 } /* green light */
+.grn_drk{ background : #570 } /* green dark */
+.blu_lgt{ background : #508 } /* blue light */
+.blu_drk{ background : #507 } /* blue dark */
 
 /*....................................................................................................................*/
 
@@ -113,20 +138,21 @@
 {
   border-color : #F80 ;
   box-sizing   : border-box ;
-  box-shadow   : 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
-                 0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
+    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
 
   animation-name            : select ;
-  animation-iteration-count : 1 ;
   animation-duration        : 0.5s ;
   animation-timing-function : ease ;
-  animation-fill-mode       : forwards ;
+  animation-iteration-count : 1 ;
+  animation-fill-mode       : forwards
 }
 
 @keyframes select
 {
   30%{ border-width : calc( var( --border-double ) * 2 ) }
-  70%{ border-width : var( --border-half ) }
+  70%{ border-width : var( --border-full ) }
   100%{ border-width : var( --border-double ) }
 }
 
@@ -137,7 +163,7 @@
   animation-name            : glow ;
   animation-iteration-count : infinite ;
   animation-duration        : 1.5s ;
-  animation-timing-function : linear ;
+  animation-timing-function : linear
 }
 
 @keyframes glow
@@ -146,20 +172,4 @@
   50%{ fill : var( --white ) ; color : var( --white ) ; text-shadow : 0 0 var( --border-double ) var( --white ) }
   100%{ fill : rgba( 255 , 255 , 255 , 0.4 ) }
 }
-
-/*....................................................................................................................*/
-
-.fix_lft{ margin-left : var( --border-half ) }
-.fix_rgt{ margin-right : var( --border-half ) }
-.fix_bot{ margin-bottom : var( --border-half ) }
-.fix_top{ margin-top : var( --border-half ) }
-
-/*....................................................................................................................*/
-
-.red_lgt{ background : #800 }
-.red_drk{ background : #700 }
-.grn_lgt{ background : #580 }
-.grn_drk{ background : #570 }
-.blu_lgt{ background : #508 }
-.blu_drk{ background : #507 }
 

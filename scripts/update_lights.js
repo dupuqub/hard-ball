@@ -3,37 +3,33 @@
 
 //......................................................................................................................
 //
-var update_lights = _ =>
+G.update_lights = _ =>
 {
-  var
-  fills_athlete = document.querySelectorAll( '.fil_atl' ),
-  color = plays_now()
+  const color = G.plays_now()
 
-  fills_athlete.forEach( art => art.classList.remove( 'glw' ) )
+  document.querySelectorAll( '.atl_fil' ).forEach( art => art.classList.remove( 'glw' ) )
 
-  blue_light.forEach( cell => cell.classList.remove( 'glw' ) )
-  blue_dark.forEach( cell => cell.classList.remove( 'glw' ) )
-  green_light.forEach( cell => cell.classList.remove( 'glw' ) )
-  green_dark.forEach( cell => cell.classList.remove( 'glw' ) )
+  G.D.blue_light.forEach( cell => cell.classList.remove( 'glw' ) )
+  G.D.blue_dark.forEach( cell => cell.classList.remove( 'glw' ) )
+  G.D.green_light.forEach( cell => cell.classList.remove( 'glw' ) )
+  G.D.green_dark.forEach( cell => cell.classList.remove( 'glw' ) )
 
   if( color === 'blue' )
   {
-    blue_light.forEach( cell => cell.classList.add( 'glw' ) )
-    blue_dark.forEach( cell => cell.classList.add( 'glw' ) )
+    G.D.blue_light.forEach( cell => cell.classList.add( 'glw' ) )
+    G.D.blue_dark.forEach( cell => cell.classList.add( 'glw' ) )
   }
   else
   {
-    green_light.forEach( cell => cell.classList.add( 'glw' ) )
-    green_dark.forEach( cell => cell.classList.add( 'glw' ) )
+    G.D.green_light.forEach( cell => cell.classList.add( 'glw' ) )
+    G.D.green_dark.forEach( cell => cell.classList.add( 'glw' ) )
   }
 
   setTimeout( _ =>
   {
-    state.team[ color ].forEach( athlete_index =>
+    G.S.team[ color ].forEach( athlete_index =>
     {
-      var arts = document.querySelectorAll( '.atl_' + athlete_index )
-
-      arts.forEach( art => art.classList.add( 'glw' ) )
+      document.querySelectorAll( '.atl_' + athlete_index ).forEach( art => art.classList.add( 'glw' ) )
     } )
   } , 750 )
 }

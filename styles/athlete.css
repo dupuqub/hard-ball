@@ -3,31 +3,20 @@
 
 .atl /* athlete */
 {
-  position      : absolute ;
   width         : var( --athlete-size ) ;
   height        : var( --athlete-size ) ;
+  background    : #333 ;
   border-radius : 50% ;
   border-color  : var( --white ) ;
   border-width  : var( --border-full ) ;
   border-style  : solid ;
   box-sizing    : border-box ;
-  background    : #333 ;
-  stroke        : #333 ;
+  position      : absolute ;
+  stroke        : #333
 }
 
-.tra{ transition : all 0.3s ease-in-out }
-
-.art_atl{ position : absolute }
-
-.sqr_art /* svg square art */
-{
-  stroke-width : calc( var( --square-art-size ) / 10 ) ;
-  width        : var( --square-art-size ) ;
-  height       : var( --square-art-size ) ;
-}
-
-.fil_atl{ fill : var( --white ) }
-.fil_bnc{ fill : rgba( 255 , 255 , 255 , 0.5 ) ; stroke : #AAA }
+.atl_art{ position : absolute } /* athlete art */
+.atl_fil{ fill : var( --white ) } /* athlete fill */
 
 /*....................................................................................................................*/
 
@@ -35,19 +24,17 @@
 {
   width    : var( --athlete-size ) ;
   height   : var( --athlete-size ) ;
-  position : absolute ;
+  position : absolute
 }
 
 .atl_sel /* athlete selector */
 {
-  r            : calc( var( --athlete-size ) / 2 ) ;
-  cx           : calc( var( --athlete-size ) / 2 ) ;
-  cy           : calc( var( --athlete-size ) / 2 ) ;
-  fill         : rgba( 0 , 0 , 0 , 0 ) ;
+  fill         : rgba( 255 , 255 , 255 , 0 ) ;
   stroke-width : 0 ;
+  transition   : fill 0.3s
 }
 
-.atl_sel:hover{ fill : rgba( 255 , 255 , 255 , 0.1 ) }
+.atl_sel:hover{ fill : rgba( 255 , 255 , 255 , 0.3 ) }
 
 /*....................................................................................................................*/
 

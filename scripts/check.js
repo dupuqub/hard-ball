@@ -3,19 +3,38 @@
 
 //......................................................................................................................
 //
-var check =
+G.check =
 {
-  pool : [] ,
-  tool : _ => check.pool.forEach( ( item_0 , $_0 ) =>
-  {
-    if( item_0.test() )
+  //....................................................................................................................
+  //
+  pool :
+  [
+    // 'pooled' event example
     {
-      var safe_act = item_0.act
+      clear : true ,
+      test  : _ => true ,
+      act   : _ => true
+    } ,
+  ] ,
 
-      check.pool = check.pool.filter( ( item_1 , $_1 ) => $_0 !== $_1 )
+  //....................................................................................................................
+  //
+  tool : _ =>
+  {
+    G.check.pool.forEach( ( item_0 , $_0 ) =>
+    {
+      if( item_0.test() )
+      {
+        const safe_act = item_0.act
 
-      safe_act()
-    }
-  } )
+        if( item_0.clear )
+        {
+          G.check.pool = G.check.pool.filter( ( item_1 , $_1 ) => $_0 !== $_1 )
+        }
+
+        safe_act()
+      }
+    } )
+  }
 }
 

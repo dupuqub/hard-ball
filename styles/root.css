@@ -1,35 +1,31 @@
 
 /*....................................................................................................................*/
-/* JS only */
-/* Inner text for reference (updates on resize) */
 
-:root
+:root /* JS only */
 {
-  --foundation-w : 0 ;
-  --foundation-h : 0 ;
-  --game-w       : 0 ;
-  --game-h       : 0 ;
+  --body-w : 0 ;
+  --body-h : 0
 }
 
 /*....................................................................................................................*/
-/* CSS only */
 
-:root
+:root /* CSS only */
 {
-  --field-middle-w  : calc( var( --game-w ) / 2 ) ;
-  --field-middle-h  : calc( var( --game-h ) / 14 * 12 / 2 ) ;
+  --board-w : calc( var( --body-w ) * 0.7 ) ;
+  --board-h : calc( var( --board-w ) / 20 * 14 ) ;
 
-  --border-full   : calc( var( --game-w ) / 400 ) ;
+  --field-middle-w : calc( var( --board-w ) / 2 ) ;
+  --field-middle-h : calc( var( --board-h ) / 14 * 12 / 2 ) ;
+
+  --border-full   : calc( var( --board-w ) / 400 ) ;
   --border-half   : calc( var( --border-full ) / 2 ) ;
   --border-double : calc( var( --border-full ) * 2 ) ;
-  
-  --cell-size       : calc( var( --game-w ) / 20 ) ;
-  --goal-size       : calc( var( --cell-size ) / 4 * 3 ) ;
-  --athlete-size    : calc( var( --cell-size ) - var( --border-double ) ) ;
-  --square-art-size : calc( var( --cell-size ) / 8 ) ;
 
-  --game-radius : calc( var( --cell-size ) / 2 ) ;
+  --cell-size    : calc( var( --board-w ) / 20 ) ;
+  --goal-size    : calc( var( --cell-size ) * 0.8 ) ;
+  --board-radius : calc( var( --cell-size ) / 2 ) ;
+  --athlete-size : calc( var( --cell-size ) - var( --border-double ) ) ;
 
-  --white : #DDD ;
+  --white : #DDD
 }
 

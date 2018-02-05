@@ -6,51 +6,52 @@
   width         : calc( var( --cell-size ) - var( --border-full ) ) ;
   height        : calc( var( --cell-size ) - var( --border-full ) ) ;
   border-radius : 50% ;
-  border-width  : var( --border-double ) ;
-  border-color  : #FA0 ;
-  border-style  : dotted ;
+  border        : var( --border-double ) #FA0 dotted ;
   position      : absolute ;
   box-sizing    : border-box ;
-
-  animation-name            : spin ;
-  animation-iteration-count : infinite ;
-  animation-duration        : 4s ;
-  animation-timing-function : linear ;
+  animation     : spin 4s infinite 0s linear
 }
 
 .zon:hover
 {
   border-color : #FA0 ;
   border-style : solid ;
-  box-shadow   : 0 0 var( --border-double ) 0 #F40 ,
-                 0 0 var( --border-double ) 0 #F40 inset ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #F40 ,
+    0 0 var( --border-double ) 0 #F40 inset
 }
 
 @keyframes spin{ 100%{ transform : rotate( 360deg ) } }
 
 /*....................................................................................................................*/
 
-.zon_nop
+.zon_not
 {
   border-width : calc( var( --border-full ) * 1.5 ) ;
-  opacity : 0.7 ;
+  opacity : 0.7
 }
 
 /*....................................................................................................................*/
 
 .zon_red{ border-color : #F00 }
+
 .zon_red:hover
 {
   border-color : #F00 ;
-  box-shadow   : 0 0 var( --border-double ) 0 #F00 ,
-                 0 0 var( --border-double ) 0 #F00 inset ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #F00 ,
+    0 0 var( --border-double ) 0 #F00 inset
 }
 
+/*....................................................................................................................*/
+
 .zon_blk{ border-color : #000 }
+
 .zon_blk:hover
 {
   border-color : #000 ;
-  box-shadow   : 0 0 var( --border-double ) 0 #000 ,
-                 0 0 var( --border-double ) 0 #000 inset ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #000 ,
+    0 0 var( --border-double ) 0 #000 inset
 }
 
