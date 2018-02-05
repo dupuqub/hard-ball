@@ -159,9 +159,7 @@ G.click = target =>
             //..........................................................................................................
             // first ball hold
             //
-            if( G.S.ball === null
-            && G.S.scoring === null
-            && G.I.middle.indexOf( zone_cell ) !== -1 )
+            if( G.S.ball === null && G.I.middle.indexOf( zone_cell ) !== -1 )
             {
               G.S.holder.future = athlete_index
             }

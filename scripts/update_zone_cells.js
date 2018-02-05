@@ -14,8 +14,8 @@ G.update_zone_cells = _ =>
     zone.classList.remove( 'zon_blk' )
   } )
 
-  G.D.ball.style.zIndex = 1
-  G.D.aim.style.zIndex = 1
+  G.D.ball.style.zIndex = G.S.ball === null ? 1 : 0
+  G.D.aim.style.zIndex = G.S.ball === null ? 1 : 0
 
   if( G.S.hovered === 'ball' )       G.update_ball_zones()
   else if( G.S.hovered !== null )    G.update_athlete_zones( G.S.hovered )
@@ -32,7 +32,7 @@ G.update_ball_zones = _ =>
   //..................................................................................................................
   // startup
   //
-  if( G.S.ball === null && G.S.scoring === null )
+  if( G.S.ball === null )
   {
     G.I.middle.forEach( ( cell , $ ) => G.S.zones[ $ ] = cell )
     G.D.zones.forEach( zone => zone.classList.add( 'zon_not' ) )
@@ -72,9 +72,6 @@ G.update_athlete_zones = athlete_index =>
 
   team     = athlete_in_blue ? 'blue' : athlete_in_green ? 'green' : null ,
   team_not = team === 'blue' ? 'green' : team === 'green' ? 'blue' : null
-
-  G.D.ball.style.zIndex = 0
-  G.D.aim.style.zIndex = 0
 
   //..................................................................................................................
   // startup
