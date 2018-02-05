@@ -131,7 +131,7 @@ G.click = target =>
             // define rounding
             //
             if( G.S.rounding ) G.S.rounding = false
-            else G.S.rounding = G.I.roundabout.indexOf( athlete_letter ) !== -1
+            else               G.S.rounding = G.I.roundabout.indexOf( athlete_letter ) !== -1
 
             //..........................................................................................................
             // check for holder moving
@@ -154,7 +154,7 @@ G.click = target =>
             else if( zone_class_list.indexOf( 'zon_red' ) !== -1 )
             {
               if( zone_cell === G.S.ball ) G.S.holder.future = athlete_index
-              else G.S.pushed = G.S.athletes.indexOf( zone_cell )
+              else                         G.S.pushed = G.S.athletes.indexOf( zone_cell )
             }
 
             //..........................................................................................................
