@@ -53,10 +53,12 @@ G.I = // information
 //
 G.S = // state
 {
+  path     : [] ,
   turn     : 0 ,
   placing  : false ,
   rounding : false ,
   lock     : false ,
+  old_cell : null , // cell or null
   aim      : null , // cell or null
   ball     : null , // cell or null
   scoring  : null , // 'green', 'blue' or null

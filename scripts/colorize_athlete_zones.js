@@ -8,7 +8,7 @@ G.colorize_athlete_zones = athlete_index =>
   const
   athlete_cell   = G.S.athletes[ athlete_index ] ,
   athlete_letter = athlete_cell.slice( 0 , 1 ) ,
-  athlete_number = Number( athlete_cell.slice( 1 , 3 ) ) ,
+  athlete_number = Number( athlete_cell.slice( 1 ) ) ,
 
   athlete_in_blue  = G.S.team.blue.indexOf( athlete_index ) !== -1 ,
   athlete_in_green = G.S.team.green.indexOf( athlete_index ) !== -1 ,
@@ -63,17 +63,7 @@ G.colorize_athlete_zones = athlete_index =>
     //..................................................................................................................
     // find the following cell
     //
-    const
-    cell_letter = cell.slice( 0 , 1 ) ,
-    cell_number = Number( cell.slice( 1 , 3 ) ) ,
-
-    cell_letter_index    = G.I.a_to_m.indexOf( cell_letter ) ,
-    athlete_letter_index = G.I.a_to_m.indexOf( athlete_letter ) ,
-    letter_diff          = cell_letter_index - athlete_letter_index ,
-    number_diff          = cell_number - athlete_number ,
-    number_origin        = cell_number + number_diff ,
-
-    new_cell = G.celler( G.letterer( cell_letter , letter_diff ) , G.numberer( number_origin , 20 ) )
+    const new_cell = G.following_cell( athlete_cell , cell )
 
     //..................................................................................................................
     // rule_2

@@ -148,8 +148,7 @@ G.click = target =>
             //..........................................................................................................
             // define rounding
             //
-            if( G.S.rounding ) G.S.rounding = false
-            else               G.S.rounding = G.I.roundabout.indexOf( athlete_letter ) !== -1
+            G.S.rounding = G.S.rounding ? false : G.I.roundabout.indexOf( athlete_letter ) !== -1
 
             //..........................................................................................................
             // check for holder moving
@@ -159,18 +158,22 @@ G.click = target =>
             //..........................................................................................................
             // first ball hold
             //
-            if( G.S.ball === null && G.I.middle.indexOf( zone_cell ) !== -1 )
-            {
-              G.S.holder.future = athlete_index
-            }
+            if( G.S.ball === null && G.I.middle.indexOf( zone_cell ) !== -1 ) G.S.holder.future = athlete_index
 
             //..........................................................................................................
             // has target
             //
             else if( zone_class_list.indexOf( 'zon_red' ) !== -1 )
             {
-              if( zone_cell === G.S.ball ) G.S.holder.future = athlete_index
-              else                         G.S.pushed = G.S.athletes.indexOf( zone_cell )
+              if( G.S.athletes.indexOf( zone_cell ) !== -1 )
+              {
+                G.S.pushed = G.S.athletes.indexOf( zone_cell )
+                G.S.old_cell = athlete_cell
+              }
+              else if( zone_cell === G.S.ball )
+              {
+                G.S.holder.future = athlete_index
+              }
             }
 
             //..........................................................................................................
@@ -186,27 +189,9 @@ G.click = target =>
     //
     else if( ! G.S.placing && ! G.S.rounding )
     {
-      //................................................................................................................
-      //
-      if( target === 'ball' && G.S.ball !== null )
-      {
-        G.change_selected( 'ball' )
-      }
-
-      //................................................................................................................
-      //
-      else if( target.slice( 0 , 7 ) === 'athlete' )
-      {
-        G.change_selected( Number( target.slice( 8 ) ) )
-      }
-
-      //................................................................................................................
-      // nothing
-      //
-      else
-      {
-        G.change_selected( null )
-      }
+      if( target === 'ball' && G.S.ball !== null )   G.change_selected( 'ball' )
+      else if( target.slice( 0 , 7 ) === 'athlete' ) G.change_selected( Number( target.slice( 8 ) ) )
+      else                                           G.change_selected( null )
     }
   }
 }
