@@ -23,5 +23,7 @@ G.update_zone_cells = _ =>
   else if( G.S.selected !== null )   G.update_athlete_zones( G.S.selected )
 
   G.reposition.zones()
+
+  G.update_aim()
 }
 

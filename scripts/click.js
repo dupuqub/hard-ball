@@ -95,14 +95,14 @@ G.click = target =>
             new_x = zone_number * G.I.cell_size + G.I.border_full ,
             new_y = G.I.a_to_m.indexOf( zone_letter ) * G.I.cell_size + G.I.border_full
 
-            G.S.ball = zone_cell
-            G.S.aim = zone_cell
-
             G.D.ball.style.marginLeft = new_x + 'px'
             G.D.ball.style.marginTop = new_y + 'px'
 
             G.D.aim.style.marginLeft = new_x + 'px'
             G.D.aim.style.marginTop = new_y + 'px'
+
+            G.S.ball = zone_cell
+            G.S.aim = zone_cell
 
             G.S.placing = false
 

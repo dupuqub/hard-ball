@@ -65,7 +65,7 @@ G.chew = ( athlete_source , athlete_sight ) =>
       const
       value_0 = move === 3 ? 1 : move === 6 ? 1 : 2 ,
       value_1 = move === 3 ? 2 : move === 6 ? 3 : 3 ,
-      cells =
+      cells   =
       [
         G.celler( G.letterer( source_cell_letter , -value_0 ) , G.numberer( source_cell_number - value_1 , 20 ) ) ,
         G.celler( G.letterer( source_cell_letter , value_0 ) , G.numberer( source_cell_number - value_1 , 20 ) ) ,

@@ -19,17 +19,6 @@ G.update_ball_zones = _ =>
   //
   else if( G.S.placing || G.S.holder.now !== null )
   {
-    //..................................................................................................................
-    // aim
-    //
-    const
-    new_letter = 0 , // G.letterer(  ) ,
-    new_number = 0 , // G.numberer(  ) ,
-    new_cell   = 0 // G.celler( new_letter , new_number )
-
-    //..................................................................................................................
-    // zones
-    //
     const
     athlete_index = G.S.holder.now ,
     chewed_matrix = G.chew( athlete_index , 13 )
