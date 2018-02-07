@@ -63,7 +63,7 @@ G.move = ( athlete_index , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
         //
         if( pushed_index === G.S.holder.future
         || pushed_index === G.S.holder.now && G.S.holder.future === null
-        || pushed_index === G.S.holder.now && G.S.holder.future !== null && pushed_index === G.S.holder.future )
+        || pushed_index === G.S.holder.now && pushed_index === G.S.holder.future )
         {
           G.S.holder.future = G.S.selected
         }

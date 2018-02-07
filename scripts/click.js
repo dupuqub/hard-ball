@@ -170,7 +170,7 @@ G.click = target =>
                 G.S.pushed = G.S.athletes.indexOf( zone_cell )
                 G.S.old_cell = athlete_cell
               }
-              else if( zone_cell === G.S.ball )
+              else if( zone_cell === G.S.ball || G.S.path.indexOf( zone_cell ) !== -1 )
               {
                 G.S.holder.future = athlete_index
               }

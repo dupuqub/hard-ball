@@ -1,6 +1,20 @@
 
 'use strict'
 
+// kick
+// lights
+// punt
+// defend
+// path find
+// path style
+// make path zones red for athletes
+// receive
+// kick score
+// place score
+// game over
+// utilities
+// console
+
 //......................................................................................................................
 //
 onmousemove = event => G.mouse_move( event.target.id )

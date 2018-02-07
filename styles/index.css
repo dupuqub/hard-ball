@@ -90,10 +90,7 @@ body
     0 0 0 var( --border-full ) var( --white ) inset
 }
 
-.btn:hover
-{
-  background : #888 ;
-}
+.btn:hover{ background : #888 }
 
 /*....................................................................................................................*/
 
@@ -138,15 +135,10 @@ body
 {
   border-color : #F80 ;
   box-sizing   : border-box ;
+  animation    : select 0.5s 1 0s ease-in forwards ;
   box-shadow   :
     0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
     0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
-
-  animation-name            : select ;
-  animation-duration        : 0.5s ;
-  animation-timing-function : ease ;
-  animation-iteration-count : 1 ;
-  animation-fill-mode       : forwards
 }
 
 @keyframes select
@@ -158,13 +150,7 @@ body
 
 /*....................................................................................................................*/
 
-.glw /* glow */
-{
-  animation-name            : glow ;
-  animation-iteration-count : infinite ;
-  animation-duration        : 1.5s ;
-  animation-timing-function : linear
-}
+.glw{ animation : glow 1.5s infinite 0s linear } /* glow */
 
 @keyframes glow
 {
@@ -173,3 +159,16 @@ body
   100%{ fill : rgba( 255 , 255 , 255 , 0.4 ) }
 }
 
+/*....................................................................................................................*/
+
+.pat{ animation : path 4s infinite 0s ease-in } /* path */
+
+@keyframes path
+{
+  0%{ border : var( --border-double ) solid #D00 ; border-radius : 0 }
+  5%{ border : calc( var( --border-double ) * 2 ) solid var( --white ) ; border-radius : 50% }
+  10%{ border : calc( var( --border-double ) * 3 ) solid var( --white ) ; border-radius : 50% }
+  15%{ border : calc( var( --border-double ) * 2 ) solid var( --white ) ; border-radius : 50% }
+  20%{ border : var( --border-double ) solid #D00 ; border-radius : 0 }
+  100%{ border : var( --border-double ) solid #D00 }
+}

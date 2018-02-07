@@ -39,6 +39,25 @@ G.change_selected = chosen =>
 
 //......................................................................................................................
 //
+G.following_cell = ( first_cell , second_cell ) =>
+{
+  const
+  first_letter  = first_cell.slice( 0 , 1 ) ,
+  first_number  = Number( first_cell.slice( 1 ) ) ,
+  second_letter = second_cell.slice( 0 , 1 ) ,
+  second_number = Number( second_cell.slice( 1 ) ) ,
+
+  first_letter_index  = G.I.a_to_m.indexOf( first_letter ) ,
+  second_letter_index = G.I.a_to_m.indexOf( second_letter ) ,
+  letter_diff         = second_letter_index - first_letter_index ,
+  number_diff         = second_number - first_number ,
+  number_origin       = second_number + number_diff
+
+  return G.celler( G.letterer( second_letter , letter_diff ) , G.numberer( number_origin , 20 ) )
+}
+
+//......................................................................................................................
+//
 G.mouse_move = target =>
 {
   G.S.hovered =
