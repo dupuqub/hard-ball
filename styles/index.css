@@ -33,8 +33,7 @@ body
   width         : var( --goal-size ) ;
   height        : var( --goal-size ) ;
   background    : rgba( 255 , 255 , 255 , 0.2 ) ;
-  border        : 0 var( --white ) solid ;
-  border-width  : var( --border-full ) ;
+  border        : var( --border-full ) solid var( --white ) ;
   border-radius : 50% ;
   box-sizing    : border-box
 }
@@ -42,9 +41,7 @@ body
 .itf /* interface */
 {
   float         : left ;
-  border-width  : var( --border-double ) ;
-  border-color  : var( --white ) ;
-  border-style  : solid ;
+  border        : var( --border-double ) solid var( --white ) ;
   box-sizing    : border-box
 }
 
@@ -138,7 +135,7 @@ body
   animation    : select 0.5s 1 0s ease-in forwards ;
   box-shadow   :
     0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
-    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset ;
+    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset
 }
 
 @keyframes select

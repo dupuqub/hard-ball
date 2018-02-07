@@ -3,10 +3,8 @@
 
 #aim , #ball
 {
+  border        : var( --border-full ) solid var( --white ) ;
   border-radius : 50% ;
-  border-color  : var( --white ) ;
-  border-width  : var( --border-full ) ;
-  border-style  : solid ;
   box-sizing    : border-box ;
   position      : absolute
 }
@@ -16,7 +14,15 @@
   width      : var( --athlete-size ) ;
   height     : var( --athlete-size ) ;
   background : rgba( 255 , 255 , 255 , 0.3 )
+}
 
+#aim:hover
+{
+  cursor       : pointer ;
+  border-width : var( --border-double ) ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #FFF ,
+    0 0 var( --border-double ) 0 #FFF inset
 }
 
 #ball
@@ -35,8 +41,7 @@
   width         : var( --board-w ) ;
   height        : var( --board-h ) ;
   background    : var( --white ) ;
-  border        : 0 var( --white ) solid ;
-  border-width  : var( --border-half ) ;
+  border        : var( --border-half ) solid var( --white ) ;
   border-radius : 0 0 var( --board-radius ) var( --board-radius )
 }
 
