@@ -21,8 +21,8 @@
   cursor       : pointer ;
   border-width : var( --border-double ) ;
   box-shadow   :
-    0 0 var( --border-double ) 0 #FFF ,
-    0 0 var( --border-double ) 0 #FFF inset
+    0 0 var( --border-double ) 0 var( --white ) ,
+    0 0 var( --border-double ) 0 var( --white ) inset
 }
 
 #ball

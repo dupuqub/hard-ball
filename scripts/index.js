@@ -1,15 +1,11 @@
 
 'use strict'
 
-// kick
 // lights
 // punt
 // defend
-// path find
 // make path zones red for athletes
-// receive
-// kick score
-// place score
+// try score
 // game over
 // utilities
 // console

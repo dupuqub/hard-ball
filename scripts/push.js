@@ -9,7 +9,7 @@ G.push = _ =>
   pushed_index  = G.S.pushed ,
   selected_cell = G.S.old_cell ,
   pushed_cell   = G.S.athletes[ pushed_index ] ,
-  new_cell      = G.following_cell( selected_cell , pushed_cell )
+  new_cell      = G.next_cell( selected_cell , pushed_cell )
 
   //..............................................................................................................
   // work with updated holders

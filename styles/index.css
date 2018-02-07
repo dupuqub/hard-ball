@@ -134,8 +134,8 @@ body
   box-sizing   : border-box ;
   animation    : select 0.5s 1 0s ease-in forwards ;
   box-shadow   :
-    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) ,
-    0 0 var( --border-double ) 0 rgb( 255 , 95 , 0 ) inset
+    0 0 var( --border-double ) 0 #F40 ,
+    0 0 var( --border-double ) 0 #F40 inset
 }
 
 @keyframes select

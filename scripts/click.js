@@ -36,7 +36,12 @@ G.click = target =>
   //
   else if( target === 'aim' )
   {
-    //
+    G.D.ball.classList.remove( 'tra' )
+    G.D.aim.classList.remove( 'tra' )
+
+    // find path
+    // move ball
+    // stop ball
   }
 
   //....................................................................................................................
@@ -82,7 +87,7 @@ G.click = target =>
             }
             else
             {
-              // score
+              // try score
             }
           }
 

@@ -63,7 +63,7 @@ G.colorize_athlete_zones = athlete_index =>
     //..................................................................................................................
     // find the following cell
     //
-    const new_cell = G.following_cell( athlete_cell , cell )
+    const new_cell = G.next_cell( athlete_cell , cell )
 
     //..................................................................................................................
     // rule_2

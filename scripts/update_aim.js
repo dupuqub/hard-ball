@@ -17,20 +17,19 @@ G.update_aim = _ =>
     if( ! G.S.placing && G.S.ball !== null && G.S.holder.now !== null )
     {
       const
-      first_cell       = G.S.athletes[ G.S.holder.now ] ,
-      last_cell        = G.S.ball ,
-      following_cell   = G.following_cell( first_cell , last_cell ) ,
-      following_letter = following_cell.slice( 0 , 1 ) ,
-      following_number = Number( following_cell.slice( 1 ) ) ,
+      first_cell  = G.S.athletes[ G.S.holder.now ] ,
+      last_cell   = G.S.ball ,
+      next_cell   = G.next_cell( first_cell , last_cell ) ,
+      next_letter = next_cell.slice( 0 , 1 ) ,
+      next_number = Number( next_cell.slice( 1 ) ) ,
 
-      following_x = following_number * G.I.cell_size + G.I.border_full ,
-      following_y = G.I.a_to_m.indexOf( following_letter ) * G.I.cell_size + G.I.border_full
+      next_x = next_number * G.I.cell_size + G.I.border_full ,
+      next_y = G.I.a_to_m.indexOf( next_letter ) * G.I.cell_size + G.I.border_full
 
-      G.D.aim.style.marginLeft = following_x + 'px'
-      G.D.aim.style.marginTop = following_y + 'px'
+      G.D.aim.style.marginLeft = next_x + 'px'
+      G.D.aim.style.marginTop = next_y + 'px'
 
-      G.S.aim = following_cell
-      console.log( 'ok' )
+      G.S.aim = next_cell
     }
   }
 }

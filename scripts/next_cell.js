@@ -3,7 +3,7 @@
 
 //......................................................................................................................
 //
-G.following_cell = ( first_cell , second_cell ) =>
+G.next_cell = ( first_cell , second_cell ) =>
 {
   const
   first_letter  = first_cell.slice( 0 , 1 ) ,
