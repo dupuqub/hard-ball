@@ -28,7 +28,7 @@ G.chew = ( athlete_source , athlete_sight ) =>
 
   moves = G.matrix[ athlete_sight ].moves ,
 
-  this_array = []
+  general_this_array = []
 
   moves.forEach( move =>
   {
@@ -44,7 +44,7 @@ G.chew = ( athlete_source , athlete_sight ) =>
         G.celler( G.letterer( source_cell_letter , value ) , source_cell_number )
       ]
 
-      cells.forEach( cell => this_array.push( cell ) )
+      cells.forEach( cell => general_this_array.push( cell ) )
     }
     if( move === 1 || move === 4 || move === 8 )
     {
@@ -58,7 +58,7 @@ G.chew = ( athlete_source , athlete_sight ) =>
         G.celler( G.letterer( source_cell_letter , -value ) , G.numberer( source_cell_number + value , 20 ) )
       ]
 
-      cells.forEach( cell => this_array.push( cell ) )
+      cells.forEach( cell => general_this_array.push( cell ) )
     }
     if( move === 3 || move === 6 || move === 7 )
     {
@@ -77,10 +77,10 @@ G.chew = ( athlete_source , athlete_sight ) =>
         G.celler( G.letterer( source_cell_letter , -value_1 ) , G.numberer( source_cell_number - value_0 , 20 ) )
       ]
 
-      cells.forEach( cell => this_array.push( cell ) )
+      cells.forEach( cell => general_this_array.push( cell ) )
     }
   } )
 
-  return this_array
+  return general_this_array
 }
 
