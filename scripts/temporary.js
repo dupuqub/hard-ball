@@ -48,7 +48,7 @@ G.load_file = save_file =>
 
   // check selected
   //
-  if( G.S.selected !== null ) G.change_selected( G.S.selected )
+  if( G.S.selected !== null ) G.update_selected( G.S.selected )
 
   // colorize athletes
   //

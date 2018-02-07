@@ -3,7 +3,7 @@
 
 //......................................................................................................................
 //
-G.change_selected = chosen =>
+G.update_selected = chosen =>
 {
   G.S.selected = chosen
   G.D.ball.classList.remove( 'slc' )

@@ -6,7 +6,6 @@
 // punt
 // defend
 // path find
-// path style
 // make path zones red for athletes
 // receive
 // kick score

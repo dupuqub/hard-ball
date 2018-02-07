@@ -189,9 +189,9 @@ G.click = target =>
     //
     else if( ! G.S.placing && ! G.S.rounding )
     {
-      if( target === 'ball' && G.S.ball !== null )   G.change_selected( 'ball' )
-      else if( target.slice( 0 , 7 ) === 'athlete' ) G.change_selected( Number( target.slice( 8 ) ) )
-      else                                           G.change_selected( null )
+      if( target === 'ball' && G.S.ball !== null )   G.update_selected( 'ball' )
+      else if( target.slice( 0 , 7 ) === 'athlete' ) G.update_selected( Number( target.slice( 8 ) ) )
+      else                                           G.update_selected( null )
     }
   }
 }

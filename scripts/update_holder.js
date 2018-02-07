@@ -22,6 +22,6 @@ G.update_holder = _ =>
   G.D.aim.style.marginLeft = athlete.style.marginLeft
   G.D.aim.style.marginTop = athlete.style.marginTop
 
-  G.change_selected( 'ball' )
+  G.update_selected( 'ball' )
 }
 

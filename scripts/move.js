@@ -51,10 +51,10 @@ G.move = ( athlete_index , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
     act : _ =>
     {
       if( G.S.pushed !== null )                   G.push()
-      if( ! G.S.rounding && G.S.pushed === null ) G.change_turn()
+      if( ! G.S.rounding && G.S.pushed === null ) G.update_turn()
       if( G.S.pushed === null )                   G.S.lock = false
 
-      G.change_selected( G.S.selected )
+      G.update_selected( G.S.selected )
     }
   } )
 }
