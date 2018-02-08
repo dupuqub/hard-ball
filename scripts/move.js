@@ -11,7 +11,7 @@ G.move = ( athlete_index , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
   new_x       = zone_number * G.I.cell_size + G.I.border_full ,
   new_y       = G.I.a_to_m.indexOf( zone_letter ) * G.I.cell_size + G.I.border_full
 
-  G.S.lock = true
+  G.S.locked = true
   G.S.athletes[ athlete_index ] = zone_cell
   G.D.athletes[ athlete_index ].style.marginLeft = new_x + 'px'
   G.D.athletes[ athlete_index ].style.marginTop = new_y + 'px'
@@ -52,7 +52,7 @@ G.move = ( athlete_index , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
     {
       if( G.S.pushed !== null )                   G.push()
       if( ! G.S.rounding && G.S.pushed === null ) G.update_turn()
-      if( G.S.pushed === null )                   G.S.lock = false
+      if( G.S.pushed === null )                   G.S.locked = false
 
       G.update_selected( G.S.selected )
     }

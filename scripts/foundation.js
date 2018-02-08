@@ -57,7 +57,7 @@ G.S = // state
   turn     : 0 ,
   placing  : false ,
   rounding : false ,
-  lock     : false ,
+  locked   : false ,
   old_cell : null , // cell or null
   aim      : null , // cell or null
   ball     : null , // cell or null
