@@ -14,12 +14,13 @@ G.shoot = _ =>
   //....................................................................................................................
   // path find
   //
-  const path = [ G.S.ball , G.S.aim ]
+  const
+  path = [ G.S.ball , G.S.aim ] ,
+  both_goals = G.I.goal.blue.concat( G.I.goal.green )
 
   while( true )
   {
     const
-    both_goals = G.I.goal.blue.concat( G.I.goal.green ) ,
     first_cell = path[ path.length - 2 ] ,
     last_cell  = path[ path.length - 1 ] ,
     next_cell  = G.next_cell( first_cell , last_cell )
@@ -125,7 +126,7 @@ G.shoot = _ =>
       const
       board_end_x = G.I.cell_size * 20 ,
       board_end_y = G.I.cell_size * 12 ,
-      modifier    = G.I.cell_size * 0.1 ,
+      modifier    = G.I.cell_size / 2 ,
       distance_x  = G.S.shot.x * modifier ,
       distance_y  = G.S.shot.y * modifier ,
       possible_x  = ball_x + distance_x ,
