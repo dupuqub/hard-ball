@@ -82,6 +82,7 @@ body
   font-size     : calc( var( --board-w ) / 90 ) ;
   background    : #666 ;
   border-radius : 50% ;
+  cursor        : pointer ;
   box-shadow    :
     0 0 0 var( --border-half ) #666 inset ,
     0 0 0 var( --border-full ) var( --white ) inset

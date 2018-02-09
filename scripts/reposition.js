@@ -62,10 +62,10 @@ G.reposition =
     cell_aim  = G.S.aim
 
     let
-    ball_x    = G.I.board.w / 2 - G.I.athlete_size / 2 ,
-    ball_y    = G.I.board.h_real / 2 - G.I.athlete_size / 2 ,
-    aim_x     = ball_x ,
-    aim_y     = ball_y
+    ball_x = G.I.board.w / 2 - G.I.athlete_size / 2 ,
+    ball_y = G.I.board.h_real / 2 - G.I.athlete_size / 2 ,
+    aim_x  = ball_x ,
+    aim_y  = ball_y
 
     if( cell_ball !== null )
     {

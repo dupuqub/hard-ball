@@ -13,7 +13,7 @@ G.update_selected = chosen =>
   {
     setTimeout( _ =>
     {
-      chosen === 'ball'
+        chosen === 'ball'
       ? G.D.ball.classList.add( 'slc' )
       : G.D.athletes[ chosen ].classList.add( 'slc' )
     } , 0 )

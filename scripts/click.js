@@ -34,44 +34,7 @@ G.click = target =>
   // GAMEPLAY
   //....................................................................................................................
   //
-  else if( target === 'aim' || target === 'aim_ring')
-  {
-    G.S.locked = true
-
-    G.D.ball.classList.remove( 'tra' )
-    G.D.aim.classList.remove( 'tra' )
-
-    const path = [ G.S.ball , G.S.aim ]
-
-    while( 1 )
-    {
-      const
-      both_goals = G.I.goal.blue.concat( G.I.goal.green ) ,
-      first_cell = path[ path.length - 2 ] ,
-      last_cell  = path[ path.length - 1 ] ,
-      next_cell  = G.next_cell( first_cell , last_cell )
-
-      if( G.S.athletes.indexOf( next_cell ) !== -1 )
-      {
-        // player receives
-
-        break
-      }
-      else if( both_goals.indexOf( next_cell ) !== -1 )
-      {
-        // try score
-
-        break
-      }
-      else
-      {
-        path.push( next_cell )
-      }
-    }
-
-    // move ball
-    // stop ball
-  }
+  else if( target === 'aim' || target === 'aim_ring') G.shoot()
 
   //....................................................................................................................
   // gate 0

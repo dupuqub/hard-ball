@@ -27,21 +27,21 @@ G.move = ( athlete_index , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
     test : _ =>
     {
       const
-      board_rect       = G.D.board.getBoundingClientRect() ,
-      athlete_rect     = G.D.athletes[ athlete_index ].getBoundingClientRect() ,
-      athlete_rect_x   = Math.floor( athlete_rect.x - board_rect.x - G.I.border_full / 2 ) ,
-      athlete_rect_y   = Math.floor( athlete_rect.y - board_rect.y - G.I.border_full / 2 ) ,
-      athlete_margin_x = Math.floor( Number( G.D.athletes[ athlete_index ].style.marginLeft.slice( 0 , -2 ) ) ) ,
-      athlete_margin_y = Math.floor( Number( G.D.athletes[ athlete_index ].style.marginTop.slice( 0 , -2 ) ) ) ,
-      error            = 2 ,
+      board_rect   = G.D.board.getBoundingClientRect() ,
+      athlete_rect = G.D.athletes[ athlete_index ].getBoundingClientRect() ,
+      athlete_x    = Math.floor( athlete_rect.x - board_rect.x - G.I.border_full / 2 ) ,
+      athlete_y    = Math.floor( athlete_rect.y - board_rect.y - G.I.border_full / 2 ) ,
+      margin_x     = Math.floor( Number( G.D.athletes[ athlete_index ].style.marginLeft.slice( 0 , -2 ) ) ) ,
+      margin_y     = Math.floor( Number( G.D.athletes[ athlete_index ].style.marginTop.slice( 0 , -2 ) ) ) ,
+      error        = 2 ,
 
       x_is_close =
-        athlete_rect_x > athlete_margin_x - error
-        && athlete_rect_x < athlete_margin_x + error ,
+           athlete_x > margin_x - error
+        && athlete_x < margin_x + error ,
 
       y_is_close =
-        athlete_rect_y > athlete_margin_y - error
-        && athlete_rect_y < athlete_margin_y + error
+           athlete_y > margin_y - error
+        && athlete_y < margin_y + error
 
       return x_is_close && y_is_close
     } ,

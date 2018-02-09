@@ -11,7 +11,7 @@ onkeydown = event =>
   {
     if( pressed === '0' )
     {
-      confirm( 'ERASE ALL SAVE FILES ?' )
+        confirm( 'ERASE ALL SAVE FILES ?' )
       ? localStorage.clear()
       : null
     }
@@ -23,7 +23,7 @@ onkeydown = event =>
 
       localStorage[ save_file ] === undefined
       ?
-        confirm( 'SAVE ?' )
+          confirm( 'SAVE ?' )
         ? localStorage[ save_file ] = string_state
         : null
 
@@ -57,7 +57,7 @@ G.load_file = save_file =>
     athlete.classList.remove( 'blue' )
     athlete.classList.remove( 'green' )
 
-    G.S.team.blue.indexOf( $ ) !== -1
+      G.S.team.blue.indexOf( $ ) !== -1
     ? athlete.classList.add( 'blue' )
     : G.S.team.green.indexOf( $ ) !== -1
     ? athlete.classList.add( 'green' )

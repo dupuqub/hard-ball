@@ -49,7 +49,7 @@ G.I = // information
 }
 
 //......................................................................................................................
-// "aim" and "zones" are here for better code visualization since they don't have to be persistent
+// "aim", "shot" and "zones" are here for better code visualization since they don't have to be persistent
 //
 G.S = // state
 {
@@ -66,6 +66,7 @@ G.S = // state
   pushed   : null , // from 0 to 19 or null
   selected : null , // from 0 to 19, 'ball' or null
   hovered  : null , // from 0 to 19, 'ball' or null
+  shot     : { x : 0 , y : 0 } , // -1, 0 or 1
   holder   : { now : null , future : null } , // from 0 to 19 or null
   keepers  : { blue : null , green : null } , // from 0 to 19 or null
   replaced : { blue : [] , green : [] } , // from 0 to 19

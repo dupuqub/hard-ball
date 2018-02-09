@@ -11,6 +11,7 @@ G.update_aim = _ =>
   G.S.aim = G.S.ball
 
   if( G.S.hovered === 'ball' && G.S.selected === G.S.holder.now
+  || G.S.hovered === 'ball' && G.S.selected === null
   || G.S.hovered === 'ball' && G.S.selected === 'ball'
   || G.S.hovered === null && G.S.selected === 'ball' )
   {
