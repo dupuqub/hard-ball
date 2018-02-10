@@ -22,7 +22,7 @@ G.update_holder = _ =>
   G.D.aim.style.marginLeft = athlete.style.marginLeft
   G.D.aim.style.marginTop = athlete.style.marginTop
 
-  if( G.S.path.length > 0 ) G.light_path( 'remove' )
+  if( G.S.path.length ) G.light_path( 'remove' )
 
   G.update_selected( 'ball' )
 }

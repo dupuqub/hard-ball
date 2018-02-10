@@ -64,6 +64,12 @@ G.load_file = save_file =>
     : null
   } )
 
+  // path
+  //
+  document.querySelectorAll( '.cll' ).forEach( cell => cell.classList.remove( 'pat' ) )
+
+  if( G.S.path.length ) G.light_path( 'add' )
+
   // updates
   //
   G.update_lights()
