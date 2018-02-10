@@ -24,11 +24,27 @@ G.colorize_athlete_zones = athlete_index =>
   //
   // rule_0 = athletes
   // rule_1 = ball
+  // rule_2 = path
   //
   red_cells   = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) , // rule_0
   red_indexes = red_cells.map( cell => G.S.zones.indexOf( cell ) )
 
   if( G.S.zones.indexOf( G.S.ball ) !== -1 ) red_indexes.push( G.S.zones.indexOf( G.S.ball ) ) // rule_1
+
+  if( G.S.path ) // rule_2
+  {
+    G.S.zones.forEach( cell =>
+    {
+      const 
+      cell_path_index  = G.S.path.indexOf( cell ) ,
+      cell_zones_index = G.S.zones.indexOf( cell )
+
+      if( cell_path_index !== -1 && red_indexes.indexOf( cell_path_index ) === -1 )
+      {
+        red_indexes.push( cell_zones_index )
+      }
+    } )
+  }
 
   //....................................................................................................................
   // reasons for black zone

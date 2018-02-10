@@ -3,8 +3,6 @@
 
 // lights
 // punt
-// defend
-// make path zones red for athletes
 // try score
 // game over
 // utilities

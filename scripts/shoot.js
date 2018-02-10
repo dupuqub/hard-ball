@@ -98,15 +98,29 @@ G.shoot = _ =>
     {
       const last_on_path = G.S.path[ G.S.path.length - 1 ]
 
+      //................................................................................................................
+      // try score
+      //
       if( both_goals.indexOf( last_on_path ) !== -1 )
       {
-        // try score
-      }
-      else if( G.S.athletes.indexOf( last_on_path ) !== -1 )
-      {
-        // pass
+        G.S.scoring = G.scoring()
+
+        G.light_path( 'add' )
+        G.update_selected( null )
       }
 
+      //................................................................................................................
+      // pass
+      //
+      else if( G.S.athletes.indexOf( last_on_path ) !== -1 )
+      {
+        G.S.holder.future = G.S.athletes.indexOf( last_on_path )
+
+        G.update_holder()
+      }
+
+      //................................................................................................................
+      //
       G.S.ball = last_on_path
       G.S.aim = last_on_path
 
@@ -168,3 +182,4 @@ G.shoot = _ =>
     }
   } , 10 )
 }
+

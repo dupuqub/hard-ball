@@ -163,10 +163,10 @@ body
 
 @keyframes path
 {
-    0%{ border : var( --border-double ) solid #D00                       ; border-radius : 0 }
+    0%{ border : var( --border-double ) solid rgba( 0 , 0 , 0 , 0.5 )    ; border-radius : 0 }
     5%{ border : calc( var( --border-double ) * 2 ) solid var( --white ) ; border-radius : 50% }
    10%{ border : calc( var( --border-double ) * 3 ) solid var( --white ) ; border-radius : 50% }
    15%{ border : calc( var( --border-double ) * 2 ) solid var( --white ) ; border-radius : 50% }
-   20%{ border : var( --border-double ) solid #D00                       ; border-radius : 0 }
-  100%{ border : var( --border-double ) solid #D00 }
+   20%{ border : var( --border-double ) solid rgba( 0 , 0 , 0 , 0.5 )    ; border-radius : 0 }
+  100%{ border : var( --border-double ) solid rgba( 0 , 0 , 0 , 0.5 ) }
 }
