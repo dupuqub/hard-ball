@@ -14,23 +14,26 @@ G.update_lights = _ =>
   G.D.green_light.forEach( cell => cell.classList.remove( 'glw' ) )
   G.D.green_dark.forEach( cell => cell.classList.remove( 'glw' ) )
 
-  if( color === 'blue' )
+  setTimeout( _ => // this timeout serves to address issues with updating after a path clear
   {
-    G.D.blue_light.forEach( cell => cell.classList.add( 'glw' ) )
-    G.D.blue_dark.forEach( cell => cell.classList.add( 'glw' ) )
-  }
-  else
-  {
-    G.D.green_light.forEach( cell => cell.classList.add( 'glw' ) )
-    G.D.green_dark.forEach( cell => cell.classList.add( 'glw' ) )
-  }
-
-  setTimeout( _ =>
-  {
-    G.S.team[ color ].forEach( athlete_index =>
+    if( color === 'blue' )
     {
-      document.querySelectorAll( '.atl_' + athlete_index ).forEach( art => art.classList.add( 'glw' ) )
-    } )
-  } , 750 )
+      G.D.blue_light.forEach( cell => cell.classList.add( 'glw' ) )
+      G.D.blue_dark.forEach( cell => cell.classList.add( 'glw' ) )
+    }
+    else
+    {
+      G.D.green_light.forEach( cell => cell.classList.add( 'glw' ) )
+      G.D.green_dark.forEach( cell => cell.classList.add( 'glw' ) )
+    }
+
+    setTimeout( _ => // this timeout serves to make area cells and athletes glow alternately
+    {
+      G.S.team[ color ].forEach( athlete_index =>
+      {
+        document.querySelectorAll( '.atl_' + athlete_index ).forEach( art => art.classList.add( 'glw' ) )
+      } )
+    } , 750 )
+  } , 0 )
 }
 

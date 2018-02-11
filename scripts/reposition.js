@@ -18,8 +18,8 @@ G.reposition =
       new_x       = cell_number * G.I.cell_size + G.I.border_full ,
       new_y       = G.I.a_to_m.indexOf( cell_letter ) * G.I.cell_size + G.I.border_full
 
-      athlete.style.marginLeft = new_x + "px"
-      athlete.style.marginTop = new_y + "px"
+      athlete.style.marginLeft = new_x + 'px'
+      athlete.style.marginTop = new_y + 'px'
       athlete.classList.remove( 'tra' )
     } )
 
@@ -48,8 +48,8 @@ G.reposition =
         new_y = G.I.a_to_m.indexOf( cell_letter ) * G.I.cell_size + G.I.border_full / 2
       }
 
-      zone.style.marginLeft = new_x + "px"
-      zone.style.marginTop = new_y + "px"
+      zone.style.marginLeft = new_x + 'px'
+      zone.style.marginTop = new_y + 'px'
     } )
   } ,
 
@@ -81,12 +81,12 @@ G.reposition =
       aim_y = G.I.a_to_m.indexOf( aim_letter ) * G.I.cell_size + G.I.border_full
     }
 
-    G.D.ball.style.marginLeft = ball_x + "px"
-    G.D.ball.style.marginTop = ball_y + "px"
+    G.D.ball.style.marginLeft = ball_x + 'px'
+    G.D.ball.style.marginTop = ball_y + 'px'
     G.D.ball.classList.remove( 'tra' )
 
-    G.D.aim.style.marginLeft = aim_x + "px"
-    G.D.aim.style.marginTop = aim_y + "px"
+    G.D.aim.style.marginLeft = aim_x + 'px'
+    G.D.aim.style.marginTop = aim_y + 'px'
     G.D.aim.classList.remove( 'tra' )
 
     setTimeout( _ =>

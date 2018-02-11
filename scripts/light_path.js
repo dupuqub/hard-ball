@@ -19,7 +19,11 @@ G.light_path = ( method , where ) =>
     {
       window.clearInterval( path_lighter )
 
-      if( method === 'remove' ) G.S.path = []
+      if( method === 'remove' )
+      {
+        G.S.path = []
+        G.update_lights()
+      }
     }
   } , 10 )
 }
