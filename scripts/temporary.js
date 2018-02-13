@@ -26,7 +26,6 @@ onkeydown = event =>
           confirm( 'SAVE ?' )
         ? localStorage[ save_file ] = string_state
         : null
-
       : confirm( 'LOAD ?' )
       ? G.load_file( save_file )
       : confirm( 'REPLACE ?' )

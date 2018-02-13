@@ -25,21 +25,37 @@ G.colorize_athlete_zones = athlete_index =>
   // rule_0 = athletes
   // rule_1 = ball
   // rule_2 = path
+
+  //....................................................................................................................
+  // rule_0
   //
-  red_cells   = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) , // rule_0
+  red_cells   = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) ,
+
+  //....................................................................................................................
+  //
   red_indexes = red_cells.map( cell => G.S.zones.indexOf( cell ) )
 
-  if( G.S.zones.indexOf( G.S.ball ) !== -1 ) red_indexes.push( G.S.zones.indexOf( G.S.ball ) ) // rule_1
+  //....................................................................................................................
+  // rule_1
+  //
+  // push to 'red_indexes' directly to optimize pushed calculations
+  //
+  if( G.S.zones.indexOf( G.S.ball ) !== -1 ) red_indexes.push( G.S.zones.indexOf( G.S.ball ) )
 
-  if( G.S.path ) // rule_2
+  //....................................................................................................................
+  // rule_2
+  //
+  // push to 'red_indexes' directly to optimize pushed calculations
+  //
+  if( G.S.path )
   {
     G.S.zones.forEach( cell =>
     {
-      const 
+      const
       cell_path_index  = G.S.path.indexOf( cell ) ,
       cell_zones_index = G.S.zones.indexOf( cell )
 
-      if( cell_path_index !== -1 && red_indexes.indexOf( cell_path_index ) === -1 )
+      if( cell_path_index !== -1 && red_indexes.indexOf( cell_zones_index ) === -1 )
       {
         red_indexes.push( cell_zones_index )
       }
@@ -54,9 +70,14 @@ G.colorize_athlete_zones = athlete_index =>
   // rule_2 = blocked push by athlete
   // rule_3 = blocked push by pushed's rule_0
   // rule_4 = blocked push by pushed's rule_1
-  //
-  const black_cells_0 = G.S.zones.filter( cell => G.I.area[ team_not ].indexOf( cell ) !== -1 )
 
+  //....................................................................................................................
+  // rule_0
+  //
+  const black_cells_0 = G.S.zones.filter( cell => G.I.area[ team_not ].indexOf( cell ) !== -1 ) // rule_0
+
+  //....................................................................................................................
+  //
   let
   black_cells_1 = [] ,
   black_cells_2 = [] ,
