@@ -9,6 +9,7 @@ G.D = // dom (document object model)
   ball  : document.querySelector( '#ball' ) ,
   board : document.querySelector( '#board' ) ,
 
+  bulbs       : document.querySelectorAll( '.bul' ) ,
   zones       : document.querySelectorAll( '.zon' ) ,
   athletes    : document.querySelectorAll( '.atl' ) ,
   athlete_art : document.querySelectorAll( '.atl_art' ) ,
@@ -53,6 +54,11 @@ G.I = // information
 //
 G.S = // state
 {
+  punting : false ,
+  holding : { turns : 0 , team : null } ,
+
+
+
   path     : [] ,
   turn     : 0 ,
   placing  : false ,

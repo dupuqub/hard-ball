@@ -34,7 +34,7 @@ G.click = target =>
   // GAMEPLAY
   //....................................................................................................................
   //
-  else if( target === 'aim' || target === 'aim_ring') G.shoot()
+  else if( target === 'aim' || target === 'aim_ring' ) G.shoot()
 
   //....................................................................................................................
   // gate 0
@@ -55,9 +55,10 @@ G.click = target =>
       else
       {
         const
-        zone_index  = Number( target.slice( 5 ) ) ,
-        zone_cell   = G.S.zones[ zone_index ] ,
+        zone        = Number( target.slice( 5 ) ) ,
+        zone_cell   = G.S.zones[ zone ] ,
         zone_letter = zone_cell.slice( 0 , 1 ) ,
+        zone_index  = G.I.a_to_m.indexOf( zone_letter ) ,
         zone_number = Number( zone_cell.slice( 1 ) )
 
         //..............................................................................................................
@@ -67,7 +68,7 @@ G.click = target =>
           //............................................................................................................
           // has target
           //
-          if( Array.from( G.D.zones[ zone_index ].classList ).indexOf( 'zon_red' ) !== -1 )
+          if( Array.from( G.D.zones[ zone ].classList ).indexOf( 'zon_red' ) !== -1 )
           {
             const athlete_index = G.S.athletes.indexOf( zone_cell )
 
@@ -79,7 +80,21 @@ G.click = target =>
             }
             else
             {
+              const
+              new_x = zone_number * G.I.cell_size + G.I.border_full ,
+              new_y = zone_index * G.I.cell_size + G.I.border_full
+
+              G.D.ball.style.marginLeft = new_x + 'px'
+              G.D.ball.style.marginTop = new_y + 'px'
+
+              G.D.aim.style.marginLeft = new_x + 'px'
+              G.D.aim.style.marginTop = new_y + 'px'
+
+              G.S.ball = zone_cell
+              G.S.aim = zone_cell
+
               G.S.scoring = G.scoring()
+              G.S.holder.now = null
 
               G.update_selected( null )
             }

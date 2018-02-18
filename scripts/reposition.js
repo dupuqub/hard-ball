@@ -14,9 +14,10 @@ G.reposition =
       const
       cell_name   = G.S.athletes[ $ ] ,
       cell_letter = cell_name.slice( 0 , 1 ) ,
+      cell_index  = G.I.a_to_m.indexOf( cell_letter ) ,
       cell_number = Number( cell_name.slice( 1 ) ) ,
       new_x       = cell_number * G.I.cell_size + G.I.border_full ,
-      new_y       = G.I.a_to_m.indexOf( cell_letter ) * G.I.cell_size + G.I.border_full
+      new_y       = cell_index * G.I.cell_size + G.I.border_full
 
       athlete.style.marginLeft = new_x + 'px'
       athlete.style.marginTop = new_y + 'px'
@@ -42,10 +43,11 @@ G.reposition =
       {
         const
         cell_letter = cell_name.slice( 0 , 1 ) ,
+        cell_index  = G.I.a_to_m.indexOf( cell_letter ) ,
         cell_number = Number( cell_name.slice( 1 ) )
 
         new_x = cell_number * G.I.cell_size + G.I.border_full / 2
-        new_y = G.I.a_to_m.indexOf( cell_letter ) * G.I.cell_size + G.I.border_full / 2
+        new_y = cell_index * G.I.cell_size + G.I.border_full / 2
       }
 
       zone.style.marginLeft = new_x + 'px'
@@ -71,14 +73,16 @@ G.reposition =
     {
       const
       ball_letter = cell_ball.slice( 0 , 1 ) ,
+      ball_index  = G.I.a_to_m.indexOf( ball_letter ) ,
       ball_number = Number( cell_ball.slice( 1 ) ) ,
       aim_letter  = cell_aim.slice( 0 , 1 ) ,
+      aim_index   = G.I.a_to_m.indexOf( aim_letter ) ,
       aim_number  = Number( cell_aim.slice( 1 ) )
 
       ball_x = ball_number * G.I.cell_size + G.I.border_full
-      ball_y = G.I.a_to_m.indexOf( ball_letter ) * G.I.cell_size + G.I.border_full
+      ball_y = ball_index * G.I.cell_size + G.I.border_full
       aim_x = aim_number * G.I.cell_size + G.I.border_full
-      aim_y = G.I.a_to_m.indexOf( aim_letter ) * G.I.cell_size + G.I.border_full
+      aim_y = aim_index * G.I.cell_size + G.I.border_full
     }
 
     G.D.ball.style.marginLeft = ball_x + 'px'

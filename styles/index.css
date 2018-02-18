@@ -45,7 +45,7 @@ body
   box-sizing    : border-box
 }
 
-.lgt /* light */
+.bul /* bulb */
 {
   width         : 5% ;
   height        : var( --cell-size ) ;
