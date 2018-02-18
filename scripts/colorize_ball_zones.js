@@ -32,7 +32,7 @@ G.colorize_ball_zones = _ =>
     red_cells_0
     .concat( red_cells_1 )
     .map( cell => G.S.zones.indexOf( cell ) )
-    .filter( ( zone_index , $ , array ) => $ === array.indexOf( zone_index ) ) // remove duplicates
+    .filter( ( zone_index , $ , array ) => $ === array.indexOf( zone_index ) ) , // remove duplicates
 
   //....................................................................................................................
   // reasons for black zone
@@ -41,7 +41,6 @@ G.colorize_ball_zones = _ =>
   // rule_1 = own goal
   // rule_2 = opposing goal if holder is keeper
   //
-  const
   black_cells_0 = G.S.zones.filter( cell => playing_cells[ team_not ].indexOf( cell ) !== -1 ) ,
   black_cells_1 = G.S.zones.filter( cell => G.I.goal[ team ].indexOf( cell ) !== -1 )
 

@@ -18,22 +18,26 @@ G.shoot = _ =>
   path = [ G.S.ball , G.S.aim ] ,
   both_goals = G.I.goal.blue.concat( G.I.goal.green )
 
-  while( true )
+  if( G.S.athletes.indexOf( path[ 1 ] ) === -1 // aim is not on player
+  && both_goals.indexOf( path[ 1 ] ) === -1 ) // aim is not on goal
   {
-    const
-    first_cell = path[ path.length - 2 ] ,
-    last_cell  = path[ path.length - 1 ] ,
-    next_cell  = G.next_cell( first_cell , last_cell )
+    while( true )
+    {
+      const
+      first_cell = path[ path.length - 2 ] ,
+      last_cell  = path[ path.length - 1 ] ,
+      next_cell  = G.next_cell( first_cell , last_cell )
 
-    if( G.S.athletes.indexOf( next_cell ) !== -1 // player receives
-    || both_goals.indexOf( next_cell ) !== -1 ) // try score
-    {
-      path.push( next_cell )
-      break
-    }
-    else
-    {
-      path.push( next_cell )
+      if( G.S.athletes.indexOf( next_cell ) !== -1 // player receives
+      || both_goals.indexOf( next_cell ) !== -1 ) // try score
+      {
+        path.push( next_cell )
+        break
+      }
+      else
+      {
+        path.push( next_cell )
+      }
     }
   }
 

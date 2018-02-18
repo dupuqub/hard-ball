@@ -25,6 +25,6 @@ G.light_path = ( method , where ) =>
         G.update_lights()
       }
     }
-  } , 10 )
+  } , 30 )
 }
 

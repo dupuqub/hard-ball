@@ -17,7 +17,7 @@ G.update_ball_zones = _ =>
   //....................................................................................................................
   // common play
   //
-  else if( G.S.placing || G.S.holder.now !== null )
+  else if( G.S.holder.now !== null )
   {
     const
     athlete_index = G.S.holder.now ,
@@ -30,6 +30,7 @@ G.update_ball_zones = _ =>
       G.S.zones = G.S.zones.map( cell => cell === G.S.ball ? null : cell )
     }
 
+    G.update_keepers()
     G.colorize_ball_zones()
   }
 }
