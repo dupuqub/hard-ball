@@ -164,7 +164,12 @@ G.click = target =>
             G.S.pushed = pushed
 
             G.S.team[ color ] = G.S.team[ color ].map( item =>{ return item === pushed ? athlete : item } )
+            G.S.replaced[ color ].push( pushed )
 
+            G.D.athletes[ pushed ].classList.add( 'rep' )
+            G.D.athletes[ athlete ].classList.add( color )
+
+            G.update_lights()
             G.move( athlete , zone_cell )
           }
 
@@ -237,7 +242,16 @@ G.click = target =>
       //
       else if( target.slice( 0 , 7 ) === 'athlete' )
       {
-        G.update_selected( Number( target.slice( 8 ) ) )
+        const
+        athlete               = Number( target.slice( -2 ) ) ,
+        athlete_letter        = G.S.athletes[ athlete ].slice( 0 , 1 ) ,
+        athlete_was_replaced  = Array.from( G.D.athletes[ athlete ].classList ).indexOf( 'rep' ) !== -1 ,
+        team_has_replacements = G.S.replaced[ G.plays_now() ].length < 2
+
+        if( athlete_letter !== 'M' || ! athlete_was_replaced && team_has_replacements )
+        {
+          G.update_selected( athlete )
+        }
       }
 
       //................................................................................................................

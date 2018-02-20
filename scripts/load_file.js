@@ -11,22 +11,22 @@ G.load_file = save_file =>
   G.S = JSON.parse( localStorage[ save_file ] )
 
   //....................................................................................................................
-  // check selected
-  //
-  if( G.S.selected !== null ) G.update_selected( G.S.selected )
-
-  //....................................................................................................................
   // colorize athletes
   //
   G.D.athletes.forEach( ( athlete , $ ) =>
   {
     athlete.classList.remove( 'blue' )
     athlete.classList.remove( 'green' )
+    athlete.classList.remove( 'rep' )
 
-      G.S.team.blue.indexOf( $ ) !== -1
+      G.S.team.blue.indexOf( $ ) !== -1 || G.S.replaced.blue.indexOf( $ ) !== -1
     ? athlete.classList.add( 'blue' )
-    : G.S.team.green.indexOf( $ ) !== -1
+    : G.S.team.green.indexOf( $ ) !== -1 || G.S.replaced.green.indexOf( $ ) !== -1
     ? athlete.classList.add( 'green' )
+    : null
+
+      G.S.replaced.blue.concat( G.S.replaced.green ).indexOf( $ ) !== -1
+    ? athlete.classList.add( 'rep' )
     : null
   } )
 
@@ -40,6 +40,7 @@ G.load_file = save_file =>
   //....................................................................................................................
   // updates
   //
+  G.update_selected( G.S.selected )
   G.update_lights()
   G.resize()
 }

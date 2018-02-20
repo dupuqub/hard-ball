@@ -11,7 +11,7 @@ G.push_athlete = _ =>
   pushed_cell   = G.S.athletes[ pushed ] ,
   new_cell      =
       G.S.replace
-    ? G.celler( 'M' , pushed_cell )
+    ? G.celler( 'M' , pushed )
     : G.next_cell( selected_cell , pushed_cell )
 
   //..............................................................................................................
@@ -41,11 +41,9 @@ G.push_athlete = _ =>
 
   //..............................................................................................................
   //
-  setTimeout( _ =>
-  {
-    G.S.pushed = null
+  G.S.pushed = null
+  G.S.old_cell = null
 
-    G.move( pushed , new_cell )
-  } , 0 )
+  G.move( pushed , new_cell )
 }
 
