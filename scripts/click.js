@@ -155,6 +155,14 @@ G.click = target =>
           }
 
           //............................................................................................................
+          // benched
+          //
+          else if( athlete_letter === 'M' && G.S.replaced[ G.plays_now() ].length < 2 )
+          {
+            console.log( 'replace' )
+          }
+
+          //............................................................................................................
           // common play
           //
           else
@@ -210,9 +218,29 @@ G.click = target =>
     //
     else if( ! G.S.placing && ! G.S.rounding )
     {
-      if( target === 'ball' && G.S.ball !== null )   G.update_selected( 'ball' )
-      else if( target.slice( 0 , 7 ) === 'athlete' ) G.update_selected( Number( target.slice( 8 ) ) )
-      else                                           G.update_selected( null )
+      //................................................................................................................
+      //
+      if( target === 'ball'
+      && G.S.ball !== null
+      && G.S.scoring === null )
+      {
+        G.update_selected( 'ball' )
+      }
+
+      //................................................................................................................
+      //
+      else if( target.slice( 0 , 7 ) === 'athlete' )
+      {
+        G.update_selected( Number( target.slice( 8 ) ) )
+      }
+
+      //................................................................................................................
+      // click nothing
+      //
+      else
+      {
+        G.update_selected( null )
+      }
     }
   }
 }

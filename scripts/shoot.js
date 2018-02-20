@@ -100,7 +100,19 @@ G.shoot = _ =>
     //
     if( close_enough )
     {
+      //................................................................................................................
+      //
       const last_on_path = G.S.path[ G.S.path.length - 1 ]
+
+      G.S.ball = last_on_path
+      G.S.aim = last_on_path
+
+      G.D.ball.classList.add( 'tra' )
+      G.D.aim.classList.add( 'tra' )
+
+      G.S.locked = false
+
+      window.clearInterval( move_ball )
 
       //................................................................................................................
       // try score
@@ -122,18 +134,6 @@ G.shoot = _ =>
 
         G.update_holder()
       }
-
-      //................................................................................................................
-      //
-      G.S.ball = last_on_path
-      G.S.aim = last_on_path
-
-      G.D.ball.classList.add( 'tra' )
-      G.D.aim.classList.add( 'tra' )
-
-      G.S.locked = false
-
-      window.clearInterval( move_ball )
     }
 
     //..................................................................................................................

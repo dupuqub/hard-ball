@@ -44,7 +44,14 @@ G.update_athlete_zones = athlete_index =>
   //
   else if( team === null )
   {
-    //
+    const
+    plays_now = G.plays_now() ,
+    color     = G.S.replaced[ plays_now ].length < 2 ? 'red' : 'blk' ,
+    cells     = G.S.team[ plays_now ].map( index => G.S.athletes[ index ] )
+
+    cells.forEach( ( cell , $ ) => G.S.zones[ $ ] = cell )
+
+    G.D.zones.forEach( zone => zone.classList.add( 'zon_' + color ) )
   }
 
   //....................................................................................................................
