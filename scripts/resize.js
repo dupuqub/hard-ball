@@ -33,13 +33,15 @@ G.resize = _ =>
   //....................................................................................................................
   // Redefine the first 'root' under 'root.css'
   //
-  Array.from( document.styleSheets ).some( ( sheet , $ ) =>
+  const new_root =
+    '--body-w:' + G.I.body.w + 'px;' +
+    '--body-h:' + G.I.body.h + 'px;'
+
+  Array.from( document.styleSheets ).some( sheet =>
   {
     if( sheet.href !== null && sheet.href.indexOf( 'root.css' ) !== -1 )
     {
-      document.styleSheets[ $ ].cssRules[ 0 ].style.cssText =
-        '--body-w:' + G.I.body.w + 'px;' +
-        '--body-h:' + G.I.body.h + 'px;'
+      sheet.cssRules[ 0 ].style.cssText = new_root
 
       return true
     }

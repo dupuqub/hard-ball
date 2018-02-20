@@ -58,6 +58,8 @@ G.S = // state
   holding : { turns : 0 , team : null } ,
 
 
+  replace : false ,
+
 
   path     : [] ,
   turn     : 0 ,

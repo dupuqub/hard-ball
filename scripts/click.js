@@ -86,7 +86,6 @@ G.click = target =>
 
               G.D.ball.style.marginLeft = new_x + 'px'
               G.D.ball.style.marginTop = new_y + 'px'
-
               G.D.aim.style.marginLeft = new_x + 'px'
               G.D.aim.style.marginTop = new_y + 'px'
 
@@ -129,26 +128,28 @@ G.click = target =>
         else if( G.S.selected !== null ) // athlete
         {
           const
-          athlete_index  = G.S.selected ,
-          athlete_cell   = G.S.athletes[ athlete_index ] ,
+          athlete        = G.S.selected ,
+          athlete_cell   = G.S.athletes[ athlete ] ,
           athlete_letter = athlete_cell.slice( 0 , 1 ) ,
-          athlete_number = Number( athlete_cell.slice( 1 ) )
+          athlete_number = Number( athlete_cell.slice( 1 ) ) ,
+
+          pushed = G.S.athletes.indexOf( zone_cell )
+
+          let color = G.plays_now()
 
           //............................................................................................................
           // startup
           //
           if( G.S.turn < 8 )
           {
-            let color = G.plays_now()
-
             if( G.S.turn === 0 )
             {
               G.S.first = G.S.starter.blue.indexOf( zone_cell ) !== -1 ? 'blue' : 'green'
               color = G.S.first
             }
 
-            G.D.athletes[ athlete_index ].classList.add( color )
-            G.S.team[ color ].push( athlete_index )
+            G.D.athletes[ athlete ].classList.add( color )
+            G.S.team[ color ].push( athlete )
             G.S.starter[ color ] = G.S.starter[ color ].filter( cell => cell !== zone_cell )
 
             G.move( G.S.selected , zone_cell )
@@ -159,7 +160,12 @@ G.click = target =>
           //
           else if( athlete_letter === 'M' && G.S.replaced[ G.plays_now() ].length < 2 )
           {
-            console.log( 'replace' )
+            G.S.replace = true
+            G.S.pushed = pushed
+
+            G.S.team[ color ] = G.S.team[ color ].map( item =>{ return item === pushed ? athlete : item } )
+
+            G.move( athlete , zone_cell )
           }
 
           //............................................................................................................
@@ -175,12 +181,12 @@ G.click = target =>
             //..........................................................................................................
             // check for holder moving
             //
-            if( G.S.holder.now !== null && athlete_index === G.S.holder.now ) G.S.holder.future = G.S.holder.now
+            if( G.S.holder.now !== null && athlete === G.S.holder.now ) G.S.holder.future = G.S.holder.now
 
             //..........................................................................................................
             // first ball hold
             //
-            if( G.S.ball === null && G.I.middle.indexOf( zone_cell ) !== -1 ) G.S.holder.future = athlete_index
+            if( G.S.ball === null && G.I.middle.indexOf( zone_cell ) !== -1 ) G.S.holder.future = athlete
 
             //..........................................................................................................
             // has target
@@ -192,7 +198,7 @@ G.click = target =>
               //
               if( G.S.athletes.indexOf( zone_cell ) !== -1 )
               {
-                G.S.pushed = G.S.athletes.indexOf( zone_cell )
+                G.S.pushed = pushed
                 G.S.old_cell = athlete_cell
               }
 
@@ -201,7 +207,7 @@ G.click = target =>
               //
               else if( zone_cell === G.S.ball || G.S.path.indexOf( zone_cell ) !== -1 )
               {
-                G.S.holder.future = athlete_index
+                G.S.holder.future = athlete
               }
             }
 
