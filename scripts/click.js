@@ -45,22 +45,35 @@ G.click = target =>
     //
     if( target.slice( 0 , 4 ) === 'zone' )
     {
-      const zone_class_list = Array.from( G.D.zones[ Number( target.slice( 5 ) ) ].classList )
+      const
+      zone         = Number( target.slice( 5 ) ) ,
+      zone_cell    = G.S.zones[ zone ] ,
+      zone_letter  = zone_cell.slice( 0 , 1 ) ,
+      zone_index   = G.I.a_to_m.indexOf( zone_letter ) ,
+      zone_number  = Number( zone_cell.slice( 1 ) ) ,
+      zone_classes = Array.from( G.D.zones[ zone ].classList ) ,
+      zone_is_not  = zone_classes.indexOf( 'zon_not' ) !== -1 ,
+      zone_is_blk  = zone_classes.indexOf( 'zon_blk' ) !== -1 ,
+      zone_is_red  = zone_classes.indexOf( 'zon_red' ) !== -1
 
-      if( zone_class_list.indexOf( 'zon_not' ) !== -1
-      || zone_class_list.indexOf( 'zon_blk' ) !== -1 )
+      if( zone_is_not || zone_is_blk )
       {
-        // do nothing (gameplay focused choice)
+        if( zone_is_red && ! G.S.placing && ! G.S.rounding )
+        {
+          const
+          athlete = G.S.athletes.indexOf( zone_cell ) ,
+          chosen  =
+              athlete !== -1
+            ? athlete
+            : G.S.ball !== null && G.S.scoring === null
+            ? 'ball'
+            : null
+
+          if( chosen !== null ) G.update_selected( chosen )
+        }
       }
       else
       {
-        const
-        zone        = Number( target.slice( 5 ) ) ,
-        zone_cell   = G.S.zones[ zone ] ,
-        zone_letter = zone_cell.slice( 0 , 1 ) ,
-        zone_index  = G.I.a_to_m.indexOf( zone_letter ) ,
-        zone_number = Number( zone_cell.slice( 1 ) )
-
         //..............................................................................................................
         //
         if( G.S.selected === 'ball' )
@@ -68,59 +81,46 @@ G.click = target =>
           //............................................................................................................
           // has target
           //
-          if( Array.from( G.D.zones[ zone ].classList ).indexOf( 'zon_red' ) !== -1 )
+          if( zone_is_red )
           {
-            const athlete_index = G.S.athletes.indexOf( zone_cell )
+            const athlete = G.S.athletes.indexOf( zone_cell )
 
-            if( athlete_index !== -1 )
+            let new_x , new_y
+
+            if( athlete !== -1 )
             {
-              G.S.holder.future = athlete_index
-
+              G.S.holder.future = athlete
               G.update_holder()
             }
             else
             {
-              const
-              new_x = zone_number * G.I.cell_size + G.I.border_full ,
-              new_y = zone_index * G.I.cell_size + G.I.border_full
-
-              G.D.ball.style.marginLeft = new_x + 'px'
-              G.D.ball.style.marginTop = new_y + 'px'
-              G.D.aim.style.marginLeft = new_x + 'px'
-              G.D.aim.style.marginTop = new_y + 'px'
-
-              G.S.ball = zone_cell
-              G.S.aim = zone_cell
-
               G.S.scoring = G.scoring()
               G.S.holder.now = null
-
               G.update_selected( null )
             }
           }
 
           //............................................................................................................
-          // has NO target
           //
           else
           {
-            const
-            new_x = zone_number * G.I.cell_size + G.I.border_full ,
-            new_y = G.I.a_to_m.indexOf( zone_letter ) * G.I.cell_size + G.I.border_full
-
-            G.D.ball.style.marginLeft = new_x + 'px'
-            G.D.ball.style.marginTop = new_y + 'px'
-
-            G.D.aim.style.marginLeft = new_x + 'px'
-            G.D.aim.style.marginTop = new_y + 'px'
-
-            G.S.ball = zone_cell
-            G.S.aim = zone_cell
-
             G.S.placing = false
-
             G.update_zone_cells()
           }
+
+          //............................................................................................................
+          // common
+          //
+          new_x = zone_number * G.I.cell_size + G.I.border_full
+          new_y = zone_index * G.I.cell_size + G.I.border_full
+
+          G.D.ball.style.marginLeft = new_x + 'px'
+          G.D.ball.style.marginTop = new_y + 'px'
+          G.D.aim.style.marginLeft = new_x + 'px'
+          G.D.aim.style.marginTop = new_y + 'px'
+
+          G.S.ball = zone_cell
+          G.S.aim = zone_cell
         }
 
         //..............................................................................................................
@@ -196,7 +196,7 @@ G.click = target =>
             //..........................................................................................................
             // has target
             //
-            else if( zone_class_list.indexOf( 'zon_red' ) !== -1 )
+            else if( zone_is_red !== -1 )
             {
               //........................................................................................................
               // push

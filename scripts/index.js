@@ -3,7 +3,6 @@
 
 // TO DO
 //
-// selection through zon_not
 // bulbs
 // punt (punter chooses opponent to get ball)
 // goal (finish game)
