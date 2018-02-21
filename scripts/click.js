@@ -231,9 +231,7 @@ G.click = target =>
     {
       //................................................................................................................
       //
-      if( target === 'ball'
-      && G.S.ball !== null
-      && G.S.scoring === null )
+      if( target === 'ball' && G.S.ball !== null && G.S.scoring === null )
       {
         G.update_selected( 'ball' )
       }
