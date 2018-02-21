@@ -10,6 +10,8 @@ G.load_file = save_file =>
   //
   G.S = JSON.parse( localStorage[ save_file ] )
 
+  G.S.hovered = null
+
   //....................................................................................................................
   // colorize athletes
   //

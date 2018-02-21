@@ -3,7 +3,6 @@
 
 // TO DO
 //
-// hovered load file fix
 // right click deselect
 // selection through zon_not
 // bulbs
