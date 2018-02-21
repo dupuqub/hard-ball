@@ -10,6 +10,7 @@
 // utilities (complex save/load)
 // "HARD" and "BALL" on laterals
 // initial fade from black
+// autosave
 
 //......................................................................................................................
 //
@@ -30,7 +31,7 @@ G.run = _ =>
 //
 G.start = _ =>
 {
-  if( localStorage.hard_ball_auto_save !== undefined ){ /* load */ }
+  if( localStorage.hard_ball_auto_save !== undefined ) G.load_file( 'hard_ball_auto_save' )
 
   G.resize()
   G.run()
