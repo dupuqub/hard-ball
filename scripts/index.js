@@ -1,12 +1,18 @@
 
 'use strict'
 
-// lights
-// punt
-// try score
-// game over
-// utilities
+// TO DO
+//
+// hovered load file fix
+// right click deselect
+// selection through zon_not
+// bulbs
+// punt (punter chooses opponent to get ball)
+// goal (finish game)
 // console
+// utilities (complex save/load)
+// "HARD" and "BALL" on laterals
+// initial fade from black
 
 //......................................................................................................................
 //
