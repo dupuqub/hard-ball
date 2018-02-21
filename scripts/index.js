@@ -3,7 +3,6 @@
 
 // TO DO
 //
-// right click deselect
 // selection through zon_not
 // bulbs
 // punt (punter chooses opponent to get ball)
