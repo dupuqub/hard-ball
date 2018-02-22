@@ -78,14 +78,14 @@ G.click = target =>
         //
         if( G.S.selected === 'ball' )
         {
+          let new_x , new_y
+
           //............................................................................................................
           // has target
           //
           if( zone_is_red )
           {
             const athlete = G.S.athletes.indexOf( zone_cell )
-
-            let new_x , new_y
 
             if( athlete !== -1 )
             {

@@ -31,7 +31,10 @@ G.run = _ =>
 //
 G.start = _ =>
 {
-  if( localStorage.hard_ball_auto_save !== undefined ) G.load_file( 'hard_ball_auto_save' )
+  if( localStorage.hard_ball_auto_save !== undefined )
+  {
+    G.load_file( 'hard_ball_auto_save' )
+  }
 
   G.resize()
   G.run()

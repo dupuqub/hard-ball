@@ -58,14 +58,13 @@ G.S = // state
   holding : { turns : 0 , team : null } ,
 
 
-  replace : false ,
-
 
   path     : [] ,
   turn     : 0 ,
   placing  : false ,
   rounding : false ,
   locked   : false ,
+  replace  : false ,
   old_cell : null , // cell or null
   aim      : null , // cell or null
   ball     : null , // cell or null
