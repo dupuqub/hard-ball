@@ -16,7 +16,7 @@ onkeydown = event =>
 {
   const pressed = event.key
 
-  if( ! event.ctrlKey && ! event.altKey)
+  if( ! event.ctrlKey && ! event.altKey )
   {
     if( pressed === '0' )
     {
