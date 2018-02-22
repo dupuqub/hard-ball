@@ -78,8 +78,6 @@ G.click = target =>
         //
         if( G.S.selected === 'ball' )
         {
-          let new_x , new_y
-
           //............................................................................................................
           // has target
           //
@@ -111,7 +109,8 @@ G.click = target =>
           //............................................................................................................
           // common
           //
-          new_x = zone_number * G.I.cell_size + G.I.border_full
+          const
+          new_x = zone_number * G.I.cell_size + G.I.border_full ,
           new_y = zone_index * G.I.cell_size + G.I.border_full
 
           G.D.ball.style.marginLeft = new_x + 'px'
