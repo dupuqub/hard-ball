@@ -5,6 +5,8 @@
 //
 G.light_path = ( method , where ) =>
 {
+  G.S.pathing = true
+
   let $ = 0
 
   const path_lighter = setInterval( _ =>
@@ -17,7 +19,7 @@ G.light_path = ( method , where ) =>
 
     if( $ === G.S.path.length - 1 )
     {
-      G.S.locked = false
+      G.S.pathing = false
 
       window.clearInterval( path_lighter )
 

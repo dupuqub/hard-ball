@@ -16,7 +16,10 @@ onkeydown = event =>
 {
   const pressed = event.key
 
-  if( ! G.S.locked && ! event.ctrlKey && ! event.altKey )
+  if( ! G.S.locked
+  && ! G.S.pathing
+  && ! event.ctrlKey
+  && ! event.altKey )
   {
     if( pressed === '0' )
     {

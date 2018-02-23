@@ -61,6 +61,7 @@ G.S = // state
 
   path     : [] ,
   turn     : 0 ,
+  pathing  : false ,
   placing  : false ,
   rounding : false ,
   locked   : false ,
