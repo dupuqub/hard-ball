@@ -5,7 +5,13 @@
 //
 oncontextmenu = event =>
 {
-  if( ! G.S.locked && ! G.S.placing && ! G.S.rounding ) G.update_selected( null )
+  if( ! G.S.locked
+  && ! G.S.placing
+  && ! G.S.rounding
+  && ! G.S.punting )
+  {
+    G.update_selected( null )
+  }
 
   return false
 }

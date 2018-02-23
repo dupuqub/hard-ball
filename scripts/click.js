@@ -60,7 +60,7 @@ G.click = target =>
       //
       if( zone_is_not || zone_is_blk )
       {
-        if( zone_is_red && ! G.S.placing && ! G.S.rounding )
+        if( zone_is_red && ! G.S.placing && ! G.S.rounding && ! G.S.punting )
         {
           const
           athlete = G.S.athletes.indexOf( zone_cell ) ,
@@ -232,7 +232,7 @@ G.click = target =>
     //..................................................................................................................
     // gate 1
     //
-    else if( ! G.S.placing && ! G.S.rounding )
+    else if( ! G.S.placing && ! G.S.rounding && ! G.S.punting )
     {
       //................................................................................................................
       //
