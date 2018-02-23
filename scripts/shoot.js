@@ -129,7 +129,6 @@ G.shoot = _ =>
       else if( G.S.athletes.indexOf( last_on_path ) !== -1 )
       {
         G.S.locked = false
-
         G.S.holder.future = G.S.athletes.indexOf( last_on_path )
 
         G.update_holder()

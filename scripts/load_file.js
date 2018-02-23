@@ -37,7 +37,12 @@ G.load_file = save_file =>
   //
   document.querySelectorAll( '.cll' ).forEach( cell => cell.classList.remove( 'pat' ) )
 
-  if( G.S.path.length ) G.light_path( 'add' )
+  if( G.S.path.length )
+  {
+    G.S.locked = true
+
+    G.light_path( 'add' )
+  }
 
   //....................................................................................................................
   // updates

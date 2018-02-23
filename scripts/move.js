@@ -54,7 +54,7 @@ G.move = ( athlete , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
       if( G.S.replace && G.S.pushed === null )                     G.S.replace = false
       if( G.S.pushed !== null || G.S.replace )                     G.push_athlete()
 
-      if( G.S.pushed === null ) G.S.locked = false
+      if( G.S.pushed === null && ! G.S.path.length ) G.S.locked = false
 
       G.update_selected( G.S.selected )
     }
