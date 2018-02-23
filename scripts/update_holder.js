@@ -39,6 +39,7 @@ G.update_holder = _ =>
     {
       bulb.classList.remove( 'blue' )
       bulb.classList.remove( 'green' )
+      bulb.classList.remove( 'red_lgt' )
     } )
   }
 

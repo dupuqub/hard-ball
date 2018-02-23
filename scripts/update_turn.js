@@ -31,6 +31,7 @@ G.update_turn = _ =>
         } )
 
         G.S.punting = true
+        G.S.holder.now = null
 
         G.update_selected( 'ball' )
       }

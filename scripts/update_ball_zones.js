@@ -15,6 +15,21 @@ G.update_ball_zones = _ =>
   }
 
   //....................................................................................................................
+  //
+  else if( G.S.punting )
+  {
+    // make ball still shootable and movable + opponent athletes in red to pass (just like below)
+
+    /*
+    G.S.team[ G.S.holding.team === 'blue' ? 'green' : 'blue' ]
+      .map( index => G.S.athletes[ index ] )
+      .forEach( ( cell , $ ) => G.S.zones[ $ ] = cell )
+
+    G.D.zones.forEach( zone => zone.classList.add( 'zon_red' ) )
+    */
+  }
+
+  //....................................................................................................................
   // common play
   //
   else if( G.S.holder.now !== null )

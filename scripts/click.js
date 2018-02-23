@@ -90,6 +90,8 @@ G.click = target =>
           {
             const athlete = G.S.athletes.indexOf( zone_cell )
 
+            if( G.S.punting ) G.S.punting = false
+
             if( athlete !== -1 )
             {
               G.S.holder.future = athlete
