@@ -3,6 +3,7 @@
 
 #aim , #ball
 {
+  cursor        : pointer ;
   width         : var( --athlete-size ) ;
   height        : var( --athlete-size ) ;
   border        : var( --border-full ) solid var( --white ) ;

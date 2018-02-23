@@ -3,6 +3,7 @@
 
 .atl /* athlete */
 {
+  cursor        : pointer ;
   width         : var( --athlete-size ) ;
   height        : var( --athlete-size ) ;
   background    : #333 ;

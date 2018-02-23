@@ -110,8 +110,6 @@ G.shoot = _ =>
       G.D.ball.classList.add( 'tra' )
       G.D.aim.classList.add( 'tra' )
 
-      G.S.locked = false
-
       window.clearInterval( move_ball )
 
       //................................................................................................................
@@ -130,6 +128,8 @@ G.shoot = _ =>
       //
       else if( G.S.athletes.indexOf( last_on_path ) !== -1 )
       {
+        G.S.locked = false
+
         G.S.holder.future = G.S.athletes.indexOf( last_on_path )
 
         G.update_holder()

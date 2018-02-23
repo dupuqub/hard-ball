@@ -17,11 +17,14 @@ G.light_path = ( method , where ) =>
 
     if( $ === G.S.path.length - 1 )
     {
+      G.S.locked = false
+
       window.clearInterval( path_lighter )
 
       if( method === 'remove' )
       {
         G.S.path = []
+
         G.update_lights()
       }
     }

@@ -3,6 +3,7 @@
 
 .zon /* zones */
 {
+  cursor        : pointer ;
   width         : calc( var( --cell-size ) - var( --border-full ) ) ;
   height        : calc( var( --cell-size ) - var( --border-full ) ) ;
   border-radius : 50% ;
