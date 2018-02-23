@@ -14,6 +14,18 @@ G.update_turn = _ =>
   if( G.S.holder.future !== null ) G.update_holder()
 
   //....................................................................................................................
+  // punt
+  //
+  if( G.S.holding.turns === 5 )
+  {
+    G.S.punting = true
+    G.S.holder.now = null
+
+    G.update_selected( 'ball' )
+  }
+
+  //....................................................................................................................
+  // update bulbs
   //
   if( G.S.holding.team === G.plays_now() )
   {
@@ -29,11 +41,6 @@ G.update_turn = _ =>
           bulb.classList.remove( 'green' )
           bulb.classList.add( 'red_lgt' )
         } )
-
-        G.S.punting = true
-        G.S.holder.now = null
-
-        G.update_selected( 'ball' )
       }
 
       else

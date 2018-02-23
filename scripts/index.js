@@ -3,8 +3,7 @@
 
 // TO DO
 //
-// bulbs
-// punt (punter chooses opponent to get ball)
+// load file punting
 // goal (finish game)
 // console
 // utilities (complex save/load)
