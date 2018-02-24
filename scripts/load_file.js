@@ -44,6 +44,7 @@ G.load_file = save_file =>
   //
   G.update_selected( G.S.selected )
   G.update_lights()
+  G.update_bulbs()
   G.resize()
 }
 

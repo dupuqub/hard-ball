@@ -54,11 +54,6 @@ G.I = // information
 //
 G.S = // state
 {
-  punting : false ,
-  holding : { turns : 0 , team : null } ,
-
-
-
   path     : [] ,
   turn     : 0 ,
   pathing  : false ,
@@ -66,6 +61,7 @@ G.S = // state
   rounding : false ,
   locked   : false ,
   replace  : false ,
+  punting  : false ,
   old_cell : null , // cell or null
   aim      : null , // cell or null
   ball     : null , // cell or null
@@ -75,6 +71,7 @@ G.S = // state
   selected : null , // from 0 to 19, 'ball' or null
   hovered  : null , // from 0 to 19, 'ball' or null
   shot     : { x : 0 , y : 0 } , // -1, 0 or 1
+  holding  : { turns : 0 , team : null } ,
   holder   : { now : null , future : null } , // from 0 to 19 or null
   keepers  : { blue : null , green : null } , // from 0 to 19 or null
   replaced : { blue : [] , green : [] } , // from 0 to 19

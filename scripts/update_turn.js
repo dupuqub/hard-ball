@@ -16,7 +16,7 @@ G.update_turn = _ =>
   //....................................................................................................................
   // punt
   //
-  if( G.S.holding.turns === 5 )
+  if( G.S.holding.turns === 5 && G.S.scoring !== G.S.holding.team )
   {
     G.S.punting = true
     G.S.holder.now = null
@@ -33,26 +33,7 @@ G.update_turn = _ =>
     {
       G.S.holding.turns ++
 
-      if( G.S.holding.turns === 5 )
-      {
-        G.D.bulbs.forEach( bulb =>
-        {
-          bulb.classList.remove( 'blue' )
-          bulb.classList.remove( 'green' )
-          bulb.classList.add( 'red_lgt' )
-        } )
-      }
-
-      else
-      {
-        G.D.bulbs.forEach( ( bulb , $ ) =>
-        {
-          if( $ < G.S.holding.turns )
-          {
-            bulb.classList.add( G.S.holding.team )
-          }
-        } )
-      }
+      G.update_bulbs()
     }
   }
 }

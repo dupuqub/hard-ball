@@ -35,12 +35,7 @@ G.update_holder = _ =>
   {
     G.S.holding = { turns : 0 , team : athlete_team }
 
-    G.D.bulbs.forEach( bulb =>
-    {
-      bulb.classList.remove( 'blue' )
-      bulb.classList.remove( 'green' )
-      bulb.classList.remove( 'red_lgt' )
-    } )
+    G.update_bulbs()
   }
 
   //....................................................................................................................
