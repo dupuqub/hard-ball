@@ -3,7 +3,6 @@
 
 // TO DO
 //
-// load file punting
 // goal (finish game)
 // console
 // utilities (complex save/load)
