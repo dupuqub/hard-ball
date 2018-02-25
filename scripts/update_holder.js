@@ -18,7 +18,6 @@ G.update_holder = _ =>
 
   G.S.holder.now = athlete
   G.S.holder.future = null
-  G.S.scoring = null
   G.S.placing = true
 
   G.S.ball = G.S.athletes[ athlete ]

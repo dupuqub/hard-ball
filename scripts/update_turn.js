@@ -16,7 +16,7 @@ G.update_turn = _ =>
   //....................................................................................................................
   // punt
   //
-  if( G.S.holding.turns === 5 && G.S.scoring !== G.S.holding.team )
+  if( G.S.holding.turns === 5 && G.taking_shot() !== G.S.holding.team )
   {
     G.S.punting = true
     G.S.holder.now = null
@@ -27,14 +27,18 @@ G.update_turn = _ =>
   //....................................................................................................................
   // update bulbs
   //
-  if( G.S.holding.team === G.plays_now() )
+  if( G.S.holding.team === G.plays_now() && G.S.holding.turns < 5 )
   {
-    if( G.S.holding.turns < 5 )
-    {
-      G.S.holding.turns ++
+    G.S.holding.turns ++
 
-      G.update_bulbs()
-    }
+    G.update_bulbs()
+  }
+
+  //....................................................................................................................
+  //
+  if( G.taking_shot() !== null && G.taking_shot() === G.plays_now() )
+  {
+    alert( ( G.plays_now() === 'blue' ? 'BLUE' : 'GREEN' ) + ' WINS !' )
   }
 }
 

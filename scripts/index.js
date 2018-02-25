@@ -3,7 +3,7 @@
 
 // TO DO
 //
-// goal (finish game)
+// goal art
 // console
 // utilities (complex save/load)
 // "HARD" and "BALL" on laterals

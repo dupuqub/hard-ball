@@ -117,8 +117,6 @@ G.shoot = _ =>
       //
       if( both_goals.indexOf( last_on_path ) !== -1 )
       {
-        G.S.scoring = G.scoring()
-
         G.light_path( 'add' )
         G.update_selected( null )
       }

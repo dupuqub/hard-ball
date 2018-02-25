@@ -65,7 +65,6 @@ G.S = // state
   old_cell : null , // cell or null
   aim      : null , // cell or null
   ball     : null , // cell or null
-  scoring  : null , // 'green', 'blue' or null
   first    : null , // 'green', 'blue' or null
   pushed   : null , // from 0 to 19 or null
   selected : null , // from 0 to 19, 'ball' or null
