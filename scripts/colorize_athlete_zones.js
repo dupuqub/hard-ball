@@ -29,7 +29,7 @@ G.colorize_athlete_zones = athlete_index =>
   //....................................................................................................................
   // rule_0
   //
-  red_cells   = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) ,
+  red_cells = playing_cells.both.filter( cell => G.S.zones.indexOf( cell ) !== -1 ) ,
 
   //....................................................................................................................
   //
@@ -38,14 +38,14 @@ G.colorize_athlete_zones = athlete_index =>
   //....................................................................................................................
   // rule_1
   //
-  // push to 'red_indexes' directly to optimize pushed calculations
+  // push to 'red_indexes' directly to optimize athlete-push calculations
   //
   if( G.S.zones.indexOf( G.S.ball ) !== -1 ) red_indexes.push( G.S.zones.indexOf( G.S.ball ) )
 
   //....................................................................................................................
   // rule_2
   //
-  // push to 'red_indexes' directly to optimize pushed calculations
+  // push to 'red_indexes' directly to optimize athlete-push calculations
   //
   if( G.S.path )
   {
@@ -89,7 +89,12 @@ G.colorize_athlete_zones = athlete_index =>
   //
   if( athlete_keeper !== null && athlete_keeper !== athlete_index )
   {
-    black_cells_1 = G.S.zones.filter( cell => G.I.area[ team ].indexOf( cell ) !== -1 )
+    black_cells_1 = G.S.zones.filter( cell =>
+    {
+      const is_push = playing_cells.both.some( is_push_cell => is_push_cell === cell )
+
+      if( ! is_push ) return G.I.area[ team ].indexOf( cell ) !== -1
+    })
   }
 
   //....................................................................................................................
@@ -126,7 +131,7 @@ G.colorize_athlete_zones = athlete_index =>
     //..................................................................................................................
     // rule_4
     //
-    if( pushed_keeper !== null && pushed_keeper !== pushed_index )
+    else if( pushed_keeper !== null || pushed_keeper === pushed_index)
     {
       if( G.I.area[ pushed_team ].indexOf( new_cell ) !== -1 ) black_cells_4.push( cell )
     }
