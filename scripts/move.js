@@ -50,13 +50,22 @@ G.move = ( athlete , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
     //
     act : _ =>
     {
+      let just_replaced = false
+      
       if( ! G.S.rounding && ! G.S.replace && G.S.pushed === null ) G.update_turn()
-      if( G.S.replace && G.S.pushed === null )                     G.S.replace = false
-      if( G.S.pushed !== null || G.S.replace )                     G.push_athlete()
+
+      if( G.S.replace && G.S.pushed === null )
+      {
+        just_replaced = true
+        G.S.replace = false
+      }
+
+      if( G.S.pushed !== null || G.S.replace ) G.push_athlete()
 
       if( G.S.pushed === null ) G.S.locked = false
 
-      G.update_selected( G.S.selected )
+      if ( just_replaced && G.S.holder.future !== null ) G.update_holder()
+      else G.update_selected( G.S.selected )
     }
   } )
 }
