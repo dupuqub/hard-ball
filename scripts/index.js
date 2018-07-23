@@ -1,7 +1,6 @@
 
-`use strict`
+'use strict'
 
-//......................................................................................................................
 // TO DO
 //
 // goal art
@@ -12,34 +11,34 @@
 // autosave
 
 //......................................................................................................................
-
-onmousemove = event => G.mouseMove (event.target.id)
-onclick = event => G.click (event.target.id)
-onresize = event => G.resize ()
+//
+onmousemove = event => G.mouse_move( event.target.id )
+onclick     = event => G.click( event.target.id )
+onresize    = event => G.resize()
 
 //......................................................................................................................
-
-G.run = () =>
+//
+G.run = _ =>
 {
-  G.check.tool ()
+  G.check.tool()
 
-  window.requestAnimationFrame (G.run)
+  window.requestAnimationFrame( G.run )
 }
 
 //......................................................................................................................
-
-G.start = () =>
+//
+G.start = _ =>
 {
-  if (localStorage.hardBallAutoSave !== undefined)
+  if( localStorage.hard_ball_auto_save !== undefined )
   {
-    G.loadFile (`hardBallAutoSave`)
+    G.load_file( 'hard_ball_auto_save' )
   }
 
-  G.resize ()
-  G.run ()
+  G.resize()
+  G.run()
 }
 
 //......................................................................................................................
-
-G.start ()
+//
+G.start()
 

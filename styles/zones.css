@@ -3,59 +3,56 @@
 
 .zon /* zones */
 {
-  cursor: pointer;
-  width: calc(var(--cellSize) - var(--borderFull));
-  height: calc(var(--cellSize) - var(--borderFull));
-  border-radius: 50%;
-  border: var(--borderDouble) #FA0 dotted;
-  position: absolute;
-  box-sizing: border-box;
-  animation: spin 4s infinite 0s linear;
+  cursor        : pointer ;
+  width         : calc( var( --cell-size ) - var( --border-full ) ) ;
+  height        : calc( var( --cell-size ) - var( --border-full ) ) ;
+  border-radius : 50% ;
+  border        : var( --border-double ) #FA0 dotted ;
+  position      : absolute ;
+  box-sizing    : border-box ;
+  animation     : spin 4s infinite 0s linear
 }
 
 .zon:hover
 {
-  border-color: #FA0;
-  border-style: solid;
-  box-shadow:
-
-    0 0 var(--borderDouble) 0 #F40,
-    0 0 var(--borderDouble) 0 #F40 inset;
+  border-color : #FA0 ;
+  border-style : solid ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #F40 ,
+    0 0 var( --border-double ) 0 #F40 inset
 }
 
-@keyframes spin {100% {transform: rotate(360deg)}}
+@keyframes spin{ 100%{ transform : rotate( 360deg ) } }
 
 /*....................................................................................................................*/
 
-.zonNot
+.zon_not
 {
-  border-width: calc(var(--borderFull) * 1.5);
-  opacity: 0.7;
-}
-
-/*....................................................................................................................*/
-
-.zonRed {border-color: #F00}
-
-.zonRed:hover
-{
-  border-color: #F00;
-  box-shadow:
-
-    0 0 var(--borderDouble) 0 #F00,
-    0 0 var(--borderDouble) 0 #F00 inset;
+  border-width : calc( var( --border-full ) * 1.5 ) ;
+  opacity : 0.7
 }
 
 /*....................................................................................................................*/
 
-.zonBlk {border-color: #000}
+.zon_red{ border-color : #F00 }
 
-.zonBlk:hover
+.zon_red:hover
 {
-  border-color: #000;
-  box-shadow:
+  border-color : #F00 ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #F00 ,
+    0 0 var( --border-double ) 0 #F00 inset
+}
 
-    0 0 var(--borderDouble) 0 #000,
-    0 0 var(--borderDouble) 0 #000 inset;
+/*....................................................................................................................*/
+
+.zon_blk{ border-color : #000 }
+
+.zon_blk:hover
+{
+  border-color : #000 ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 #000 ,
+    0 0 var( --border-double ) 0 #000 inset
 }
 

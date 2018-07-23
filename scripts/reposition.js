@@ -1,97 +1,103 @@
 
-`use strict`
+'use strict'
 
 //......................................................................................................................
-
+//
 G.reposition =
 {
   //....................................................................................................................
-
-  athletes: () =>
+  //
+  athletes : _ =>
   {
-    G.D.athletes.forEach ((athlete, index) =>
+    G.D.athletes.forEach( ( athlete , $ ) =>
     {
-      const cellName = G.S.athletes [index]
-      const cellLetter = cellName.slice (0, 1)
-      const cellIndex = G.I.aToM.indexOf (cellLetter)
-      const cellNumber = Number (cellName.slice (1))
-      const newX = cellNumber * G.I.cellSize + G.I.borderFull
-      const newY = cellIndex * G.I.cellSize + G.I.borderFull
+      const
+      cell_name   = G.S.athletes[ $ ] ,
+      cell_letter = cell_name.slice( 0 , 1 ) ,
+      cell_index  = G.I.a_to_m.indexOf( cell_letter ) ,
+      cell_number = Number( cell_name.slice( 1 ) ) ,
+      new_x       = cell_number * G.I.cell_size + G.I.border_full ,
+      new_y       = cell_index * G.I.cell_size + G.I.border_full
 
-      athlete.style.marginLeft = newX + `px`
-      athlete.style.marginTop = newY + `px`
-      athlete.classList.remove (`tra`)
-    })
+      athlete.style.marginLeft = new_x + 'px'
+      athlete.style.marginTop = new_y + 'px'
+      athlete.classList.remove( 'tra' )
+    } )
 
-    setTimeout(() => G.D.athletes.forEach (athlete => athlete.classList.add (`tra`)), 0)
-  },
+    setTimeout( _ => G.D.athletes.forEach( athlete => athlete.classList.add( 'tra' ) ) , 0 )
+  } ,
 
   //....................................................................................................................
-
-  zones: () =>
+  //
+  zones : _ =>
   {
-    G.D.zones.forEach ((zone, index) =>
+    G.D.zones.forEach( ( zone , $ ) =>
     {
-      const cellName = G.S.zones [index]
+      const cell_name = G.S.zones[ $ ]
 
-      let newX = -G.I.board.w
-      let newY = -G.I.board.w
+      let
+      new_x = -G.I.board.w ,
+      new_y = -G.I.board.w
 
-      if (cellName !== null)
+      if( cell_name !== null )
       {
-        const cellLetter = cellName.slice (0, 1)
-        const cellIndex = G.I.aToM.indexOf (cellLetter)
-        const cellNumber = Number (cellName.slice (1))
+        const
+        cell_letter = cell_name.slice( 0 , 1 ) ,
+        cell_index  = G.I.a_to_m.indexOf( cell_letter ) ,
+        cell_number = Number( cell_name.slice( 1 ) )
 
-        newX = cellNumber * G.I.cellSize + G.I.borderFull / 2
-        newY = cellIndex * G.I.cellSize + G.I.borderFull / 2
+        new_x = cell_number * G.I.cell_size + G.I.border_full / 2
+        new_y = cell_index * G.I.cell_size + G.I.border_full / 2
       }
 
-      zone.style.marginLeft = newX + `px`
-      zone.style.marginTop = newY + `px`
-    })
-  },
+      zone.style.marginLeft = new_x + 'px'
+      zone.style.marginTop = new_y + 'px'
+    } )
+  } ,
 
   //....................................................................................................................
-
-  ball: () =>
+  //
+  ball : _ =>
   {
-    const cellBall = G.S.ball
-    const cellAim = G.S.aim
+    const
+    cell_ball = G.S.ball ,
+    cell_aim  = G.S.aim
 
-    let ballX = G.I.board.w / 2 - G.I.athleteSize / 2
-    let ballY = G.I.board.hReal / 2 - G.I.athleteSize / 2
-    let aimX = ballX
-    let aimY = ballY
+    let
+    ball_x = G.I.board.w / 2 - G.I.athlete_size / 2 ,
+    ball_y = G.I.board.h_real / 2 - G.I.athlete_size / 2 ,
+    aim_x  = ball_x ,
+    aim_y  = ball_y
 
-    if (cellBall !== null)
+    if( cell_ball !== null )
     {
-      const ballLetter = cellBall.slice (0, 1)
-      const ballIndex = G.I.aToM.indexOf (ballLetter)
-      const ballNumber = Number (cellBall.slice (1))
-      const aimLetter = cellAim.slice (0, 1)
-      const aimIndex = G.I.aToM.indexOf (aimLetter)
-      const aimNumber = Number (cellAim.slice (1))
+      const
+      ball_letter = cell_ball.slice( 0 , 1 ) ,
+      ball_index  = G.I.a_to_m.indexOf( ball_letter ) ,
+      ball_number = Number( cell_ball.slice( 1 ) ) ,
+      aim_letter  = cell_aim.slice( 0 , 1 ) ,
+      aim_index   = G.I.a_to_m.indexOf( aim_letter ) ,
+      aim_number  = Number( cell_aim.slice( 1 ) )
 
-      ballX = ballNumber * G.I.cellSize + G.I.borderFull
-      ballY = ballIndex * G.I.cellSize + G.I.borderFull
-      aimX = aimNumber * G.I.cellSize + G.I.borderFull
-      aimY = aimIndex * G.I.cellSize + G.I.borderFull
+      ball_x = ball_number * G.I.cell_size + G.I.border_full
+      ball_y = ball_index * G.I.cell_size + G.I.border_full
+      aim_x = aim_number * G.I.cell_size + G.I.border_full
+      aim_y = aim_index * G.I.cell_size + G.I.border_full
     }
 
-    G.D.ball.style.marginLeft = ballX + `px`
-    G.D.ball.style.marginTop = ballY + `px`
-    G.D.ball.classList.remove (`tra`)
+    G.D.ball.style.marginLeft = ball_x + 'px'
+    G.D.ball.style.marginTop = ball_y + 'px'
+    G.D.ball.classList.remove( 'tra' )
 
-    G.D.aim.style.marginLeft = aimX + `px`
-    G.D.aim.style.marginTop = aimY + `px`
-    G.D.aim.classList.remove (`tra`)
+    G.D.aim.style.marginLeft = aim_x + 'px'
+    G.D.aim.style.marginTop = aim_y + 'px'
+    G.D.aim.classList.remove( 'tra' )
 
-    setTimeout (() =>
+    setTimeout( _ =>
     {
-      G.D.ball.classList.add (`tra`)
-      G.D.aim.classList.add (`tra`)
-    }, 0)
-  },
+      G.D.ball.classList.add( 'tra' )
+      G.D.aim.classList.add( 'tra' )
+    } , 0 )
+  }
 }
 

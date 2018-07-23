@@ -1,46 +1,44 @@
 
-`use strict`
+'use strict'
 
 //......................................................................................................................
-
-G.updateTurn = () =>
+//
+G.update_turn = _ =>
 {
-  //....................................................................................................................
-
   G.S.turn ++
 
-  G.updateLights ()
+  G.update_lights()
 
   //....................................................................................................................
-
-  if (G.S.holder.future !== null) G.updateHolder ()
+  //
+  if( G.S.holder.future !== null ) G.update_holder()
 
   //....................................................................................................................
   // punt
-
-  if (G.S.holding.turns === 5 && G.takingShot () !== G.S.holding.team)
+  //
+  if( G.S.holding.turns === 5 && G.taking_shot() !== G.S.holding.team )
   {
     G.S.punting = true
     G.S.holder.now = null
 
-    G.updateSelected (`ball`)
+    G.update_selected( 'ball' )
   }
 
   //....................................................................................................................
   // update bulbs
-
-  if (G.S.holding.team === G.playsNow () && G.S.holding.turns < 5)
+  //
+  if( G.S.holding.team === G.plays_now() && G.S.holding.turns < 5 )
   {
     G.S.holding.turns ++
 
-    G.updateBulbs ()
+    G.update_bulbs()
   }
 
   //....................................................................................................................
-
-  if (G.takingShot () !== null && G.takingShot () !== G.playsNow () && G.S.holder.now === null)
+  //
+  if( G.taking_shot() !== null && G.taking_shot() === G.plays_now() && G.S.holder.now === null )
   {
-    alert ((G.playsNow () === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
+    alert( ( G.plays_now() === 'blue' ? 'BLUE' : 'GREEN' ) + ' WINS !' )
   }
 }
 

@@ -3,54 +3,54 @@
 
 .atl /* athlete */
 {
-  cursor: pointer;
-  width: var(--athleteSize);
-  height: var(--athleteSize);
-  background: #333;
-  border-radius: 50%;
-  border-color: var(--white);
-  border-width: var(--borderFull);
-  border-style: solid;
-  box-sizing: border-box;
-  position: absolute;
-  stroke: #333;
+  cursor        : pointer ;
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  background    : #333 ;
+  border-radius : 50% ;
+  border-color  : var( --white ) ;
+  border-width  : var( --border-full ) ;
+  border-style  : solid ;
+  box-sizing    : border-box ;
+  position      : absolute ;
+  stroke        : #333
 }
 
-.atlArt {position: absolute} /* athlete art */
-.atlFil {fill: var(--white)} /* athlete fill */
+.atl_art{ position : absolute } /* athlete art */
+.atl_fil{ fill : var( --white ) } /* athlete fill */
 
 /*....................................................................................................................*/
 
-.atlSelZon /* athlete selector zone */
+.atl_sel_zon /* athlete selector zone */
 {
-  width: var(--athleteSize);
-  height: var(--athleteSize);
-  position: absolute;
+  width    : var( --athlete-size ) ;
+  height   : var( --athlete-size ) ;
+  position : absolute
 }
 
-.atlSel /* athlete selector */
+.atl_sel /* athlete selector */
 {
-  fill: rgba(255, 255, 255, 0);
-  transition: fill 0.3s;
-  stroke-width: 0;
+  fill         : rgba( 255 , 255 , 255 , 0 ) ;
+  stroke-width : 0 ;
+  transition   : fill 0.3s
 }
 
-.atlSel:hover {fill: rgba(255, 255, 255, 0.3)}
+.atl_sel:hover{ fill : rgba( 255 , 255 , 255 , 0.3 ) }
 
 /*....................................................................................................................*/
 
-.rep {box-shadow: 0 0 0 var(--borderDouble) #000 inset}
+.rep{ box-shadow : 0 0 0 var( --border-double ) #000 inset }
 
 /*....................................................................................................................*/
 
 .blue
 {
-  background: #480080;
-  stroke: #480080;
+  background : #480080 ;
+  stroke     : #480080
 }
 .green
 {
-  background: #580;
-  stroke: #580;
+  background : #580 ;
+  stroke     : #580
 }
 

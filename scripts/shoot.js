@@ -1,40 +1,42 @@
 
-`use strict`
+'use strict'
 
 //......................................................................................................................
-
-G.shoot = () =>
+//
+G.shoot = _ =>
 {
   G.S.locked = true
   G.S.holder.now = null
 
-  G.D.ball.classList.remove (`tra`)
-  G.D.aim.classList.remove (`tra`)
+  G.D.ball.classList.remove( 'tra' )
+  G.D.aim.classList.remove( 'tra' )
 
   //....................................................................................................................
   // path find
+  //
+  const
+  path = [ G.S.ball , G.S.aim ] ,
+  both_goals = G.I.goal.blue.concat( G.I.goal.green )
 
-  const path =  [G.S.ball, G.S.aim]
-  const bothGoals = G.I.goal.blue.concat (G.I.goal.green)
-
-  if (G.S.athletes.indexOf (path [1]) === -1 // aim is not on player
-  && bothGoals.indexOf (path [1]) === -1) // aim is not on goal
+  if( G.S.athletes.indexOf( path[ 1 ] ) === -1 // aim is not on player
+  && both_goals.indexOf( path[ 1 ] ) === -1 ) // aim is not on goal
   {
-    while (true)
+    while( true )
     {
-      const firstCell = path [path.length - 2]
-      const lastCell = path [path.length - 1]
-      const nextCell = G.nextCell (firstCell, lastCell)
+      const
+      first_cell = path[ path.length - 2 ] ,
+      last_cell  = path[ path.length - 1 ] ,
+      next_cell  = G.next_cell( first_cell , last_cell )
 
-      if (G.S.athletes.indexOf (nextCell) !== -1 // player receives
-      || bothGoals.indexOf (nextCell) !== -1) // try score
+      if( G.S.athletes.indexOf( next_cell ) !== -1 // player receives
+      || both_goals.indexOf( next_cell ) !== -1 ) // try score
       {
-        path.push (nextCell)
+        path.push( next_cell )
         break
       }
       else
       {
-        path.push (nextCell)
+        path.push( next_cell )
       }
     }
   }
@@ -43,142 +45,145 @@ G.shoot = () =>
 
   //....................................................................................................................
   // define shot direction
+  //
+  const
+  first_cell   = path[ 0 ] ,
+  first_letter = first_cell.slice( 0 , 1 ) ,
+  first_index  = G.I.a_to_m.indexOf( first_letter ) ,
+  first_number = Number( first_cell.slice( -2 ) ) ,
 
+  last_cell   = path[ 1 ] ,
+  last_letter = last_cell.slice( 0 , 1 ) ,
+  last_index  = G.I.a_to_m.indexOf( last_letter ) ,
+  last_number = Number( last_cell.slice( -2 ) ) ,
 
-  const firstCell = path [0]
-  const firstLetter = firstCell.slice (0, 1)
-  const firstIndex = G.I.aToM.indexOf (firstLetter)
-  const firstNumber = Number (firstCell.slice (1))
-
-  const lastCell = path [1]
-  const lastLetter = lastCell.slice (0, 1)
-  const lastIndex = G.I.aToM.indexOf (lastLetter)
-  const lastNumber = Number (lastCell.slice (1))
-
-  const differenceX = lastNumber - firstNumber
-  const differenceY = lastIndex - firstIndex
+  difference_x = last_number - first_number ,
+  difference_y = last_index - first_index
 
   G.S.shot =
   {
-    x: Math.abs (differenceX) > 1 ? differenceX - 20 : differenceX,
-    y: Math.abs (differenceY) > 1 ? differenceY - 12 : differenceY,
+    x : Math.abs( difference_x ) > 1 ? difference_x - 20 : difference_x ,
+    y : Math.abs( difference_y ) > 1 ? difference_y - 12 : difference_y
   }
 
   //....................................................................................................................
-
-  const moveBall = setInterval (() =>
+  //
+  const move_ball = setInterval( _ =>
   {
     //..................................................................................................................
     // test end proximity
+    //
+    const
+    board_rect = G.D.board.getBoundingClientRect() ,
+    ball_x     = Number( G.D.ball.style.marginLeft.slice( 0 , -2 ) ) ,
+    ball_y     = Number( G.D.ball.style.marginTop.slice( 0 , -2 ) ) ,
+    end_cell   = G.S.path[ G.S.path.length - 1 ] ,
+    end_letter = end_cell.slice( 0 , 1 ) ,
+    end_index  = G.I.a_to_m.indexOf( end_letter ) ,
+    end_number = Number( end_cell.slice( 1 ) ) ,
+    end_x      = end_number * G.I.cell_size + G.I.border_full ,
+    end_y      = end_index * G.I.cell_size + G.I.border_full ,
+    error      = 2 ,
 
-    const ballX = Number (G.D.ball.style.marginLeft.slice (0, -2))
-    const ballY = Number (G.D.ball.style.marginTop.slice (0, -2))
-    const endCell = G.S.path [G.S.path.length - 1]
-    const endLetter = endCell.slice (0, 1)
-    const endIndex = G.I.aToM.indexOf (endLetter)
-    const endNumber = Number (endCell.slice (1))
-    const endX = endNumber * G.I.cellSize + G.I.borderFull
-    const endY = endIndex * G.I.cellSize + G.I.borderFull
-    const error = 2
+    x_is_close =
+         ball_x > end_x - error
+      && ball_x < end_x + error ,
 
-    const xIsClose =
+    y_is_close =
+         ball_y > end_y - error
+      && ball_y < end_y + error ,
 
-         ballX > endX - error
-      && ballX < endX + error
-
-    const yIsClose =
-
-         ballY > endY - error
-      && ballY < endY + error
-
-    const closeEnough = xIsClose && yIsClose
+    close_enough = x_is_close && y_is_close
 
     //..................................................................................................................
     // try score or pass
-
-    if (closeEnough)
+    //
+    if( close_enough )
     {
       //................................................................................................................
+      //
+      const last_on_path = G.S.path[ G.S.path.length - 1 ]
 
-      const lastOnPath = G.S.path [G.S.path.length - 1]
+      G.S.ball = last_on_path
+      G.S.aim = last_on_path
 
-      G.S.ball = lastOnPath
-      G.S.aim = lastOnPath
+      G.D.ball.classList.add( 'tra' )
+      G.D.aim.classList.add( 'tra' )
 
-      G.D.ball.classList.add (`tra`)
-      G.D.aim.classList.add (`tra`)
-
-      window.clearInterval (moveBall)
+      window.clearInterval( move_ball )
 
       //................................................................................................................
       // try score
-
-      if (bothGoals.indexOf (lastOnPath) !== -1)
+      //
+      if( both_goals.indexOf( last_on_path ) !== -1 )
       {
-        G.lightPath (`add`)
-        G.updateSelected (null)
+        G.light_path( 'add' )
+        G.update_selected( null )
       }
 
       //................................................................................................................
       // pass
-
-      else if (G.S.athletes.indexOf (lastOnPath) !== -1)
+      //
+      else if( G.S.athletes.indexOf( last_on_path ) !== -1 )
       {
-        G.S.holder.future = G.S.athletes.indexOf (lastOnPath)
+        G.S.holder.future = G.S.athletes.indexOf( last_on_path )
 
-        G.updateHolder()
+        G.update_holder()
       }
 
       //................................................................................................................
-
+      //
       G.S.locked = false
     }
 
     //..................................................................................................................
-    // move "ball" and "aim"
-
+    // move 'ball' and 'aim'
+    //
     else
     {
-      const boardEndX = G.I.cellSize * 20
-      const boardEndY = G.I.cellSize * 12
-      const modifier = G.I.cellSize / 2
-      const distanceX = G.S.shot.x * modifier
-      const distanceY = G.S.shot.y * modifier
-      const possibleX = ballX + distanceX
-      const possibleY = ballY + distanceY
-      const ballSize = G.I.athleteSize
-      const teleport =
+      const
+      board_end_x = G.I.cell_size * 20 ,
+      board_end_y = G.I.cell_size * 12 ,
+      modifier    = G.I.cell_size / 2 ,
+      distance_x  = G.S.shot.x * modifier ,
+      distance_y  = G.S.shot.y * modifier ,
+      possible_x  = ball_x + distance_x ,
+      possible_y  = ball_y + distance_y ,
+      ball_size   = G.I.athlete_size ,
 
-           possibleX > boardEndX - ballSize
-        || possibleX < 0
-        || possibleY > boardEndY - ballSize
-        || possibleY < 0
+      teleport =
+           possible_x > board_end_x - ball_size
+        || possible_x < 0
+        || possible_y > board_end_y - ball_size
+        || possible_y < 0
 
-      let newLeft = possibleX
-      let newTop = possibleY
+      let
+      new_left = possible_x ,
+      new_top  = possible_y
 
-      if (teleport)
+      if( teleport )
       {
-        const nowLetter = G.I.aToM [Math.floor (ballY / G.I.cellSize)]
-        const nowNumber = Math.floor (ballX / G.I.cellSize)
-        const nowCell = G.celler (nowLetter, nowNumber)
-        const nowPathIndex = G.S.path.indexOf (nowCell)
+        const
+        now_letter     = G.I.a_to_m[ Math.floor( ball_y / G.I.cell_size ) ] ,
+        now_number     = Math.floor( ball_x / G.I.cell_size ) ,
+        now_cell       = G.celler( now_letter, now_number ) ,
+        now_path_index = G.S.path.indexOf( now_cell ) ,
 
-        const nextPathCell = G.S.path [nowPathIndex + 1]
-        const nextPathLetter = nextPathCell.slice (0, 1)
-        const nextPathIndex = G.I.aToM.indexOf (nextPathLetter)
-        const nextPathNumber = Number (nextPathCell.slice (1))
+        next_path_cell   = G.S.path[ now_path_index + 1 ] ,
+        next_path_letter = next_path_cell.slice( 0 , 1 ) ,
+        next_path_index  = G.I.a_to_m.indexOf( next_path_letter ) ,
+        next_path_number = Number( next_path_cell.slice( 1 ) )
 
-        newLeft = nextPathNumber * G.I.cellSize + G.I.borderFull
-        newTop = nextPathIndex * G.I.cellSize + G.I.borderFull
+        new_left = next_path_number * G.I.cell_size + G.I.border_full
+        new_top = next_path_index * G.I.cell_size + G.I.border_full
       }
 
-      G.D.ball.style.marginLeft = newLeft + `px`
-      G.D.ball.style.marginTop = newTop + `px`
+      G.D.ball.style.marginLeft = new_left + 'px'
+      G.D.ball.style.marginTop = new_top + 'px'
 
-      G.D.aim.style.marginLeft = newLeft + `px`
-      G.D.aim.style.marginTop = newTop + `px`
+      G.D.aim.style.marginLeft = new_left + 'px'
+      G.D.aim.style.marginTop = new_top + 'px'
     }
-  }, 10)
+  } , 10 )
 }
 

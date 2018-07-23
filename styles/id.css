@@ -1,68 +1,66 @@
 
 /*....................................................................................................................*/
 
-#aim, #ball
+#aim , #ball
 {
-  cursor: pointer;
-  width: var(--athleteSize);
-  height: var(--athleteSize);
-  border: var(--borderFull) solid var(--white);
-  border-radius: 50%;
-  box-sizing: border-box;
-  position: absolute;
+  cursor        : pointer ;
+  width         : var( --athlete-size ) ;
+  height        : var( --athlete-size ) ;
+  border        : var( --border-full ) solid var( --white ) ;
+  border-radius : 50% ;
+  box-sizing    : border-box ;
+  position      : absolute
 }
 
-#aim {background: rgba(255, 255, 255, 0.3)}
+#aim{ background : rgba( 255 , 255 , 255 , 0.3 ) }
 
 #aim:hover
 {
-  cursor: pointer;
-  border-width: var(--borderDouble);
-  box-shadow:
-
-    0 0 var(--borderDouble) 0 var(--white),
-    0 0 var(--borderDouble) 0 var(--white) inset;
+  cursor       : pointer ;
+  border-width : var( --border-double ) ;
+  box-shadow   :
+    0 0 var( --border-double ) 0 var( --white ) ,
+    0 0 var( --border-double ) 0 var( --white ) inset
 }
 
-#ball {background: rgba(0, 0, 0, 0.7)}
+#ball{ background : rgba( 0 , 0 , 0 , 0.7 ) }
 
-#ball:hover {background: rgba(111, 95, 63, 0.8)}
+#ball:hover{ background : rgba( 111 , 95 , 63 , 0.8 ) }
 
 /*....................................................................................................................*/
 
 #board
 {
-  width: var(--boardW);
-  height: var(--boardH);
-  background: var(--white);
-  border: var(--borderHalf) solid var(--white);
-  border-radius: 0 0 var(--boardRadius) var(--boardRadius);
+  width         : var( --board-w ) ;
+  height        : var( --board-h ) ;
+  background    : var( --white ) ;
+  border        : var( --border-half ) solid var( --white ) ;
+  border-radius : 0 0 var( --board-radius ) var( --board-radius )
 }
 
 /*....................................................................................................................*/
 
-#boardConsole
+#board_console
 {
-  width: 50%;
-  height: var(--cellSize);
-  background: #666;
-  border-radius: calc(var(--cellSize) / 2);
-  font-size: calc(var(--boardW) / 60);
-  color: var(--white);
+  width         : 50% ;
+  height        : var( --cell-size ) ;
+  background    : #666 ;
+  border-radius : calc( var( --cell-size ) / 2 )  ;
+  font-size     : calc( var( --board-w ) / 60 ) ;
+  color         : var( --white )
 }
 
 /*....................................................................................................................*/
 
 #middle
 {
-  width: calc(var(--cellSize) * 0.2);
-  height: calc(var(--cellSize) * 0.2);
-  background: var(--white);
-  border-radius: 50%;
-  position: absolute;
-  transform:
-
-    translateX(calc(var(--fieldMiddleW) - var(--cellSize) * 0.1))
-    translateY(calc(var(--fieldMiddleH) - var(--cellSize) * 0.1));
+  width         : calc( var( --cell-size ) * 0.2 ) ;
+  height        : calc( var( --cell-size ) * 0.2 ) ;
+  background    : var( --white ) ;
+  border-radius : 50% ;
+  position      : absolute ;
+  transform     :
+    translatex( calc( var( --field-middle-w ) - var( --cell-size ) * 0.1 ) )
+    translatey( calc( var( --field-middle-h ) - var( --cell-size ) * 0.1 ) )
 }
 
