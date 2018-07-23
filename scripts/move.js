@@ -1,72 +1,80 @@
 
-'use strict'
+`use strict`
 
 //......................................................................................................................
-//
-G.move = ( athlete , zone_cell ) => // 'target' = from 0 to 19 or 'ball'
+
+G.move = (athlete, zoneCell) =>
 {
-  const
-  zone_letter = zone_cell.slice( 0 , 1 ) ,
-  zone_number = Number( zone_cell.slice( 1 ) ) ,
-  new_x       = zone_number * G.I.cell_size + G.I.border_full ,
-  new_y       = G.I.a_to_m.indexOf( zone_letter ) * G.I.cell_size + G.I.border_full
+  //....................................................................................................................
+
+  const zoneLetter = zoneCell.slice (0, 1)
+  const zoneNumber = Number (zoneCell.slice (1))
+  const newX = zoneNumber * G.I.cellSize + G.I.borderFull
+  const newY = G.I.aToM.indexOf (zoneLetter) * G.I.cellSize + G.I.borderFull
 
   G.S.locked = true
-  G.S.athletes[ athlete ] = zone_cell
-  G.D.athletes[ athlete ].style.marginLeft = new_x + 'px'
-  G.D.athletes[ athlete ].style.marginTop = new_y + 'px'
+  G.S.athletes [athlete] = zoneCell
+  G.D.athletes [athlete].style.marginLeft = newX + `px`
+  G.D.athletes [athlete].style.marginTop = newY + `px`
 
   //....................................................................................................................
-  //
-  G.check.pool.push(
+
+  const event =
   {
-    clear : true ,
+    //..................................................................................................................
+
+    clear: true,
 
     //..................................................................................................................
-    //
-    test : _ =>
+
+    test: () =>
     {
-      const
-      board_rect   = G.D.board.getBoundingClientRect() ,
-      athlete_rect = G.D.athletes[ athlete ].getBoundingClientRect() ,
-      athlete_x    = Math.floor( athlete_rect.x - board_rect.x - G.I.border_full / 2 ) ,
-      athlete_y    = Math.floor( athlete_rect.y - board_rect.y - G.I.border_full / 2 ) ,
-      margin_x     = Math.floor( Number( G.D.athletes[ athlete ].style.marginLeft.slice( 0 , -2 ) ) ) ,
-      margin_y     = Math.floor( Number( G.D.athletes[ athlete ].style.marginTop.slice( 0 , -2 ) ) ) ,
-      error        = 2 ,
+      const boardRect = G.D.board.getBoundingClientRect ()
+      const athleteRect = G.D.athletes [athlete].getBoundingClientRect ()
+      const athleteX = Math.floor (athleteRect.x - boardRect.x - G.I.borderFull / 2)
+      const athleteY = Math.floor (athleteRect.y - boardRect.y - G.I.borderFull / 2)
+      const marginX = Math.floor (Number (G.D.athletes [athlete].style.marginLeft.slice (0, -2)))
+      const marginY = Math.floor (Number (G.D.athletes [athlete].style.marginTop.slice (0, -2)))
+      const error = 2
 
-      x_is_close =
-           athlete_x > margin_x - error
-        && athlete_x < margin_x + error ,
+      const xIsClose =
 
-      y_is_close =
-           athlete_y > margin_y - error
-        && athlete_y < margin_y + error
+           athleteX > marginX - error
+        && athleteX < marginX + error
 
-      return x_is_close && y_is_close
-    } ,
+      const yIsClose =
+
+           athleteY > marginY - error
+        && athleteY < marginY + error
+
+      return xIsClose && yIsClose
+    },
 
     //..................................................................................................................
-    //
-    act : _ =>
-    {
-      let just_replaced = false
-      
-      if( ! G.S.rounding && ! G.S.replace && G.S.pushed === null ) G.update_turn()
 
-      if( G.S.replace && G.S.pushed === null )
+    act: () =>
+    {
+      let justReplaced = false
+
+      if (!G.S.rounding && !G.S.replace && G.S.pushed === null) G.updateTurn ()
+
+      if (G.S.replace && G.S.pushed === null)
       {
-        just_replaced = true
+        justReplaced = true
         G.S.replace = false
       }
 
-      if( G.S.pushed !== null || G.S.replace ) G.push_athlete()
+      if (G.S.pushed !== null || G.S.replace) G.pushAthlete ()
 
-      if( G.S.pushed === null ) G.S.locked = false
+      if (G.S.pushed === null) G.S.locked = false
 
-      if ( just_replaced && G.S.holder.future !== null ) G.update_holder()
-      else G.update_selected( G.S.selected )
-    }
-  } )
+      if (justReplaced && G.S.holder.future !== null) G.updateHolder ()
+      else G.updateSelected (G.S.selected)
+    },
+  }
+
+  //....................................................................................................................
+
+  G.check.pool.push (event)
 }
 

@@ -1,40 +1,40 @@
 
-'use strict'
+`use strict`
 
 //......................................................................................................................
-//
+
 G.check =
 {
   //....................................................................................................................
-  //
-  pool :
+
+  pool:
   [
-    // 'pooled' event example
+    // "pooled" event example
     {
-      clear : true ,
-      test  : _ => true ,
-      act   : _ => true
-    } ,
-  ] ,
+      clear: true,
+      test: () => true,
+      act: () => true,
+    },
+  ],
 
   //....................................................................................................................
-  //
-  tool : _ =>
-  {
-    G.check.pool.forEach( ( item_0 , $_0 ) =>
-    {
-      if( item_0.test() )
-      {
-        const safe_act = item_0.act
 
-        if( item_0.clear )
+  tool: () =>
+  {
+    G.check.pool.forEach ((item0, index0) =>
+    {
+      if (item0.test ())
+      {
+        const safeAct = item0.act
+
+        if (item0.clear)
         {
-          G.check.pool = G.check.pool.filter( ( item_1 , $_1 ) => $_0 !== $_1 )
+          G.check.pool = G.check.pool.filter ((unused, index1) => index0 !== index1)
         }
 
-        safe_act()
+        safeAct ()
       }
-    } )
+    })
   }
 }
 

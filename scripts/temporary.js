@@ -1,55 +1,54 @@
 
-'use strict'
+`use strict`
 
 //......................................................................................................................
-//
+
 oncontextmenu = event =>
 {
-  if( ! G.S.locked
-  && ! G.S.placing
-  && ! G.S.rounding
-  && ! G.S.punting )
+  if (!G.S.locked
+  && !G.S.placing
+  && !G.S.rounding
+  && !G.S.punting)
   {
-    G.update_selected( null )
+    G.updateSelected (null)
   }
 
   return false
 }
 
 //......................................................................................................................
-//
+
 onkeydown = event =>
 {
   const pressed = event.key
 
-  if( ! G.S.locked
-  && ! G.S.pathing
-  && ! event.ctrlKey
-  && ! event.altKey )
+  if (!G.S.locked
+  && !G.S.pathing
+  && !event.ctrlKey
+  && !event.altKey)
   {
-    if( pressed === '0' )
+    if (pressed === `0`)
     {
-        confirm( 'ERASE ALL SAVE FILES ?' )
+        confirm (`ERASE ALL SAVE FILES ?`)
       ? localStorage.clear()
       : null
     }
-    else if( pressed !== ' ' && Number.isInteger( Number( pressed ) ) )
+    else if (pressed !== ` ` && Number.isInteger (Number (pressed)))
     {
-      const
-      save_file    = 'hard_ball_save_' + pressed ,
-      string_state = JSON.stringify( G.S )
+      const saveFile = `hardBallSave` + pressed
+      const stringState = JSON.stringify (G.S)
 
-      localStorage[ save_file ] === undefined
+      localStorage [saveFile] === undefined
       ?
-          confirm( 'SAVE ?' )
-        ? localStorage[ save_file ] = string_state
+          confirm (`SAVE ?`)
+        ? localStorage [saveFile] = stringState
         : null
-      : confirm( 'LOAD ?' )
-      ? G.load_file( save_file )
-      : confirm( 'REPLACE ?' )
-      ? localStorage[ save_file ] = string_state
-      : confirm( 'ERASE ?' )
-      ? localStorage.removeItem( save_file )
+      : confirm (`LOAD ?`)
+      ? G.loadFile (saveFile)
+      : confirm (`REPLACE ?`)
+      ? localStorage [saveFile] = stringState
+      : confirm (`ERASE ?`)
+      ? localStorage.removeItem (saveFile)
       : null
     }
   }
