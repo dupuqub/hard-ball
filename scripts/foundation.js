@@ -36,13 +36,13 @@ G.I = // information
 
   area: // cells
   {
-    blue : Array.from (G.D.blueLight).concat (Array.from (G.D.blueDark)).map (light => light.id).sort (),
+    blue: Array.from (G.D.blueLight).concat (Array.from (G.D.blueDark)).map (light => light.id).sort (),
     green: Array.from (G.D.greenLight).concat (Array.from (G.D.greenDark)).map (light => light.id).sort (),
   },
 
   goal: // cells
   {
-    blue : [`C00`,`D00`,`E00`,`F00`,`G00`,`H00`,`I00`,`J00`],
+    blue: [`C00`,`D00`,`E00`,`F00`,`G00`,`H00`,`I00`,`J00`],
     green: [`C19`,`D19`,`E19`,`F19`,`G19`,`H19`,`I19`,`J19`],
   },
 }
@@ -77,7 +77,7 @@ G.S = // state
   athletes: Array.from (G.D.selectors).map (selector => `M` + selector.id.slice (7)), // cells
   starter:
   {
-    blue : [`C02`,`D03`,`I03`,`J02`],
+    blue: [`C02`,`D03`,`I03`,`J02`],
     green: [`C17`,`D16`,`I16`,`J17`],
   },
 }
