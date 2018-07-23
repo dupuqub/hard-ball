@@ -3,57 +3,60 @@
 
 .lgt /* light */
 {
-  width         : 5% ;
-  height        : var( --cell-size ) ;
-  background    : #AAA ;
-  border-radius : 50% ;
-  position      : relative
+  width: 5%;
+  height: var(--cellSize);
+  background: #AAA;
+  border-radius: 50%;
+  position: relative;
 }
 
 /*....................................................................................................................*/
 
 .rng /* ring */
 {
-  position      : absolute ;
-  border        : var( --border-full ) var( --white ) solid ;
-  border-radius : 50% ;
-  box-sizing    : border-box ;
-  opacity       : 0.2
+  position: absolute;
+  border: var(--borderFull) var(--white) solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+  opacity: 0.2;
 }
 
 /*....................................................................................................................*/
 
-.rng_a{ width : 100% ; height : 100% ; animation : wobble_a 2s ease 0s infinite }
-.rng_b{ width : 88% ; height : 88% ; animation : wobble_b 2s ease 0s infinite }
-.rng_c{ width : 66% ; height : 66% ; animation : wobble_c 2s ease 0s infinite }
-.rng_d{ width : 44% ; height : 44% ; animation : wobble_d 2s ease 0s infinite }
+.rngA {width: 100%; height: 100%; animation: wobbleA 2s ease 0s infinite}
+.rngB {width: 88%; height: 88%; animation: wobbleB 2s ease 0s infinite}
+.rngC {width: 66%; height: 66%; animation: wobbleC 2s ease 0s infinite}
+.rngD {width: 44%; height: 44%; animation: wobbleD 2s ease 0s infinite}
 
-@keyframes wobble_a
+@keyframes wobbleA
 {
-    0%{ border-width : 0 }
-   25%{ border-width : calc( var( --border-full ) * 1.7 ) ; opacity : 1 }
-   35%{ border-width : 0 }
-  100%{ border-width : 0 }
+  0% {border-width: 0}
+  25% {border-width: calc(var(--borderFull) * 1.7); opacity: 1}
+  35% {border-width: 0}
+  100% {border-width: 0}
 }
-@keyframes wobble_b
+
+@keyframes wobbleB
 {
-    0%{ border-width : var( --border-full ) }
-   20%{ border-width : calc( var( --border-full ) * 1.7 ) ; opacity : 1 }
-   30%{ border-width : var( --border-full ) }
-  100%{ border-width : var( --border-full ) }
+  0% {border-width: var(--borderFull)}
+  20% {border-width: calc(var(--borderFull) * 1.7); opacity: 1}
+  30% {border-width: var(--borderFull)}
+  100% {border-width: var(--borderFull)}
 }
-@keyframes wobble_c
+
+@keyframes wobbleC
 {
-    0%{ border-width : var( --border-full ) }
-   15%{ border-width : calc( var( --border-full ) * 1.7 ) ; opacity : 1 }
-   25%{ border-width : var( --border-full ) }
-  100%{ border-width : var( --border-full ) }
+  0% {border-width: var(--borderFull)}
+  15% {border-width: calc(var(--borderFull) * 1.7); opacity: 1}
+  25% {border-width: var(--borderFull)}
+  100% {border-width: var(--borderFull)}
 }
-@keyframes wobble_d
+
+@keyframes wobbleD
 {
-    0%{ border-width : var( --border-full ) }
-   10%{ border-width : calc( var( --border-full ) * 1.7 ) ; opacity : 1 }
-   20%{ border-width : var( --border-full ) }
-  100%{ border-width : var( --border-full ) }
+  0% {border-width: var(--borderFull)}
+  10% {border-width: calc(var(--borderFull) * 1.7); opacity: 1}
+  20% {border-width: var(--borderFull)}
+  100% {border-width: var(--borderFull)}
 }
 

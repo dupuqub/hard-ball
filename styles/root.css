@@ -3,29 +3,29 @@
 
 :root /* JS only */
 {
-  --body-w : 0 ;
-  --body-h : 0
+  --bodyW: 0;
+  --bodyH: 0;
 }
 
 /*....................................................................................................................*/
 
 :root /* CSS only */
 {
-  --board-w : calc( var( --body-w ) * 0.7 ) ;
-  --board-h : calc( var( --board-w ) / 20 * 14 ) ;
+  --boardW: calc(var(--bodyW) * 0.7);
+  --boardH: calc(var(--boardW) / 20 * 14);
 
-  --field-middle-w : calc( var( --board-w ) / 2 ) ;
-  --field-middle-h : calc( var( --board-h ) / 14 * 12 / 2 ) ;
+  --fieldMiddleW: calc(var(--boardW) / 2);
+  --fieldMiddleH: calc(var(--boardH) / 14 * 12 / 2);
 
-  --border-full   : calc( var( --board-w ) / 400 ) ;
-  --border-half   : calc( var( --border-full ) / 2 ) ;
-  --border-double : calc( var( --border-full ) * 2 ) ;
+  --borderFull: calc(var(--boardW) / 400);
+  --borderHalf: calc(var(--borderFull) / 2);
+  --borderDouble: calc(var(--borderFull) * 2);
 
-  --cell-size    : calc( var( --board-w ) / 20 ) ;
-  --goal-size    : calc( var( --cell-size ) * 0.8 ) ;
-  --board-radius : calc( var( --cell-size ) / 2 ) ;
-  --athlete-size : calc( var( --cell-size ) - var( --border-double ) ) ;
+  --cellSize: calc(var(--boardW) / 20);
+  --goalSize: calc(var(--cellSize) * 0.8);
+  --boardRadius: calc(var(--cellSize) / 2);
+  --athleteSize: calc(var(--cellSize) - var(--borderDouble));
 
-  --white : #DDD
+  --white: #DDD;
 }
 
