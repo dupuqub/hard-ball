@@ -36,7 +36,7 @@ G.update_turn = _ =>
 
   //....................................................................................................................
   //
-  if( G.taking_shot() !== null && G.taking_shot() === G.plays_now() )
+  if( G.taking_shot() !== null && G.taking_shot() === G.plays_now() && G.S.holder.now === null )
   {
     alert( ( G.plays_now() === 'blue' ? 'BLUE' : 'GREEN' ) + ' WINS !' )
   }
