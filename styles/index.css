@@ -165,11 +165,11 @@ body
 
 @keyframes path
 {
-  0% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5)   ; border-radius: 0 }
-  5% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50% }
-  10% {border: calc(var(--borderDouble) * 3) solid var(--white); border-radius: 50% }
-  15% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50% }
-  20% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5)   ; border-radius: 0 }
-  100% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5) }
+  0% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
+  5% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
+  10% {border: calc(var(--borderDouble) * 3) solid var(--white); border-radius: 50%}
+  15% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
+  20% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
+  100% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5)}
 }
 
