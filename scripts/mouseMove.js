@@ -13,6 +13,6 @@ G.mouseMove = target =>
     ? Number (target.slice (7))
     : null
 
-  G.updateZoneCells()
+  G.updateZoneCells ()
 }
 
