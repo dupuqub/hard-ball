@@ -124,7 +124,7 @@ G.click = target =>
           G.S.ball = zoneCell
           G.S.aim = zoneCell
 
-          if (!zoneIsRed) G.updateZoneCells()
+          if (!zoneIsRed) G.updateZoneCells ()
         }
 
         //..............................................................................................................
