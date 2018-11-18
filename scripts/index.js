@@ -2,14 +2,28 @@
 `use strict`
 
 //......................................................................................................................
-// TO DO
+// TASK: UI buttons.
 //
-// goal art
-// console
-// utilities (complex save/load)
-// "HARD" and "BALL" on laterals
-// initial fade from black
-// autosave
+// Improve which buttons are shown, and how many.
+// Make settings available with the central window if necessary.
+// Make them work.
+
+//......................................................................................................................
+// TASK: Adjacent goals.
+//
+// Each goal should be a collection of 8 cells adjacent to the current goals that will not exist anymore.
+// The new goals are a representation of an object on another dimension, therefore they don't count as common cells.
+// Make "last cell on ball track" to check if the shot missed the adjacent goal.
+// Make ball stay inside the adjacent goal.
+
+//......................................................................................................................
+// TASK: General polish.
+//
+// Console.
+// Auto save.
+// Make a general purpose central window.
+// Make save/replace/load system work with the central window.
+// Make end game effects work with central window.
 
 //......................................................................................................................
 
