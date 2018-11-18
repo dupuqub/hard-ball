@@ -9,23 +9,23 @@ G.click = target =>
   // UTILITIES
   //....................................................................................................................
 
-  if (target === `language`)
+  if(target === `language`)
   {
     //
   }
-  else if (target === `save`)
+  else if(target === `save`)
   {
     //
   }
-  else if (target === `load`)
+  else if(target === `load`)
   {
     //
   }
-  else if (target === `wipe`)
+  else if(target === `wipe`)
   {
     //
   }
-  else if (target === `github`)
+  else if(target === `github`)
   {
     //
   }
@@ -34,43 +34,43 @@ G.click = target =>
   // GAMEPLAY
   //....................................................................................................................
 
-  else if  (target === `aim` || target === `aimRing`) G.shoot ()
+  else if(target === `aim` || target === `aimRing`) G.shoot()
 
   //....................................................................................................................
   // gate 0
 
-  else if (!G.S.locked)
+  else if(!G.S.locked)
   {
     //..................................................................................................................
 
-    if (target.slice (0, 4) === `zone`)
+    if(target.slice(0, 4) === `zone`)
     {
-      const zone = Number (target.slice (4))
-      const zoneCell = G.S.zones [zone]
-      const zoneLetter = zoneCell.slice (0, 1)
-      const zoneIndex = G.I.aToM.indexOf (zoneLetter)
-      const zoneNumber = Number (zoneCell.slice (1))
-      const zoneClasses = Array.from (G.D.zones [zone].classList)
-      const zoneIsNot = zoneClasses.indexOf (`zonNot`) !== -1
-      const zoneIsBlk = zoneClasses.indexOf (`zonBlk`) !== -1
-      const zoneIsRed = zoneClasses.indexOf (`zonRed`) !== -1
+      const zone = Number(target.slice(4))
+      const zoneCell = G.S.zones[zone]
+      const zoneLetter = zoneCell.slice(0, 1)
+      const zoneIndex = G.I.aToM.indexOf(zoneLetter)
+      const zoneNumber = Number(zoneCell.slice(1))
+      const zoneClasses = Array.from(G.D.zones[zone].classList)
+      const zoneIsNot = zoneClasses.indexOf(`zonNot`) !== -1
+      const zoneIsBlk = zoneClasses.indexOf(`zonBlk`) !== -1
+      const zoneIsRed = zoneClasses.indexOf(`zonRed`) !== -1
 
       //................................................................................................................
 
-      if (zoneIsNot || zoneIsBlk)
+      if(zoneIsNot || zoneIsBlk)
       {
-        if (zoneIsRed && !G.S.placing && !G.S.rounding && !G.S.punting)
+        if(zoneIsRed && !G.S.placing && !G.S.rounding && !G.S.punting)
         {
-          const athlete = G.S.athletes.indexOf (zoneCell)
+          const athlete = G.S.athletes.indexOf(zoneCell)
           const chosen =
 
               athlete !== -1
             ? athlete
-            : G.S.ball !== null && G.takingShot () === null
+            : G.S.ball !== null && G.takingShot() === null
             ? `ball`
             : null
 
-          if (chosen !== null) G.updateSelected (chosen)
+          if(chosen !== null) G.updateSelected(chosen)
         }
       }
 
@@ -80,26 +80,26 @@ G.click = target =>
       {
         //..............................................................................................................
 
-        if (G.S.selected === `ball`)
+        if(G.S.selected === `ball`)
         {
           //............................................................................................................
           // has target
 
-          if (zoneIsRed)
+          if(zoneIsRed)
           {
-            const athlete = G.S.athletes.indexOf (zoneCell)
+            const athlete = G.S.athletes.indexOf(zoneCell)
 
-            if (G.S.punting) G.S.punting = false
+            if(G.S.punting) G.S.punting = false
 
-            if (athlete !== -1)
+            if(athlete !== -1)
             {
               G.S.holder.future = athlete
-              G.updateHolder ()
+              G.updateHolder()
             }
             else
             {
               G.S.holder.now = null
-              G.updateSelected (null)
+              G.updateSelected(null)
             }
           }
 
@@ -124,55 +124,55 @@ G.click = target =>
           G.S.ball = zoneCell
           G.S.aim = zoneCell
 
-          if (!zoneIsRed) G.updateZoneCells ()
+          if(!zoneIsRed) G.updateZoneCells()
         }
 
         //..............................................................................................................
         // athlete
 
-        else if (G.S.selected !== null)
+        else if(G.S.selected !== null)
         {
           const athlete = G.S.selected
-          const athleteCell = G.S.athletes [athlete]
-          const athleteLetter = athleteCell.slice (0, 1)
-          const pushed = G.S.athletes.indexOf (zoneCell)
+          const athleteCell = G.S.athletes[athlete]
+          const athleteLetter = athleteCell.slice(0, 1)
+          const pushed = G.S.athletes.indexOf(zoneCell)
 
-          let color = G.playsNow ()
+          let color = G.playsNow()
 
           //............................................................................................................
           // startup
 
-          if (G.S.turn < 8)
+          if(G.S.turn < 8)
           {
-            if (G.S.turn === 0)
+            if(G.S.turn === 0)
             {
-              G.S.first = G.S.starter.blue.indexOf (zoneCell) !== -1 ? `blue` : `green`
+              G.S.first = G.S.starter.blue.indexOf(zoneCell) !== -1 ? `blue` : `green`
               color = G.S.first
             }
 
-            G.D.athletes [athlete].classList.add (color)
-            G.S.team [color].push (athlete)
-            G.S.starter [color] = G.S.starter [color].filter (cell => cell !== zoneCell)
+            G.D.athletes[athlete].classList.add(color)
+            G.S.team[color].push(athlete)
+            G.S.starter[color] = G.S.starter[color].filter(cell => cell !== zoneCell)
 
-            G.move (G.S.selected, zoneCell)
+            G.move(G.S.selected, zoneCell)
           }
 
           //............................................................................................................
           // benched
 
-          else if (athleteLetter === `M` && G.S.replaced [G.playsNow ()].length < 2)
+          else if(athleteLetter === `M` && G.S.replaced[G.playsNow()].length < 2)
           {
             G.S.replace = true
             G.S.pushed = pushed
 
-            G.S.team [color] = G.S.team [color].map (item => item === pushed ? athlete : item)
-            G.S.replaced [color].push (pushed)
+            G.S.team[color] = G.S.team[color].map(item => item === pushed ? athlete : item)
+            G.S.replaced[color].push(pushed)
 
-            G.D.athletes [pushed].classList.add (`rep`)
-            G.D.athletes [athlete].classList.add (color)
+            G.D.athletes[pushed].classList.add(`rep`)
+            G.D.athletes[athlete].classList.add(color)
 
-            G.updateLights ()
-            G.move (athlete, zoneCell)
+            G.updateLights()
+            G.move(athlete, zoneCell)
           }
 
           //............................................................................................................
@@ -183,27 +183,27 @@ G.click = target =>
             //..........................................................................................................
             // define rounding
 
-            G.S.rounding = G.S.rounding ? false : G.I.roundabout.indexOf (athleteLetter) !== -1
+            G.S.rounding = G.S.rounding ? false : G.I.roundabout.indexOf(athleteLetter) !== -1
 
             //..........................................................................................................
             // check for holder moving
 
-            if (G.S.holder.now !== null && athlete === G.S.holder.now) G.S.holder.future = G.S.holder.now
+            if(G.S.holder.now !== null && athlete === G.S.holder.now) G.S.holder.future = G.S.holder.now
 
             //..........................................................................................................
             // first ball hold
 
-            if (G.S.ball === null && G.I.middle.indexOf (zoneCell) !== -1) G.S.holder.future = athlete
+            if(G.S.ball === null && G.I.middle.indexOf(zoneCell) !== -1) G.S.holder.future = athlete
 
             //..........................................................................................................
             // has target
 
-            else if (zoneIsRed !== -1)
+            else if(zoneIsRed !== -1)
             {
               //........................................................................................................
               // push
 
-              if (G.S.athletes.indexOf (zoneCell) !== -1)
+              if(G.S.athletes.indexOf(zoneCell) !== -1)
               {
                 G.S.pushed = pushed
                 G.S.oldCell = athleteCell
@@ -212,7 +212,7 @@ G.click = target =>
               //........................................................................................................
               // take ball
 
-              else if (zoneCell === G.S.ball || G.S.path.indexOf (zoneCell) !== -1)
+              else if(zoneCell === G.S.ball || G.S.path.indexOf(zoneCell) !== -1)
               {
                 G.S.holder.future = athlete
               }
@@ -220,7 +220,7 @@ G.click = target =>
 
             //..........................................................................................................
 
-            G.move (G.S.selected, zoneCell)
+            G.move(G.S.selected, zoneCell)
           }
         }
       }
@@ -229,27 +229,27 @@ G.click = target =>
     //..................................................................................................................
     // gate 1
 
-    else if (!G.S.placing && !G.S.rounding && !G.S.punting)
+    else if(!G.S.placing && !G.S.rounding && !G.S.punting)
     {
       //................................................................................................................
 
-      if (target === `ball` && G.S.ball !== null && G.takingShot () === null)
+      if(target === `ball` && G.S.ball !== null && G.takingShot() === null)
       {
-        G.updateSelected (`ball`)
+        G.updateSelected(`ball`)
       }
 
       //................................................................................................................
 
-      else if (target.slice (0, 7) === `athlete`)
+      else if(target.slice(0, 7) === `athlete`)
       {
-        const athlete = Number (target.slice (7))
-        const athleteLetter = G.S.athletes [athlete].slice (0, 1)
-        const athleteWasReplaced = Array.from (G.D.athletes [athlete].classList).indexOf (`rep`) !== -1
-        const teamHasReplacements = G.S.replaced [G.playsNow ()].length < 2
+        const athlete = Number(target.slice(7))
+        const athleteLetter = G.S.athletes[athlete].slice(0, 1)
+        const athleteWasReplaced = Array.from(G.D.athletes[athlete].classList).indexOf(`rep`) !== -1
+        const teamHasReplacements = G.S.replaced[G.playsNow()].length < 2
 
-        if (athleteLetter !== `M` || !athleteWasReplaced && teamHasReplacements)
+        if(athleteLetter !== `M` || !athleteWasReplaced && teamHasReplacements)
         {
-          G.updateSelected (athlete)
+          G.updateSelected(athlete)
         }
       }
 
@@ -258,7 +258,7 @@ G.click = target =>
 
       else
       {
-        G.updateSelected (null)
+        G.updateSelected(null)
       }
     }
   }

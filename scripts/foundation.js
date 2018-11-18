@@ -5,19 +5,19 @@
 
 G.D = // dom (document object model)
 {
-  aim: document.querySelector (`#aim`),
-  ball: document.querySelector (`#ball`),
-  board: document.querySelector (`#board`),
-  bulbs: document.querySelectorAll (`.bul`),
-  zones: document.querySelectorAll (`.zon`),
-  athletes: document.querySelectorAll (`.atl`),
-  athleteArt: document.querySelectorAll (`.atlArt`),
-  benchArt: document.querySelectorAll (`.bncArt`),
-  selectors: document.querySelectorAll (`.atlSel`),
-  blueLight: document.querySelectorAll (`.bluLgt`),
-  blueDark: document.querySelectorAll (`.bluDrk`),
-  greenLight: document.querySelectorAll (`.grnLgt`),
-  greenDark: document.querySelectorAll (`.grnDrk`),
+  aim: document.querySelector(`#aim`),
+  ball: document.querySelector(`#ball`),
+  board: document.querySelector(`#board`),
+  bulbs: document.querySelectorAll(`.bul`),
+  zones: document.querySelectorAll(`.zon`),
+  athletes: document.querySelectorAll(`.atl`),
+  athleteArt: document.querySelectorAll(`.atlArt`),
+  benchArt: document.querySelectorAll(`.bncArt`),
+  selectors: document.querySelectorAll(`.atlSel`),
+  blueLight: document.querySelectorAll(`.bluLgt`),
+  blueDark: document.querySelectorAll(`.bluDrk`),
+  greenLight: document.querySelectorAll(`.grnLgt`),
+  greenDark: document.querySelectorAll(`.grnDrk`),
 }
 
 //......................................................................................................................
@@ -36,8 +36,8 @@ G.I = // information
 
   area: // cells
   {
-    blue: Array.from (G.D.blueLight).concat (Array.from (G.D.blueDark)).map (light => light.id).sort (),
-    green: Array.from (G.D.greenLight).concat (Array.from (G.D.greenDark)).map (light => light.id).sort (),
+    blue: Array.from(G.D.blueLight).concat(Array.from(G.D.blueDark)).map(light => light.id).sort(),
+    green: Array.from(G.D.greenLight).concat(Array.from(G.D.greenDark)).map(light => light.id).sort(),
   },
 
   goal: // cells
@@ -73,8 +73,8 @@ G.S = // state
   keepers: {blue: null, green: null}, // from 0 to 19 or null
   replaced: {blue: [], green: []}, // from 0 to 19
   team: {blue: [], green: []}, // from 0 to 19
-  zones: Array.from (G.D.zones).map (() => null), // cells or nulls
-  athletes: Array.from (G.D.selectors).map (selector => `M` + selector.id.slice (7)), // cells
+  zones: Array.from(G.D.zones).map(() => null), // cells or nulls
+  athletes: Array.from(G.D.selectors).map(selector => `M` + selector.id.slice(7)), // cells
   starter:
   {
     blue: [`C02`,`D03`,`I03`,`J02`],

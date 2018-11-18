@@ -9,38 +9,38 @@ G.updateTurn = () =>
 
   G.S.turn ++
 
-  G.updateLights ()
+  G.updateLights()
 
   //....................................................................................................................
 
-  if (G.S.holder.future !== null) G.updateHolder ()
+  if(G.S.holder.future !== null) G.updateHolder()
 
   //....................................................................................................................
   // punt
 
-  if (G.S.holding.turns === 5 && G.takingShot () !== G.S.holding.team)
+  if(G.S.holding.turns === 5 && G.takingShot() !== G.S.holding.team)
   {
     G.S.punting = true
     G.S.holder.now = null
 
-    G.updateSelected (`ball`)
+    G.updateSelected(`ball`)
   }
 
   //....................................................................................................................
   // update bulbs
 
-  if (G.S.holding.team === G.playsNow () && G.S.holding.turns < 5)
+  if(G.S.holding.team === G.playsNow() && G.S.holding.turns < 5)
   {
     G.S.holding.turns ++
 
-    G.updateBulbs ()
+    G.updateBulbs()
   }
 
   //....................................................................................................................
 
-  if (G.takingShot () !== null && G.takingShot () !== G.playsNow () && G.S.holder.now === null)
+  if(G.takingShot() !== null && G.takingShot() !== G.playsNow() && G.S.holder.now === null)
   {
-    alert ((G.playsNow () === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
+    alert((G.playsNow() === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
   }
 }
 

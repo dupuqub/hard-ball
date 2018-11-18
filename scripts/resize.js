@@ -34,14 +34,14 @@ G.resize = () =>
 
   const newRoot =
 
-    `--bodyW:` + G.I.body.w + `px;` +
-    `--bodyH:` + G.I.body.h + `px;`
+      `--bodyW:` + G.I.body.w + `px;`
+    + `--bodyH:` + G.I.body.h + `px;`
 
-  Array.from (document.styleSheets).some (sheet =>
+  Array.from(document.styleSheets).some(sheet =>
   {
-    if (sheet.href !== null && sheet.href.indexOf (`styles/root.css`) !== -1)
+    if(sheet.href !== null && sheet.href.indexOf(`styles/root.css`) !== -1)
     {
-      sheet.cssRules [0].style.cssText = newRoot
+      sheet.cssRules[0].style.cssText = newRoot
 
       return true
     }
@@ -50,24 +50,24 @@ G.resize = () =>
   //....................................................................................................................
   // Firefox couldn't handle "r", "cx" nor "cy" defined by CSS
 
-  G.D.selectors.forEach (selector =>
+  G.D.selectors.forEach(selector =>
   {
-    Array.from ([`r`,`cx`,`cy`]).forEach (attribute =>
+    Array.from([`r`,`cx`,`cy`]).forEach(attribute =>
     {
-      selector.setAttribute (attribute, G.I.athleteSize / 2)
+      selector.setAttribute(attribute, G.I.athleteSize / 2)
     })
   })
 
   //....................................................................................................................
   // redraw the tiny squares inside the athletes
 
-  G.redrawSvg (G.D.athleteArt, `atlFil`)
-  G.redrawSvg (G.D.benchArt, `bncFil`)
+  G.redrawSvg(G.D.athleteArt, `atlFil`)
+  G.redrawSvg(G.D.benchArt, `bncFil`)
 
   //....................................................................................................................
 
-  G.reposition.athletes ()
-  G.reposition.zones ()
-  G.reposition.ball ()
+  G.reposition.athletes()
+  G.reposition.zones()
+  G.reposition.ball()
 }
 

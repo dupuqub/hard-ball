@@ -21,18 +21,18 @@ G.check =
 
   tool: () =>
   {
-    G.check.pool.forEach ((item0, index0) =>
+    G.check.pool.forEach((item0, index0) =>
     {
-      if (item0.test ())
+      if(item0.test())
       {
         const safeAct = item0.act
 
-        if (item0.clear)
+        if(item0.clear)
         {
-          G.check.pool = G.check.pool.filter ((unused, index1) => index0 !== index1)
+          G.check.pool = G.check.pool.filter((unused, index1) => index0 !== index1)
         }
 
-        safeAct ()
+        safeAct()
       }
     })
   }

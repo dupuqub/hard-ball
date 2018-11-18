@@ -9,10 +9,10 @@ G.mouseMove = target =>
 
       target === `ball`
     ? `ball`
-    : target.slice (0, 7) === `athlete`
-    ? Number (target.slice (7))
+    : target.slice(0, 7) === `athlete`
+    ? Number(target.slice(7))
     : null
 
-  G.updateZoneCells ()
+  G.updateZoneCells()
 }
 
