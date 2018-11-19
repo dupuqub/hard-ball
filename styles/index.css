@@ -52,7 +52,11 @@ body
 {
   width: 100%;
   height: calc(var(--cellSize) * 8);
+  font-size: calc(var(--boardW) / 40);
+  color: rgba(255, 255, 255, 0.2);
+  flex-direction: column;
   box-sizing: border-box;
+  font-weight: bold;
   box-shadow:
 
     0 0 0 var(--borderHalf) var(--white),
