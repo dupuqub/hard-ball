@@ -16,8 +16,8 @@ G.colorizeBallZones = () =>
   //....................................................................................................................
   // reasons for red zone
   //
-  // rule0 = athletes
-  // rule1 = opposing goal
+  // rule0: athletes
+  // rule1: opposing goal
 
   const redCells0 = playingCells.both.filter(cell => G.S.zones.indexOf(cell) !== -1)
   const redCells1 = G.S.zones.filter(cell => G.I.goal[teamNot].indexOf(cell) !== -1)
@@ -31,9 +31,9 @@ G.colorizeBallZones = () =>
   //....................................................................................................................
   // reasons for black zone
   //
-  // rule0 = opposing athletes
-  // rule1 = own goal
-  // rule2 = opposing goal if holder is keeper
+  // rule0: opposing athletes
+  // rule1: own goal
+  // rule2: opposing goal if holder is keeper
 
   const blackCells0 = G.S.zones.filter(cell => playingCells[teamNot].indexOf(cell) !== -1)
   const blackCells1 = G.S.zones.filter(cell => G.I.goal[team].indexOf(cell) !== -1)

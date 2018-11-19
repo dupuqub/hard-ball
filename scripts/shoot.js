@@ -44,7 +44,6 @@ G.shoot = () =>
   //....................................................................................................................
   // define shot direction
 
-
   const firstCell = path[0]
   const firstLetter = firstCell.slice(0, 1)
   const firstIndex = G.I.aToM.indexOf(firstLetter)
