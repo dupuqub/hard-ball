@@ -1,6 +1,24 @@
 
 /*....................................................................................................................*/
 
+#goalGreen
+{
+  border-radius: 0 calc(var(--cellSize) / 2) calc(var(--cellSize) / 2) 0;
+  border: var(--borderHalf) solid var(--white);
+  border-left-width: 0;
+  box-shadow: 0 0 0 var(--borderHalf) var(--white);
+}
+
+#goalBlue
+{
+  border-radius: calc(var(--cellSize) / 2) 0 0 calc(var(--cellSize) / 2);
+  border: var(--borderHalf) solid var(--white);
+  border-right-width: 0;
+  box-shadow: 0 0 0 var(--borderHalf) var(--white);
+}
+
+/*....................................................................................................................*/
+
 #aim, #ball
 {
   cursor: pointer;
@@ -12,7 +30,7 @@
   position: absolute;
 }
 
-#aim {background: rgba(255, 255, 255, 0.3)}
+#aim{background: rgba(255, 255, 255, 0.3)}
 
 #aim:hover
 {
@@ -24,9 +42,9 @@
     0 0 var(--borderDouble) 0 var(--white) inset;
 }
 
-#ball {background: rgba(0, 0, 0, 0.7)}
+#ball{background: rgba(0, 0, 0, 0.7)}
 
-#ball:hover {background: rgba(111, 95, 63, 0.8)}
+#ball:hover{background: rgba(111, 95, 63, 0.8)}
 
 /*....................................................................................................................*/
 

@@ -44,7 +44,23 @@ body
   position: relative;
 }
 
-.tra {transition: all 0.3s} /* transition */
+.tra{transition: all 0.3s} /* transition */
+
+/*....................................................................................................................*/
+
+.goal
+{
+  width: 100%;
+  height: calc(var(--cellSize) * 8);
+  background: #444;
+  box-sizing: border-box;
+}
+
+.goalBox
+{
+  width: var(--cellSize);
+  height: calc(var(--cellSize) * 10);
+}
 
 /*....................................................................................................................*/
 
@@ -79,7 +95,7 @@ body
     0 0 0 var(--borderFull) var(--white) inset;
 }
 
-.btn:hover {background: #888}
+.btn:hover{background: #888}
 
 /*....................................................................................................................*/
 
@@ -103,12 +119,12 @@ body
 /*....................................................................................................................*/
 /* cell colors */
 
-.redLgt {background: #800} /* red light */
-.redDrk {background: #700} /* red dark */
-.grnLgt {background: #580} /* green light */
-.grnDrk {background: #570} /* green dark */
-.bluLgt {background: #480080} /* blue light */
-.bluDrk {background: #400068} /* blue dark */
+.redLgt{background: #800} /* red light */
+.redDrk{background: #700} /* red dark */
+.grnLgt{background: #580} /* green light */
+.grnDrk{background: #570} /* green dark */
+.bluLgt{background: #480080} /* blue light */
+.bluDrk{background: #400068} /* blue dark */
 
 /*....................................................................................................................*/
 
@@ -125,33 +141,33 @@ body
 
 @keyframes select
 {
-  30% {border-width: calc(var(--borderDouble) * 2)}
-  70% {border-width: var(--borderFull)}
-  100% {border-width: var(--borderDouble)}
+  30%{border-width: calc(var(--borderDouble) * 2)}
+  70%{border-width: var(--borderFull)}
+  100%{border-width: var(--borderDouble)}
 }
 
 /*....................................................................................................................*/
 
-.glw {animation: glow 1.5s infinite 0s linear} /* glow */
+.glw{animation: glow 1.5s infinite 0s linear} /* glow */
 
 @keyframes glow
 {
-  0% {fill: rgba(255, 255, 255, 0.4)}
-  50% {fill: var(--white); color: var(--white); text-shadow: 0 0 var(--borderDouble) var(--white)}
-  100% {fill: rgba(255, 255, 255, 0.4)}
+  0%{fill: rgba(255, 255, 255, 0.4)}
+  50%{fill: var(--white); color: var(--white); text-shadow: 0 0 var(--borderDouble) var(--white)}
+  100%{fill: rgba(255, 255, 255, 0.4)}
 }
 
 /*....................................................................................................................*/
 
-.pat {animation: path 4s infinite 0s ease-in} /* path */
+.pat{animation: path 4s infinite 0s ease-in} /* path */
 
 @keyframes path
 {
-  0% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
-  5% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
-  10% {border: calc(var(--borderDouble) * 3) solid var(--white); border-radius: 50%}
-  15% {border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
-  20% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
-  100% {border: var(--borderDouble) solid rgba(0, 0, 0, 0.5)}
+  0%{border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
+  5%{border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
+  10%{border: calc(var(--borderDouble) * 3) solid var(--white); border-radius: 50%}
+  15%{border: calc(var(--borderDouble) * 2) solid var(--white); border-radius: 50%}
+  20%{border: var(--borderDouble) solid rgba(0, 0, 0, 0.5); border-radius: 0}
+  100%{border: var(--borderDouble) solid rgba(0, 0, 0, 0.5)}
 }
 
