@@ -28,16 +28,6 @@ body
   justify-content: center;
 }
 
-.gol /* goal */
-{
-  width: var(--goalSize);
-  height: var(--goalSize);
-  background: rgba(255, 255, 255, 0.2);
-  border: var(--borderFull) solid var(--white);
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
 .itf /* interface */
 {
   float: left;
@@ -109,14 +99,6 @@ body
   font-size: calc(var(--boardW) / 70);
   font-weight: bold;
 }
-
-/*....................................................................................................................*/
-/* goal fixes */
-
-.fixLft {margin-left: var(--borderHalf)} /* fix left */
-.fixRgt {margin-right: var(--borderHalf)} /* fix right */
-.fixBot {margin-bottom: var(--borderHalf)} /* fix bottom */
-.fixTop {margin-top: var(--borderHalf)} /* fix top */
 
 /*....................................................................................................................*/
 /* cell colors */
