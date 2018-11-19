@@ -6,7 +6,6 @@
   border-radius: 0 calc(var(--cellSize) / 2) calc(var(--cellSize) / 2) 0;
   border: var(--borderHalf) solid var(--white);
   border-left-width: 0;
-  box-shadow: 0 0 0 var(--borderHalf) var(--white);
 }
 
 #goalBlue
@@ -14,7 +13,6 @@
   border-radius: calc(var(--cellSize) / 2) 0 0 calc(var(--cellSize) / 2);
   border: var(--borderHalf) solid var(--white);
   border-right-width: 0;
-  box-shadow: 0 0 0 var(--borderHalf) var(--white);
 }
 
 /*....................................................................................................................*/

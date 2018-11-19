@@ -52,8 +52,11 @@ body
 {
   width: 100%;
   height: calc(var(--cellSize) * 8);
-  background: #444;
   box-sizing: border-box;
+  box-shadow:
+
+    0 0 0 var(--borderHalf) var(--white),
+    0 0 0 var(--borderFull) rgba(0, 0, 0, 0.1) inset;
 }
 
 .goalBox
