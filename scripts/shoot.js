@@ -17,33 +17,37 @@ G.shoot = () =>
   const path = [G.S.ball, G.S.aim]
   const bothGoals = G.I.goal.blue.concat(G.I.goal.green)
 
-  while(true)
+  if(bothGoals.indexOf(G.S.aim) === -1
+  && G.S.athletes.indexOf(G.S.aim) === -1)
   {
-    const firstCell = path[path.length - 2]
-    const lastCell = path[path.length - 1]
-    const nextCell = G.nextCell(firstCell, lastCell)
-
-    path.push(nextCell)
-
-    if(G.S.athletes.indexOf(nextCell) !== -1) // player receives
+    while(true)
     {
-      break
-    }
-    else if(bothGoals.indexOf(nextCell) !== -1) // try score
-    {
-      if([`C00`,`J00`,`C19`,`J19`].indexOf(nextCell) !== -1) // goals' corners
+      const firstCell = path[path.length - 2]
+      const lastCell = path[path.length - 1]
+      const nextCell = G.nextCell(firstCell, lastCell)
+
+      path.push(nextCell)
+
+      if(G.S.athletes.indexOf(nextCell) !== -1) // player receives
       {
-        if(nextCell === `C00` && (lastCell !== `D01` && lastCell !== `B19`)
-        || nextCell === `J00` && (lastCell !== `I01` && lastCell !== `K19`)
-        || nextCell === `C19` && (lastCell !== `D18` && lastCell !== `B00`)
-        || nextCell === `J19` && (lastCell !== `I18` && lastCell !== `K00`))
+        break
+      }
+      else if(bothGoals.indexOf(nextCell) !== -1) // try score
+      {
+        if([`C00`,`J00`,`C19`,`J19`].indexOf(nextCell) !== -1) // goals' corners
+        {
+          if(nextCell === `C00` && (lastCell !== `D01` && lastCell !== `B19`)
+          || nextCell === `J00` && (lastCell !== `I01` && lastCell !== `K19`)
+          || nextCell === `C19` && (lastCell !== `D18` && lastCell !== `B00`)
+          || nextCell === `J19` && (lastCell !== `I18` && lastCell !== `K00`))
+          {
+            break
+          }
+        }
+        else
         {
           break
         }
-      }
-      else
-      {
-        break
       }
     }
   }
@@ -119,21 +123,21 @@ G.shoot = () =>
       window.clearInterval(moveBall)
 
       //................................................................................................................
-      // try score
-
-      if(bothGoals.indexOf(lastOnPath) !== -1)
-      {
-        G.lightPath(`add`)
-        G.updateSelected(null)
-      }
-
-      //................................................................................................................
       // pass
 
-      else if(G.S.athletes.indexOf(lastOnPath) !== -1)
+      if(G.S.athletes.indexOf(lastOnPath) !== -1)
       {
         G.S.holder.future = G.S.athletes.indexOf(lastOnPath)
         G.updateHolder()
+      }
+
+      //................................................................................................................
+      // try score
+
+      else if(bothGoals.indexOf(lastOnPath) !== -1)
+      {
+        G.lightPath(`add`)
+        G.updateSelected(null)
       }
 
       //................................................................................................................
