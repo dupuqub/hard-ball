@@ -17,24 +17,33 @@ G.shoot = () =>
   const path = [G.S.ball, G.S.aim]
   const bothGoals = G.I.goal.blue.concat(G.I.goal.green)
 
-  if(G.S.athletes.indexOf(path[1]) === -1 // aim is not on player
-  && bothGoals.indexOf(path[1]) === -1) // aim is not on goal
+  while(true)
   {
-    while(true)
-    {
-      const firstCell = path[path.length - 2]
-      const lastCell = path[path.length - 1]
-      const nextCell = G.nextCell(firstCell, lastCell)
+    const firstCell = path[path.length - 2]
+    const lastCell = path[path.length - 1]
+    const nextCell = G.nextCell(firstCell, lastCell)
 
-      if(G.S.athletes.indexOf(nextCell) !== -1 // player receives
-      || bothGoals.indexOf(nextCell) !== -1) // try score
+    path.push(nextCell)
+
+    if(G.S.athletes.indexOf(nextCell) !== -1) // player receives
+    {
+      break
+    }
+    else if(bothGoals.indexOf(nextCell) !== -1) // try score
+    {
+      if([`C00`,`J00`,`C19`,`J19`].indexOf(nextCell) !== -1) // goals' corners
       {
-        path.push(nextCell)
-        break
+        if(nextCell === `C00` && (lastCell !== `D01` && lastCell !== `B19`)
+        || nextCell === `J00` && (lastCell !== `I01` && lastCell !== `K19`)
+        || nextCell === `C19` && (lastCell !== `D18` && lastCell !== `B00`)
+        || nextCell === `J19` && (lastCell !== `I18` && lastCell !== `K00`))
+        {
+          break
+        }
       }
       else
       {
-        path.push(nextCell)
+        break
       }
     }
   }
