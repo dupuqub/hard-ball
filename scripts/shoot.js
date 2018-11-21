@@ -124,7 +124,6 @@ G.shoot = () =>
       else if(G.S.athletes.indexOf(lastOnPath) !== -1)
       {
         G.S.holder.future = G.S.athletes.indexOf(lastOnPath)
-
         G.updateHolder()
       }
 

@@ -2,6 +2,11 @@
 `use strict`
 
 //......................................................................................................................
+// TASK: Major bugs.
+//
+// If the holder moves and places the ball in a goal cell before placing it elsewhere, the game locks.
+
+//......................................................................................................................
 // TASK: UI buttons.
 //
 // Improve which buttons are shown, and how many.
