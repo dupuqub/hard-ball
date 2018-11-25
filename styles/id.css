@@ -61,10 +61,26 @@
 {
   width: 50%;
   height: var(--cellSize);
-  background: #666;
+  color: #222;
+  background: #999;
   border-radius: calc(var(--cellSize) / 2);
   font-size: calc(var(--boardW) / 60);
+}
+
+/*....................................................................................................................*/
+
+#settings
+{
+  width: 25%;
   color: var(--white);
+  background: #555;
+  border-radius: calc(var(--cellSize) / 2);
+  font-size: calc(var(--boardW) / 60);
+}
+
+#settings:hover
+{
+  background: #777;
 }
 
 /*....................................................................................................................*/

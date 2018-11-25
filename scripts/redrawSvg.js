@@ -19,7 +19,7 @@ G.redrawSvg = (domObject, klass) =>
 //......................................................................................................................
 // Firefox couldn't handle "width", "height" nor "stroke-width" defined by CSS
 
-G.createSvgInnerHtml =(index, size, klass) =>
+G.createSvgInnerHtml = (index, size, klass) =>
 (
   G.matrix[index].rects
 

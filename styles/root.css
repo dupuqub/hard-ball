@@ -26,6 +26,6 @@
   --boardRadius: calc(var(--cellSize) / 2);
   --athleteSize: calc(var(--cellSize) - var(--borderDouble));
 
-  --white: #DDD;
+  --white: #CCC;
 }
 
