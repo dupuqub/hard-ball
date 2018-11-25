@@ -31,7 +31,13 @@ G.updateLights = () =>
     {
       G.S.team[color].forEach(athleteIndex =>
       {
-        document.querySelectorAll(`.atl` + athleteIndex).forEach(art => art.classList.add(`glw`))
+        document.querySelectorAll(`.atl` + athleteIndex).forEach(art =>
+        {
+          if(Array.from(art.classList).indexOf(`atlFil`) !== -1)
+          {
+            art.classList.add(`glw`)
+          }
+        })
       })
     }, 750)
   }, 100)
