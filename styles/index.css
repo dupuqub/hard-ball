@@ -87,25 +87,6 @@ body
 
 /*....................................................................................................................*/
 
-.btn /* button */
-{
-  width: 5%;
-  height: var(--cellSize);
-  color: var(--white);
-  font-size: calc(var(--boardW) / 90);
-  background: #666;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow:
-
-    0 0 0 var(--borderHalf) #666 inset,
-    0 0 0 var(--borderFull) var(--white) inset;
-}
-
-.btn:hover{background: #888}
-
-/*....................................................................................................................*/
-
 .cll /* cell */
 {
   width: 5%;

@@ -72,8 +72,10 @@
 #settings
 {
   width: 25%;
+  height: var(--cellSize);
   color: var(--white);
   background: #555;
+  cursor: pointer;
   border-radius: calc(var(--cellSize) / 2);
   font-size: calc(var(--boardW) / 60);
 }
