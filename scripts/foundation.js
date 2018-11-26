@@ -8,6 +8,8 @@ G.D = // dom (document object model)
   aim: document.querySelector(`#aim`),
   ball: document.querySelector(`#ball`),
   board: document.querySelector(`#board`),
+  vignette: document.querySelector(`#vignette`),
+
   bulbs: document.querySelectorAll(`.bul`),
   zones: document.querySelectorAll(`.zon`),
   athletes: document.querySelectorAll(`.atl`),
