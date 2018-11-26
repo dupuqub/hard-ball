@@ -1,6 +1,28 @@
 
 /*....................................................................................................................*/
 
+#vignette
+{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  display: none;
+  opacity: 0;
+  z-index: 1;
+}
+
+#centralWindow
+{
+  background: var(--white);
+  width: calc(var(--cellSize) * 10);
+  height: calc(var(--cellSize) * 8);
+  transform: translateY(calc(0px - var(--cellSize)));
+  box-shadow: 0 calc(var(--unit) * 10) calc(var(--unit) * 20) var(--borderDouble) rgba(0, 0, 0, 0.5);
+}
+
+/*....................................................................................................................*/
+
 #goalGreen
 {
   border-radius: 0 calc(var(--cellSize) / 2) calc(var(--cellSize) / 2) 0;

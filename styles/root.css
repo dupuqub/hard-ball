@@ -27,5 +27,6 @@
   --athleteSize: calc(var(--cellSize) - var(--borderDouble));
 
   --white: #CCC;
+  --unit: calc((var(--boardW) + var(--boardH)) / 3000);
 }
 
