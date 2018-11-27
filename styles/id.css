@@ -100,6 +100,7 @@
   cursor: pointer;
   border-radius: calc(var(--cellSize) / 2);
   font-size: calc(var(--boardW) / 60);
+  transition: background 0.3s;
 }
 
 #settings:hover
