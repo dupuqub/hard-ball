@@ -66,8 +66,6 @@ G.move = (athlete, zoneCell) =>
 
       if(G.S.pushed !== null || G.S.replace) G.pushAthlete()
 
-      if(G.S.pushed === null) G.S.locked = false
-
       if(justReplaced && G.S.holder.future !== null) G.updateHolder()
       else G.updateSelected(G.S.selected)
     },

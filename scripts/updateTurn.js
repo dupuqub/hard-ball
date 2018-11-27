@@ -42,5 +42,11 @@ G.updateTurn = () =>
   {
     alert((G.playsNow() === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
   }
+  else
+  {
+    G.S.locked = false
+    G.S.path = []
+    localStorage.hardBallAutoSave = JSON.stringify(G.S)
+  }
 }
 

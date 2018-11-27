@@ -6,7 +6,6 @@
 //
 // Console.
 // Auto save.
-// Make a general purpose central window.
 // Make save/replace/load system work with the central window.
 // Make end game effects work with the central window.
 
