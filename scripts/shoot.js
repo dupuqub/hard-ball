@@ -12,45 +12,69 @@ G.shoot = () =>
   G.D.aim.classList.remove(`tra`)
 
   //....................................................................................................................
-  // path find
+  // path finding
 
   const path = [G.S.ball, G.S.aim]
   const bothGoals = G.I.goal.blue.concat(G.I.goal.green)
 
-  if(bothGoals.indexOf(G.S.aim) === -1
-  && G.S.athletes.indexOf(G.S.aim) === -1)
+  const findNext = (first, last) =>
   {
-    while(true)
+    const next = G.nextCell(first, last)
+
+    // last on athlete
+    if(G.S.athletes.indexOf(last) !== -1)
     {
-      const firstCell = path[path.length - 2]
-      const lastCell = path[path.length - 1]
-      const nextCell = G.nextCell(firstCell, lastCell)
+      return
+    }
 
-      path.push(nextCell)
+    // next on athlete
+    else if(G.S.athletes.indexOf(next) !== -1)
+    {
+      path.push(next)
+      return
+    }
 
-      if(G.S.athletes.indexOf(nextCell) !== -1) // player receives
+    // last on goal
+    else if(bothGoals.indexOf(last) !== -1)
+    {
+      const missed = G.I.missList.some(missable => missable.cell === last && missable.misses.indexOf(first) !== -1)
+
+      if(missed)
       {
-        break
+        path.push(next)
+        findNext(path[path.length - 2], path[path.length - 1])
       }
-      else if(bothGoals.indexOf(nextCell) !== -1) // try score
+
+      else return
+    }
+
+    // next on goal
+    else if(bothGoals.indexOf(next) !== -1)
+    {
+      const missed = G.I.missList.some(missable => missable.cell === next && missable.misses.indexOf(last) !== -1)
+
+      if(missed)
       {
-        if([`C00`,`J00`,`C19`,`J19`].indexOf(nextCell) !== -1) // goals' corners
-        {
-          if(nextCell === `C00` && (lastCell !== `D01` && lastCell !== `B19`)
-          || nextCell === `J00` && (lastCell !== `I01` && lastCell !== `K19`)
-          || nextCell === `C19` && (lastCell !== `D18` && lastCell !== `B00`)
-          || nextCell === `J19` && (lastCell !== `I18` && lastCell !== `K00`))
-          {
-            break
-          }
-        }
-        else
-        {
-          break
-        }
+        path.push(next)
+        findNext(path[path.length - 2], path[path.length - 1])
+      }
+
+      else
+      {
+        path.push(next)
+        return
       }
     }
+
+    // common
+    else
+    {
+      path.push(next)
+      findNext(path[path.length - 2], path[path.length - 1])
+    }
   }
+
+  findNext(path[0], path[1])
 
   G.S.path = path
 

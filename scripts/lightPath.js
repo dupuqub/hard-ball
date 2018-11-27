@@ -3,7 +3,7 @@
 
 //......................................................................................................................
 
-G.lightPath = (method, where) =>
+G.lightPath = method =>
 {
   G.S.pathing = true
 
@@ -11,9 +11,9 @@ G.lightPath = (method, where) =>
 
   const pathLighter = setInterval(() =>
   {
-    const zone = document.querySelector(`#` + G.S.path[index])
+    const cell = document.querySelector(`#` + G.S.path[index])
 
-    zone.classList[method](`pat`)
+    cell.classList[method](`pat`)
 
     index ++
 

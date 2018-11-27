@@ -68,6 +68,8 @@ G.move = (athlete, zoneCell) =>
 
       if(justReplaced && G.S.holder.future !== null) G.updateHolder()
       else G.updateSelected(G.S.selected)
+
+      G.S.locked = false
     },
   }
 

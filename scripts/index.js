@@ -4,17 +4,10 @@
 //......................................................................................................................
 // TASK: General polish.
 //
-// Console.
-// Auto save.
+// Make settings available with the central window.
 // Make save/replace/load system work with the central window.
 // Make end game effects work with the central window.
-
-//......................................................................................................................
-// TASK: UI buttons.
-//
-// Improve which buttons are shown, and how many.
-// Make settings available with the central window if necessary.
-// Make them work.
+// Console.
 
 //......................................................................................................................
 

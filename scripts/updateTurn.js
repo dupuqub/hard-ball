@@ -37,16 +37,16 @@ G.updateTurn = () =>
   }
 
   //....................................................................................................................
+  // end game
 
   if(G.takingShot() !== null && G.takingShot() !== G.playsNow() && G.S.holder.now === null)
   {
     alert((G.playsNow() === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
   }
-  else
-  {
-    G.S.locked = false
-    G.S.path = []
-    localStorage.hardBallAutoSave = JSON.stringify(G.S)
-  }
+
+  //....................................................................................................................
+
+  G.S.locked = false
+  localStorage.hardBallAutoSave = JSON.stringify(G.S)
 }
 

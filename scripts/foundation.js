@@ -47,6 +47,29 @@ G.I = // information
     blue: [`C00`,`D00`,`E00`,`F00`,`G00`,`H00`,`I00`,`J00`],
     green: [`C19`,`D19`,`E19`,`F19`,`G19`,`H19`,`I19`,`J19`],
   },
+
+  missList:
+  [
+    // blue goal
+    {cell: `C00`, misses: [`B00`,`D00`,`B19`,`D01`]},
+    {cell: `D00`, misses: [`C00`,`E00`]},
+    {cell: `E00`, misses: [`D00`,`F00`]},
+    {cell: `F00`, misses: [`E00`,`G00`]},
+    {cell: `G00`, misses: [`F00`,`H00`]},
+    {cell: `H00`, misses: [`G00`,`I00`]},
+    {cell: `I00`, misses: [`H00`,`J00`]},
+    {cell: `J00`, misses: [`I00`,`K00`,`I01`,`K19`]},
+
+    // green goal
+    {cell: `C19`, misses: [`B19`,`D19`,`B00`,`D18`]},
+    {cell: `D19`, misses: [`C19`,`E19`]},
+    {cell: `E19`, misses: [`D19`,`F19`]},
+    {cell: `F19`, misses: [`E19`,`G19`]},
+    {cell: `G19`, misses: [`F19`,`H19`]},
+    {cell: `H19`, misses: [`G19`,`I19`]},
+    {cell: `I19`, misses: [`H19`,`J19`]},
+    {cell: `J19`, misses: [`I19`,`K19`,`I18`,`K00`]},
+  ],
 }
 
 //......................................................................................................................
