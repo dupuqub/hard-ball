@@ -12,6 +12,8 @@ G.loadFile = saveFile =>
 
   G.S.hovered = null
 
+  if(G.S.holder.now !== null) G.S.path = []
+
   //....................................................................................................................
   // colorize athletes
 
