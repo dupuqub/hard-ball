@@ -28,10 +28,8 @@ G.run = () =>
 
 G.start = () =>
 {
-  if(localStorage.hardBallAutoSave !== undefined)
-  {
-    G.loadFile(`hardBallAutoSave`)
-  }
+  if(localStorage.hardBallInitialState === undefined) localStorage.hardBallInitialState = JSON.stringify(G.S)
+  if(localStorage.hardBallAutoSave !== undefined) G.loadFile(`hardBallAutoSave`)
 
   G.resize()
   G.run()

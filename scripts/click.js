@@ -13,21 +13,28 @@ G.click = target =>
   {
     console.log(`floppy`)
   }
+
   else if(target === `git`)
   {
-    console.log(`git`)
+    window.open(`https://github.com/dupuqub/hard-ball`)
   }
+
   else if(target === `itch`)
   {
-    console.log(`itch`)
+    window.open(`https://dupuqub.itch.io/hard-ball`)
   }
+
   else if(target === `lang`)
   {
     console.log(`lang`)
   }
+
   else if(target === `reset`)
   {
-    console.log(`reset`)
+    if(confirm(`Reset the game ?`))
+    {
+      G.loadFile(`hardBallInitialState`)
+    }
   }
 
   // the code BELOW was kept for future reference on how to properly work with the vignette.............................
