@@ -11,7 +11,8 @@ G.click = target =>
 
   if(target === `floppy`)
   {
-    console.log(`floppy`)
+    G.D.vignette.style.display = `flex`
+    setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
   }
 
   else if(target === `git`)
@@ -37,19 +38,11 @@ G.click = target =>
     }
   }
 
-  // the code BELOW was kept for future reference on how to properly work with the vignette.............................
-
-  // if(target === `settings`)
-  // {
-  //   G.D.vignette.style.display = `flex`
-  //   setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
-  // }
-
-  // else if(target === `vignette`)
-  // {
-  //   G.D.vignette.style.opacity = 0
-  //   setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
-  // }
+  else if(target === `vignette`)
+  {
+    G.D.vignette.style.opacity = 0
+    setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
+  }
 
   // the code ABOVE was kept for future reference on how to properly work with the vignette.............................
 
