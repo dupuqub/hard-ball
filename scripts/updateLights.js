@@ -21,25 +21,28 @@ G.updateLights = () =>
       G.D.blueLight.forEach(cell => cell.classList.add(`glw`))
       G.D.blueDark.forEach(cell => cell.classList.add(`glw`))
     }
-    else
+    else if(color === `green`)
     {
       G.D.greenLight.forEach(cell => cell.classList.add(`glw`))
       G.D.greenDark.forEach(cell => cell.classList.add(`glw`))
     }
 
-    setTimeout(() => // to make area cells and athletes glow alternately
+    if(color)
     {
-      G.S.team[color].forEach(athleteIndex =>
+      setTimeout(() => // to make area cells and athletes glow alternately
       {
-        document.querySelectorAll(`.atl` + athleteIndex).forEach(art =>
+        G.S.team[color].forEach(athleteIndex =>
         {
-          if(Array.from(art.classList).indexOf(`atlFil`) !== -1)
+          document.querySelectorAll(`.atl` + athleteIndex).forEach(art =>
           {
-            art.classList.add(`glw`)
-          }
+            if(Array.from(art.classList).indexOf(`atlFil`) !== -1)
+            {
+              art.classList.add(`glw`)
+            }
+          })
         })
-      })
-    }, 750)
+      }, 750)
+    }
   }, 100)
 }
 

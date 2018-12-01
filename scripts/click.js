@@ -35,6 +35,7 @@ G.click = target =>
     if(confirm(`Reset the game ?`))
     {
       G.loadFile(`hardBallInitialState`)
+      G.updateLights()
     }
   }
 
