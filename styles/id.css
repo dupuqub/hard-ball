@@ -91,25 +91,6 @@
 
 /*....................................................................................................................*/
 
-#settings
-{
-  width: 25%;
-  height: var(--cellSize);
-  color: var(--white);
-  background: #555;
-  cursor: pointer;
-  border-radius: calc(var(--cellSize) / 2);
-  font-size: calc(var(--boardW) / 60);
-  transition: background 0.3s;
-}
-
-#settings:hover
-{
-  background: #777;
-}
-
-/*....................................................................................................................*/
-
 #middle
 {
   width: calc(var(--cellSize) * 0.2);

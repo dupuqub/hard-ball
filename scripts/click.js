@@ -9,17 +9,42 @@ G.click = target =>
   // UTILITIES
   //....................................................................................................................
 
-  if(target === `settings`)
+  if(target === `floppy`)
   {
-    G.D.vignette.style.display = `flex`
-    setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
+    console.log(`floppy`)
+  }
+  else if(target === `git`)
+  {
+    console.log(`git`)
+  }
+  else if(target === `itch`)
+  {
+    console.log(`itch`)
+  }
+  else if(target === `lang`)
+  {
+    console.log(`lang`)
+  }
+  else if(target === `reset`)
+  {
+    console.log(`reset`)
   }
 
-  else if(target === `vignette`)
-  {
-    G.D.vignette.style.opacity = 0
-    setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
-  }
+  // the code BELOW was kept for future reference on how to properly work with the vignette.............................
+
+  // if(target === `settings`)
+  // {
+  //   G.D.vignette.style.display = `flex`
+  //   setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
+  // }
+
+  // else if(target === `vignette`)
+  // {
+  //   G.D.vignette.style.opacity = 0
+  //   setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
+  // }
+
+  // the code ABOVE was kept for future reference on how to properly work with the vignette.............................
 
   //....................................................................................................................
   // GAMEPLAY

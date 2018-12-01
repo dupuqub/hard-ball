@@ -71,6 +71,32 @@ body
 
 /*....................................................................................................................*/
 
+.utl
+{
+  width: 5%;
+  height: var(--cellSize);
+  color: var(--white);
+  background: #555;
+  cursor: pointer;
+  border-radius: calc(var(--cellSize) / 2);
+  font-size: calc(var(--boardW) / 60);
+  transition: background 0.3s;
+}
+
+.utl:hover
+{
+  background: #777;
+}
+
+img
+{
+  width: calc(var(--unit) * 60);
+  height: calc(var(--unit) * 60);
+  opacity: 0.5;
+}
+
+/*....................................................................................................................*/
+
 .bnc /* bench */
 {
   width: 5%;
