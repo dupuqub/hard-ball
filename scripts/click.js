@@ -257,7 +257,11 @@ G.click = target =>
         const athlete = Number(target.slice(7))
         const athleteLetter = G.S.athletes[athlete].slice(0, 1)
         const athleteWasReplaced = Array.from(G.D.athletes[athlete].classList).indexOf(`rep`) !== -1
-        const teamHasReplacements = G.S.replaced[G.playsNow()].length < 2
+        const teamHasReplacements =
+
+            G.playsNow()
+          ? G.S.replaced[G.playsNow()].length < 2
+          : true
 
         if(athleteLetter !== `M` || !athleteWasReplaced && teamHasReplacements)
         {
