@@ -76,7 +76,7 @@ body
   width: 5%;
   height: var(--cellSize);
   color: var(--white);
-  background: #555;
+  background: #764;
   cursor: pointer;
   border-radius: calc(var(--cellSize) / 2);
   font-size: calc(var(--boardW) / 60);
@@ -85,7 +85,7 @@ body
 
 .utl:hover
 {
-  background: #777;
+  background: #986;
 }
 
 img
