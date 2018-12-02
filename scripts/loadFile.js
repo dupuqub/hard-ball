@@ -10,6 +10,7 @@ G.loadFile = saveFile =>
 
   G.S = JSON.parse(localStorage[saveFile])
 
+  G.S.pathing = null
   G.S.hovered = null
 
   if(G.S.holder.now !== null) G.S.path = []
