@@ -5,7 +5,6 @@
 
 G.updateHolder = () =>
 {
-
   const athlete = G.S.holder.future
   const athleteDom = G.D.athletes[athlete]
   const holdingTeam = G.S.holding.team
@@ -19,6 +18,7 @@ G.updateHolder = () =>
 
   G.S.holder.now = athlete
   G.S.holder.future = null
+  G.S.takingShot = null
   G.S.placing = true
 
   G.S.ball = G.S.athletes[athlete]

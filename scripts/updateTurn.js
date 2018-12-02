@@ -18,7 +18,7 @@ G.updateTurn = () =>
   //....................................................................................................................
   // punt
 
-  if(G.S.holding.turns === 5 && G.takingShot() !== G.S.holding.team)
+  if(G.S.holding.turns === 5 && G.S.takingShot !== G.S.holding.team)
   {
     G.S.punting = true
     G.S.holder.now = null
@@ -39,7 +39,7 @@ G.updateTurn = () =>
   //....................................................................................................................
   // end game
 
-  if(G.takingShot() !== null && G.takingShot() !== G.playsNow() && G.S.holder.now === null)
+  if(G.S.takingShot !== null && G.S.takingShot !== G.playsNow() && G.S.holder.now === null)
   {
     alert((G.playsNow() === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
   }

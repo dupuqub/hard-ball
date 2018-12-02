@@ -32,17 +32,14 @@ G.colorizeBallZones = () =>
   // reasons for black zone
   //
   // rule0: opposing athletes
-  // rule1: own goal
-  // rule2: opposing goal if holder is keeper
+  // rule1: opposing goal if holder is keeper
 
   const blackCells0 = G.S.zones.filter(cell => playingCells[teamNot].indexOf(cell) !== -1)
-  const blackCells1 = G.S.zones.filter(cell => G.I.goal[team].indexOf(cell) !== -1)
-
-  let blackCells2 = []
+  let blackCells1 = []
 
   if(athleteKeeper !== null && athleteKeeper === athleteIndex)
   {
-    blackCells2 = G.S.zones.filter(cell => G.I.goal[teamNot].indexOf(cell) !== -1)
+    blackCells1 = G.S.zones.filter(cell => G.I.goal[teamNot].indexOf(cell) !== -1)
   }
 
   //....................................................................................................................
@@ -52,7 +49,6 @@ G.colorizeBallZones = () =>
 
     blackCells0
     .concat(blackCells1)
-    .concat(blackCells2)
     .map(cell => G.S.zones.indexOf(cell))
     .filter((zoneIndex, index, array) => index === array.indexOf(zoneIndex)) // remove duplicates
 

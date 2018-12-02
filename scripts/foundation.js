@@ -92,6 +92,7 @@ G.S = // state
   pushed: null, // from 0 to 19 or null
   selected: null, // from 0 to 19, "ball" or null
   hovered: null, // from 0 to 19, "ball" or null
+  takingShot: null, // "green", "blue" or null
   shot: {x: 0, y: 0}, // -1, 0 or 1
   holding: {turns: 0, team: null},
   holder: {now: null, future: null}, // from 0 to 19 or null

@@ -79,6 +79,16 @@ G.shoot = () =>
   G.S.path = path
 
   //....................................................................................................................
+  // define if shot hit the goal
+
+  const shotCell = path[path.length - 1]
+
+  if(bothGoals.indexOf(shotCell) !== -1)
+  {
+    G.S.takingShot = G.I.goal.blue.indexOf(shotCell) ? `green` : `blue`
+  }
+
+  //....................................................................................................................
   // define shot direction
 
   const firstCell = path[0]

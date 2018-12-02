@@ -83,7 +83,7 @@ G.click = target =>
 
               athlete !== -1
             ? athlete
-            : G.S.ball !== null && G.takingShot() === null
+            : G.S.ball !== null && G.S.takingShot === null
             ? `ball`
             : null
 
@@ -245,7 +245,7 @@ G.click = target =>
     {
       //................................................................................................................
 
-      if(target === `ball` && G.S.ball !== null && G.takingShot() === null)
+      if(target === `ball` && G.S.ball !== null && G.S.takingShot === null)
       {
         G.updateSelected(`ball`)
       }
