@@ -9,6 +9,7 @@ G.D = // dom (document object model)
   ball: document.querySelector(`#ball`),
   board: document.querySelector(`#board`),
   vignette: document.querySelector(`#vignette`),
+  centralWindow: document.querySelector(`#centralWindow`),
 
   bulbs: document.querySelectorAll(`.bul`),
   zones: document.querySelectorAll(`.zon`),

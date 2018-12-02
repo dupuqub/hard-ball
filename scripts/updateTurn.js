@@ -39,9 +39,13 @@ G.updateTurn = () =>
   //....................................................................................................................
   // end game
 
-  if(G.S.takingShot !== null && G.S.takingShot !== G.playsNow() && G.S.holder.now === null)
+  if(G.S.takingShot !== null && G.S.takingShot === G.playsNow() && G.S.holder.now === null)
   {
-    alert((G.playsNow() === `blue` ? `BLUE` : `GREEN`) + ` WINS !`)
+    const winner = G.playsNow() === `blue` ? `BLUE` : `GREEN`
+
+    G.D.centralWindow.innerHTML = `${winner} WINS`
+    G.D.vignette.style.display = `flex`
+    setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
   }
 
   //....................................................................................................................

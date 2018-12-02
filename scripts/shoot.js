@@ -85,7 +85,7 @@ G.shoot = () =>
 
   if(bothGoals.indexOf(shotCell) !== -1)
   {
-    G.S.takingShot = G.I.goal.blue.indexOf(shotCell) ? `green` : `blue`
+    G.S.takingShot = G.I.goal.blue.indexOf(shotCell) !== -1 ? `green` : `blue`
   }
 
   //....................................................................................................................

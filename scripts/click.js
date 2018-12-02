@@ -11,6 +11,7 @@ G.click = target =>
 
   if(target === `floppy`)
   {
+    G.D.centralWindow.innerHTML = `Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`
     G.D.vignette.style.display = `flex`
     setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
   }
@@ -115,6 +116,7 @@ G.click = target =>
             }
             else
             {
+              G.S.takingShot = G.I.goal.blue.indexOf(zoneCell) !== -1 ? `green` : `blue`
               G.S.holder.now = null
               G.updateSelected(null)
             }

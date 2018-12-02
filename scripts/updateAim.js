@@ -17,19 +17,35 @@ G.updateAim = () =>
   {
     if(!G.S.placing && G.S.ball !== null && G.S.holder.now !== null)
     {
+      const bothGoals = G.I.goal.blue.concat(G.I.goal.green)
       const firstCell = G.S.athletes[G.S.holder.now]
       const lastCell = G.S.ball
       const nextCell = G.nextCell(firstCell, lastCell)
       const nextLetter = nextCell.slice(0, 1)
       const nextNumber = Number(nextCell.slice(1))
 
-      const nextX = nextNumber * G.I.cellSize + G.I.borderFull
-      const nextY = G.I.aToM.indexOf(nextLetter) * G.I.cellSize + G.I.borderFull
+      let nextX = nextNumber * G.I.cellSize + G.I.borderFull
+      let nextY = G.I.aToM.indexOf(nextLetter) * G.I.cellSize + G.I.borderFull
+      let pass = true
 
-      G.D.aim.style.marginLeft = nextX + `px`
-      G.D.aim.style.marginTop = nextY + `px`
+      if(bothGoals.indexOf(G.S.ball) !== -1)
+      {
+        if(G.I.goal.blue.indexOf(nextCell) !== -1
+        && G.I.goal.green.indexOf(G.S.ball) !== -1
+        || G.I.goal.blue.indexOf(G.S.ball) !== -1
+        && G.I.goal.green.indexOf(nextCell) !== -1)
+        {
+          pass = false
+        }
+      }
 
-      G.S.aim = nextCell
+      if(pass)
+      {
+        G.D.aim.style.marginLeft = nextX + `px`
+        G.D.aim.style.marginTop = nextY + `px`
+
+        G.S.aim = nextCell
+      }
     }
   }
 }
