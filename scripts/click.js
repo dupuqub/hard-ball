@@ -9,7 +9,7 @@ G.click = target =>
   // UTILITIES
   //....................................................................................................................
 
-  if(target === `floppy`)
+  if(target === `floppy` && !G.S.locked && !G.S.pathing)
   {
     G.D.centralWindow.innerHTML = `Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`
     G.D.vignette.style.display = `flex`
@@ -31,7 +31,7 @@ G.click = target =>
     console.log(`lang`)
   }
 
-  else if(target === `reset`)
+  else if(target === `reset` && !G.S.locked && !G.S.pathing)
   {
     if(confirm(`Reset the game ?`))
     {
@@ -46,8 +46,6 @@ G.click = target =>
     setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
   }
 
-  // the code ABOVE was kept for future reference on how to properly work with the vignette.............................
-
   //....................................................................................................................
   // GAMEPLAY
   //....................................................................................................................
@@ -57,7 +55,7 @@ G.click = target =>
   //....................................................................................................................
   // gate 0
 
-  else if(!G.S.locked)
+  else if(!G.S.locked && !G.S.pathing)
   {
     //..................................................................................................................
 

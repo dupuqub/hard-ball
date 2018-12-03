@@ -140,7 +140,7 @@ G.shoot = () =>
     const closeEnough = xIsClose && yIsClose
 
     //..................................................................................................................
-    // try score or pass
+    // try to score, or pass
 
     if(closeEnough)
     {
@@ -166,7 +166,7 @@ G.shoot = () =>
       }
 
       //................................................................................................................
-      // try score
+      // try to score
 
       else if(bothGoals.indexOf(lastOnPath) !== -1)
       {
