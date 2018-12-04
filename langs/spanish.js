@@ -4,9 +4,10 @@
 //......................................................................................................................
 
 G.langs.spanish =
-[
-  `ESPAÑOL`,
-  [`BIENVENIDO :)`, `(trabajo en progreso)`],
-  ``,
-]
+{
+  title: `ESPAÑOL`,
+  welcome: [`BIENVENIDO :)`, `(trabajo en progreso)`],
+  reset: `¿Va a REINICIAR el partido?`,
+  model: ``,
+}
 

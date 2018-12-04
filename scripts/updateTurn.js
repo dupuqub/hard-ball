@@ -49,6 +49,7 @@ G.updateTurn = () =>
   //....................................................................................................................
 
   G.S.locked = false
-  localStorage.hardBallAutoSave = JSON.stringify(G.S)
+
+  G.autoSave()
 }
 

@@ -3,11 +3,8 @@
 
 //......................................................................................................................
 
-G.langs.english =
+G.autoSave = () =>
 {
-  title: `ENGLISH`,
-  welcome: [`WELCOME :)`, `(work in progress)`],
-  reset: `Will you RESTART the match?`,
-  model: ``,
+  localStorage.hardBallAutoSave = JSON.stringify(G.S)
 }
 

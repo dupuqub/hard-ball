@@ -28,11 +28,11 @@ G.start = () =>
   G.resize()
   G.run()
 
-  const array = G.langs[G.S.lang][1]
+  const message = G.langs[G.S.lang].welcome
   const text =
 
-      `<div style="margin-bottom:calc(var(--unit) * 40)">${array[0]}</div>`
-    + `<div style="margin-bottom:calc(var(--unit) * 90)">${array[1]}</div>`
+      `<div style="margin-bottom:calc(var(--unit) * 40)">${message[0]}</div>`
+    + `<div style="margin-bottom:calc(var(--unit) * 90)">${message[1]}</div>`
     + `<div class="cnt tra yes" onclick="G.vignette.hide()"></div>`
 
   G.vignette.show(text)

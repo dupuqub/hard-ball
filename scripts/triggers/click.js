@@ -26,16 +26,31 @@ G.click = target =>
 
   else if(target === `lang`)
   {
-    G.vignette.show(`WORK IN PROGRESS`)
+    const langs = Object.keys(G.langs)
+    const oldLangIndex = langs.indexOf(G.S.lang)
+    const newLangIndex = oldLangIndex < langs.length - 1 ? oldLangIndex + 1 : 0
+
+    G.S.lang = langs[newLangIndex]
+
+    G.autoSave()
   }
 
   else if(target === `reset` && !G.S.locked && !G.S.pathing)
   {
-    if(confirm(`Reset the game ?`))
-    {
-      G.loadFile(`hardBallInitialState`)
-      G.updateLights()
-    }
+    const message = G.langs[G.S.lang].reset
+    const text =
+
+        `<div style="margin-bottom: calc(var(--unit) * 100)">${message}</div>`
+      + `<div class="cnt">`
+      +   `<div`
+      +     ` class="yes"`
+      +     ` onclick="G.loadFile('hardBallInitialState'); G.vignette.hide()"`
+      +     ` style="margin-right: calc(var(--unit) * 100)">`
+      +   `</div>`
+      +   `<div class="no" onclick="G.vignette.hide()"></div>`
+      + `</div>`
+
+    G.vignette.show(text)
   }
 
   else if(target === `vignette`)
