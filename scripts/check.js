@@ -35,6 +35,6 @@ G.check =
         safeAct()
       }
     })
-  }
+  },
 }
 

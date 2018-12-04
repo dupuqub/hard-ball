@@ -3,9 +3,11 @@
 
 //......................................................................................................................
 
+oncontextmenu = event => G.contextMenu(event)
 onmousemove = event => G.mouseMove(event.target.id)
-onclick = event => G.click(event.target.id)
+onkeydown = event => G.keyDown(event)
 onresize = event => G.resize()
+onclick = event => G.click(event.target.id)
 
 //......................................................................................................................
 
