@@ -1,25 +1,6 @@
 
 /*....................................................................................................................*/
 
-#ok
-{
-  width: calc(var(--unit) * 150);
-  height: calc(var(--unit) * 150);
-  border: calc(var(--unit) * 12) solid var(--white);
-  border-radius: 50%;
-  background: #764;
-  color: var(--white);
-  cursor: pointer;
-  font-size: calc(var(--unit) * 50);
-}
-
-#ok:hover
-{
-  background: #986;
-}
-
-/*....................................................................................................................*/
-
 #vignette
 {
   width: 100%;

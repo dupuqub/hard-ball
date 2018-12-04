@@ -33,7 +33,7 @@ G.start = () =>
 
       `<div style="margin-bottom:calc(var(--unit) * 40)">${array[0]}</div>`
     + `<div style="margin-bottom:calc(var(--unit) * 90)">${array[1]}</div>`
-    + `<div id="ok" class="cnt"></div>`
+    + `<div class="cnt tra yes" onclick="G.vignette.hide()"></div>`
 
   G.vignette.show(text)
 }
