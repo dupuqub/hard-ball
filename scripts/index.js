@@ -28,7 +28,14 @@ G.start = () =>
   G.resize()
   G.run()
 
-  G.vignette.show(G.langs[G.S.lang][1])
+  const array = G.langs[G.S.lang][1]
+  const text =
+
+      `<div style="margin-bottom:calc(var(--unit) * 40)">${array[0]}</div>`
+    + `<div style="margin-bottom:calc(var(--unit) * 90)">${array[1]}</div>`
+    + `<div id="ok" class="cnt"></div>`
+
+  G.vignette.show(text)
 }
 
 //......................................................................................................................

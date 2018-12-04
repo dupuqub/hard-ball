@@ -6,7 +6,7 @@
 G.langs.spanish =
 [
   `ESPAÑOL`,
-  `Bienvenido :)<br>&nbsp<br>(trabajo en progreso)`,
+  [`BIENVENIDO :)`, `(trabajo en progreso)`],
   ``,
 ]
 

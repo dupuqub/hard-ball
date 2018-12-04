@@ -1,6 +1,25 @@
 
 /*....................................................................................................................*/
 
+#ok
+{
+  width: calc(var(--unit) * 150);
+  height: calc(var(--unit) * 150);
+  border: calc(var(--unit) * 12) solid var(--white);
+  border-radius: 50%;
+  background: #764;
+  color: var(--white);
+  cursor: pointer;
+  font-size: calc(var(--unit) * 50);
+}
+
+#ok:hover
+{
+  background: #986;
+}
+
+/*....................................................................................................................*/
+
 #vignette
 {
   width: 100%;
@@ -18,6 +37,7 @@
   width: calc(var(--cellSize) * 10);
   height: calc(var(--cellSize) * 8);
   font-size: calc(var(--unit) * 40);
+  flex-direction: column;
   transform: translateY(calc(0px - var(--cellSize)));
   box-shadow: 0 calc(var(--unit) * 10) calc(var(--unit) * 20) var(--borderDouble) rgba(0, 0, 0, 0.5);
 }

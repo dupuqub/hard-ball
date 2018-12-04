@@ -38,7 +38,7 @@ G.click = target =>
     }
   }
 
-  else if(target === `vignette`)
+  else if(target === `vignette` || target === `ok`)
   {
     G.vignette.hide()
   }

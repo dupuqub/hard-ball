@@ -6,7 +6,7 @@
 G.langs.english =
 [
   `ENGLISH`,
-  `Welcome :)<br>&nbsp<br>(work in progress)`,
+  [`WELCOME :)`, `(work in progress)`],
   ``,
 ]
 
