@@ -6,7 +6,7 @@
 G.langs.portuguese =
 [
   `PORTUGUÊS`,
-  `Bem-vindo ao Hard Ball :)<br>&nbsp<br>(clique fora dessa caixa)`,
+  `Bem-vindo :)<br>&nbsp<br>(trabalho em progresso)`,
   ``,
 ]
 
