@@ -78,7 +78,6 @@ G.I = // information
 
 G.S = // state
 {
-  path: [],
   turn: 0,
   pathing: false,
   placing: false,
@@ -86,6 +85,7 @@ G.S = // state
   locked: false,
   replace: false,
   punting: false,
+  path: [], // array of cells
   oldCell: null, // cell or null
   aim: null, // cell or null
   ball: null, // cell or null
@@ -95,6 +95,7 @@ G.S = // state
   hovered: null, // from 0 to 19, "ball" or null
   takingShot: null, // "green", "blue" or null
   shot: {x: 0, y: 0}, // -1, 0 or 1
+  lang: `english`, // may be any key from "G.langs"
   holding: {turns: 0, team: null},
   holder: {now: null, future: null}, // from 0 to 19 or null
   keepers: {blue: null, green: null}, // from 0 to 19 or null
