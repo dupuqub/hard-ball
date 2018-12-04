@@ -2,14 +2,6 @@
 `use strict`
 
 //......................................................................................................................
-// TASK: General polish.
-//
-// Make settings available with the central window.
-// Make save/replace/load system work with the central window.
-// Make end game effects work with the central window.
-// Console.
-
-//......................................................................................................................
 
 onmousemove = event => G.mouseMove(event.target.id)
 onclick = event => G.click(event.target.id)
