@@ -14,8 +14,8 @@ G.updateZoneCells = () =>
     zone.classList.remove(`zonBlk`)
   })
 
-  G.D.ball.style.zIndex = G.S.ball === null ? 1 : 0
-  G.D.aim.style.zIndex = G.S.ball === null ? 1 : 0
+  G.D.ball.style.zIndex = Number(G.S.ball === null)
+  G.D.aim.style.zIndex = Number(G.S.ball === null)
 
   if(G.S.hovered === `ball`) G.updateBallZones()
   else if(G.S.hovered !== null) G.updateAthleteZones(G.S.hovered)
