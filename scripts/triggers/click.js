@@ -11,9 +11,7 @@ G.click = target =>
 
   if(target === `floppy` && !G.S.locked && !G.S.pathing)
   {
-    G.D.centralWindow.innerHTML = `Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`
-
-    G.vignette.show()
+    G.vignette.show(`Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`)
   }
 
   else if(target === `git`)
@@ -28,7 +26,7 @@ G.click = target =>
 
   else if(target === `lang`)
   {
-    console.log(`lang`)
+    G.vignette.show(`WORK IN PROGRESS`)
   }
 
   else if(target === `reset` && !G.S.locked && !G.S.pathing)

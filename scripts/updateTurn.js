@@ -43,9 +43,7 @@ G.updateTurn = () =>
   {
     const winner = G.playsNow() === `blue` ? `BLUE` : `GREEN`
 
-    G.D.centralWindow.innerHTML = `${winner} WINS`
-
-    G.vignette.show()
+    G.vignette.show(`${winner} WINS`)
   }
 
   //....................................................................................................................
