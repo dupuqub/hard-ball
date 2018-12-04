@@ -44,8 +44,8 @@ G.updateTurn = () =>
     const winner = G.playsNow() === `blue` ? `BLUE` : `GREEN`
 
     G.D.centralWindow.innerHTML = `${winner} WINS`
-    G.D.vignette.style.display = `flex`
-    setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
+
+    G.vignette.show()
   }
 
   //....................................................................................................................

@@ -12,8 +12,8 @@ G.click = target =>
   if(target === `floppy` && !G.S.locked && !G.S.pathing)
   {
     G.D.centralWindow.innerHTML = `Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`
-    G.D.vignette.style.display = `flex`
-    setTimeout(() => G.D.vignette.style.opacity = 100, 50) // to trigger transition animation
+
+    G.vignette.show()
   }
 
   else if(target === `git`)
@@ -42,8 +42,7 @@ G.click = target =>
 
   else if(target === `vignette`)
   {
-    G.D.vignette.style.opacity = 0
-    setTimeout(() => G.D.vignette.style.display = `none`, 300) // to trigger transition animation
+    G.vignette.hide()
   }
 
   //....................................................................................................................
