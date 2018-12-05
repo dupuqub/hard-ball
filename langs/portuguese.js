@@ -5,9 +5,16 @@
 
 G.langs.portuguese =
 {
-  title: `PORTUGUÊS`,
   welcome: [`BEM-VINDO :)`, `(trabalho em progresso)`],
-  reset: `Você vai REINICIAR a partida?`,
+
+  boardConsole: `Oi, eu sou o console :)`,
+  floppy: `Salve e gerencie seus jogos salvos`,
+  git: `Visite o GITHUB do jogo`,
+  itch: `Visite o ITCH.IO do jogo`,
+  lang: `PORTUGUÊS`,
+  reset: `Reinicie a partida`,
+  resetConfirm: `Quer realmente REINICIAR a partida?`,
+
   model: ``,
 }
 

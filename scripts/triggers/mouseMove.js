@@ -14,5 +14,6 @@ G.mouseMove = target =>
     : null
 
   G.updateZoneCells()
+  G.updateBoardConsole(target)
 }
 

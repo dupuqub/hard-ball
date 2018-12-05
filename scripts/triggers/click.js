@@ -33,11 +33,12 @@ G.click = target =>
     G.S.lang = langs[newLangIndex]
 
     G.autoSave()
+    G.updateBoardConsole(`lang`)
   }
 
   else if(target === `reset` && !G.S.locked && !G.S.pathing)
   {
-    const message = G.langs[G.S.lang].reset
+    const message = G.langs[G.S.lang].resetConfirm
     const text =
 
         `<div style="margin-bottom: calc(var(--unit) * 100)">${message}</div>`
