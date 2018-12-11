@@ -43,11 +43,11 @@ G.click = target =>
 
         `<div style="margin-bottom: calc(var(--unit) * 100)">${message}</div>`
       + `<div class="cnt">`
-      +   `<div`
-      +     ` class="yes tra"`
-      +     ` onclick="G.loadFile('hardBallInitialState'); G.vignette.hide()"`
-      +     ` style="margin-right: calc(var(--unit) * 100)">`
-      +   `</div>`
+      +   `<div `
+      +   `class="yes tra"`
+      +   `onclick="G.loadFile('hardBallInitialState'); G.vignette.hide()"`
+      +   `style="margin-right: calc(var(--unit) * 100)"`
+      +   `></div>`
       +   `<div class="no tra" onclick="G.vignette.hide()"></div>`
       + `</div>`
 

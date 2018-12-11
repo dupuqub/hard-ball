@@ -25,14 +25,14 @@ G.createSvgInnerHtml = (index, size, klass) =>
 
   .map(rect =>
   (
-    `<rect` +
-    ` y="` + rect[0] * size +
-    `"x="` + rect[1] * size +
-    `"width="` + size +
-    `"height="` + size +
-    `"stroke-width="` + size / 5 +
-    `"class="` + klass + ` atl` + index +
-    `"/>`
+      `<rect `
+    + `y="${rect[0] * size}"`
+    + `x="${rect[1] * size}"`
+    + `width="${size}"`
+    + `height="${size}"`
+    + `stroke-width="${size / 5}"`
+    + `class="${klass} atl${index}"`
+    + `/>`
   ))
 
   .reduce((a, b) => a + b, ``)

@@ -13,7 +13,7 @@ G.langs.portuguese =
   itch: `Visite o ITCH.IO do jogo`,
   lang: `PORTUGUÊS`,
   reset: `Reinicie a partida`,
-  resetConfirm: `Quer realmente REINICIAR a partida?`,
+  resetConfirm: `Realmente REINICIAR a partida?`,
 
   model: ``,
 }
