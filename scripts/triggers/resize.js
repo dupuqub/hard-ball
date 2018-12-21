@@ -3,8 +3,10 @@
 
 //......................................................................................................................
 
-G.resize = () =>
+G.resize = event =>
 {
+  // "event" is unused here
+
   const proportionW = window.innerWidth / G.I.aspect.w
   const proportionH = window.innerHeight / G.I.aspect.h
   const vertical = proportionW < proportionH

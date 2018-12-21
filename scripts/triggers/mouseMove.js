@@ -3,17 +3,18 @@
 
 //......................................................................................................................
 
-G.mouseMove = target =>
+G.mouseMove = event =>
 {
+  const {id} = event.target
   G.S.hovered =
 
-      target === `ball`
+      id === `ball`
     ? `ball`
-    : target.slice(0, 7) === `athlete`
-    ? Number(target.slice(7))
+    : id.slice(0, 7) === `athlete`
+    ? Number(id.slice(7))
     : null
 
   G.updateZoneCells()
-  G.updateBoardConsole(target)
+  G.updateBoardConsole(event)
 }
 

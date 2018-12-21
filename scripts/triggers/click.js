@@ -3,28 +3,31 @@
 
 //......................................................................................................................
 
-G.click = target =>
+G.click = event =>
 {
+  const {target} = event
+  const {id} = target
+
   //....................................................................................................................
   // UTILITIES
   //....................................................................................................................
 
-  if(target === `floppy` && !G.S.locked && !G.S.pathing)
+  if(id === `floppy` && !G.S.locked && !G.S.pathing)
   {
     G.vignette.show(`Use numeric keys to PERLS<br>(purge, erase, replace, load or save)`)
   }
 
-  else if(target === `git`)
+  else if(id === `git`)
   {
     window.open(`https://github.com/dupuqub/hard-ball`)
   }
 
-  else if(target === `itch`)
+  else if(id === `itch`)
   {
     window.open(`https://dupuqub.itch.io/hard-ball`)
   }
 
-  else if(target === `lang`)
+  else if(id === `lang`)
   {
     const langs = Object.keys(G.langs)
     const oldLangIndex = langs.indexOf(G.S.lang)
@@ -33,10 +36,10 @@ G.click = target =>
     G.S.lang = langs[newLangIndex]
 
     G.autoSave()
-    G.updateBoardConsole(`lang`)
+    G.updateBoardConsole(event)
   }
 
-  else if(target === `reset` && !G.S.locked && !G.S.pathing)
+  else if(id === `reset` && !G.S.locked && !G.S.pathing)
   {
     const message = G.langs[G.S.lang].resetConfirm
     const text =
@@ -54,7 +57,7 @@ G.click = target =>
     G.vignette.show(text)
   }
 
-  else if(target === `vignette`)
+  else if(id === `vignette`)
   {
     G.vignette.hide()
   }
@@ -63,7 +66,7 @@ G.click = target =>
   // GAMEPLAY
   //....................................................................................................................
 
-  else if(target === `aim` || target === `aimRing`) G.shoot()
+  else if(id === `aim` || id === `aimRing`) G.shoot()
 
   //....................................................................................................................
   // gate 0
@@ -72,9 +75,9 @@ G.click = target =>
   {
     //..................................................................................................................
 
-    if(target.slice(0, 4) === `zone`)
+    if(id.slice(0, 4) === `zone`)
     {
-      const zone = Number(target.slice(4))
+      const zone = Number(id.slice(4))
       const zoneCell = G.S.zones[zone]
       const zoneLetter = zoneCell.slice(0, 1)
       const zoneIndex = G.I.aToM.indexOf(zoneLetter)
@@ -258,16 +261,16 @@ G.click = target =>
     {
       //................................................................................................................
 
-      if(target === `ball` && G.S.ball !== null && G.S.takingShot === null)
+      if(id === `ball` && G.S.ball !== null && G.S.takingShot === null)
       {
         G.updateSelected(`ball`)
       }
 
       //................................................................................................................
 
-      else if(target.slice(0, 7) === `athlete`)
+      else if(id.slice(0, 7) === `athlete`)
       {
-        const athlete = Number(target.slice(7))
+        const athlete = Number(id.slice(7))
         const athleteLetter = G.S.athletes[athlete].slice(0, 1)
         const athleteWasReplaced = Array.from(G.D.athletes[athlete].classList).indexOf(`rep`) !== -1
         const teamHasReplacements =

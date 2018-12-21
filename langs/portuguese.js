@@ -15,6 +15,13 @@ G.langs.portuguese =
   reset: `Reinicie a partida`,
   resetConfirm: `Realmente REINICIAR a partida?`,
 
-  model: ``,
+  bulb:
+  [
+    `Este é um BULB, parte do alerta PUNT`,
+    `1 BULB acende por cada turno com a bola`,
+    `Quando os 5 acendem, a bola toma PUNT`,
+    `Fazer PUNT é passar a bola para o outro time`,
+    `O time que faz PUNT escolhe quem recebe`,
+  ],
 }
 

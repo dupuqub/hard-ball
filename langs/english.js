@@ -15,6 +15,13 @@ G.langs.english =
   reset: `Reset the match`,
   resetConfirm: `Really RESET the match?`,
 
-  model: ``,
+  bulb:
+  [
+    `This is a BULB, part of the PUNT alert`,
+    `1 BULB lights up for every turn with the ball`,
+    `When all 5 are lit, the ball gets PUNTED`,
+    `PUNTING is passing the ball to the other team`,
+    `The team PUNTING chooses who gets it`,
+  ],
 }
 
