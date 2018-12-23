@@ -23,5 +23,22 @@ G.langs.spanish =
     `Hacer PUNT es pasar la pelota al otro equipo`,
     `El equipo que hace PUNT elige quién recibe`,
   ],
+
+  ball:
+  [
+    `Esta es la PELOTA, agarrala!`,
+  ],
+
+  athlete: `Este es el atleta`,
+  athletes:
+  [
+    `LOBO`, `MAMUT`, `GORILA`, `ESCORPIÓN`,
+    `AVISPA`, `ÁGUILA`, `COBRA`, `CANGURO`,
+    `TIBURÓN`, `ABEJA`, `RINO`, `TIGRE`,
+    `ANTÍLOPE`, `ESCARABAJO`, `AVESTRUZ`, `MONO`,
+    `OSO`, `COCODRILO`, `LIBÉLULA`, `ARAÑA`,
+  ],
+
+  rounding: `Usa la jugada BONUS del atleta`,
 }
 

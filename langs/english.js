@@ -23,5 +23,22 @@ G.langs.english =
     `PUNTING is passing the ball to the other team`,
     `The team PUNTING chooses who gets it`,
   ],
+
+  ball:
+  [
+    `This is the BALL, grab it!`,
+  ],
+
+  athlete: `This is the athlete`,
+  athletes:
+  [
+    `WOLF`, `MAMMOTH`, `GORILLA`, `SCORPION`,
+    `WASP`, `EAGLE`, `COBRA`, `KANGAROO`,
+    `SHARK`, `BEE`, `RHINO`, `TIGER`,
+    `ANTELOPE`, `BEETLE`, `OSTRICH`, `MONKEY`,
+    `BEAR`, `CROCODILE`, `DRAGONFLY`, `SPIDER`,
+  ],
+
+  rounding: `Use the athlete's BONUS move`,
 }
 
