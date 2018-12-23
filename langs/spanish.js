@@ -29,7 +29,7 @@ G.langs.spanish =
     `Esta es la PELOTA, agarrala!`,
   ],
 
-  athlete: `Este es el atleta`,
+  athlete: [`Este es`, `Atleta`],
   athletes:
   [
     `LOBO`, `MAMUT`, `GORILA`, `ESCORPIÓN`,
@@ -40,5 +40,6 @@ G.langs.spanish =
   ],
 
   rounding: `Usa la jugada BONUS del atleta`,
+  start: `Elige cualquier atleta`,
 }
 

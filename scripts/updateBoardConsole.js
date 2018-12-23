@@ -52,9 +52,20 @@ G.updateBoardConsole = event =>
   {
     const index = Number(id.slice(7))
     const lang = G.langs[G.S.lang]
-    const text = lang.athlete + ` ` + index + ` - ` + lang.athletes[index]
 
-    G.D.boardConsole.innerHTML = text
+    G.D.boardConsole.innerHTML =
+
+        lang.athlete[0] + ` `
+      + lang.athletes[index] + ` - `
+      + lang.athlete[1] + ` `
+      + index
+  }
+
+  //....................................................................................................................
+
+  else if(G.S.turn === 0)
+  {
+    G.D.boardConsole.innerHTML = G.langs[G.S.lang].start
   }
 
   //....................................................................................................................

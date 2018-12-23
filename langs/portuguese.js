@@ -29,7 +29,7 @@ G.langs.portuguese =
     `Esta é a BOLA, pegue-a!`,
   ],
 
-  athlete: `Este é o atleta`,
+  athlete: [`Este é`, `Atleta`],
   athletes:
   [
     `LOBO`, `MAMUTE`, `GORILA`, `ESCORPIÃO`,
@@ -40,5 +40,6 @@ G.langs.portuguese =
   ],
 
   rounding: `Use a jogada BÔNUS do atleta`,
+  start: `Escolha qualquer atleta`,
 }
 

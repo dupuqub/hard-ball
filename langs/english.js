@@ -29,7 +29,7 @@ G.langs.english =
     `This is the BALL, grab it!`,
   ],
 
-  athlete: `This is the athlete`,
+  athlete: [`This is`, `Athlete`],
   athletes:
   [
     `WOLF`, `MAMMOTH`, `GORILLA`, `SCORPION`,
@@ -40,5 +40,6 @@ G.langs.english =
   ],
 
   rounding: `Use the athlete's BONUS move`,
+  start: `Choose any athlete`,
 }
 
