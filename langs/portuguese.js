@@ -26,20 +26,49 @@ G.langs.portuguese =
 
   ball:
   [
-    `Esta é a BOLA, pegue-a!`,
+    `Essa é a BOLA`,
+    `Vá pegá-la!`,
+    `Posicione 8 atletas primeiro`,
   ],
 
-  athlete: [`Este é`, `Atleta`],
   athletes:
   [
+    [
+      `Este é`,
+      `Atleta`,
+      `Livre`,
+      `Jogando`,
+      `Retirado`,
+    ],
+
     `LOBO`, `MAMUTE`, `GORILA`, `ESCORPIÃO`,
-    `VESPA`, `ÁGUIA`, `COBRA`, `CANGURU`,
+    `VESPA`, `COBRA`, `ÁGUIA`, `CANGURU`,
     `TUBARÂO`, `ABELHA`, `RINO`, `TIGRE`,
     `ANTÍLOPE`, `BESOURO`, `AVESTRUZ`, `MACACO`,
     `URSO`, `CROCODILO`, `LIBÉLULA`, `ARANHA`,
   ],
 
   rounding: `Use a jogada BÔNUS do atleta`,
-  start: `Escolha qualquer atleta`,
+  placing: `Posicione la bola para continuar`,
+  load: `Mova o mouse`,
+
+  start:
+  [
+    `Escolha qualquer atleta`,
+    `Posicione o atleta e escolha seu lado`,
+  ],
+
+  blue: `azul`,
+  green: `verde`,
+  plays: `joga`,
+  selection:
+  [
+    `Escolha o seu`,
+    `atleta livre`,
+    `1º`,
+    `2º`,
+    `3º`,
+    `último`,
+  ],
 }
 

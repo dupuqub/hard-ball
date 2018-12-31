@@ -46,6 +46,7 @@ G.loadFile = saveFile =>
   // updates
 
   G.updateSelected(G.S.selected)
+  G.updateBoardConsole(`load`)
   G.updateLights()
   G.updateBulbs()
   G.resize()

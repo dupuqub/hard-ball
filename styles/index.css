@@ -43,6 +43,7 @@ body
   background: #AAA;
   border-radius: 50%;
   position: relative;
+  cursor: help;
 }
 
 .tra{transition: all 0.3s} /* transition */

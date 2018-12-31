@@ -26,20 +26,49 @@ G.langs.english =
 
   ball:
   [
-    `This is the BALL, grab it!`,
+    `This is the BALL`,
+    `Go get it!`,
+    `Place 8 athletes first`,
   ],
 
-  athlete: [`This is`, `Athlete`],
   athletes:
   [
+    [
+      `This is`,
+      `Athlete`,
+      `Free`,
+      `Playing`,
+      `Retired`,
+    ],
+
     `WOLF`, `MAMMOTH`, `GORILLA`, `SCORPION`,
-    `WASP`, `EAGLE`, `COBRA`, `KANGAROO`,
+    `WASP`, `COBRA`, `EAGLE`, `KANGAROO`,
     `SHARK`, `BEE`, `RHINO`, `TIGER`,
     `ANTELOPE`, `BEETLE`, `OSTRICH`, `MONKEY`,
     `BEAR`, `CROCODILE`, `DRAGONFLY`, `SPIDER`,
   ],
 
   rounding: `Use the athlete's BONUS move`,
-  start: `Choose any athlete`,
+  placing: `Place the ball to move on`,
+  load: `Move the mouse`,
+
+  start:
+  [
+    `Choose any athlete`,
+    `Place the athlete and choose your side`,
+  ],
+
+  blue: `blue`,
+  green: `green`,
+  plays: `plays`,
+  selection:
+  [
+    `Choose your`,
+    `free athlete`,
+    `1st`,
+    `2nd`,
+    `3rd`,
+    `last`,
+  ],
 }
 

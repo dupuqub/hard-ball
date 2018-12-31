@@ -5,8 +5,17 @@
 
 G.updateBoardConsole = event =>
 {
+  event =
+
+      typeof event === `string`
+    ? {target: {id: event}}
+    : event === undefined
+    ? {target: {id: ``}}
+    : event
+
   const {target} = event
   const {id} = target
+  const lang = G.langs[G.S.lang]
 
   //....................................................................................................................
 
@@ -15,9 +24,10 @@ G.updateBoardConsole = event =>
   || id === `git`
   || id === `itch`
   || id === `lang`
-  || id === `reset`)
+  || id === `reset`
+  || id === `load`)
   {
-    G.D.boardConsole.innerHTML = G.langs[G.S.lang][id]
+    G.D.boardConsole.innerHTML = lang[id]
   }
 
   //....................................................................................................................
@@ -25,7 +35,7 @@ G.updateBoardConsole = event =>
   else if(id.slice(0, 4) === `bulb`)
   {
     const index = Number(id.slice(4))
-    const text = G.langs[G.S.lang].bulb[index]
+    const text = lang.bulb[index]
     G.D.boardConsole.innerHTML = text
   }
 
@@ -33,7 +43,14 @@ G.updateBoardConsole = event =>
 
   else if(G.S.rounding)
   {
-    G.D.boardConsole.innerHTML = G.langs[G.S.lang].rounding
+    G.D.boardConsole.innerHTML = lang.rounding
+  }
+
+  //....................................................................................................................
+
+  else if(G.S.placing)
+  {
+    G.D.boardConsole.innerHTML = lang.placing
   }
 
   //....................................................................................................................
@@ -42,7 +59,11 @@ G.updateBoardConsole = event =>
   {
     if(G.S.ball === null)
     {
-      G.D.boardConsole.innerHTML = G.langs[G.S.lang].ball[0]
+      G.D.boardConsole.innerHTML =
+
+          lang.ball[0]
+        + ` - `
+        + lang.ball[(G.S.turn < 8) + 1]
     }
   }
 
@@ -51,21 +72,48 @@ G.updateBoardConsole = event =>
   else if(id.slice(0, 7) === `athlete`)
   {
     const index = Number(id.slice(7))
-    const lang = G.langs[G.S.lang]
+    const {team, replaced} = G.S
+    const isPlaying = team.blue.indexOf(index) !== -1 || team.green.indexOf(index) !== -1
+    const isReplaced = replaced.blue.indexOf(index) !== -1 || replaced.green.indexOf(index) !== -1
+    const status = isPlaying ? 3 : isReplaced ? 4 : 2
 
     G.D.boardConsole.innerHTML =
 
-        lang.athlete[0] + ` `
-      + lang.athletes[index] + ` - `
-      + lang.athlete[1] + ` `
-      + index
+        lang.athletes[0][0] + ` `
+      + lang.athletes[index + 1] + ` - `
+      + lang.athletes[0][1] + ` `
+      + index + ` (`
+      + lang.athletes[0][status].toLowerCase() + `)`
   }
 
   //....................................................................................................................
+  // first turn
 
   else if(G.S.turn === 0)
   {
-    G.D.boardConsole.innerHTML = G.langs[G.S.lang].start
+      G.S.selected === null
+    ? G.D.boardConsole.innerHTML = lang.start[0]
+    : G.D.boardConsole.innerHTML = lang.start[1]
+  }
+
+  //....................................................................................................................
+  // athlete selection
+
+  else if(G.S.turn < 8)
+  {
+    const color = G.playsNow()
+    const amount = G.S.team[color].length
+    const amountMessage =
+
+        lang.selection[0] + ` `
+      + lang.selection[amount + 2] + ` `
+      + lang.selection[1]
+
+    G.D.boardConsole.innerHTML =
+
+        lang[color].toUpperCase() + ` `
+      + lang.plays + ` - `
+      + amountMessage
   }
 
   //....................................................................................................................

@@ -19,6 +19,7 @@ G.updateSelected = chosen =>
     }, 0)
   }
 
+  G.updateBoardConsole()
   G.updateZoneCells()
 }
 

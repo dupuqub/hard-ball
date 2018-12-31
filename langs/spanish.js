@@ -26,20 +26,49 @@ G.langs.spanish =
 
   ball:
   [
-    `Esta es la PELOTA, agarrala!`,
+    `Esta es la PELOTA`,
+    `Vaya a agarrarla!`,
+    `Posicione 8 atletas primero`,
   ],
 
-  athlete: [`Este es`, `Atleta`],
   athletes:
   [
+    [
+      `Este es`,
+      `Atleta`,
+      `Libre`,
+      `Jugando`,
+      `Retirado`,
+    ],
+
     `LOBO`, `MAMUT`, `GORILA`, `ESCORPIÓN`,
-    `AVISPA`, `ÁGUILA`, `COBRA`, `CANGURO`,
+    `AVISPA`, `COBRA`, `ÁGUILA`, `CANGURO`,
     `TIBURÓN`, `ABEJA`, `RINO`, `TIGRE`,
     `ANTÍLOPE`, `ESCARABAJO`, `AVESTRUZ`, `MONO`,
     `OSO`, `COCODRILO`, `LIBÉLULA`, `ARAÑA`,
   ],
 
   rounding: `Usa la jugada BONUS del atleta`,
-  start: `Elige cualquier atleta`,
+  placing: `Posicione a bola para continuar`,
+  load: `Mueva el ratón`,
+
+  start:
+  [
+    `Elige cualquier atleta`,
+    `Posicione el atleta y elija su lado`,
+  ],
+
+  blue: `azul`,
+  green: `verde`,
+  plays: `juega`,
+  selection:
+  [
+    `Elige tu`,
+    `atleta libre`,
+    `1º`,
+    `2º`,
+    `3º`,
+    `último`,
+  ],
 }
 
