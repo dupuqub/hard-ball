@@ -33,17 +33,18 @@ G.langs.spanish =
 
   athletes:
   [
-    [
-      `Este es`,
-      `Atleta`,
-      `Libre`,
-      `Jugando`,
-      `Retirado`,
-    ],
+    `Este es`,
+    `Atleta`,
+    `Libre`,
+    `Jugando`,
+    `Retirado`,
+  ],
 
+  animals:
+  [
     `LOBO`, `MAMUT`, `GORILA`, `ESCORPIÓN`,
-    `AVISPA`, `COBRA`, `ÁGUILA`, `CANGURO`,
-    `TIBURÓN`, `ABEJA`, `RINO`, `TIGRE`,
+    `AVISPA`, `TIBURÓN`, `ÁGUILA`, `COBRA`,
+    `CANGURO`, `ABEJA`, `RINO`, `TIGRE`,
     `ANTÍLOPE`, `ESCARABAJO`, `AVESTRUZ`, `MONO`,
     `OSO`, `COCODRILO`, `LIBÉLULA`, `ARAÑA`,
   ],

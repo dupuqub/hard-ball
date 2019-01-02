@@ -33,17 +33,18 @@ G.langs.english =
 
   athletes:
   [
-    [
-      `This is`,
-      `Athlete`,
-      `Free`,
-      `Playing`,
-      `Retired`,
-    ],
+    `This is`,
+    `Athlete`,
+    `Free`,
+    `Playing`,
+    `Retired`,
+  ],
 
+  animals:
+  [
     `WOLF`, `MAMMOTH`, `GORILLA`, `SCORPION`,
-    `WASP`, `COBRA`, `EAGLE`, `KANGAROO`,
-    `SHARK`, `BEE`, `RHINO`, `TIGER`,
+    `WASP`, `SHARK`, `EAGLE`, `COBRA`,
+    `KANGAROO`, `BEE`, `RHINO`, `TIGER`,
     `ANTELOPE`, `BEETLE`, `OSTRICH`, `MONKEY`,
     `BEAR`, `CROCODILE`, `DRAGONFLY`, `SPIDER`,
   ],

@@ -79,11 +79,11 @@ G.updateBoardConsole = event =>
 
     G.D.boardConsole.innerHTML =
 
-        lang.athletes[0][0] + ` `
-      + lang.athletes[index + 1] + ` - `
-      + lang.athletes[0][1] + ` `
+        lang.athletes[0] + ` `
+      + lang.animals[index] + ` - `
+      + lang.athletes[1] + ` `
       + index + ` (`
-      + lang.athletes[0][status].toLowerCase() + `)`
+      + lang.athletes[status].toLowerCase() + `)`
   }
 
   //....................................................................................................................

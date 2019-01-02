@@ -33,17 +33,18 @@ G.langs.portuguese =
 
   athletes:
   [
-    [
-      `Este é`,
-      `Atleta`,
-      `Livre`,
-      `Jogando`,
-      `Retirado`,
-    ],
+    `Este é`,
+    `Atleta`,
+    `Livre`,
+    `Jogando`,
+    `Retirado`,
+  ],
 
+  animals:
+  [
     `LOBO`, `MAMUTE`, `GORILA`, `ESCORPIÃO`,
-    `VESPA`, `COBRA`, `ÁGUIA`, `CANGURU`,
-    `TUBARÂO`, `ABELHA`, `RINO`, `TIGRE`,
+    `VESPA`, `TUBARÂO`, `ÁGUIA`, `COBRA`,
+    `CANGURU`, `ABELHA`, `RINO`, `TIGRE`,
     `ANTÍLOPE`, `BESOURO`, `AVESTRUZ`, `MACACO`,
     `URSO`, `CROCODILO`, `LIBÉLULA`, `ARANHA`,
   ],
