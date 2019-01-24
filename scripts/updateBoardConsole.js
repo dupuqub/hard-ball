@@ -102,30 +102,30 @@ G.updateBoardConsole = event =>
 
   else if(id.slice(0, 4) === `zone`)
   {
-    const index = Number(id.slice(4))
-    const cell = G.S.zones[index]
-    const letter = cell.substring(0, 1)
-    const bothTeams =
+    // const index = Number(id.slice(4))
+    // const cell = G.S.zones[index]
+    // const letter = cell.substring(0, 1)
+    // const bothTeams =
 
-      G.S.team.blue
-      .concat(G.S.team.green)
-      .map(athlete => G.S.athletes[athlete])
+    //   G.S.team.blue
+    //   .concat(G.S.team.green)
+    //   .map(athlete => G.S.athletes[athlete])
 
-    if(G.S.turn < 8)
-    {
-      const isBenched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
-
-      if(isBenched) G.D.boardConsole.innerHTML = lang.zone[0]
-      else G.D.boardConsole.innerHTML = lang.zone[1]
-    }
-
-    else if(G.S.selected === "ball")
+    if(G.S.selected === `ball`)
     {
       //
     }
 
     else if(G.S.selected !== null) // athlete
     {
+      if(G.S.turn < 8)
+      {
+        const isBenched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
+
+        if(isBenched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + lang.animals[G.S.selected] + ` ` + lang.zone[1]
+        else G.D.boardConsole.innerHTML = lang.zone[3]
+      }
+
       // if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
       // {
       //   G.D.boardConsole.innerHTML = `tracks`
@@ -138,7 +138,7 @@ G.updateBoardConsole = event =>
       // {
       //   const classList = G.D.zones[index].classList
       //   const animal = lang.animals[G.S.athletes.indexOf(cell)]
-      //   const black = Array.from(classList).indexOf("zonBlk") !== -1
+      //   const black = Array.from(classList).indexOf(`zonBlk`) !== -1
 
       //   if(black) G.D.boardConsole.innerHTML = `cannot push ` + animal
       //   else G.D.boardConsole.innerHTML = `push ` + animal
@@ -165,7 +165,15 @@ G.updateBoardConsole = event =>
 
   else if(G.S.selected !== null)
   {
-    //
+    const index = G.S.selected
+    const cell = G.S.athletes[index]
+    const letter = cell.substring(0, 1)
+
+    if(G.S.turn < 8)
+    {
+      if(letter === `M`) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + lang.animals[index] + ` ` + lang.zone[2]
+      else G.D.boardConsole.innerHTML = lang.animals[index] + ` ` + lang.already
+    }
   }
 
   //....................................................................................................................

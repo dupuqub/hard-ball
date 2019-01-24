@@ -77,8 +77,12 @@ G.langs.spanish =
 
   zone:
   [
-    `Posicione atleta aquí`,
+    `Posicione`,
+    `aquí`,
+    `en una zona (circulo amarillo)`,
     `Cómo se mueve - Posicione todos los atletas antes`,
   ],
+
+  already: `ya está jugando`,
 }
 

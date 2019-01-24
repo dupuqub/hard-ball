@@ -77,8 +77,12 @@ G.langs.english =
 
   zone:
   [
-    `Place athlete here`,
+    `Place`,
+    `here`,
+    `in a zone (yellow circle)`,
     `How it moves - Place every athlete first`,
   ],
+
+  already: `is already playing`,
 }
 
