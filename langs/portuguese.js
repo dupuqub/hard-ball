@@ -34,7 +34,6 @@ G.langs.portuguese =
   athletes:
   [
     `Este é`,
-    `Atleta`,
     `Livre`,
     `Jogando`,
     `Retirado`,
@@ -70,6 +69,15 @@ G.langs.portuguese =
     `2º`,
     `3º`,
     `último`,
+  ],
+
+  changes: `Trocas`,
+  go: `Agarre a bola primeiro!`,
+
+  zone:
+  [
+    `Posicione atleta aqui`,
+    `Como se move - Posicione todos os atletas antes`,
   ],
 }
 

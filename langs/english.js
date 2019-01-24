@@ -34,7 +34,6 @@ G.langs.english =
   athletes:
   [
     `This is`,
-    `Athlete`,
     `Free`,
     `Playing`,
     `Retired`,
@@ -70,6 +69,15 @@ G.langs.english =
     `2nd`,
     `3rd`,
     `last`,
+  ],
+
+  changes: `Changes`,
+  go: `Grab the ball first!`,
+
+  zone:
+  [
+    `Place athlete here`,
+    `How it moves - Place every athlete first`,
   ],
 }
 
