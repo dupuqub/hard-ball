@@ -37,6 +37,7 @@ G.langs.english =
     `Free`,
     `Playing`,
     `Retired`,
+    `Athlete`,
   ],
 
   animals:
@@ -71,7 +72,7 @@ G.langs.english =
     `last`,
   ],
 
-  changes: `Changes`,
+  changes: `changes`,
   go: `Grab the ball first!`,
 
   zone:

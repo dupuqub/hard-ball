@@ -37,6 +37,7 @@ G.langs.spanish =
     `Libre`,
     `Jugando`,
     `Retirado`,
+    `Atleta`,
   ],
 
   animals:
@@ -71,7 +72,7 @@ G.langs.spanish =
     `último`,
   ],
 
-  changes: `Cambios`,
+  changes: `cambios`,
   go: `Agarra la pelota primero!`,
 
   zone:

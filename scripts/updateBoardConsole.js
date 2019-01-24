@@ -80,18 +80,20 @@ G.updateBoardConsole = event =>
     G.D.boardConsole.innerHTML =
 
         (G.S.turn < 8 ? lang.athletes[0] + ` ` : ``)
-      + lang.animals[index] + ` (`
+      + lang.animals[index]
+      + (G.S.turn < 8 ? ` - ` + lang.athletes[4] + ` ` + index : ``) + ` (`
       + lang.athletes[status].toLowerCase() + `)`
 
     if(G.S.turn > 7)
     {
       const isBenched = G.S.athletes[index].substring(0, 1) === `M`
-      const color = G.playsNow()
-      const changes = G.S.replaced[color].length
 
       if(isBenched)
       {
-        G.D.boardConsole.innerHTML += ` - ` + lang.changes.toLowerCase() + ` ` + changes + `/2`
+        const color = G.playsNow()
+        const changes = G.S.replaced[color].length
+
+        G.D.boardConsole.innerHTML += ` - ` + lang.changes + ` ` + changes + `/2`
       }
     }
   }
@@ -150,6 +152,20 @@ G.updateBoardConsole = event =>
     {
       //
     }
+  }
+
+  //....................................................................................................................
+
+  else if(G.S.selected === `ball`)
+  {
+    //
+  }
+
+  //....................................................................................................................
+
+  else if(G.S.selected !== null)
+  {
+    //
   }
 
   //....................................................................................................................

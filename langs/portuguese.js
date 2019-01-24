@@ -37,6 +37,7 @@ G.langs.portuguese =
     `Livre`,
     `Jogando`,
     `Retirado`,
+    `Atleta`,
   ],
 
   animals:
@@ -71,7 +72,7 @@ G.langs.portuguese =
     `último`,
   ],
 
-  changes: `Trocas`,
+  changes: `trocas`,
   go: `Agarre a bola primeiro!`,
 
   zone:
