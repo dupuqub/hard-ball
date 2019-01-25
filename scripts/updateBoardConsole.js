@@ -68,12 +68,13 @@ G.updateBoardConsole = event =>
   else if(id.slice(0, 7) === `athlete`)
   {
     const index = Number(id.slice(7))
-    const {team, replaced} = G.S
-    const isBlue = team.blue.indexOf(index) !== -1
-    const isGreen = team.green.indexOf(index) !== -1
-    const color = isBlue ? `blue` : `green`
+    const isBlue = G.S.team.blue.indexOf(index) !== -1
+    const isGreen = G.S.team.green.indexOf(index) !== -1
+    const wasBlue = G.S.replaced.blue.indexOf(index) !== -1
+    const wasGreen = G.S.replaced.green.indexOf(index) !== -1
     const isPlaying = isBlue || isGreen
-    const isReplaced = replaced.blue.indexOf(index) !== -1 || replaced.green.indexOf(index) !== -1
+    const isReplaced = wasBlue || wasGreen
+    const color = isBlue ? `blue` : `green`
     const status = isPlaying ? lang[color] : isReplaced ? lang.athletes[2] : lang.athletes[1]
 
     G.D.boardConsole.innerHTML =
@@ -113,6 +114,11 @@ G.updateBoardConsole = event =>
 
     else // athlete
     {
+      const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
+      const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
+      const color = isBlue ? `blue` : `green`
+      const atMiddle = G.I.middle.indexOf(cell) !== -1
+
       if(G.S.turn < 8)
       {
         const isBenched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
@@ -121,10 +127,19 @@ G.updateBoardConsole = event =>
         else G.D.boardConsole.innerHTML = lang.zone[3]
       }
 
-      else if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
+      else if(G.playsNow() === color)
       {
-        G.D.boardConsole.innerHTML = lang.tracks
+        if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
+        {
+          G.D.boardConsole.innerHTML = lang.tracks
+        }
+
+        else if(G.S.ball === null && atMiddle)
+        {
+          G.D.boardConsole.innerHTML = lang.grab
+        }
       }
+
 
       // const bothTeams =
 
@@ -132,8 +147,6 @@ G.updateBoardConsole = event =>
       //   .concat(G.S.team.green)
       //   .map(athlete => G.S.athletes[athlete])
 
-      // benched
-      // playing/waiting
       // pushing athletes
       // tracks
       // ball

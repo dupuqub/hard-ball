@@ -27,7 +27,7 @@ G.langs.spanish =
   ball:
   [
     `Esta es la PELOTA`,
-    `Vaya a agarrarla!`,
+    `¡Vaya a agarrarla!`,
     `Posicione 8 atletas primero`,
   ],
 
@@ -72,7 +72,7 @@ G.langs.spanish =
   ],
 
   changes: `cambios`,
-  go: `Agarra la pelota primero!`,
+  go: `¡Agarra la pelota primero!`,
 
   zone:
   [
@@ -84,5 +84,6 @@ G.langs.spanish =
 
   already: `ya está jugando`,
   tracks: `CARRILES - movimiento bonus en la salida`,
+  grab: `¡Agarra la pelota!`
 }
 
