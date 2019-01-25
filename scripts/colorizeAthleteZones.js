@@ -15,10 +15,12 @@ G.colorizeAthleteZones = athleteIndex =>
 
   //....................................................................................................................
   // reasons for red zone
+  // (every reason here is pushed to "redIndexes" directly to improve athlete-push calculations)
   //
   // rule0: athletes
   // rule1: ball
   // rule2: path
+  // rule3: middle
 
   //....................................................................................................................
   // rule0
@@ -28,15 +30,11 @@ G.colorizeAthleteZones = athleteIndex =>
 
   //....................................................................................................................
   // rule1
-  //
-  // push to "redIndexes" directly to optimize athlete-push calculations
 
   if(G.S.zones.indexOf(G.S.ball) !== -1) redIndexes.push(G.S.zones.indexOf(G.S.ball))
 
   //....................................................................................................................
   // rule2
-  //
-  // push to "redIndexes" directly to optimize athlete-push calculations
 
   if(G.S.path)
   {
@@ -50,6 +48,17 @@ G.colorizeAthleteZones = athleteIndex =>
         redIndexes.push(cellZonesIndex)
       }
     })
+  }
+
+  //....................................................................................................................
+  // rule3
+
+  if(G.S.ball === null)
+  {
+    G.I.middle
+    .map(cell => G.S.zones.indexOf(cell))
+    .filter(index => index !== -1)
+    .forEach(index => redIndexes.push(index))
   }
 
   //....................................................................................................................
