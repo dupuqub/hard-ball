@@ -43,10 +43,10 @@ G.updateBoardConsole = event =>
     const isGreen = G.S.team.green.indexOf(index) !== -1
     const wasBlue = G.S.replaced.blue.indexOf(index) !== -1
     const wasGreen = G.S.replaced.green.indexOf(index) !== -1
-    const isPlaying = isBlue || isGreen
-    const isReplaced = wasBlue || wasGreen
+    const playing = isBlue || isGreen
+    const replaced = wasBlue || wasGreen
     const color = isBlue ? `blue` : `green`
-    const status = isPlaying ? lang[color] : isReplaced ? lang.athletes[2] : lang.athletes[1]
+    const status = playing ? lang[color] : replaced ? lang.athletes[2] : lang.athletes[1]
 
     G.D.boardConsole.innerHTML =
 
@@ -58,9 +58,9 @@ G.updateBoardConsole = event =>
 
     if(G.S.turn > 7)
     {
-      const isBenched = G.S.athletes[index].substring(0, 1) === `M`
+      const benched = G.S.athletes[index].substring(0, 1) === `M`
 
-      if(isBenched)
+      if(benched)
       {
         const color = G.playsNow()
         const changes = G.S.replaced[color].length
