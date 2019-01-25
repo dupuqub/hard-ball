@@ -5,16 +5,7 @@
 
 G.updateBoardConsole = event =>
 {
-  event =
-
-      typeof event === `string`
-    ? {target: {id: event}}
-    : event === undefined
-    ? {target: {id: ``}}
-    : event
-
-  const {target} = event
-  const {id} = target
+  const id = typeof event === `string` ? event : event === undefined ? `` : event.target.id
   const lang = G.langs[G.S.lang]
 
   //....................................................................................................................
@@ -25,33 +16,13 @@ G.updateBoardConsole = event =>
   || id === `itch`
   || id === `lang`
   || id === `reset`
-  || id === `load`)
-  {
-    G.D.boardConsole.innerHTML = lang[id]
-  }
+  || id === `load`) G.D.boardConsole.innerHTML = lang[id]
 
   //....................................................................................................................
 
-  else if(id.slice(0, 4) === `bulb`)
-  {
-    const index = Number(id.slice(4))
-    const text = lang.bulb[index]
-    G.D.boardConsole.innerHTML = text
-  }
-
-  //....................................................................................................................
-
-  else if(G.S.rounding)
-  {
-    G.D.boardConsole.innerHTML = lang.rounding
-  }
-
-  //....................................................................................................................
-
-  else if(G.S.placing)
-  {
-    G.D.boardConsole.innerHTML = lang.placing
-  }
+  else if(id.slice(0, 4) === `bulb`) G.D.boardConsole.innerHTML = lang.bulb[Number(id.slice(4))]
+  else if(G.S.rounding) G.D.boardConsole.innerHTML = lang.rounding
+  else if(G.S.placing) G.D.boardConsole.innerHTML = lang.placing
 
   //....................................................................................................................
 
@@ -117,7 +88,15 @@ G.updateBoardConsole = event =>
       const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
       const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
       const color = isBlue ? `blue` : `green`
-      const atMiddle = G.I.middle.indexOf(cell) !== -1
+
+      const tracking = letter === `A` || letter === `B` || letter === `K` || letter === `L`
+      const middle = G.I.middle.indexOf(cell) !== -1
+      const both = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
+      const pushing = both.indexOf(cell) !== -1
+
+      const classList = G.D.zones[index].classList
+      const black = Array.from(classList).indexOf(`zonBlk`) !== -1
+      const animal = lang.animals[G.S.athletes.indexOf(cell)]
 
       if(G.S.turn < 8)
       {
@@ -129,50 +108,23 @@ G.updateBoardConsole = event =>
 
       else if(G.playsNow() === color)
       {
-        if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
+        if(tracking) G.D.boardConsole.innerHTML = lang.tracks
+        else if(G.S.ball === null && middle) G.D.boardConsole.innerHTML = lang.grab
+        else if(pushing)
         {
-          G.D.boardConsole.innerHTML = lang.tracks
+          if(black) G.D.boardConsole.innerHTML = lang.push[0] + ` ` + animal.toUpperCase() + ` ` + lang.push[1]
+          else G.D.boardConsole.innerHTML = lang.push[2] + ` ` + animal.toUpperCase()
         }
 
-        else if(G.S.ball === null && atMiddle)
-        {
-          G.D.boardConsole.innerHTML = lang.grab
-        }
+        // else if(G.S.ball === cell)
+        // {
+        //   G.D.boardConsole.innerHTML = `ball`
+        // }
+        // else
+        // {
+        //   G.D.boardConsole.innerHTML = `move`
+        // }
       }
-
-
-      // const bothTeams =
-
-      //   G.S.team.blue
-      //   .concat(G.S.team.green)
-      //   .map(athlete => G.S.athletes[athlete])
-
-      // pushing athletes
-      // tracks
-      // ball
-      // impediments
-
-      // if
-      // {
-      //   G.D.boardConsole.innerHTML = `tracks`
-      // }
-      // else if(G.S.ball === cell)
-      // {
-      //   G.D.boardConsole.innerHTML = `ball`
-      // }
-      // else if(bothTeams.indexOf(cell) !== -1)
-      // {
-      //   const classList = G.D.zones[index].classList
-      //   const animal = lang.animals[G.S.athletes.indexOf(cell)]
-      //   const black = Array.from(classList).indexOf(`zonBlk`) !== -1
-
-      //   if(black) G.D.boardConsole.innerHTML = `cannot push ` + animal
-      //   else G.D.boardConsole.innerHTML = `push ` + animal
-      // }
-      // else
-      // {
-      //   G.D.boardConsole.innerHTML = `move`
-      // }
     }
   }
 

@@ -85,5 +85,12 @@ G.langs.portuguese =
   already: `já está jogando`,
   tracks: `TRILHOS - Movimento bônus na saída`,
   grab: `Agarre a bola!`,
+
+  push:
+  [
+    `Empurrar`,
+    `está obstruído`,
+    `Empurre`,
+  ],
 }
 

@@ -85,5 +85,12 @@ G.langs.english =
   already: `is already playing`,
   tracks: `TRACKS - Bonus move on exit`,
   grab: `Grab the ball!`,
+
+  push:
+  [
+    `Pushing`,
+    `is obstructed`,
+    `Push`,
+  ],
 }
 

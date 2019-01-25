@@ -85,5 +85,11 @@ G.langs.spanish =
   already: `ya está jugando`,
   tracks: `CARRILES - movimiento bonus en la salida`,
   grab: `¡Agarra la pelota!`,
-}
 
+  push:
+  [
+    `Empujar`,
+    `está obstruido`,
+    `Empuja`,
+  ],
+}
