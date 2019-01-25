@@ -100,7 +100,7 @@ G.updateBoardConsole = event =>
 
   //....................................................................................................................
 
-  else if(id.slice(0, 4) === `zone`)
+  else if(id.slice(0, 4) === `zone` && G.S.selected !== null)
   {
     const index = Number(id.slice(4))
     const cell = G.S.zones[index]
@@ -111,7 +111,7 @@ G.updateBoardConsole = event =>
       //
     }
 
-    else if(G.S.selected !== null) // athlete
+    else // athlete
     {
       if(G.S.turn < 8)
       {
@@ -160,10 +160,6 @@ G.updateBoardConsole = event =>
       // {
       //   G.D.boardConsole.innerHTML = `move`
       // }
-    }
-    else
-    {
-      //
     }
   }
 
