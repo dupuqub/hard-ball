@@ -59,11 +59,7 @@ G.updateBoardConsole = event =>
   {
     if(G.S.ball === null)
     {
-      G.D.boardConsole.innerHTML =
-
-          lang.ball[0]
-        + ` - `
-        + lang.ball[(G.S.turn < 8) + 1]
+      G.D.boardConsole.innerHTML = lang.ball[0] + ` - ` + lang.ball[(G.S.turn < 8) + 1]
     }
   }
 
@@ -73,16 +69,20 @@ G.updateBoardConsole = event =>
   {
     const index = Number(id.slice(7))
     const {team, replaced} = G.S
-    const isPlaying = team.blue.indexOf(index) !== -1 || team.green.indexOf(index) !== -1
+    const isBlue = team.blue.indexOf(index) !== -1
+    const isGreen = team.green.indexOf(index) !== -1
+    const color = isBlue ? `blue` : `green`
+    const isPlaying = isBlue || isGreen
     const isReplaced = replaced.blue.indexOf(index) !== -1 || replaced.green.indexOf(index) !== -1
-    const status = isPlaying ? 2 : isReplaced ? 3 : 1
+    const status = isPlaying ? lang[color] : isReplaced ? lang.athletes[2] : lang.athletes[1]
 
     G.D.boardConsole.innerHTML =
 
-        (G.S.turn < 8 ? lang.athletes[0] + ` ` : ``)
+        (G.S.turn > 0 ? lang[G.playsNow()].toUpperCase() + ` ` + lang.plays + ` - ` : ``)
+      + (G.S.turn < 8 ? lang.athletes[0] + ` ` : ``)
       + lang.animals[index]
-      + (G.S.turn < 8 ? ` - ` + lang.athletes[4] + ` ` + index : ``) + ` (`
-      + lang.athletes[status].toLowerCase() + `)`
+      + (G.S.turn < 8 ? ` - ` + lang.athletes[3] + ` ` + index : ``) + ` (`
+      + status.toLowerCase() + `)`
 
     if(G.S.turn > 7)
     {
@@ -102,14 +102,9 @@ G.updateBoardConsole = event =>
 
   else if(id.slice(0, 4) === `zone`)
   {
-    // const index = Number(id.slice(4))
-    // const cell = G.S.zones[index]
-    // const letter = cell.substring(0, 1)
-    // const bothTeams =
-
-    //   G.S.team.blue
-    //   .concat(G.S.team.green)
-    //   .map(athlete => G.S.athletes[athlete])
+    const index = Number(id.slice(4))
+    const cell = G.S.zones[index]
+    const letter = cell.substring(0, 1)
 
     if(G.S.selected === `ball`)
     {
@@ -126,7 +121,25 @@ G.updateBoardConsole = event =>
         else G.D.boardConsole.innerHTML = lang.zone[3]
       }
 
-      // if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
+      else if(letter === `A` || letter === `B` || letter === `K` || letter === `L`)
+      {
+        G.D.boardConsole.innerHTML = lang.tracks
+      }
+
+      // const bothTeams =
+
+      //   G.S.team.blue
+      //   .concat(G.S.team.green)
+      //   .map(athlete => G.S.athletes[athlete])
+
+      // benched
+      // playing/waiting
+      // pushing athletes
+      // tracks
+      // ball
+      // impediments
+
+      // if
       // {
       //   G.D.boardConsole.innerHTML = `tracks`
       // }
@@ -168,12 +181,15 @@ G.updateBoardConsole = event =>
     const index = G.S.selected
     const cell = G.S.athletes[index]
     const letter = cell.substring(0, 1)
+    const stringIndex = index > 9 ? index : `0` + index
 
     if(G.S.turn < 8)
     {
       if(letter === `M`) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + lang.animals[index] + ` ` + lang.zone[2]
       else G.D.boardConsole.innerHTML = lang.animals[index] + ` ` + lang.already
     }
+
+    else G.updateBoardConsole(`athlete` + stringIndex)
   }
 
   //....................................................................................................................

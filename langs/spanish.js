@@ -35,7 +35,6 @@ G.langs.spanish =
   [
     `Este es`,
     `Libre`,
-    `Jugando`,
     `Retirado`,
     `Atleta`,
   ],
@@ -84,5 +83,6 @@ G.langs.spanish =
   ],
 
   already: `ya está jugando`,
+  tracks: `CARRILES - movimiento bonus en la salida`,
 }
 

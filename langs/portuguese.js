@@ -35,7 +35,6 @@ G.langs.portuguese =
   [
     `Este é`,
     `Livre`,
-    `Jogando`,
     `Retirado`,
     `Atleta`,
   ],
@@ -84,5 +83,6 @@ G.langs.portuguese =
   ],
 
   already: `já está jogando`,
+  tracks: `TRILHOS - Movimento bônus na saída`
 }
 

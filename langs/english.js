@@ -35,7 +35,6 @@ G.langs.english =
   [
     `This is`,
     `Free`,
-    `Playing`,
     `Retired`,
     `Athlete`,
   ],
@@ -84,5 +83,6 @@ G.langs.english =
   ],
 
   already: `is already playing`,
+  tracks: `TRACKS - Bonus move on exit`,
 }
 
