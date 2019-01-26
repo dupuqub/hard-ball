@@ -90,6 +90,8 @@ G.langs.spanish =
   [
     `Empujar`,
     `está obstruido`,
+    `entra y`,
+    `sale`,
     `Empuja`,
   ],
 

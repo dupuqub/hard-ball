@@ -90,6 +90,8 @@ G.langs.english =
   [
     `Pushing`,
     `is obstructed`,
+    `enters and`,
+    `exits`,
     `Push`,
   ],
 

@@ -90,6 +90,8 @@ G.langs.portuguese =
   [
     `Empurrar`,
     `está obstruído`,
+    `entra e`,
+    `sai`,
     `Empurre`,
   ],
 
