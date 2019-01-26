@@ -133,7 +133,7 @@ G.updateBoardConsole = event =>
 
   //....................................................................................................................
 
-  else if(G.S.selected !== null)
+  else if(G.S.selected !== null) // athlete
   {
     const index = G.S.selected
     const cell = G.S.athletes[index]
@@ -150,7 +150,6 @@ G.updateBoardConsole = event =>
   }
 
   //....................................................................................................................
-  // first turn
 
   else if(G.S.turn === 0)
   {
@@ -160,7 +159,6 @@ G.updateBoardConsole = event =>
   }
 
   //....................................................................................................................
-  // athlete selection
 
   else if(G.S.turn < 8)
   {
