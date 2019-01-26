@@ -97,7 +97,7 @@ G.langs.spanish =
   ],
 
   ownAreaOccupied: `Sólo 1 atleta a la vez en el área`,
-  ownArea: `Se vuelve GOLEIRO mientras dentro del área`,
-  foeArea: `Atletas sólo se mueven en sus propias áreas`,
+  ownArea: `ÁREA - Se vuelve PORTERO mientras dentro de ella`,
+  foeArea: `Atletas sólo se mueven en su propia área`,
 }
 

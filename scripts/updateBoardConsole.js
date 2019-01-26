@@ -21,17 +21,47 @@ G.updateBoardConsole = event =>
   //....................................................................................................................
 
   else if(id.slice(0, 4) === `bulb`) G.D.boardConsole.innerHTML = lang.bulb[Number(id.slice(4))]
-  else if(G.S.rounding) G.D.boardConsole.innerHTML = lang.rounding
-  else if(G.S.placing) G.D.boardConsole.innerHTML = lang.placing
 
   //....................................................................................................................
 
-  else if(id === `ball`)
+  else if(G.S.rounding) G.D.boardConsole.innerHTML = lang.rounding
+
+  //....................................................................................................................
+
+  else if(G.S.placing
+  || id === `ball`
+  || G.S.selected === `ball`)
   {
+    const isZone = id.slice(0, 4) === `zone`
+
     if(G.S.ball === null)
     {
       G.D.boardConsole.innerHTML = lang.ball[0] + ` - ` + lang.ball[(G.S.turn < 8) + 1]
     }
+    else if(isZone)
+    {
+      const index = Number(id.slice(4))
+      const cell = G.S.zones[index]
+      const classList = G.D.zones[index].classList
+      const black = Array.from(classList).indexOf(`zonBlk`) !== -1
+
+      const holder = G.S.holder.now
+      const isBlue = G.S.team.blue.indexOf(holder) !== -1
+      const isGreen = G.S.team.green.indexOf(holder) !== -1
+      const color = isBlue ? `green` : isGreen ? `blue` : null // bug at punt
+      const animal = lang.animals[G.S.athletes.indexOf(cell)]
+
+      const goal = G.I.goal[color]
+      const hoveringGoal = goal.indexOf(cell) !== -1
+      const bothTeams = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
+      const hoveringAthlete = bothTeams.indexOf(cell) !== -1
+
+      if(black) G.D.boardConsole.innerHTML = `Can't pass to opponent`
+      else if(hoveringGoal) G.D.boardConsole.innerHTML = `Try to DUNK!`
+      else if(hoveringAthlete) G.D.boardConsole.innerHTML = `Pass to ` + animal
+      else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
+    }
+    else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
   }
 
   //....................................................................................................................
@@ -62,7 +92,9 @@ G.updateBoardConsole = event =>
 
   //....................................................................................................................
 
-  else if(id.slice(0, 4) === `zone` && G.S.selected !== null)
+  else if(id.slice(0, 4) === `zone`
+  && G.S.selected !== null
+  && G.S.zones[Number(id.slice(4))] !== null) // cell
   {
     const index = Number(id.slice(4))
     const cell = G.S.zones[index]
@@ -122,13 +154,6 @@ G.updateBoardConsole = event =>
         else G.D.boardConsole.innerHTML = lang.move
       }
     }
-  }
-
-  //....................................................................................................................
-
-  else if(G.S.selected === `ball`)
-  {
-    //
   }
 
   //....................................................................................................................

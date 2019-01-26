@@ -97,7 +97,7 @@ G.langs.portuguese =
   ],
 
   ownAreaOccupied: `Só 1 atleta por vez na área`,
-  ownArea: `Vira GOLEIRO enquanto dentro da área`,
-  foeArea: `Atletas só se movem em suas próprias áreas`,
+  ownArea: `ÁREA - Vira GOLEIRO enquanto dentro dela`,
+  foeArea: `Atletas só se movem em sua própria área`,
 }
 

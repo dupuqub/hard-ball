@@ -97,7 +97,7 @@ G.langs.english =
   ],
 
   ownAreaOccupied: `Only 1 athlete at a time in the area`,
-  ownArea: `Becomes KEEPER while inside the area`,
-  foeArea: `Athletes can only move in their own areas`,
+  ownArea: `AREA - Becomes KEEPER while inside it`,
+  foeArea: `Athletes can only move in their own area`,
 }
 

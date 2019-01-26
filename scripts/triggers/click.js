@@ -129,7 +129,7 @@ G.click = event =>
               G.S.holder.future = athlete
               G.updateHolder()
             }
-            else
+            else // goal
             {
               G.S.takingShot = G.I.goal.blue.indexOf(zoneCell) !== -1 ? `green` : `blue`
               G.S.holder.now = null
@@ -137,7 +137,7 @@ G.click = event =>
             }
           }
 
-          G.S.placing = false
+          G.S.placing = false // bug at passing
 
           //............................................................................................................
           // common
