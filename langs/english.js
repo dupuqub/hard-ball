@@ -29,6 +29,11 @@ G.langs.english =
     `This is the BALL`,
     `Go get it!`,
     `Place 8 athletes first`,
+    `Can't pass to opponents`,
+    `DUNK to try to score!`,
+    `Pass to`,
+    `Pass the ball around and/or shoot it!`,
+    `Grab the ball or lose the match!`,
   ],
 
   athletes:

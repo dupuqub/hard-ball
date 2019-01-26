@@ -29,6 +29,11 @@ G.langs.portuguese =
     `Essa é a BOLA`,
     `Vá pegá-la!`,
     `Posicione 8 atletas primeiro`,
+    `Não pode passar para oponentes`,
+    `ENTERRE para tentar pontuar!`,
+    `Passe para`,
+    `Passe a bola ao redor e/ou atire-a!`,
+    `Agarre a bola ou perca a partida!`,
   ],
 
   athletes:

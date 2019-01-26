@@ -55,13 +55,13 @@ G.updateBoardConsole = event =>
       const bothTeams = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
       const hoveringAthlete = bothTeams.indexOf(cell) !== -1
 
-      if(black) G.D.boardConsole.innerHTML = `Can't pass to opponent`
-      else if(hoveringGoal) G.D.boardConsole.innerHTML = `Try to DUNK!`
-      else if(hoveringAthlete) G.D.boardConsole.innerHTML = `Pass to ` + animal
-      else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
+      if(black) G.D.boardConsole.innerHTML = lang.ball[3]
+      else if(hoveringGoal) G.D.boardConsole.innerHTML = lang.ball[4]
+      else if(hoveringAthlete) G.D.boardConsole.innerHTML = lang.ball[5] + ` ` + animal
+      else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : lang.ball[6]
     }
-    else if(G.S.holder.now === null) G.D.boardConsole.innerHTML = `Defend it or lose the match!`
-    else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
+    else if(G.S.holder.now === null) G.D.boardConsole.innerHTML = lang.ball[7]
+    else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : lang.ball[6]
   }
 
   //....................................................................................................................
