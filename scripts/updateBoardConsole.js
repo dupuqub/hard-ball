@@ -75,7 +75,7 @@ G.updateBoardConsole = event =>
     const color = isBlue ? `blue` : isGreen ? `green` : null
     const status = playing ? lang[color] : replaced ? lang.athletes[2] : lang.athletes[1]
     const benched = G.S.athletes[index].substring(0, 1) === `M`
-    const changes = G.S.replaced[G.playsNow()].length
+    const changes = G.S.replaced[G.playsNow()]
 
     G.D.boardConsole.innerHTML =
 
@@ -84,7 +84,7 @@ G.updateBoardConsole = event =>
       + lang.animals[index]
       + (G.S.turn < 8 ? ` - ` + lang.athletes[3] + ` ` + index : ``) + ` (`
       + status.toLowerCase() + `)`
-      + (G.S.turn > 7 && benched ? ` - ` + lang.changes + ` ` + changes + `/2` : ``)
+      + (G.S.turn > 7 && benched ? ` - ` + lang.changes + ` ` + changes.length + `/2` : ``)
   }
 
   //....................................................................................................................
@@ -112,6 +112,7 @@ G.updateBoardConsole = event =>
     const black = Array.from(classList).indexOf(`zonBlk`) !== -1
     const target = lang.animals[G.S.athletes.indexOf(cell)]
     const animal = lang.animals[G.S.selected]
+    const path = G.S.path.indexOf(cell) !== -1
 
     if(G.S.turn < 8)
     {
@@ -126,7 +127,12 @@ G.updateBoardConsole = event =>
       const hasKeeper = G.S.keepers[color] !== null
       const isKeeper = G.S.keepers[color] === G.S.selected
 
-      if(tracking) G.D.boardConsole.innerHTML = lang.tracks
+      if(tracking)
+      {
+        G.D.boardConsole.innerHTML = lang.tracks
+        if(path) G.D.boardConsole.innerHTML += ` - ` + lang.grab
+        else if(pushing) G.D.boardConsole.innerHTML += ` - ` + lang.push[4] + ` ` + animal
+      }
       else if(G.S.ball === null && middle) G.D.boardConsole.innerHTML = lang.grab
       else if(pushing)
       {
@@ -140,7 +146,7 @@ G.updateBoardConsole = event =>
         else if(isKeeper) G.D.boardConsole.innerHTML = lang.move
         else G.D.boardConsole.innerHTML = lang.ownAreaOccupied
       }
-      else if(G.S.ball === cell) G.D.boardConsole.innerHTML = lang.grab
+      else if(G.S.ball === cell || path) G.D.boardConsole.innerHTML = lang.grab
       else G.D.boardConsole.innerHTML = lang.move
     }
   }
