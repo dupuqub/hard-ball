@@ -85,6 +85,7 @@ G.langs.english =
   move: `Move the athlete here`,
   changes: `changes`,
   go: `Grab the ball first!`,
+  pass: `Pass the turn after playing`,
 
   push:
   [

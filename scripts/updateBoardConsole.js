@@ -180,21 +180,11 @@ G.updateBoardConsole = event =>
 
   else
   {
-    const color = G.playsNow()
-    const holder = G.S.holder.now
+    G.D.boardConsole.innerHTML =
 
-    G.D.boardConsole.innerHTML = lang[color].toUpperCase() + ` ` + lang.plays
-
-    if(G.S.ball === null)
-    {
-      G.D.boardConsole.innerHTML += ` - ` + lang.go
-    }
-    else if(holder !== null)
-    {
-      const holderColor = G.S.team.green.indexOf(holder) !== -1 ? `green` : `blue`
-
-      console.log(holderColor)
-    }
+        lang[G.playsNow()].toUpperCase() + ` ` + lang.plays
+      + (G.S.ball === null ? ` - ` + lang.go : ``)
+      + (G.S.holder.now !== null ? ` - ` + lang.pass : ``)
   }
 }
 
