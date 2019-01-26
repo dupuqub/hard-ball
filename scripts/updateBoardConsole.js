@@ -99,59 +99,51 @@ G.updateBoardConsole = event =>
     const cell = G.S.zones[index]
     const letter = cell.substring(0, 1)
 
-    if(G.S.selected === `ball`)
+    const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
+    const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
+    const color = isBlue ? `blue` : isGreen ? `green` : null
+    const other = color === `blue` ? `green` : color === `green` ? `blue` : null
+
+    const tracking = letter === `A` || letter === `B` || letter === `K` || letter === `L`
+    const benched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
+    const middle = G.I.middle.indexOf(cell) !== -1
+    const both = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
+    const pushing = both.indexOf(cell) !== -1
+
+    const classList = G.D.zones[index].classList
+    const black = Array.from(classList).indexOf(`zonBlk`) !== -1
+    const target = lang.animals[G.S.athletes.indexOf(cell)]
+    const animal = lang.animals[G.S.selected]
+
+    if(G.S.turn < 8)
     {
-      //
+      if(benched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + animal + ` ` + lang.zone[1]
+      else G.D.boardConsole.innerHTML = lang.zone[3]
     }
-
-    else // athlete
+    else if(benched) G.D.boardConsole.innerHTML = animal + ` ` + lang.push[2] + ` ` + target + ` ` + lang.push[3]
+    else if(color === G.playsNow())
     {
-      const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
-      const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
-      const color = isBlue ? `blue` : isGreen ? `green` : null
-      const other = color === `blue` ? `green` : color === `green` ? `blue` : null
+      const ownArea = G.I.area[color].indexOf(cell) !== -1
+      const foeArea = G.I.area[other].indexOf(cell) !== -1
+      const hasKeeper = G.S.keepers[color] !== null
+      const isKeeper = G.S.keepers[color] === G.S.selected
 
-      const tracking = letter === `A` || letter === `B` || letter === `K` || letter === `L`
-      const benched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
-      const middle = G.I.middle.indexOf(cell) !== -1
-      const both = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
-      const pushing = both.indexOf(cell) !== -1
-
-      const classList = G.D.zones[index].classList
-      const black = Array.from(classList).indexOf(`zonBlk`) !== -1
-      const target = lang.animals[G.S.athletes.indexOf(cell)]
-      const animal = lang.animals[G.S.selected]
-
-      if(G.S.turn < 8)
+      if(tracking) G.D.boardConsole.innerHTML = lang.tracks
+      else if(G.S.ball === null && middle) G.D.boardConsole.innerHTML = lang.grab
+      else if(pushing)
       {
-        if(benched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + animal + ` ` + lang.zone[1]
-        else G.D.boardConsole.innerHTML = lang.zone[3]
+        if(black) G.D.boardConsole.innerHTML = lang.push[0] + ` ` + target.toUpperCase() + ` ` + lang.push[1]
+        else G.D.boardConsole.innerHTML = lang.push[4] + ` ` + target.toUpperCase()
       }
-      else if(benched) G.D.boardConsole.innerHTML = animal + ` ` + lang.push[2] + ` ` + target + ` ` + lang.push[3]
-      else if(color === G.playsNow())
+      else if(foeArea) G.D.boardConsole.innerHTML = lang.foeArea
+      else if(ownArea)
       {
-        const ownArea = G.I.area[color].indexOf(cell) !== -1
-        const foeArea = G.I.area[other].indexOf(cell) !== -1
-        const hasKeeper = G.S.keepers[color] !== null
-        const isKeeper = G.S.keepers[color] === G.S.selected
-
-        if(tracking) G.D.boardConsole.innerHTML = lang.tracks
-        else if(G.S.ball === null && middle) G.D.boardConsole.innerHTML = lang.grab
-        else if(pushing)
-        {
-          if(black) G.D.boardConsole.innerHTML = lang.push[0] + ` ` + target.toUpperCase() + ` ` + lang.push[1]
-          else G.D.boardConsole.innerHTML = lang.push[4] + ` ` + target.toUpperCase()
-        }
-        else if(foeArea) G.D.boardConsole.innerHTML = lang.foeArea
-        else if(ownArea)
-        {
-          if(!hasKeeper) G.D.boardConsole.innerHTML = lang.ownArea
-          else if(isKeeper) G.D.boardConsole.innerHTML = lang.move
-          else G.D.boardConsole.innerHTML = lang.ownAreaOccupied
-        }
-        else if(G.S.ball === cell) G.D.boardConsole.innerHTML = lang.grab
-        else G.D.boardConsole.innerHTML = lang.move
+        if(!hasKeeper) G.D.boardConsole.innerHTML = lang.ownArea
+        else if(isKeeper) G.D.boardConsole.innerHTML = lang.move
+        else G.D.boardConsole.innerHTML = lang.ownAreaOccupied
       }
+      else if(G.S.ball === cell) G.D.boardConsole.innerHTML = lang.grab
+      else G.D.boardConsole.innerHTML = lang.move
     }
   }
 
