@@ -29,7 +29,7 @@ G.langs.spanish =
     `Esta es la PELOTA`,
     `¡Vaya a agarrarla!`,
     `Posicione 8 atletas primero`,
-    `Can't pass to opponent`,
+    `No puede pasar a oponentes`,
     `¡MATE para intentar pontuar!`,
     `Pase al`,
     `¡Pase la pelota alrededor y/o la dispara!`,
