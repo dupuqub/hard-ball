@@ -85,13 +85,13 @@ G.updateBoardConsole = event =>
 
     else // athlete
     {
-      const isBenched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
       const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
       const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
       const color = isBlue ? `blue` : isGreen ? `green` : null
       const other = color === `blue` ? `green` : color === `green` ? `blue` : null
 
       const tracking = letter === `A` || letter === `B` || letter === `K` || letter === `L`
+      const benched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
       const middle = G.I.middle.indexOf(cell) !== -1
       const both = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
       const pushing = both.indexOf(cell) !== -1
@@ -103,10 +103,10 @@ G.updateBoardConsole = event =>
 
       if(G.S.turn < 8)
       {
-        if(isBenched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + animal + ` ` + lang.zone[1]
+        if(benched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + animal + ` ` + lang.zone[1]
         else G.D.boardConsole.innerHTML = lang.zone[3]
       }
-      else if(isBenched) G.D.boardConsole.innerHTML = animal + ` ` + lang.push[2] + ` ` + target + ` ` + lang.push[3]
+      else if(benched) G.D.boardConsole.innerHTML = animal + ` ` + lang.push[2] + ` ` + target + ` ` + lang.push[3]
       else if(color === G.playsNow())
       {
         const ownArea = G.I.area[color].indexOf(cell) !== -1
