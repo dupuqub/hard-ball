@@ -133,6 +133,7 @@ G.click = event =>
             {
               G.S.takingShot = G.I.goal.blue.indexOf(zoneCell) !== -1 ? `green` : `blue`
               G.S.holder.now = null
+              G.S.placing = false
               G.updateSelected(null)
             }
           }

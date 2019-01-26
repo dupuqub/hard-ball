@@ -32,13 +32,13 @@ G.updateBoardConsole = event =>
   || id === `ball`
   || G.S.selected === `ball`)
   {
-    const isZone = id.slice(0, 4) === `zone`
+    const zone = id.slice(0, 4) === `zone`
 
     if(G.S.ball === null)
     {
       G.D.boardConsole.innerHTML = lang.ball[0] + ` - ` + lang.ball[(G.S.turn < 8) + 1]
     }
-    else if(isZone)
+    else if(zone)
     {
       const index = Number(id.slice(4))
       const cell = G.S.zones[index]
@@ -60,6 +60,7 @@ G.updateBoardConsole = event =>
       else if(hoveringAthlete) G.D.boardConsole.innerHTML = `Pass to ` + animal
       else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
     }
+    else if(G.S.holder.now === null) G.D.boardConsole.innerHTML = `Defend it or lose the match!`
     else G.D.boardConsole.innerHTML = G.S.placing ? lang.placing : `pass the ball around and/or shoot!`
   }
 
