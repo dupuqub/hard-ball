@@ -47,8 +47,7 @@ G.updateBoardConsole = event =>
 
       const holder = G.S.holder.now
       const isBlue = G.S.team.blue.indexOf(holder) !== -1
-      const isGreen = G.S.team.green.indexOf(holder) !== -1
-      const color = isBlue ? `green` : isGreen ? `blue` : null // bug at punt
+      const color = isBlue ? `green` : `blue`
       const animal = lang.animals[G.S.athletes.indexOf(cell)]
 
       const goal = G.I.goal[color]
