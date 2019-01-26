@@ -44,13 +44,10 @@ G.updateBoardConsole = event =>
       const cell = G.S.zones[index]
       const classList = G.D.zones[index].classList
       const black = Array.from(classList).indexOf(`zonBlk`) !== -1
-
-      const holder = G.S.holder.now
-      const isBlue = G.S.team.blue.indexOf(holder) !== -1
-      const color = isBlue ? `green` : `blue`
+      const isBlue = G.S.team.blue.indexOf(G.S.holder.now) !== -1
       const animal = lang.animals[G.S.athletes.indexOf(cell)]
 
-      const goal = G.I.goal[color]
+      const goal = G.I.goal[isBlue ? `green` : `blue`]
       const hoveringGoal = goal.indexOf(cell) !== -1
       const bothTeams = G.S.team.blue.concat(G.S.team.green).map(i => G.S.athletes[i])
       const hoveringAthlete = bothTeams.indexOf(cell) !== -1
