@@ -45,8 +45,10 @@ G.updateBoardConsole = event =>
     const wasGreen = G.S.replaced.green.indexOf(index) !== -1
     const playing = isBlue || isGreen
     const replaced = wasBlue || wasGreen
-    const color = isBlue ? `blue` : `green`
+    const color = isBlue ? `blue` : isGreen ? `green` : null
     const status = playing ? lang[color] : replaced ? lang.athletes[2] : lang.athletes[1]
+    const benched = G.S.athletes[index].substring(0, 1) === `M`
+    const changes = G.S.replaced[G.playsNow()].length
 
     G.D.boardConsole.innerHTML =
 
@@ -55,19 +57,7 @@ G.updateBoardConsole = event =>
       + lang.animals[index]
       + (G.S.turn < 8 ? ` - ` + lang.athletes[3] + ` ` + index : ``) + ` (`
       + status.toLowerCase() + `)`
-
-    if(G.S.turn > 7)
-    {
-      const benched = G.S.athletes[index].substring(0, 1) === `M`
-
-      if(benched)
-      {
-        const color = G.playsNow()
-        const changes = G.S.replaced[color].length
-
-        G.D.boardConsole.innerHTML += ` - ` + lang.changes + ` ` + changes + `/2`
-      }
-    }
+      + (G.S.turn > 7 && benched ? ` - ` + lang.changes + ` ` + changes + `/2` : ``)
   }
 
   //....................................................................................................................
@@ -176,17 +166,14 @@ G.updateBoardConsole = event =>
   {
     const color = G.playsNow()
     const amount = G.S.team[color].length
-    const amountMessage =
-
-        lang.selection[0] + ` `
-      + lang.selection[amount + 2] + ` `
-      + lang.selection[1]
 
     G.D.boardConsole.innerHTML =
 
         lang[color].toUpperCase() + ` `
       + lang.plays + ` - `
-      + amountMessage
+      + lang.selection[0] + ` `
+      + lang.selection[amount + 2] + ` `
+      + lang.selection[1]
   }
 
   //....................................................................................................................
