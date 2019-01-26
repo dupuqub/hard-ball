@@ -71,9 +71,6 @@ G.langs.portuguese =
     `último`,
   ],
 
-  changes: `trocas`,
-  go: `Agarre a bola primeiro!`,
-
   zone:
   [
     `Posicione`,
@@ -85,6 +82,9 @@ G.langs.portuguese =
   already: `já está jogando`,
   tracks: `TRILHOS - Movimento bônus na saída`,
   grab: `Agarre a bola!`,
+  move: `Mova o atleta aqui`,
+  changes: `trocas`,
+  go: `Agarre a bola primeiro!`,
 
   push:
   [
@@ -92,5 +92,9 @@ G.langs.portuguese =
     `está obstruído`,
     `Empurre`,
   ],
+
+  ownAreaOccupied: `Só 1 atleta por vez na área`,
+  ownArea: `Vira GOLEIRO enquanto dentro da área`,
+  foeArea: `Atletas só se movem em suas próprias áreas`,
 }
 

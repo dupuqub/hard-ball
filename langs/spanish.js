@@ -71,9 +71,6 @@ G.langs.spanish =
     `último`,
   ],
 
-  changes: `cambios`,
-  go: `¡Agarra la pelota primero!`,
-
   zone:
   [
     `Posicione`,
@@ -85,6 +82,9 @@ G.langs.spanish =
   already: `ya está jugando`,
   tracks: `CARRILES - movimiento bonus en la salida`,
   grab: `¡Agarra la pelota!`,
+  move: `Mueve el atleta aquí`,
+  changes: `cambios`,
+  go: `¡Agarra la pelota primero!`,
 
   push:
   [
@@ -92,5 +92,9 @@ G.langs.spanish =
     `está obstruido`,
     `Empuja`,
   ],
+
+  ownAreaOccupied: `Sólo 1 atleta a la vez en el área`,
+  ownArea: `Se vuelve GOLEIRO mientras dentro del área`,
+  foeArea: `Atletas sólo se mueven en sus propias áreas`,
 }
 

@@ -88,6 +88,7 @@ G.updateBoardConsole = event =>
       const isBlue = G.S.team.blue.indexOf(G.S.selected) !== -1
       const isGreen = G.S.team.green.indexOf(G.S.selected) !== -1
       const color = isBlue ? `blue` : `green`
+      const other = color === `blue` ? `green` : `blue`
 
       const tracking = letter === `A` || letter === `B` || letter === `K` || letter === `L`
       const middle = G.I.middle.indexOf(cell) !== -1
@@ -96,34 +97,42 @@ G.updateBoardConsole = event =>
 
       const classList = G.D.zones[index].classList
       const black = Array.from(classList).indexOf(`zonBlk`) !== -1
-      const animal = lang.animals[G.S.athletes.indexOf(cell)]
+      const target = lang.animals[G.S.athletes.indexOf(cell)]
+      const animal = lang.animals[G.S.selected]
 
+      const ownArea = G.I.area[color].indexOf(cell) !== -1
+      const foeArea = G.I.area[other].indexOf(cell) !== -1
+      const hasKeeper = G.S.keepers[color] !== null
+      const isKeeper = G.S.keepers[color] === G.S.selected
+
+      // startup
       if(G.S.turn < 8)
       {
         const isBenched = G.S.athletes[G.S.selected].substring(0, 1) === `M`
 
-        if(isBenched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + lang.animals[G.S.selected] + ` ` + lang.zone[1]
+        if(isBenched) G.D.boardConsole.innerHTML = lang.zone[0] + ` ` + animal + ` ` + lang.zone[1]
         else G.D.boardConsole.innerHTML = lang.zone[3]
       }
 
+      // playing
       else if(G.playsNow() === color)
       {
         if(tracking) G.D.boardConsole.innerHTML = lang.tracks
         else if(G.S.ball === null && middle) G.D.boardConsole.innerHTML = lang.grab
         else if(pushing)
         {
-          if(black) G.D.boardConsole.innerHTML = lang.push[0] + ` ` + animal.toUpperCase() + ` ` + lang.push[1]
-          else G.D.boardConsole.innerHTML = lang.push[2] + ` ` + animal.toUpperCase()
+          if(black) G.D.boardConsole.innerHTML = lang.push[0] + ` ` + target.toUpperCase() + ` ` + lang.push[1]
+          else G.D.boardConsole.innerHTML = lang.push[2] + ` ` + target.toUpperCase()
         }
-
-        // else if(G.S.ball === cell)
-        // {
-        //   G.D.boardConsole.innerHTML = `ball`
-        // }
-        // else
-        // {
-        //   G.D.boardConsole.innerHTML = `move`
-        // }
+        else if(foeArea) G.D.boardConsole.innerHTML = lang.foeArea
+        else if(ownArea)
+        {
+          if(!hasKeeper) G.D.boardConsole.innerHTML = lang.ownArea
+          else if(isKeeper) G.D.boardConsole.innerHTML = lang.move
+          else G.D.boardConsole.innerHTML = lang.ownAreaOccupied
+        }
+        else if(G.S.ball === cell) G.D.boardConsole.innerHTML = lang.grab
+        else G.D.boardConsole.innerHTML = lang.move
       }
     }
   }

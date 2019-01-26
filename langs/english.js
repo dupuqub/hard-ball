@@ -71,9 +71,6 @@ G.langs.english =
     `last`,
   ],
 
-  changes: `changes`,
-  go: `Grab the ball first!`,
-
   zone:
   [
     `Place`,
@@ -85,6 +82,9 @@ G.langs.english =
   already: `is already playing`,
   tracks: `TRACKS - Bonus move on exit`,
   grab: `Grab the ball!`,
+  move: `Move the athlete here`,
+  changes: `changes`,
+  go: `Grab the ball first!`,
 
   push:
   [
@@ -92,5 +92,9 @@ G.langs.english =
     `is obstructed`,
     `Push`,
   ],
+
+  ownAreaOccupied: `Only 1 athlete at a time in the area`,
+  ownArea: `Becomes KEEPER while inside the area`,
+  foeArea: `Athletes can only move in their own areas`,
 }
 
