@@ -54,7 +54,7 @@ G.langs.portuguese =
   ],
 
   rounding: `Use a jogada BÔNUS do atleta`,
-  placing: `Posicione la bola para continuar`,
+  placing: `Posicione a bola para continuar`,
   load: `Mova o mouse`,
 
   start:

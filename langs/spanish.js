@@ -54,7 +54,7 @@ G.langs.spanish =
   ],
 
   rounding: `Usa la jugada BONUS del atleta`,
-  placing: `Posicione a bola para continuar`,
+  placing: `Posicione la pelota para continuar`,
   load: `Mueva el ratón`,
 
   start:
